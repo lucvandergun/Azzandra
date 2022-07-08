@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SourceFileCollection xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Profile>Reach</Profile>
+  <Platform>Windows</Platform>
+  <Config />
+  <SourceFiles>
+    <File>D:/Users/Luc/Documents/Dev/C#/Azzandra/Azzandra/Azzandra/Content/eqslots/eqslot0.png</File>
+    <File>D:/Users/Luc/Documents/Dev/C#/Azzandra/Azzandra/Azzandra/Content/eqslots/eqslot1.png</File>
+    <File>D:/Users/Luc/Documents/Dev/C#/Azzandra/Azzandra/Azzandra/Content/eqslots/eqslot10.png</File>
+    <File>D:/Users/Luc/Documents/Dev/C#/Azzandra/Azzandra/Azzandra/Content/eqslots/eqslot11.png</File>
+    <File>D:/Users/Luc/Documents/Dev/C#/Azzandra/Azzandra/Azzandra/Content/eqslots/eqslot2.png</File>
+    <File>D:/Users/Luc/Documents/Dev/C#/Azzandra/Azzandra/Azzandra/Content/eqslots/eqslot3.png</File>
+    <File>D:/Users/Luc/Documents/Dev/C#/Azzandra/Azzandra/Azzandra/Content/eqslots/eqslot4.png</File>
+    <File>D:/Users/Luc/Documents/Dev/C#/Azzandra/Azzandra/Azzandra/Content/eqslots/eqslot5.png</File>
+    <File>D:/Users/Luc/Documents/Dev/C#/Azzandra/Azzandra/Azzandra/Content/eqslots/eqslot6.png</File>
+    <File>D:/Users/Luc/Documents/Dev/C#/Azzandra/Azzandra/Azzandra/Content/eqslots/eqslot7.png</File>
+    <File>D:/Users/Luc/Documents/Dev/C#/Azzandra/Azzandra/Azzandra/Content/eqslots/eqslot8.png</File>
+    <File>D:/Users/Luc/Documents/Dev/C#/Azzandra/Azzandra/Azzandra/Content/eqslots/eqslot9.png</File>
+    <File>D:/Users/Luc/Documents/Dev/C#/Azzandra/Azzandra/Azzandra/Content/fonts/Dungeonscript.spritefont</File>
+    <File>D:/Users/Luc/Documents/Dev/C#/Azzandra/Azzandra/Azzandra/Content/fonts/Medifont.spritefont</File>
+    <File>D:/Users/Luc/Documents/Dev/C#/Azzandra/Azzandra/Azzandra/Content/interface/hit.png</File>
+    <File>D:/Users/Luc/Documents/Dev/C#/Azzandra/Azzandra/Azzandra/Content/interface/logo.png</File>
+    <File>D:/Users/Luc/Documents/Dev/C#/Azzandra/Azzandra/Azzandra/Content/interface/menu_arch.png</File>
+    <File>D:/Users/Luc/Documents/Dev/C#/Azzandra/Azzandra/Azzandra/Content/interface/menu_backgrounds/0.png</File>
+    <File>D:/Users/Luc/Documents/Dev/C#/Azzandra/Azzandra/Azzandra/Content/interface/menu_backgrounds/1.png</File>
+    <File>D:/Users/Luc/Documents/Dev/C#/Azzandra/Azzandra/Azzandra/Content/interface/menu_backgrounds/2.png</File>
+    <File>D:/Users/Luc/Documents/Dev/C#/Azzandra/Azzandra/Azzandra/Content/interface/menu_backgrounds/3.png</File>
+    <File>D:/Users/Luc/Documents/Dev/C#/Azzandra/Azzandra/Azzandra/Content/interface/menu_backgrounds/4.png</File>
+    <File>D:/Users/Luc/Documents/Dev/C#/Azzandra/Azzandra/Azzandra/Content/interface/target12.png</File>
+    <File>D:/Users/Luc/Documents/Dev/C#/Azzandra/Azzandra/Azzandra/Content/interface/target16.png</File>
+    <File>D:/Users/Luc/Documents/Dev/C#/Azzandra/Azzandra/Azzandra/Content/interface/target20.png</File>
+    <File>D:/Users/Luc/Documents/Dev/C#/Azzandra/Azzandra/Azzandra/Content/interface/target24.png</File>
+    <File>D:/Users/Luc/Documents/Dev/C#/Azzandra/Azzandra/Azzandra/Content/interface/target32.png</File>
+    <File>D:/Users/Luc/Documents/Dev/C#/Azzandra/Azzandra/Azzandra/Content/interface/target48.png</File>
+    <File>D:/Users/Luc/Documents/Dev/C#/Azzandra/Azzandra/Azzandra/Content/textures/arrow.png</File>
+    <File>D:/Users/Luc/Documents/Dev/C#/Azzandra/Azzandra/Azzandra/Content/textures/empty_tile.png</File>
+  </SourceFiles>
+  <DestFiles>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+  </DestFiles>
+</SourceFileCollection>

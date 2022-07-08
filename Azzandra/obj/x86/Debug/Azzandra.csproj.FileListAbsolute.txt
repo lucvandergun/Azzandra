@@ -1,0 +1,383 @@
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra (port to MonoGame v3.8)\Azzandra\Azzandra\bin\Windows\x86\Debug\Azzandra.exe
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra (port to MonoGame v3.8)\Azzandra\Azzandra\bin\Windows\x86\Debug\Azzandra.pdb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra (port to MonoGame v3.8)\Azzandra\Azzandra\bin\Windows\x86\Debug\MonoGame.Framework.dll
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra (port to MonoGame v3.8)\Azzandra\Azzandra\bin\Windows\x86\Debug\SharpDX.MediaFoundation.dll
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra (port to MonoGame v3.8)\Azzandra\Azzandra\bin\Windows\x86\Debug\SharpDX.dll
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra (port to MonoGame v3.8)\Azzandra\Azzandra\bin\Windows\x86\Debug\SharpDX.XAudio2.dll
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra (port to MonoGame v3.8)\Azzandra\Azzandra\bin\Windows\x86\Debug\SharpDX.DXGI.dll
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra (port to MonoGame v3.8)\Azzandra\Azzandra\bin\Windows\x86\Debug\SharpDX.Direct3D11.dll
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra (port to MonoGame v3.8)\Azzandra\Azzandra\bin\Windows\x86\Debug\SharpDX.Direct2D1.dll
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra (port to MonoGame v3.8)\Azzandra\Azzandra\bin\Windows\x86\Debug\SharpDX.XInput.dll
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra (port to MonoGame v3.8)\Azzandra\Azzandra\bin\Windows\x86\Debug\MonoGame.Framework.xml
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra (port to MonoGame v3.8)\Azzandra\Azzandra\bin\Windows\x86\Debug\SharpDX.MediaFoundation.xml
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra (port to MonoGame v3.8)\Azzandra\Azzandra\bin\Windows\x86\Debug\SharpDX.xml
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra (port to MonoGame v3.8)\Azzandra\Azzandra\bin\Windows\x86\Debug\SharpDX.XAudio2.xml
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra (port to MonoGame v3.8)\Azzandra\Azzandra\bin\Windows\x86\Debug\SharpDX.DXGI.xml
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra (port to MonoGame v3.8)\Azzandra\Azzandra\bin\Windows\x86\Debug\SharpDX.Direct3D11.xml
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra (port to MonoGame v3.8)\Azzandra\Azzandra\bin\Windows\x86\Debug\SharpDX.Direct2D1.xml
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra (port to MonoGame v3.8)\Azzandra\Azzandra\bin\Windows\x86\Debug\SharpDX.XInput.xml
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra (port to MonoGame v3.8)\Azzandra\Azzandra\obj\x86\Debug\Azzandra.csprojAssemblyReference.cache
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra (port to MonoGame v3.8)\Azzandra\Azzandra\obj\x86\Debug\Azzandra.csproj.CoreCompileInputs.cache
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra (port to MonoGame v3.8)\Azzandra\Azzandra\obj\x86\Debug\Azzandra.csproj.CopyComplete
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra (port to MonoGame v3.8)\Azzandra\Azzandra\obj\x86\Debug\Azzandra.exe
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra (port to MonoGame v3.8)\Azzandra\Azzandra\obj\x86\Debug\Azzandra.pdb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra (port to MonoGame v3.8)\Azzandra\Azzandra\bin\Windows\x86\Debug\Content\textures\arrow.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra (port to MonoGame v3.8)\Azzandra\Azzandra\bin\Windows\x86\Debug\Content\textures\arrow2.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra (port to MonoGame v3.8)\Azzandra\Azzandra\bin\Windows\x86\Debug\Content\textures\empty_corner.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra (port to MonoGame v3.8)\Azzandra\Azzandra\bin\Windows\x86\Debug\Content\textures\empty_tile.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra (port to MonoGame v3.8)\Azzandra\Azzandra\bin\Windows\x86\Debug\Content\textures\floor_texture_dense.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra (port to MonoGame v3.8)\Azzandra\Azzandra\bin\Windows\x86\Debug\Content\textures\floor_texture_sparse.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra (port to MonoGame v3.8)\Azzandra\Azzandra\bin\Windows\x86\Debug\Content\textures\pillar.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra (port to MonoGame v3.8)\Azzandra\Azzandra\bin\Windows\x86\Debug\Content\textures\planks_texture.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra (port to MonoGame v3.8)\Azzandra\Azzandra\bin\Windows\x86\Debug\Content\items\brass_key.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra (port to MonoGame v3.8)\Azzandra\Azzandra\bin\Windows\x86\Debug\Content\items\candle_lit.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra (port to MonoGame v3.8)\Azzandra\Azzandra\bin\Windows\x86\Debug\Content\items\candle_unlit.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra (port to MonoGame v3.8)\Azzandra\Azzandra\bin\Windows\x86\Debug\Content\items\candy_bar.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra (port to MonoGame v3.8)\Azzandra\Azzandra\bin\Windows\x86\Debug\Content\items\candy_bar_wrapped.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra (port to MonoGame v3.8)\Azzandra\Azzandra\bin\Windows\x86\Debug\Content\items\cape.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra (port to MonoGame v3.8)\Azzandra\Azzandra\bin\Windows\x86\Debug\Content\items\carrot.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra (port to MonoGame v3.8)\Azzandra\Azzandra\bin\Windows\x86\Debug\Content\items\chrome_key.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra (port to MonoGame v3.8)\Azzandra\Azzandra\bin\Windows\x86\Debug\Content\items\coins.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra (port to MonoGame v3.8)\Azzandra\Azzandra\bin\Windows\x86\Debug\Content\items\dindleweed.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra (port to MonoGame v3.8)\Azzandra\Azzandra\bin\Windows\x86\Debug\Content\items\dorrane_leaf.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra (port to MonoGame v3.8)\Azzandra\Azzandra\bin\Windows\x86\Debug\Content\items\egg.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra (port to MonoGame v3.8)\Azzandra\Azzandra\bin\Windows\x86\Debug\Content\items\fairy_crest.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra (port to MonoGame v3.8)\Azzandra\Azzandra\bin\Windows\x86\Debug\Content\items\folencia_root.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra (port to MonoGame v3.8)\Azzandra\Azzandra\bin\Windows\x86\Debug\Content\items\garlic.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra (port to MonoGame v3.8)\Azzandra\Azzandra\bin\Windows\x86\Debug\Content\items\golden_amulet.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra (port to MonoGame v3.8)\Azzandra\Azzandra\bin\Windows\x86\Debug\Content\items\golden_key.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra (port to MonoGame v3.8)\Azzandra\Azzandra\bin\Windows\x86\Debug\Content\items\golden_ring.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra (port to MonoGame v3.8)\Azzandra\Azzandra\bin\Windows\x86\Debug\Content\items\hasmiber.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra (port to MonoGame v3.8)\Azzandra\Azzandra\bin\Windows\x86\Debug\Content\items\iron_arrows1.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra (port to MonoGame v3.8)\Azzandra\Azzandra\bin\Windows\x86\Debug\Content\items\iron_arrows2.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra (port to MonoGame v3.8)\Azzandra\Azzandra\bin\Windows\x86\Debug\Content\items\iron_arrows3.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra (port to MonoGame v3.8)\Azzandra\Azzandra\bin\Windows\x86\Debug\Content\items\iron_axe.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra (port to MonoGame v3.8)\Azzandra\Azzandra\bin\Windows\x86\Debug\Content\items\iron_bar.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra (port to MonoGame v3.8)\Azzandra\Azzandra\bin\Windows\x86\Debug\Content\items\iron_bolts.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra (port to MonoGame v3.8)\Azzandra\Azzandra\bin\Windows\x86\Debug\Content\items\iron_boots.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra (port to MonoGame v3.8)\Azzandra\Azzandra\bin\Windows\x86\Debug\Content\items\iron_broadsword.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra (port to MonoGame v3.8)\Azzandra\Azzandra\bin\Windows\x86\Debug\Content\items\iron_bucket_helm.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra (port to MonoGame v3.8)\Azzandra\Azzandra\bin\Windows\x86\Debug\Content\items\iron_chestplate.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra (port to MonoGame v3.8)\Azzandra\Azzandra\bin\Windows\x86\Debug\Content\items\iron_dagger.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra (port to MonoGame v3.8)\Azzandra\Azzandra\bin\Windows\x86\Debug\Content\items\iron_gauntlets.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra (port to MonoGame v3.8)\Azzandra\Azzandra\bin\Windows\x86\Debug\Content\items\iron_greatsword.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra (port to MonoGame v3.8)\Azzandra\Azzandra\bin\Windows\x86\Debug\Content\items\iron_kettle_helm.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra (port to MonoGame v3.8)\Azzandra\Azzandra\bin\Windows\x86\Debug\Content\items\iron_key.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra (port to MonoGame v3.8)\Azzandra\Azzandra\bin\Windows\x86\Debug\Content\items\iron_longsword.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra (port to MonoGame v3.8)\Azzandra\Azzandra\bin\Windows\x86\Debug\Content\items\iron_mace.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra (port to MonoGame v3.8)\Azzandra\Azzandra\bin\Windows\x86\Debug\Content\items\iron_mail_body.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra (port to MonoGame v3.8)\Azzandra\Azzandra\bin\Windows\x86\Debug\Content\items\iron_ore.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra (port to MonoGame v3.8)\Azzandra\Azzandra\bin\Windows\x86\Debug\Content\items\iron_pickaxe.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra (port to MonoGame v3.8)\Azzandra\Azzandra\bin\Windows\x86\Debug\Content\items\iron_platelegs.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra (port to MonoGame v3.8)\Azzandra\Azzandra\bin\Windows\x86\Debug\Content\items\iron_spear.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra (port to MonoGame v3.8)\Azzandra\Azzandra\bin\Windows\x86\Debug\Content\items\iron_war_axe.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra (port to MonoGame v3.8)\Azzandra\Azzandra\bin\Windows\x86\Debug\Content\items\leaf.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra (port to MonoGame v3.8)\Azzandra\Azzandra\bin\Windows\x86\Debug\Content\items\leek.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra (port to MonoGame v3.8)\Azzandra\Azzandra\bin\Windows\x86\Debug\Content\items\nickel_key.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra (port to MonoGame v3.8)\Azzandra\Azzandra\bin\Windows\x86\Debug\Content\items\oak_log.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra (port to MonoGame v3.8)\Azzandra\Azzandra\bin\Windows\x86\Debug\Content\items\oak_longbow.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra (port to MonoGame v3.8)\Azzandra\Azzandra\bin\Windows\x86\Debug\Content\items\oak_recurve_bow.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra (port to MonoGame v3.8)\Azzandra\Azzandra\bin\Windows\x86\Debug\Content\items\potion_full.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra (port to MonoGame v3.8)\Azzandra\Azzandra\bin\Windows\x86\Debug\Content\items\potion_half.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra (port to MonoGame v3.8)\Azzandra\Azzandra\bin\Windows\x86\Debug\Content\items\quarterstaff.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra (port to MonoGame v3.8)\Azzandra\Azzandra\bin\Windows\x86\Debug\Content\items\robe_bottom.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra (port to MonoGame v3.8)\Azzandra\Azzandra\bin\Windows\x86\Debug\Content\items\robe_top.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra (port to MonoGame v3.8)\Azzandra\Azzandra\bin\Windows\x86\Debug\Content\items\sage_bloom.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra (port to MonoGame v3.8)\Azzandra\Azzandra\bin\Windows\x86\Debug\Content\items\silver_key.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra (port to MonoGame v3.8)\Azzandra\Azzandra\bin\Windows\x86\Debug\Content\items\tangled_ivy.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra (port to MonoGame v3.8)\Azzandra\Azzandra\bin\Windows\x86\Debug\Content\items\unknown.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra (port to MonoGame v3.8)\Azzandra\Azzandra\bin\Windows\x86\Debug\Content\items\vial.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra (port to MonoGame v3.8)\Azzandra\Azzandra\bin\Windows\x86\Debug\Content\items\water_vial.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra (port to MonoGame v3.8)\Azzandra\Azzandra\bin\Windows\x86\Debug\Content\items\wheat.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra (port to MonoGame v3.8)\Azzandra\Azzandra\bin\Windows\x86\Debug\Content\items\wizard_hat.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra (port to MonoGame v3.8)\Azzandra\Azzandra\bin\Windows\x86\Debug\Content\items\wooden_round_shield.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra (port to MonoGame v3.8)\Azzandra\Azzandra\bin\Windows\x86\Debug\Content\items\yoga_pants.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra (port to MonoGame v3.8)\Azzandra\Azzandra\bin\Windows\x86\Debug\Content\interface\block.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra (port to MonoGame v3.8)\Azzandra\Azzandra\bin\Windows\x86\Debug\Content\interface\fire.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra (port to MonoGame v3.8)\Azzandra\Azzandra\bin\Windows\x86\Debug\Content\interface\hit.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra (port to MonoGame v3.8)\Azzandra\Azzandra\bin\Windows\x86\Debug\Content\interface\ice_cube.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra (port to MonoGame v3.8)\Azzandra\Azzandra\bin\Windows\x86\Debug\Content\interface\target16.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra (port to MonoGame v3.8)\Azzandra\Azzandra\bin\Windows\x86\Debug\Content\interface\target24.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra (port to MonoGame v3.8)\Azzandra\Azzandra\bin\Windows\x86\Debug\Content\interface\target32.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra (port to MonoGame v3.8)\Azzandra\Azzandra\bin\Windows\x86\Debug\Content\fonts\Dungeonscript.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra (port to MonoGame v3.8)\Azzandra\Azzandra\bin\Windows\x86\Debug\Content\fonts\Medifont.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra (port to MonoGame v3.8)\Azzandra\Azzandra\bin\Windows\x86\Debug\Content\eqslots\eqslot0.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra (port to MonoGame v3.8)\Azzandra\Azzandra\bin\Windows\x86\Debug\Content\eqslots\eqslot1.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra (port to MonoGame v3.8)\Azzandra\Azzandra\bin\Windows\x86\Debug\Content\eqslots\eqslot10.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra (port to MonoGame v3.8)\Azzandra\Azzandra\bin\Windows\x86\Debug\Content\eqslots\eqslot11.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra (port to MonoGame v3.8)\Azzandra\Azzandra\bin\Windows\x86\Debug\Content\eqslots\eqslot2.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra (port to MonoGame v3.8)\Azzandra\Azzandra\bin\Windows\x86\Debug\Content\eqslots\eqslot3.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra (port to MonoGame v3.8)\Azzandra\Azzandra\bin\Windows\x86\Debug\Content\eqslots\eqslot4.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra (port to MonoGame v3.8)\Azzandra\Azzandra\bin\Windows\x86\Debug\Content\eqslots\eqslot5.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra (port to MonoGame v3.8)\Azzandra\Azzandra\bin\Windows\x86\Debug\Content\eqslots\eqslot6.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra (port to MonoGame v3.8)\Azzandra\Azzandra\bin\Windows\x86\Debug\Content\eqslots\eqslot7.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra (port to MonoGame v3.8)\Azzandra\Azzandra\bin\Windows\x86\Debug\Content\eqslots\eqslot8.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra (port to MonoGame v3.8)\Azzandra\Azzandra\bin\Windows\x86\Debug\Content\eqslots\eqslot9.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra\Azzandra\bin\Windows\x86\Debug\Azzandra.exe
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra\Azzandra\bin\Windows\x86\Debug\Azzandra.pdb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra\Azzandra\bin\Windows\x86\Debug\MonoGame.Framework.dll
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra\Azzandra\bin\Windows\x86\Debug\SharpDX.MediaFoundation.dll
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra\Azzandra\bin\Windows\x86\Debug\SharpDX.dll
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra\Azzandra\bin\Windows\x86\Debug\SharpDX.XAudio2.dll
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra\Azzandra\bin\Windows\x86\Debug\SharpDX.DXGI.dll
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra\Azzandra\bin\Windows\x86\Debug\SharpDX.Direct3D11.dll
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra\Azzandra\bin\Windows\x86\Debug\SharpDX.Direct2D1.dll
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra\Azzandra\bin\Windows\x86\Debug\SharpDX.XInput.dll
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra\Azzandra\bin\Windows\x86\Debug\MonoGame.Framework.xml
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra\Azzandra\bin\Windows\x86\Debug\SharpDX.MediaFoundation.xml
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra\Azzandra\bin\Windows\x86\Debug\SharpDX.xml
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra\Azzandra\bin\Windows\x86\Debug\SharpDX.XAudio2.xml
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra\Azzandra\bin\Windows\x86\Debug\SharpDX.DXGI.xml
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra\Azzandra\bin\Windows\x86\Debug\SharpDX.Direct3D11.xml
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra\Azzandra\bin\Windows\x86\Debug\SharpDX.Direct2D1.xml
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra\Azzandra\bin\Windows\x86\Debug\SharpDX.XInput.xml
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra\Azzandra\obj\x86\Debug\Azzandra.csprojAssemblyReference.cache
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra\Azzandra\obj\x86\Debug\Azzandra.csproj.CoreCompileInputs.cache
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra\Azzandra\obj\x86\Debug\Azzandra.csproj.CopyComplete
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra\Azzandra\obj\x86\Debug\Azzandra.exe
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra\Azzandra\obj\x86\Debug\Azzandra.pdb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra\Azzandra\bin\Windows\x86\Debug\Newtonsoft.Json.dll
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra\Azzandra\bin\Windows\x86\Debug\Newtonsoft.Json.xml
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra\Azzandra\bin\Windows\x86\Debug\Content\textures\arrow.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra\Azzandra\bin\Windows\x86\Debug\Content\textures\empty_tile.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra\Azzandra\bin\Windows\x86\Debug\Content\interface\hit.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra\Azzandra\bin\Windows\x86\Debug\Content\interface\target16.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra\Azzandra\bin\Windows\x86\Debug\Content\interface\target24.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra\Azzandra\bin\Windows\x86\Debug\Content\interface\target32.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra\Azzandra\bin\Windows\x86\Debug\Content\eqslots\eqslot0.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra\Azzandra\bin\Windows\x86\Debug\Content\eqslots\eqslot1.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra\Azzandra\bin\Windows\x86\Debug\Content\eqslots\eqslot10.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra\Azzandra\bin\Windows\x86\Debug\Content\eqslots\eqslot11.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra\Azzandra\bin\Windows\x86\Debug\Content\eqslots\eqslot2.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra\Azzandra\bin\Windows\x86\Debug\Content\eqslots\eqslot3.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra\Azzandra\bin\Windows\x86\Debug\Content\eqslots\eqslot4.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra\Azzandra\bin\Windows\x86\Debug\Content\eqslots\eqslot5.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra\Azzandra\bin\Windows\x86\Debug\Content\eqslots\eqslot6.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra\Azzandra\bin\Windows\x86\Debug\Content\eqslots\eqslot7.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra\Azzandra\bin\Windows\x86\Debug\Content\eqslots\eqslot8.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra\Azzandra\bin\Windows\x86\Debug\Content\eqslots\eqslot9.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra\Azzandra\bin\Windows\x86\Debug\Content\fonts\Dungeonscript.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra\Azzandra\bin\Windows\x86\Debug\Content\fonts\Medifont.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\Content\data\item_data.json
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\Content\Assets\textures\arrow.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\Content\Assets\textures\arrow2.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\Content\Assets\textures\empty_corner.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\Content\Assets\textures\empty_tile.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\Content\Assets\textures\floor_texture_dense.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\Content\Assets\textures\floor_texture_sparse.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\Content\Assets\textures\pillar.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\Content\Assets\textures\planks_texture.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\Content\Assets\items\brass_key.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\Content\Assets\items\candle_lit.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\Content\Assets\items\candle_unlit.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\Content\Assets\items\candy_bar.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\Content\Assets\items\candy_bar_wrapped.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\Content\Assets\items\cape.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\Content\Assets\items\carrot.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\Content\Assets\items\chrome_key.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\Content\Assets\items\coins.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\Content\Assets\items\dindleweed.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\Content\Assets\items\dorrane_leaf.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\Content\Assets\items\egg.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\Content\Assets\items\fairy_crest.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\Content\Assets\items\folencia_root.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\Content\Assets\items\garlic.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\Content\Assets\items\golden_amulet.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\Content\Assets\items\golden_key.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\Content\Assets\items\golden_ring.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\Content\Assets\items\hasmiber.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\Content\Assets\items\iron_arrows1.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\Content\Assets\items\iron_arrows2.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\Content\Assets\items\iron_arrows3.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\Content\Assets\items\iron_axe.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\Content\Assets\items\iron_bar.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\Content\Assets\items\iron_bolts.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\Content\Assets\items\iron_boots.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\Content\Assets\items\iron_broadsword.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\Content\Assets\items\iron_bucket_helm.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\Content\Assets\items\iron_chestplate.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\Content\Assets\items\iron_dagger.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\Content\Assets\items\iron_gauntlets.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\Content\Assets\items\iron_greatsword.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\Content\Assets\items\iron_kettle_helm.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\Content\Assets\items\iron_key.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\Content\Assets\items\iron_longsword.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\Content\Assets\items\iron_mace.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\Content\Assets\items\iron_mail_body.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\Content\Assets\items\iron_ore.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\Content\Assets\items\iron_pickaxe.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\Content\Assets\items\iron_platelegs.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\Content\Assets\items\iron_spear.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\Content\Assets\items\iron_war_axe.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\Content\Assets\items\leaf.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\Content\Assets\items\leek.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\Content\Assets\items\nickel_key.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\Content\Assets\items\oak_log.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\Content\Assets\items\oak_longbow.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\Content\Assets\items\oak_recurve_bow.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\Content\Assets\items\potion_full.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\Content\Assets\items\potion_half.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\Content\Assets\items\quarterstaff.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\Content\Assets\items\robe_bottom.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\Content\Assets\items\robe_top.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\Content\Assets\items\sage_bloom.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\Content\Assets\items\silver_key.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\Content\Assets\items\tangled_ivy.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\Content\Assets\items\unknown.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\Content\Assets\items\vial.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\Content\Assets\items\water_vial.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\Content\Assets\items\wheat.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\Content\Assets\items\wizard_hat.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\Content\Assets\items\wooden_round_shield.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\Content\Assets\items\yoga_pants.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\Content\Assets\interface\block.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\Content\Assets\interface\fire.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\Content\Assets\interface\hit.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\Content\Assets\interface\ice_cube.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\Content\Assets\interface\target16.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\Content\Assets\interface\target24.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\Content\Assets\interface\target32.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\Content\Assets\fonts\Dungeonscript.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\Content\Assets\fonts\Medifont.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\Content\Assets\eqslots\eqslot0.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\Content\Assets\eqslots\eqslot1.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\Content\Assets\eqslots\eqslot10.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\Content\Assets\eqslots\eqslot11.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\Content\Assets\eqslots\eqslot2.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\Content\Assets\eqslots\eqslot3.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\Content\Assets\eqslots\eqslot4.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\Content\Assets\eqslots\eqslot5.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\Content\Assets\eqslots\eqslot6.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\Content\Assets\eqslots\eqslot7.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\Content\Assets\eqslots\eqslot8.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\Content\Assets\eqslots\eqslot9.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\Content\Assets\data\item_data.json
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\Content\textures\arrow.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\Content\textures\arrow2.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\Content\textures\empty_corner.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\Content\textures\empty_tile.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\Content\textures\floor_texture_dense.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\Content\textures\floor_texture_sparse.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\Content\textures\pillar.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\Content\textures\planks_texture.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\Content\items\brass_key.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\Content\items\candle_lit.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\Content\items\candle_unlit.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\Content\items\candy_bar.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\Content\items\candy_bar_wrapped.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\Content\items\cape.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\Content\items\carrot.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\Content\items\chrome_key.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\Content\items\coins.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\Content\items\dindleweed.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\Content\items\dorrane_leaf.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\Content\items\egg.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\Content\items\fairy_crest.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\Content\items\folencia_root.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\Content\items\garlic.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\Content\items\golden_amulet.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\Content\items\golden_key.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\Content\items\golden_ring.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\Content\items\hasmiber.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\Content\items\iron_arrows1.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\Content\items\iron_arrows2.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\Content\items\iron_arrows3.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\Content\items\iron_axe.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\Content\items\iron_bar.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\Content\items\iron_bolts.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\Content\items\iron_boots.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\Content\items\iron_broadsword.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\Content\items\iron_bucket_helm.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\Content\items\iron_chestplate.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\Content\items\iron_dagger.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\Content\items\iron_gauntlets.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\Content\items\iron_greatsword.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\Content\items\iron_kettle_helm.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\Content\items\iron_key.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\Content\items\iron_longsword.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\Content\items\iron_mace.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\Content\items\iron_mail_body.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\Content\items\iron_ore.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\Content\items\iron_pickaxe.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\Content\items\iron_platelegs.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\Content\items\iron_spear.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\Content\items\iron_war_axe.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\Content\items\leaf.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\Content\items\leek.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\Content\items\nickel_key.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\Content\items\oak_log.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\Content\items\oak_longbow.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\Content\items\oak_recurve_bow.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\Content\items\potion_full.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\Content\items\potion_half.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\Content\items\quarterstaff.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\Content\items\robe_bottom.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\Content\items\robe_top.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\Content\items\sage_bloom.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\Content\items\silver_key.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\Content\items\tangled_ivy.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\Content\items\unknown.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\Content\items\vial.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\Content\items\water_vial.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\Content\items\wheat.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\Content\items\wizard_hat.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\Content\items\wooden_round_shield.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\Content\items\yoga_pants.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\Content\interface\block.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\Content\interface\fire.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\Content\interface\hit.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\Content\interface\ice_cube.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\Content\interface\target16.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\Content\interface\target24.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\Content\interface\target32.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\Content\fonts\Dungeonscript.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\Content\fonts\Medifont.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\Content\eqslots\eqslot0.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\Content\eqslots\eqslot1.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\Content\eqslots\eqslot10.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\Content\eqslots\eqslot11.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\Content\eqslots\eqslot2.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\Content\eqslots\eqslot3.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\Content\eqslots\eqslot4.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\Content\eqslots\eqslot5.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\Content\eqslots\eqslot6.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\Content\eqslots\eqslot7.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\Content\eqslots\eqslot8.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\Content\eqslots\eqslot9.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\Azzandra.exe
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\Azzandra.pdb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\MonoGame.Framework.dll
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\Newtonsoft.Json.dll
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\SharpDX.MediaFoundation.dll
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\SharpDX.dll
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\SharpDX.XAudio2.dll
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\SharpDX.DXGI.dll
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\SharpDX.Direct3D11.dll
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\SharpDX.Direct2D1.dll
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\SharpDX.XInput.dll
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\MonoGame.Framework.xml
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\Newtonsoft.Json.xml
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\SharpDX.MediaFoundation.xml
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\SharpDX.xml
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\SharpDX.XAudio2.xml
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\SharpDX.DXGI.xml
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\SharpDX.Direct3D11.xml
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\SharpDX.Direct2D1.xml
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\bin\Windows\x86\Debug\SharpDX.XInput.xml
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\obj\x86\Debug\Azzandra.csprojAssemblyReference.cache
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\obj\x86\Debug\Azzandra.csproj.CoreCompileInputs.cache
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\obj\x86\Debug\Azzandra.csproj.CopyComplete
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\obj\x86\Debug\Azzandra.exe
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra - backup 21-04-16\Azzandra\obj\x86\Debug\Azzandra.pdb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra\Azzandra\bin\Windows\x86\Debug\Content\interface\menu_backgrounds\0.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra\Azzandra\bin\Windows\x86\Debug\Content\interface\menu_backgrounds\1.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra\Azzandra\bin\Windows\x86\Debug\Content\interface\menu_backgrounds\2.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra\Azzandra\bin\Windows\x86\Debug\Content\interface\menu_backgrounds\3.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra\Azzandra\bin\Windows\x86\Debug\Content\interface\menu_backgrounds\4.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra\Azzandra\bin\Windows\x86\Debug\Content\interface\menu_arch.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra\Azzandra\bin\Windows\x86\Debug\Content\interface\target48.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra\Azzandra\bin\Windows\x86\Debug\Content\interface\target12.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra\Azzandra\bin\Windows\x86\Debug\Content\interface\target20.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra\Azzandra\obj\x86\Debug\Azzandra.Properties.Resources.resources
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra\Azzandra\obj\x86\Debug\Azzandra.csproj.GenerateResource.cache
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra\Azzandra\bin\Windows\x86\Debug\Content\interface\logo.xnb

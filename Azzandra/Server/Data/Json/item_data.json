@@ -1,0 +1,1700 @@
+{
+	"gold_key": {
+		"name": "gold key",
+		"desc": "A shiny gold key. I wonder what this unlocks?",
+		"stack": true,
+		"asset": "gold_key",
+		"type": "key",
+	},
+	"silver_key": {
+		"name": "silver key",
+		"desc": "A slightly blackened silver key. I wonder what this unlocks?",
+		"stack": true,
+		"asset": "silver_key",
+		"type": "key",
+	},
+	"iron_key": {
+		"name": "iron key",
+		"desc": "A rusty iron key. I wonder what this unlocks?",
+		"stack": true,
+		"asset": "iron_key",
+		"type": "key",
+	},
+	"nickel_key": {
+		"name": "nickel key",
+		"desc": "A shiny nickel key. I wonder what this unlocks?",
+		"stack": true,
+		"asset": "nickel_key",
+		"type": "key",
+	},
+	"brass_key": {
+		"name": "brass key",
+		"desc": "A simple brass key. I wonder what this unlocks?",
+		"stack": true,
+		"asset": "brass_key",
+		"type": "key",
+	},
+	"steel_key": {
+		"name": "steel key",
+		"desc": "A simple steel key. I wonder what this unlocks?",
+		"stack": true,
+		"asset": "steel_key",
+		"type": "key",
+	},
+	"magical_key": {
+		"name": "magical key",
+		"desc": "A shimmering magical key. I wonder what this unlocks?",
+		"stack": true,
+		"asset": "magical_key",
+		"type": "key",
+	},
+	
+	
+	
+	"iron_dirk": {
+		"name": "iron dirk",
+		"desc": "More of a letter opener, really.",
+		"asset": "iron_dirk",
+		"type": "weapon",
+		"sub": "dagger",
+		"canoffhand": true,
+		"speed": 1,
+		"range": 1,
+		"accuracy": 2,
+		"damage": 2,
+		"parry": 2
+	},
+	"iron_broadsword": {
+		"name": "iron broadsword",
+		"desc": "A strong sleaf-shaped iron sword.",
+		"asset": "iron_broadsword",
+		"type": "weapon",
+		"sub": "sword",
+		"speed": 1,
+		"range": 1,
+		"accuracy": 4,
+		"damage": 4,
+		"parry": 4
+	},
+	"iron_longsword": {
+		"name": "iron longsword",
+		"desc": "A magnificent blade.",
+		"asset": "iron_longsword",
+		"type": "weapon",
+		"sub": "sword",
+		"istwohander": true,
+		"speed": 2,
+		"range": 1,
+		"accuracy": 8,
+		"damage": 8,
+		"parry": 8
+	},
+	"iron_greatsword": {
+		"name": "iron greatsword",
+		"desc": "At least it'll look decent when you tripple-combo with this thing.",
+		"asset": "iron_greatsword",
+		"type": "weapon",
+		"sub": "sword",
+		"istwohander": true,
+		"speed": 2,
+		"range": 2,
+		"accuracy": 6,
+		"damage": 9,
+		"parry": 5,
+	},
+	"iron_spear": {
+		"name": "iron spear",
+		"desc": "Skew it!",
+		"asset": "iron_spear",
+		"type": "weapon",
+		"sub": "spear",
+		"speed": 1,
+		"range": 2,
+		"accuracy": 4,
+		"damage": 4,
+		"parry": 1,
+	},
+	"iron_spear_p": {
+		"name": "iron spear (p)",
+		"desc": "Skew it!",
+		"asset": "iron_spear",
+		"type": "weapon",
+		"sub": "spear",
+		"speed": 1,
+		"range": 2,
+		"accuracy": 4,
+		"damage": 4,
+		"parry": 1,
+		"properties": [{"id": "poison", "level": 1}]
+	},
+	"iron_war_axe": {
+		"name": "iron war axe",
+		"desc": "Would be more useful if your opponent were a tree.",
+		"asset": "iron_war_axe",
+		"type": "weapon",
+		"sub": "axe",
+		"speed": 1,
+		"range": 1,
+		"accuracy": 5,
+		"damage": 4,
+		"parry": 1,
+	},
+	"iron_mace": {
+		"name": "iron mace",
+		"desc": "This will deal some heavy damage.",
+		"asset": "iron_mace",
+		"type": "weapon",
+		"sub": "mace",
+		"speed": 1,
+		"range": 1,
+		"accuracy": 4,
+		"damage": 5,
+		"parry": 1,
+	},
+	"steel_dirk": {
+		"name": "steel dirk",
+		"desc": "More of a letter opener, really.",
+		"asset": "steel_dirk",
+		"type": "weapon",
+		"sub": "spear",
+		"canoffhand": true,
+		"speed": 1,
+		"range": 1,
+		"accuracy": 3,
+		"damage": 3,
+		"parry": 3,
+	},
+	"steel_broadsword": {
+		"name": "steel broadsword",
+		"desc": "A strong leaf-shaped steel sword.",
+		"asset": "steel_broadsword",
+		"type": "weapon",
+		"sub": "sword",
+		"speed": 1,
+		"range": 1,
+		"accuracy": 6,
+		"damage": 6,
+		"parry": 6,
+	},
+	"steel_longsword": {
+		"name": "steel longsword",
+		"desc": "A magnificent blade.",
+		"asset": "steel_longsword",
+		"type": "weapon",
+		"sub": "sword",
+		"istwohander": true,
+		"speed": 2,
+		"range": 1,
+		"accuracy": 12,
+		"damage": 12,
+		"parry": 12,
+	},
+	"steel_greatsword": {
+		"name": "steel greatsword",
+		"desc": "At least it'll look decent when you tripple-combo with this thing.",
+		"asset": "steel_greatsword",
+		"type": "weapon",
+		"sub": "sword",
+		"istwohander": true,
+		"speed": 2,
+		"range": 2,
+		"accuracy": 9,
+		"damage": 13,
+		"parry": 7,
+	},
+	"steel_spear": {
+		"name": "steel spear",
+		"desc": "Skew it!",
+		"asset": "steel_spear",
+		"type": "weapon",
+		"sub": "spear",
+		"speed": 1,
+		"range": 2,
+		"accuracy": 6,
+		"damage": 6,
+		"parry": 1,
+	},
+	"steel_spear_p": {
+		"name": "steel spear (p)",
+		"desc": "Skew it!",
+		"asset": "steel_spear",
+		"type": "weapon",
+		"sub": "spear",
+		"speed": 1,
+		"range": 2,
+		"accuracy": 6,
+		"damage": 6,
+		"parry": 1,
+		"properties": [{"id": "poison", "level": 1}]
+	},
+	"steel_war_axe": {
+		"name": "steel war axe",
+		"desc": "Would be more useful if your opponent were a tree.",
+		"asset": "steel_war_axe",
+		"type": "weapon",
+		"sub": "axe",
+		"speed": 1,
+		"range": 1,
+		"accuracy": 7,
+		"damage": 6,
+		"parry": 1,
+	},
+	"steel_mace": {
+		"name": "steel mace",
+		"desc": "This will deal some heavy damage.",
+		"asset": "steel_mace",
+		"type": "weapon",
+		"sub": "mace",
+		"speed": 1,
+		"range": 1,
+		"accuracy": 6,
+		"damage": 7,
+		"parry": 1,
+	},
+	"samarite_dirk": {
+		"name": "samarite dirk",
+		"desc": "More a letter opener, really.",
+		"asset": "samarite_dirk",
+		"type": "weapon",
+		"sub": "dagger",
+		"canoffhand": true,
+		"speed": 1,
+		"range": 1,
+		"accuracy": 4,
+		"damage": 4,
+		"parry": 4,
+	},
+	"samarite_broadsword": {
+		"name": "samarite broadsword",
+		"desc": "A strong leaf-shaped samarite sword.",
+		"asset": "samarite_broadsword",
+		"type": "weapon",
+		"sub": "sword",
+		"speed": 1,
+		"range": 1,
+		"accuracy": 8,
+		"damage": 8,
+		"parry": 8,
+	},
+	"samarite_longsword": {
+		"name": "samarite longsword",
+		"desc": "A magnificent blade.",
+		"asset": "samarite_longsword",
+		"type": "weapon",
+		"sub": "sword",
+		"istwohander": true,
+		"speed": 2,
+		"range": 1,
+		"accuracy": 16,
+		"damage": 16,
+		"parry": 16,
+	},
+	"samarite_greatsword": {
+		"name": "samarite greatsword",
+		"desc": "At least it'll look decent when you tripple-combo with this thing.",
+		"asset": "samarite_greatsword",
+		"type": "weapon",
+		"sub": "sword",
+		"istwohander": true,
+		"speed": 2,
+		"range": 2,
+		"accuracy": 12,
+		"damage": 18,
+		"parry": 10,
+	},
+	"samarite_spear": {
+		"name": "samarite spear",
+		"desc": "Skew it!",
+		"asset": "samarite_spear",
+		"type": "weapon",
+		"sub": "spear",
+		"speed": 1,
+		"range": 2,
+		"accuracy": 8,
+		"damage": 8,
+		"parry": 2,
+	},
+	"samarite_spear_p": {
+		"name": "samarite spear (p)",
+		"desc": "Skew it!",
+		"asset": "samarite_spear",
+		"type": "weapon",
+		"sub": "spear",
+		"speed": 1,
+		"range": 2,
+		"accuracy": 8,
+		"damage": 8,
+		"parry": 2,
+		"properties": [{"id": "poison", "level": 1}]
+	},
+	"samarite_war_axe": {
+		"name": "samarite war axe",
+		"desc": "Would be more useful if your opponent were a tree.",
+		"asset": "samarite_war_axe",
+		"type": "weapon",
+		"sub": "axe",
+		"speed": 1,
+		"range": 1,
+		"accuracy": 10,
+		"damage": 8,
+		"parry": 2,
+	},
+	"samarite_mace": {
+		"name": "samarite mace",
+		"desc": "This will deal some heavy damage.",
+		"asset": "samarite_mace",
+		"type": "weapon",
+		"sub": "mace",
+		"speed": 1,
+		"range": 1,
+		"accuracy": 8,
+		"damage": 10,
+		"parry": 2,
+	},
+
+
+	"iron_buckler": {
+		"name": "iron buckler",
+		"desc": "A fancy fencing shield.",
+		"asset": "iron_buckler",
+		"type": "shield",
+		"sub": "buckler",
+		"slot": 1,
+		"parry": 4,
+		"block": 2
+	},
+	"iron_shield": {
+		"name": "iron shield",
+		"desc": "Hide behind this and you're good.",
+		"asset": "iron_shield",
+		"type": "shield",
+		"sub": "sword",
+		"slot": 1,
+		"accuracy": -1,
+		"block": 7
+	},
+
+	"steel_buckler": {
+		"name": "steel buckler",
+		"desc": "A fancy fencing shield.",
+		"asset": "steel_buckler",
+		"type": "shield",
+		"sub": "buckler",
+		"slot": 1,
+		"parry": 6,
+		"block": 3
+	},
+	"steel_shield": {
+		"name": "steel shield",
+		"desc": "Hide behind this and you're good.",
+		"asset": "steel_shield",
+		"type": "shield",
+		"sub": "sword",
+		"slot": 1,
+		"accuracy": -1,
+		"block": 10
+	},
+
+	"samarite_buckler": {
+		"name": "samarite buckler",
+		"desc": "A fancy fencing shield.",
+		"asset": "samarite_buckler",
+		"type": "shield",
+		"sub": "buckler",
+		"slot": 1,
+		"parry": 8,
+		"block": 4
+	},
+	"samarite_shield": {
+		"name": "samarite shield",
+		"desc": "Hide behind this and you're good.",
+		"asset": "samarite_shield",
+		"type": "shield",
+		"sub": "sword",
+		"slot": 1,
+		"accuracy": -2,
+		"block": 14
+	},
+	
+	
+	
+	
+	
+	"pine_recurve_bow": {
+		"name": "pine recurve bow",
+		"desc": "A light bow, allowing for quicker draw speed.",
+		"asset": "bow",
+		"type": "bow",
+		"sub": "bow",
+		"istwohander": true,
+		"speed": 1,
+		"range": 5,
+		"accuracy": 4,
+		"damage": 3
+	},
+	"pine_longbow": {
+		"name": "pine longbow",
+		"desc": "A powerful bow.",
+		"asset": "bow",
+		"type": "bow",
+		"sub": "bow",
+		"istwohander": true,
+		"speed": 2,
+		"range": 8,
+		"accuracy": 7,
+		"damage": 6
+	},
+	"iron_arrow": {
+		"name": "iron arrow",
+		"stack": true,
+		"plural": "iron arrows",
+		"desc": "Iron tipped arrows.",
+		"asset": "iron_arrow",
+		"type": "arrow",
+		"damage": 1
+	},
+	"iron_crossbow": {
+		"name": "iron crossbow",
+		"desc": "An iron crossbow.",
+		"asset": "crossbow",
+		"type": "crossbow",
+		"sub": "crossbow",
+		"speed": 2,
+		"range": 6,
+		"accuracy": 6,
+		"damage": 7
+	},
+	"iron_bolt": {
+		"name": "iron bolt",
+		"stack": true,
+		"plural": "iron bolts",
+		"desc": "Crossbow bolts made with an iron head.",
+		"asset": "iron_bolts",
+		"type": "bolt",
+		"damage": 1
+	},
+	"oak_recurve_bow": {
+		"name": "oak recurve bow",
+		"desc": "A light bow, allowing for quicker draw speed.",
+		"asset": "bow",
+		"type": "bow",
+		"sub": "bow",
+		"istwohander": true,
+		"speed": 1,
+		"range": 5,
+		"accuracy": 6,
+		"damage": 4
+	},
+	"oak_longbow": {
+		"name": "oak longbow",
+		"desc": "A powerful bow.",
+		"asset": "bow",
+		"type": "bow",
+		"sub": "bow",
+		"istwohander": true,
+		"speed": 2,
+		"range": 8,
+		"accuracy": 10,
+		"damage": 8,
+	},
+	"steel_arrow": {
+		"name": "steel arrow",
+		"stack": true,
+		"plural": "steel arrows",
+		"desc": "Steel tipped arrows.",
+		"asset": "steel_arrow",
+		"type": "arrow",
+		"damage": 2
+	},
+	"steel_crossbow": {
+		"name": "steel crossbow",
+		"desc": "An steel crossbow.",
+		"asset": "crossbow",
+		"type": "crossbow",
+		"sub": "crossbow",
+		"speed": 2,
+		"range": 6,
+		"accuracy": 9,
+		"damage": 10
+	},
+	"steel_bolt": {
+		"name": "steel bolt",
+		"stack": true,
+		"plural": "steel bolts",
+		"desc": "Crossbow bolts made with a steel head.",
+		"asset": "steel_bolts",
+		"type": "bolt",
+		"damage": 2
+	},
+	"yew_recurve_bow": {
+		"name": "yew recurve bow",
+		"desc": "A light bow, allowing for quicker draw speed.",
+		"asset": "bow",
+		"type": "bow",
+		"sub": "bow",
+		"istwohander": true,
+		"speed": 1,
+		"range": 5,
+		"accuracy": 8,
+		"damage": 5
+	},
+	"yew_longbow": {
+		"name": "yew longbow",
+		"desc": "A powerful bow.",
+		"asset": "bow",
+		"type": "bow",
+		"sub": "bow",
+		"istwohander": true,
+		"speed": 2,
+		"range": 8,
+		"accuracy": 14,
+		"damage": 11,
+	},
+	"samarite_arrow": {
+		"name": "samarite arrow",
+		"stack": true,
+		"plural": "samarite arrows",
+		"desc": "Samarite tipped arrows.",
+		"asset": "samarite_arrow",
+		"type": "arrow",
+		"damage": 3
+	},
+	"samarite_crossbow": {
+		"name": "samarite crossbow",
+		"desc": "An samarite crossbow.",
+		"asset": "crossbow",
+		"type": "crossbow",
+		"sub": "crossbow",
+		"speed": 2,
+		"range": 6,
+		"accuracy": 12,
+		"damage": 13
+	},
+	"samarite_bolt": {
+		"name": "samarite bolt",
+		"stack": true,
+		"plural": "samarite bolts",
+		"desc": "Crossbow bolts made with a samarite head.",
+		"asset": "samarite_bolts",
+		"type": "bolt",
+		"damage": 3
+	},
+	
+	
+	
+	"iron_great_helm": {
+		"name": "iron great helm",
+		"desc": "Who needs vision anyways?",
+		"asset": "iron_great_helm",
+		"type": "equipment",
+		"sub": "helmet",
+		"slot": 2,
+		"armour": 4,
+		"accuracy": -1,
+		"evade": -2
+	},
+	"iron_helm": {
+		"name": "iron helm",
+		"desc": "A nice and simple helmet.",
+		"asset": "iron_great_helm",
+		"type": "equipment",
+		"sub": "helmet",
+		"slot": 2,
+		"armour": 3
+	},
+	"iron_chestplate": {
+		"name": "iron chestplate",
+		"desc": "\"Real armour.\"",
+		"asset": "iron_chestplate",
+		"type": "equipment",
+		"slot": 3,
+		"armour": 6,
+		"evade": -2,
+		"accuracy": 0
+	},
+	"iron_hauberk": {
+		"name": "iron hauberk",
+		"desc": "Armour made of tiny interlocked rings.",
+		"asset": "iron_hauberk",
+		"type": "equipment",
+		"slot": 3,
+		"armour": 4
+	},
+	"iron_platelegs": {
+		"name": "iron platelegs",
+		"desc": "\"Real armour.\"",
+		"asset": "iron_chestplate",
+		"type": "equipment",
+		"slot": 4,
+		"armour": 4,
+		"evade": -2
+	},
+	"iron_sabatons": {
+		"name": "iron sabatons",
+		"desc": "These are somewhat funny-looking.",
+		"asset": "iron_chestplate",
+		"type": "equipment",
+		"slot": 5,
+		"armour": 2
+	},
+	"iron_gauntlets": {
+		"name": "iron gauntlets",
+		"desc": "To rule with an iron fist!",
+		"asset": "iron_chestplate",
+		"type": "equipment",
+		"slot": 6,
+		"armour": 2
+	},
+
+
+	"steel_great_helm": {
+		"name": "steel great helm",
+		"desc": "Who needs vision anyways?",
+		"asset": "steel_great_helm",
+		"type": "equipment",
+		"sub": "helmet",
+		"slot": 2,
+		"armour": 6,
+		"accuracy": -1,
+		"evade": -3
+	},
+	"steel_helm": {
+		"name": "steel helm",
+		"desc": "A nice and simple helmet.",
+		"asset": "steel_great_helm",
+		"type": "equipment",
+		"sub": "helmet",
+		"slot": 2,
+		"armour": 4
+	},
+	"steel_chestplate": {
+		"name": "steel chestplate",
+		"desc": "\"Real armour.\"",
+		"asset": "steel_chestplate",
+		"type": "equipment",
+		"slot": 3,
+		"armour": 9,
+		"evade": -3,
+		"accuracy": 0
+	},
+	"steel_hauberk": {
+		"name": "steel hauberk",
+		"desc": "Armour made of tiny interlocked rings.",
+		"asset": "steel_hauberk",
+		"type": "equipment",
+		"slot": 3,
+		"armour": 6
+	},
+	"steel_platelegs": {
+		"name": "steel platelegs",
+		"desc": "\"Real armour.\"",
+		"asset": "steel_chestplate",
+		"type": "equipment",
+		"slot": 4,
+		"armour": 6,
+		"evade": -3
+	},
+	"steel_sabatons": {
+		"name": "steel sabatons",
+		"desc": "These are somewhat funny-looking.",
+		"asset": "steel_chestplate",
+		"type": "equipment",
+		"slot": 5,
+		"armour": 3
+	},
+	"steel_gauntlets": {
+		"name": "steel gauntlets",
+		"desc": "To rule with a steel fist?",
+		"asset": "steel_chestplate",
+		"type": "equipment",
+		"slot": 6,
+		"armour": 3
+	},
+
+
+	"samarite_great_helm": {
+		"name": "samarite great helm",
+		"desc": "Who needs vision anyways?",
+		"asset": "samarite_great_helm",
+		"type": "equipment",
+		"sub": "helmet",
+		"slot": 2,
+		"armour": 8,
+		"accuracy": -2,
+		"evade": -4
+	},
+	"samarite_helm": {
+		"name": "samarite helm",
+		"desc": "A nice and simple helmet.",
+		"asset": "samarite_great_helm",
+		"type": "equipment",
+		"sub": "helmet",
+		"slot": 2,
+		"armour": 6
+	},
+	"samarite_chestplate": {
+		"name": "samarite chestplate",
+		"desc": "\"Real armour.\"",
+		"asset": "samarite_chestplate",
+		"type": "equipment",
+		"slot": 3,
+		"armour": 12,
+		"evade": -4,
+		"accuracy": 0
+	},
+	"samarite_hauberk": {
+		"name": "samarite hauberk",
+		"desc": "Armour made of tiny interlocked rings.",
+		"asset": "samarite_hauberk",
+		"type": "equipment",
+		"slot": 3,
+		"armour": 8
+	},
+	"samarite_platelegs": {
+		"name": "samarite platelegs",
+		"desc": "\"Real armour.\"",
+		"asset": "samarite_chestplate",
+		"type": "equipment",
+		"slot": 4,
+		"armour": 8,
+		"evade": -4
+	},
+	"samarite_sabatons": {
+		"name": "samarite sabatons",
+		"desc": "These are somewhat funny-looking.",
+		"asset": "samarite_chestplate",
+		"type": "equipment",
+		"slot": 5,
+		"armour": 4
+	},
+	"samarite_gauntlets": {
+		"name": "samarite gauntlets",
+		"desc": "To rule with a samarite fist?",
+		"asset": "samarite_chestplate",
+		"type": "equipment",
+		"slot": 6,
+		"armour": 4
+	},
+	
+	
+	
+	"leather_cap": {
+		"name": "leather cap",
+		"desc": "A tough protective cap made of leather.",
+		"asset": "leather_body",
+		"type": "equipment",
+		"slot": 2,
+		"armour": 2
+	},
+	"leather_body": {
+		"name": "leather body",
+		"desc": "A tough protective body made of leather.",
+		"asset": "leather_body",
+		"type": "equipment",
+		"slot": 3,
+		"armour": 3
+	},
+	"leather_chaps": {
+		"name": "leather chaps",
+		"desc": "Just some pants made of leather.",
+		"asset": "leather_body",
+		"type": "equipment",
+		"slot": 4,
+		"armour": 2
+	},
+	"leather_boots": {
+		"name": "leather boots",
+		"desc": "Everybody needs a pair of leather boots.",
+		"asset": "leather_boots",
+		"type": "equipment",
+		"slot": 5,
+		"armour": 1
+	},
+	"leather_gloves": {
+		"name": "leather gloves",
+		"desc": "A nice pair of leather gloves.",
+		"asset": "leather_boots",
+		"type": "equipment",
+		"slot": 6,
+		"armour": 1
+	},
+	
+	
+	"dragonscale_cap": {
+		"name": "dragonscale cap",
+		"desc": "A tough protective cap made of dragonscale.",
+		"asset": "leather_body",
+		"type": "equipment",
+		"slot": 2,
+		"armour": 4
+	},
+	"dragonscale_body": {
+		"name": "dragonscale body",
+		"desc": "A protective yet flexible body made of dragonscale.",
+		"asset": "leather_body",
+		"type": "equipment",
+		"slot": 3,
+		"armour": 6
+	},
+	"dragonscale_chaps": {
+		"name": "dragonscale chaps",
+		"desc": "These chaps are flexible enough to move in freely.",
+		"asset": "leather_body",
+		"type": "equipment",
+		"slot": 4,
+		"armour": 4
+	},
+	"dragonscale_boots": {
+		"name": "dragonscale boots",
+		"desc": "Some sturdy boots made from dragonhide.",
+		"asset": "leather_boots",
+		"type": "equipment",
+		"slot": 5,
+		"armour": 2
+	},
+	"dragonscale_gloves": {
+		"name": "dragonscale gloves",
+		"desc": "A nice pair of dragonscale gloves.",
+		"asset": "leather_boots",
+		"type": "equipment",
+		"slot": 6,
+		"armour": 2
+	},
+	
+	
+	"wizard_hat": {
+		"name": "wizard hat",
+		"desc": "What would a wizard be without his pointy hat?",
+		"asset": "wizard_hat",
+		"type": "equipment",
+		"slot": 2,
+		"spellcast": 3,
+		"resistance": 2
+	},
+	"wizard_gown": {
+		"name": "wizard gown",
+		"desc": "Battle-pyjamas.",
+		"asset": "wizard_gown",
+		"type": "equipment",
+		"slot": 3,
+		"spellcast": 4,
+		"resistance": 3
+	},
+	"wizard_robe": {
+		"name": "wizard robe",
+		"desc": "Battle-pyjamas.",
+		"asset": "wizard_robe",
+		"type": "equipment",
+		"slot": 4,
+		"spellcast": 3,
+		"resistance": 2
+	},
+	"wizard_socks": {
+		"name": "wizard socks",
+		"desc": "Yikes...",
+		"asset": "wizard_socks",
+		"type": "equipment",
+		"slot": 5,
+		"spellcast": 1,
+		"resistance": 1
+	},
+	
+	"conjurer_hood": {
+		"name": "hood of the conjurer",
+		"desc": "Makes the wearer real sinister-looking.",
+		"type": "equipment",
+		"slot": 2,
+		"spellcast": 6,
+		"resistance": 4
+	},
+	"conjurer_gown": {
+		"name": "gown of the conjurer",
+		"desc": "Makes the wearer real sinister-looking.",
+		"type": "equipment",
+		"slot": 3,
+		"spellcast": 8,
+		"resistance": 6
+	},
+	"conjurer_robe": {
+		"name": "robe of the conjurer",
+		"desc": "Makes the wearer real sinister-looking.",
+		"type": "equipment",
+		"slot": 4,
+		"spellcast": 6,
+		"resistance": 4
+	},
+	
+	
+	
+	
+	
+	"clothing_straps": {
+		"name": "clothing straps",
+		"desc": "True minimalist clothing.",
+		"asset": "wizard_socks",
+		"type": "equipment",
+		"slot": 4,
+		"armour": 1,
+		"damage": 1
+	},
+	"heraldic_cape": {
+		"name": "heraldic cape",
+		"desc": "A nice cape with a crest on it.",
+		"asset": "cape",
+		"type": "equipment",
+		"slot": 9
+	},
+	"yoga_pants": {
+		"name": "yoga pants",
+		"desc": "Made for a good stretch.",
+		"type": "equipment",
+		"sub": "clothing",
+		"slot": 4,
+		"evade": 3
+	},
+	
+	
+	
+	
+	
+	"cloak_of_conceilment": {
+		"name": "cloak of conceilment",
+		"desc": "-",
+		"type": "equipment",
+		"slot": 9,
+		"evade": 2
+	},
+	"boots_of_dexterity": {
+		"name": "boots of dexterity",
+		"desc": "These boots make your feet feel surprisingly light.",
+		"type": "equipment",
+		"slot": 5,
+		"evade": 3
+	},
+	"amulet_of_evasion": {
+		"name": "amulet of evasion",
+		"desc": "-",
+		"type": "equipment",
+		"slot": 7,
+		"evade": 4
+	},
+	"ring_of_deception": {
+		"name": "ring of deception",
+		"desc": "-",
+		"type": "equipment",
+		"slot": 8,
+		"evade": 7
+	},
+	"chime_of_lightness": {
+		"name": "chime of lightness",
+		"desc": "-",
+		"type": "equipment",
+		"slot": 7,
+		"evade": 8
+	},
+	
+	"buckler_of_augury": {
+		"name": "buckler of augury",
+		"desc": "A small buckler offering some spell resistance.",
+		"asset": "shield",
+		"type": "shield",
+		"parry": 3,
+		"block": 1,
+		"resistance": 3
+	},
+	"spellguard_shield": {
+		"name": "enchanted shield",
+		"desc": "This shields offers protection against spells.",
+		"asset": "shield",
+		"type": "shield",
+		"accuracy": -1,
+		"block": 8,
+		"resistance": 6
+	},
+	"amulet_of_defiance": {
+		"name": "amulet of defiance",
+		"desc": "This will help you fight against the ill will of others.",
+		"type": "equipment",
+		"slot": 7,
+		"resistance": 5
+	},
+	
+	"pendant_of_strength": {
+		"name": "pendant of strength",
+		"desc": "A pendant that helps you channel your inner strength.",
+		"type": "equipment",
+		"slot": 7,
+		"damage": 1
+	},
+	"pendant_of_accuracy": {
+		"name": "pendant of attack",
+		"desc": "A pendant that enhances your precision.",
+		"type": "equipment",
+		"slot": 7,
+		"accuracy": 2
+	},
+	"pendant_of_power": {
+		"name": "pendant of power",
+		"desc": "A pendant that helps you channel your inner strength.",
+		"type": "equipment",
+		"slot": 7,
+		"damage": 2
+	},
+	"pendant_of_precision": {
+		"name": "pendant of accuracy",
+		"desc": "A pendant that enhances your precision.",
+		"type": "equipment",
+		"slot": 7,
+		"accuracy": 3
+	},
+	"wizards_talisman": {
+		"name": "wizard's talisman",
+		"desc": "-",
+		"type": "equipment",
+		"slot": 7,
+		"spellcast": 3
+	},
+	
+	
+	"berserker_battleaxe": {
+		"name": "berserker battleaxe",
+		"desc": "Lets one's inner rage be impressed upon thine foes!",
+		"type": "weapon",
+		"sub": "axe",
+		"istwohander": true,
+		"speed": 2,
+		"range": 2,
+		"accuracy": 8,
+		"damage": 10
+	},
+	"ice_blade": {
+		"name": "ice blade",
+		"desc": "It's extremely cold to the touch.",
+		"type": "weapon",
+		"sub": "sword",
+		"speed": 1,
+		"range": 1,
+		"accuracy": 4,
+		"damage": 4,
+		"parry": 3,
+		"properties": [{"id": "frost", "level": 1}, {"id": "enchanted"}]
+	},
+	"enchanted_blade": {
+		"name": "enchanted blade",
+		"desc": "The blade appears to have a slight glow over it.",
+		"type": "weapon",
+		"sub": "sword",
+		"speed": 1,
+		"range": 1,
+		"accuracy": 6,
+		"damage": 6,
+		"parry": 8,
+		"properties": [{"id": "enchanted"}]
+	},
+	"dagger_of_venom": {
+		"name": "dagger of venom",
+		"desc": "-",
+		"type": "weapon",
+		"sub": "dagger",
+		"canoffhand": true,
+		"speed": 1,
+		"range": 1,
+		"accuracy": 3,
+		"damage": 4,
+		"parry": 3,
+		"properties": [{"id": "poison", "level": 2}]
+	},
+	"obsidian_maul": {
+		"name": "obsidian maul",
+		"desc": "Heavily armed.",
+		"type": "weapon",
+		"sub": "maul",
+		"istwohander": true,
+		"speed": 2,
+		"range": 1,
+		"accuracy": 14,
+		"damage": 20
+	},
+	"fire_dagger": {
+		"name": "fire dagger",
+		"desc": "A dagger imbued with the flame of the depths.",
+		"type": "weapon",
+		"sub": "dagger",
+		"canoffhand": true,
+		"speed": 1,
+		"range": 1,
+		"accuracy": 5,
+		"damage": 5,
+		"parry": 4,
+		"properties": [{"id": "fire"}, {"id": "enchanted"}]
+	},
+	
+	
+	"frost_bow": {
+		"name": "frost bow",
+		"desc": "It's always time for icecream.",
+		"type": "bow",
+		"istwohander": true,
+		"speed": 1,
+		"range": 6,
+		"accuracy": 5,
+		"damage": 3,
+		"properties": [{"id": "frost"}, {"id": "enchanted"}]
+	},
+	"mystic_bow": {
+		"name": "mystic bow",
+		"desc": "A magical bow created in ancient times.",
+		"type": "bow",
+		"istwohander": true,
+		"speed": 2,
+		"range": 8,
+		"accuracy": 10,
+		"damage": 9,
+		"properties": [{"id": "enchanted"}]
+	},
+	"infernal_crossbow": {
+		"name": "infernal crossbow",
+		"desc": "A crossbow forged from demon blood.",
+		"type": "crossbow",
+		"speed": 2,
+		"range": 6,
+		"accuracy": 20,
+		"damage": 10,
+		"properties": [{"id": "fire"}, {"id": "enchanted"}]
+	},
+	"spellbinding_staff": {
+		"name": "spellbinding staff",
+		"desc": "A powerful magic staff.",
+		"type": "staff",
+		"speed": 2,
+		"range": 6,
+		"accuracy": 7,
+		"damage": 8,
+		"spellcast": 8
+	},
+	"staff_of_poison": {
+		"name": "staff of poison",
+		"desc": "A staff of toxic fumes.",
+		"type": "staff",
+		"speed": 2,
+		"range": 6,
+		"accuracy": 9,
+		"damage": 9,
+		"spellcast": 8,
+		"properties": [{"id": "poison"}]
+	},
+	"staff_of_augury": {
+		"name": "staff of augury",
+		"desc": "One of the most powerfull staves ever created.",
+		"type": "staff",
+		"speed": 2,
+		"range": 8,
+		"accuracy": 10,
+		"damage": 14,
+		"spellcast": 12
+	},
+	
+	
+	
+	"staff": {
+		"name": "staff",
+		"desc": "It's an enchanted walking stick.",
+		"type": "staff",
+		"maxdurability": -1,
+		"speed": 2,
+		"range": 6,
+		"accuracy": 4,
+		"damage": 4,
+		"spellcast": 4
+	},
+	
+	"wind_staff": {
+		"name": "wind staff",
+		"desc": "It's an enchanted walking stick.",
+		"type": "staff",
+		"speed": 2,
+		"range": 6,
+		"accuracy": 6,
+		"damage": 6,
+		"spellcast": 6,
+		"properties": [{"id": "knockback"}]
+	},
+	"ice_staff": {
+		"name": "ice staff",
+		"desc": "It's an enchanted walking stick.",
+		"type": "staff",
+		"speed": 2,
+		"range": 6,
+		"accuracy": 6,
+		"damage": 6,
+		"spellcast": 6,
+		"properties": [{"id": "frost"}]
+	},
+	"shadow_staff": {
+		"name": "shadow staff",
+		"desc": "It's an enchanted walking stick.",
+		"type": "staff",
+		"speed": 2,
+		"range": 8,
+		"accuracy": 6,
+		"damage": 6,
+		"spellcast": 6,
+		"properties": [{"id": "blind"}]
+	},
+	"fire_staff": {
+		"name": "fire staff",
+		"desc": "It's an enchanted walking stick.",
+		"type": "staff",
+		"speed": 2,
+		"range": 6,
+		"accuracy": 6,
+		"damage": 6,
+		"spellcast": 6,
+		"properties": [{"id": "fire"}]
+	},
+	"greater_wind_staff": {
+		"name": "greater wind staff",
+		"desc": "It's an enchanted walking stick.",
+		"type": "staff",
+		"speed": 2,
+		"range": 6,
+		"accuracy": 9,
+		"damage": 9,
+		"spellcast": 9,
+		"properties": [{"id": "knockback"}]
+	},
+	"greater_ice_staff": {
+		"name": "greater ice staff",
+		"desc": "It's an enchanted walking stick.",
+		"type": "staff",
+		"speed": 2,
+		"range": 6,
+		"accuracy": 9,
+		"damage": 9,
+		"spellcast": 9,
+		"properties": [{"id": "frost"}]
+	},
+	"greater_shadow_staff": {
+		"name": "greater shadow staff",
+		"desc": "It's an enchanted walking stick.",
+		"type": "staff",
+		"speed": 2,
+		"range": 6,
+		"accuracy": 9,
+		"damage": 9,
+		"spellcast": 9,
+		"properties": [{"id": "blind"}]
+	},
+	"greater_fire_staff": {
+		"name": "greater fire staff",
+		"desc": "It's an enchanted walking stick.",
+		"type": "staff",
+		"speed": 2,
+		"range": 6,
+		"accuracy": 9,
+		"damage": 9,
+		"spellcast": 9,
+		"properties": [{"id": "fire"}]
+	},
+	"runic_wind_staff": {
+		"name": "runic wind staff",
+		"desc": "It's an enchanted walking stick.",
+		"type": "staff",
+		"speed": 2,
+		"range": 6,
+		"accuracy": 12,
+		"damage": 12,
+		"spellcast": 12,
+		"properties": [{"id": "wind"}]
+	},
+	"runic_ice_staff": {
+		"name": "runic ice staff",
+		"desc": "It's an enchanted walking stick.",
+		"type": "staff",
+		"speed": 2,
+		"range": 6,
+		"accuracy": 12,
+		"damage": 12,
+		"spellcast": 12,
+		"properties": [{"id": "frost"}]
+	},
+	"runic_shadow_staff": {
+		"name": "runic shadow staff",
+		"desc": "It's an enchanted walking stick.",
+		"type": "staff",
+		"speed": 2,
+		"range": 6,
+		"accuracy": 12,
+		"damage": 12,
+		"spellcast": 12,
+		"properties": [{"id": "blind"}]
+	},
+	"runic_fire_staff": {
+		"name": "runic fire staff",
+		"desc": "It's an enchanted walking stick.",
+		"type": "staff",
+		"speed": 2,
+		"range": 6,
+		"accuracy": 12,
+		"damage": 12,
+		"spellcast": 12,
+		"properties": [{"id": "fire"}]
+	},
+
+
+
+	"wind_essence": {
+		"name": "wind essence",
+		"desc": "-",
+		"asset": "wind_essence",
+		"type": "essence",
+	},
+	"fire_essence": {
+		"name": "fire essence",
+		"desc": "-",
+		"asset": "fire_essence",
+		"type": "essence",
+	},
+	"ice_essence": {
+		"name": "ice essence",
+		"desc": "-",
+		"asset": "ice_essence",
+		"type": "essence",
+	},
+	"shadow_essence": {
+		"name": "shadow essence",
+		"desc": "-",
+		"asset": "shadow_essence",
+		"type": "essence",
+	},
+	"light_essence": {
+		"name": "light essence",
+		"desc": "-",
+		"asset": "light_essence",
+		"type": "essence",
+	},
+	"chaos_essence": {
+		"name": "chaos essence",
+		"desc": "-",
+		"asset": "chaos_essence",
+		"type": "essence",
+	},
+	"acid_essence": {
+		"name": "acid essence",
+		"desc": "-",
+		"asset": "acid_essence",
+		"type": "essence",
+	},
+	"life_essence": {
+		"name": "life essence",
+		"desc": "-",
+		"asset": "life_essence",
+		"type": "essence",
+	},
+	"death_essence": {
+		"name": "death essence",
+		"desc": "-",
+		"asset": "death_essence",
+		"type": "essence",
+	},
+	"idle_essence": {
+		"name": "idle essence",
+		"desc": "This essence is yet unassigned.",
+		"asset": "idle_essence",
+		"type": "essence",
+	},
+	"void_essence": {
+		"name": "void essence",
+		"desc": "This essence has been corrupted to the point of no return.",
+		"asset": "void_essence",
+		"type": "essence",
+	},
+	
+	
+	
+	
+	"pan": {
+		"name": "pan",
+		"desc": "An old rusty pan.",
+		"type": "empty_container"
+	},
+	
+	
+	"goblin_pottage": {
+		"name": "goblin pottage",
+		"desc": "Contrary to the name this pottage doesn't actually contain any goblins.",
+		"type": "pan_food",
+		"value": 1
+	},
+	"porridge": {
+		"name": "porridge",
+		"desc": "Disgusting-looking, but healthy... right?",
+		"type": "pan_food",
+		"value": 1
+	},
+	"pea_soup": {
+		"name": "pea soup",
+		"desc": "A simple mushy green soup.",
+		"type": "pan_food",
+		"value": 1
+	},
+	"vegetable_stew": {
+		"name": "vegetable stew",
+		"desc": "Who made this so bland?",
+		"type": "pan_food",
+		"value": 1
+	},
+	"troll_stew": {
+		"name": "troll stew",
+		"desc": "You really don't wanna know who ended up in there.",
+		"type": "pan_food",
+		"value": 1
+	},
+	"mushroom_stew": {
+		"name": "mushroom stew",
+		"desc": "A stew with some rather interesting textures...",
+		"type": "pan_food",
+		"value": 1
+	},
+	"meat_stew": {
+		"name": "meat stew",
+		"desc": "A proper manly stew!",
+		"type": "pan_food",
+		"value": 1
+	},
+	
+	
+	"vial": {
+		"name": "vial",
+		"desc": "A simple glass vial. It comes with a cork.",
+		"type": "empty_container",
+	},
+	"water_vial": {
+		"name": "vial of water",
+		"desc": "A vial filled simply with water - at least, you think it is.",
+		"type": "filled_container",
+	},
+	"poison_vial": {
+		"name": "vial of poison",
+		"desc": "A glass vial containing some surprisingly sweet smelling liquid.",
+		"asset": "potion",
+		"type": "potion",
+		"effects": [{"id": "poison"}]
+	},
+	"life_potion": {
+		"name": "potion of life",
+		"desc": "Some cloudy green liquid is contained in here.",
+		"type": "potion",
+		"effects": [{"id": "boosthp", "level": 5}]
+	},
+	"life_potion2": {
+		"name": "greater potion of life",
+		"desc": "Some cloudy green liquid is contained in here.",
+		"type": "potion",
+		"effects": [{"id": "boosthp", "level": 8}]
+	},
+	"healing_potion": {
+		"name": "potion of healing",
+		"desc": "It smells horribly, but at least its visually promising.",
+		"type": "potion",
+		"effects": [{"id": "heal", "level": 20}]
+	},
+	"healing_potion2": {
+		"name": "greater potion of healing",
+		"desc": "It smells horribly, but at least its visually promising.",
+		"type": "potion",
+		"effects": [{"id": "heal", "level": 30}]
+	},
+	"regeneration_potion": {
+		"name": "potion of regeneration",
+		"desc": "It has a yellowish glow emanating from it.",
+		"type": "potion",
+		"effects": [{"id": "regeneration", "time": 20}]
+	},
+	"antidote": {
+		"name": "antidote potion",
+		"desc": "Fangs won't scare you no more.",
+		"type": "potion",
+		"effects": [{"id": "antidote"}]
+	},
+	"antifire": {
+		"name": "anti-fire potion",
+		"desc": "There's quite a thick liquid contained in here.",
+		"type": "potion",
+		"effects": [{"id": "antifire"}]
+	},
+	"magical_potion": {
+		"name": "magical potion",
+		"desc": "And you say you don't believe in hocus pocus...",
+		"type": "potion",
+		"effects": [{"id": "restoresp", "level": 12}]
+	},
+	"magical_potion2": {
+		"name": "greater magical potion",
+		"desc": "And you say you don't believe in hocus pocus...",
+		"type": "potion",
+		"effects": [{"id": "restoresp", "level": 18}]
+	},
+	"sight_potion": {
+		"name": "potion of sight",
+		"desc": "Ironically this potion is black as the night.",
+		"type": "potion",
+		"effects": [{"id": "supervision"}]
+	},
+	"enchanted_potion": {
+		"name": "enchanted potion",
+		"desc": "It seems to be twinkling slightly when you move it around.",
+		"type": "potion",
+		"effects": [{"id": "boostsp", "level": 3}]
+	},
+	"enchanted_potion2": {
+		"name": "greater enchanted potion",
+		"desc": "It seems to be twinkling slightly when you move it around.",
+		"type": "potion",
+		"effects": [{"id": "boostsp", "level": 5}]
+	},
+	
+	
+	
+	"tankard": {
+		"name": "empty tankard",
+		"desc": "A man with a plan!",
+		"type": "empty_container"
+	},
+	"stout_tankard": {
+		"name": "tankard of stout",
+		"desc": "You take a whiff, it's surprisingly strong.",
+		"type": "filled_tankard"
+	},
+	"mead_tankard": {
+		"name": "tankard of mead",
+		"desc": "You take a whiff, it's surprisingly strong.",
+		"type": "filled_tankard"
+	},
+	"cider_tankard": {
+		"name": "tankard of cider",
+		"desc": "You take a whiff, it's surprisingly strong.",
+		"type": "filled_tankard"
+	},
+	"ale_tankard": {
+		"name": "tankard of ale",
+		"desc": "You take a whiff, it's surprisingly strong.",
+		"type": "filled_tankard"
+	},
+	"bitter_tankard": {
+		"name": "tankard of bitter",
+		"desc": "You take a whiff, it's surprisingly strong.",
+		"type": "filled_tankard"
+	},
+	"perry_tankard": {
+		"name": "tankard of perry",
+		"desc": "You take a whiff, it's surprisingly strong.",
+		"type": "filled_tankard"
+	},
+	
+	
+	
+	"salted_hare": {
+		"name": "salted hare",
+		"desc": "A nicely salted piece of meat.",
+		"type": "food",
+		"value": 1
+	},
+	"salted_pheasant": {
+		"name": "salted pheasant",
+		"desc": "No, not a salted peasant.",
+		"type": "food",
+		"value": 1
+	},
+	"salted_mutton": {
+		"name": "salted mutton",
+		"desc": "A nicely salted piece of meat.",
+		"type": "food",
+		"value": 1
+	},
+	"salted_pork": {
+		"name": "salted pork",
+		"desc": "A nicely salted piece of meat.",
+		"type": "food",
+		"value": 1
+	},
+	"salted_beef": {
+		"name": "salted beef",
+		"desc": "A nicely salted piece of meat.",
+		"type": "food",
+		"value": 1
+	},
+	
+	
+	
+	"wheat_crackers": {
+		"name": "wheat cracker",
+		"stack": true,
+		"plural": "wheat crackers",
+		"desc": "Some rather bland wheat crackers.",
+		"type": "food",
+		"value": 1
+	},
+	"oat_crackers": {
+		"name": "oat cracker",
+		"stack": true,
+		"plural": "oat crackers",
+		"desc": "Some rather bland oat crackers.",
+		"type": "food",
+		"value": 1
+	},
+	"walnut_crackers": {
+		"name": "walnut cracker",
+		"stack": true,
+		"plural": "walnut crackers",
+		"desc": "Some fancy walnut crackers.",
+		"type": "food",
+		"value": 1
+	},
+	"olive_crackers": {
+		"name": "olive cracker",
+		"stack": true,
+		"plural": "olive crackers",
+		"desc": "Some fancy olive crackers.",
+		"type": "food",
+		"value": 1
+	},
+	
+	
+	"light_mushroom": {
+		"name": "lightshroom",
+		"stack": true,
+		"plural": "lightshrooms",
+		"desc": "Fascinating bioluminescence.",
+		"type": "food",
+		"value": 1
+	},
+	"mushroom": {
+		"name": "mushroom",
+		"plural": "mushrooms",
+		"desc": "'Tis but a regular cave shroom.",
+		"type": "food",
+		"value": 1,
+		"effects": [{"id": "fatigue"}, {"id": "poison"}]
+	},
+	"dried_mushroom": {
+		"name": "dried mushroom",
+		"stack": true,
+		"plural": "dried mushrooms",
+		"desc": "I wonder how old these are.",
+		"type": "food",
+		"value": 1
+	},
+	"old_cheese_wheel": {
+		"name": "old cheese wheel",
+		"desc": "A very old wheel of cheese.",
+		"type": "food",
+		"value": 1
+	},
+	"moldy_cheese": {
+		"name": "moldy cheese",
+		"desc": "A piece of cheese covered by fungus, though it appears to be normal.",
+		"type": "food",
+		"value": 1
+	},
+}

@@ -1,0 +1,422 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\MonoGame\v3.0\MonoGame.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\MonoGame\v3.0\MonoGame.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{A24E65E0-CF0C-4C6B-858B-4A1EFEDD1324}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Azzandra</RootNamespace>
+    <AssemblyName>Azzandra</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <MonoGamePlatform>Windows</MonoGamePlatform>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\$(MonoGamePlatform)\$(Platform)\$(Configuration)\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;WINDOWS</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\$(MonoGamePlatform)\$(Platform)\$(Configuration)\</OutputPath>
+    <DefineConstants>TRACE;WINDOWS</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Icon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <PlatformTarget>x64</PlatformTarget>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <PlatformTarget>x64</PlatformTarget>
+    <OutputPath>bin\x64\Release\</OutputPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Client\CentralInterface\ControlsInterface.cs" />
+    <Compile Include="Client\CentralInterface\VictoryInterface.cs" />
+    <Compile Include="Client\CentralInterface\GameOverInterface.cs" />
+    <Compile Include="Client\CentralInterface\SkillUpInterface.cs" />
+    <Compile Include="Client\CentralInterface\SettingsInterface.cs" />
+    <Compile Include="Client\CentralInterface\PausedInterface.cs" />
+    <Compile Include="Client\CentralInterface\PausedInterfaceOld.cs" />
+    <Compile Include="Client\InterfaceItems\ButtonDark.cs" />
+    <Compile Include="Client\InterfaceItems\ButtonFormat.cs" />
+    <Compile Include="Client\InterfaceItems\InterfaceItem.cs" />
+    <Compile Include="Client\InterfaceItems\ScrollBar.cs" />
+    <Compile Include="Client\ScrollableSurface.cs" />
+    <Compile Include="Client\Settings\Settings.cs" />
+    <Compile Include="Client\InterfaceItems\CheckBox.cs" />
+    <Compile Include="Client\InterfaceItems\InputField.cs" />
+    <Compile Include="Client\InterfaceItems\Button.cs" />
+    <Compile Include="Client\Menu\GameCreation\CreationStageName.cs" />
+    <Compile Include="Client\Menu\GameCreation\CreationStageClass.cs" />
+    <Compile Include="Client\Menu\GameCreation\GameCreationScene.cs" />
+    <Compile Include="Client\Menu\GameCreation\IGameCreationStage.cs" />
+    <Compile Include="Client\Menu\GameCreation\CreationStageStats.cs" />
+    <Compile Include="Client\Menu\MenuBackgroundRenderer.cs" />
+    <Compile Include="Client\Menu\SettingsScene.cs" />
+    <Compile Include="Client\Menu\MenuScene2.cs" />
+    <Compile Include="Client\Menu\StoryScene.cs" />
+    <Compile Include="Client\Menu\MenuScene.cs" />
+    <Compile Include="Client\GameClient.cs" />
+    <Compile Include="Client\IScene.cs" />
+    <Compile Include="Client\Mouse\ItemMenuOld.cs" />
+    <Compile Include="Client\Settings\SettingsRenderer.cs" />
+    <Compile Include="Client\Tab\SpellsInterface.cs" />
+    <Compile Include="Client\TextInputBuilder.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Server\Data\SpellData.cs" />
+    <Compile Include="Server\Data\InstRef.cs" />
+    <Compile Include="Server\Generation\AreaGeneration\AreaObelisk.cs" />
+    <Compile Include="Server\Generation\AreaGeneration\RoomLibrary.cs" />
+    <Compile Include="Server\Generation\AreaGeneration\RoomBrewing.cs" />
+    <Compile Include="Server\Generation\AreaGeneration\AreaCamp.cs" />
+    <Compile Include="Server\Generation\AreaGeneration\RoomTemple.cs" />
+    <Compile Include="Server\Generation\Brushes\ScatterBrush.cs" />
+    <Compile Include="Server\Generation\AreaGeneration\AreaNothing.cs" />
+    <Compile Include="Server\Generation\AreaGeneration\AreaMushrooms.cs" />
+    <Compile Include="Server\Generation\AreaGeneration\AreaChest.cs" />
+    <Compile Include="Server\Generation\AreaGeneration\AreaShrine.cs" />
+    <Compile Include="Server\Generation\Spawners\Graves.cs" />
+    <Compile Include="Server\Instances\Enemies\1.Frozen\Ghaugh.cs" />
+    <Compile Include="Server\Instances\Enemies\1.Frozen\LostMage.cs" />
+    <Compile Include="Server\Instances\Enemies\1.Frozen\AlphaWolf.cs" />
+    <Compile Include="Server\Instances\Enemies\3.Fiery\DustMephit.cs" />
+    <Compile Include="Server\Instances\Enemies\2.Overgrown\CarnivorousPlant.cs" />
+    <Compile Include="Server\Instances\Enemies\1.Frozen\Gargoyle.cs" />
+    <Compile Include="Server\Instances\Enemies\0.Universal\GiantSkeleton.cs" />
+    <Compile Include="Server\Instances\Enemies\2.Overgrown\GelatinousCubeSmall.cs" />
+    <Compile Include="Server\Instances\Enemies\2.Overgrown\ShadowHound.cs" />
+    <Compile Include="Server\Instances\Enemies\2.Overgrown\Necromancer.cs" />
+    <Compile Include="Server\Instances\Enemies\1.Frozen\CaveWormTail.cs" />
+    <Compile Include="Server\Instances\Enemies\1.Frozen\CaveWorm.cs" />
+    <Compile Include="Server\Instances\Enemies\2.Overgrown\Ooze.cs" />
+    <Compile Include="Server\Instances\Enemies\2.Overgrown\Troll.cs" />
+    <Compile Include="Server\Instances\Enemies\3.Fiery\Enchanter.cs" />
+    <Compile Include="Server\Instances\Enemies\3.Fiery\Choker.cs" />
+    <Compile Include="Server\Instances\Helper\Actions\ActionInstance.cs" />
+    <Compile Include="Server\Instances\Helper\Actions\ActionInteract.cs" />
+    <Compile Include="Server\Instances\Helper\Actions\ActionDirectional.cs" />
+    <Compile Include="Server\Instances\Helper\Actions\ActionSwap.cs" />
+    <Compile Include="Server\Instances\Helper\Actions\ActionRest.cs" />
+    <Compile Include="Server\Instances\Helper\Actions\ActionPush.cs" />
+    <Compile Include="Server\Instances\Helper\Actions\ActionVector.cs" />
+    <Compile Include="Server\Instances\Helper\Actions\ActionSpellAcute.cs" />
+    <Compile Include="Server\Instances\Helper\Actions\Templates\TemplateSpellAcute.cs" />
+    <Compile Include="Server\Instances\Helper\Affects\DirectDamage.cs" />
+    <Compile Include="Server\Instances\Helper\Affects\AttackProperties\AttackProperties.cs" />
+    <Compile Include="Server\Instances\Helper\Affects\ISpellEffect.cs" />
+    <Compile Include="Server\Instances\Helper\Affects\SpellEffectAcute.cs" />
+    <Compile Include="Server\Instances\Helper\Affects\SpellEffectVector.cs" />
+    <Compile Include="Server\Instances\Helper\Affects\HitType.cs" />
+    <Compile Include="Server\Instances\Projectile\LightningProjectile.cs" />
+    <Compile Include="Server\Instances\Projectile\DustCloud.cs" />
+    <Compile Include="Server\Instances\Projectile\VectorTargetProjectile.cs" />
+    <Compile Include="Server\Instances\TileInstance\Bookcase.cs" />
+    <Compile Include="Server\Instances\TileInstance\CursedChest.cs" />
+    <Compile Include="Server\Instances\TileInstance\GiantMushroom.cs" />
+    <Compile Include="Server\Instances\TileInstance\Altar.cs" />
+    <Compile Include="Server\Instances\TileInstance\Obelisk.cs" />
+    <Compile Include="Server\Instances\TileInstance\Shrine.cs" />
+    <Compile Include="Server\Items\Consumables\Consumable.cs" />
+    <Compile Include="Server\Items\Consumables\Potion.cs" />
+    <Compile Include="Server\Items\Consumables\Drink.cs" />
+    <Compile Include="Server\Items\Consumables\FilledTankard.cs" />
+    <Compile Include="Server\Items\Consumables\FoodEffect.cs" />
+    <Compile Include="Server\Items\Equipment\Staff.cs" />
+    <Compile Include="Server\Items\Equipment\MagicWeapon.cs" />
+    <Compile Include="Server\Region.cs" />
+    <Compile Include="Server\Data\Droptables\Droptable.cs" />
+    <Compile Include="Server\Data\Droptables\DroptableConverter.cs" />
+    <Compile Include="Server\Data\Droptables\DroptableEntry.cs" />
+    <Compile Include="Server\Generation\AccessibilityCheckerOld.cs" />
+    <Compile Include="Server\Generation\Brushes\Brush.cs" />
+    <Compile Include="Server\Generation\Brushes\BlobBrush.cs" />
+    <Compile Include="Server\Generation\Brushes\SpreadBrush.cs" />
+    <Compile Include="Server\Generation\Calculator.cs" />
+    <Compile Include="Server\Generation\Generators\GeneratorBossLevel.cs" />
+    <Compile Include="Server\Generation\LakeData.cs" />
+    <Compile Include="Server\Generation\LootGenerator.cs" />
+    <Compile Include="Server\Generation\Generators\PopulatorBossLevel.cs" />
+    <Compile Include="Server\Generation\AreaGeneration\AreaData.cs" />
+    <Compile Include="Server\Generation\Spawners\Haunted.cs" />
+    <Compile Include="Server\Generation\Spawners\Living.cs" />
+    <Compile Include="Server\Instances\Helper\Actions\ActionItem.cs" />
+    <Compile Include="Server\Instances\Helper\Actions\ActionVectorSpell.cs" />
+    <Compile Include="Server\Instances\Helper\Actions\ActionLeapAttack.cs" />
+    <Compile Include="Server\Instances\Helper\Actions\ActionAffect.cs" />
+    <Compile Include="Server\Instances\Helper\Actions\ActionPath.cs" />
+    <Compile Include="Server\Instances\Helper\Actions\ActionMoveTo.cs" />
+    <Compile Include="Server\Instances\Helper\Actions\ActionMove.cs" />
+    <Compile Include="Server\Instances\Helper\Actions\EntityAction.cs" />
+    <Compile Include="Server\Instances\Helper\Animations\AttackAnimation.cs" />
+    <Compile Include="Server\Instances\Helper\Animations\IAnimation.cs" />
+    <Compile Include="Server\Instances\Helper\Affects\Affect.cs" />
+    <Compile Include="Server\Instances\Helper\Actions\Templates\TemplateAffect.cs" />
+    <Compile Include="Server\Instances\Helper\Actions\Templates\TemplateAttack.cs" />
+    <Compile Include="Server\Instances\Helper\Actions\Templates\TemplateSpell.cs" />
+    <Compile Include="Server\Instances\Helper\Actions\Templates\ActionTemplate.cs" />
+    <Compile Include="Server\Instances\Helper\Affects\Style.cs" />
+    <Compile Include="Server\Instances\Helper\Affects\SpellEffect.cs" />
+    <Compile Include="Server\Data\EnemyData.cs" />
+    <Compile Include="Server\Instances\Helper\Animations\MovementAnimation.cs" />
+    <Compile Include="Server\Instances\Helper\Affects\SpellEffects\SpellEffects.cs" />
+    <Compile Include="Server\Instances\Enemies\0.Universal\CrystalGolem.cs" />
+    <Compile Include="Server\Instances\Enemies\0.Universal\RockGolem.cs" />
+    <Compile Include="Server\Instances\Enemies\0.Universal\Hobgoblin.cs" />
+    <Compile Include="Server\Instances\Enemies\1.Frozen\Ghast.cs" />
+    <Compile Include="Server\Instances\Enemies\2.Overgrown\VineBlight.cs" />
+    <Compile Include="Server\Instances\Enemies\2.Overgrown\ToxicSpider.cs" />
+    <Compile Include="Server\Instances\Enemies\2.Overgrown\WolfSpider.cs" />
+    <Compile Include="Server\Instances\Enemies\2.Overgrown\VampireBat.cs" />
+    <Compile Include="Server\Instances\Enemies\0.Universal\ArmouredSkeleton.cs" />
+    <Compile Include="Server\Instances\Enemies\1.Frozen\ShadowElemental.cs" />
+    <Compile Include="Server\Instances\Enemies\Rabnach.cs" />
+    <Compile Include="Server\Instances\Enemies\3.Fiery\Cockatrice.cs" />
+    <Compile Include="Server\Instances\Enemies\3.Fiery\FireGiant.cs" />
+    <Compile Include="Server\Instances\Enemies\3.Fiery\Hellhound.cs" />
+    <Compile Include="Server\Instances\Enemies\3.Fiery\FireElemental.cs" />
+    <Compile Include="Server\Instances\Projectile\TargetProjectileMoving.cs" />
+    <Compile Include="Server\Instances\Projectile\ShadowCloud.cs" />
+    <Compile Include="Server\Instances\Projectile\Vine.cs" />
+    <Compile Include="Server\Instances\Projectile\SpellProjectile.cs" />
+    <Compile Include="Server\Instances\Projectile\ArrowProjectile.cs" />
+    <Compile Include="Server\Data\Droptables\DroptableEntryConverter.cs" />
+    <Compile Include="Server\Instances\TileInstance\Barrel.cs" />
+    <Compile Include="Server\Instances\TileInstance\Campfire.cs" />
+    <Compile Include="Server\Instances\TileInstance\GroundFire.cs" />
+    <Compile Include="Server\Instances\TileInstance\Chest.cs" />
+    <Compile Include="Server\Instances\TileInstance\LockedDoor.cs" />
+    <Compile Include="Server\Instances\TileInstance\Abstract\MultipleItemContainer.cs" />
+    <Compile Include="Server\Instances\TileInstance\Abstract\SingleItemContainer.cs" />
+    <Compile Include="Server\Items\Essence.cs" />
+    <Compile Include="Server\Items\Consumables\FoodContainer.cs" />
+    <Compile Include="Server\Items\IFilledContainer.cs" />
+    <Compile Include="Server\Server.cs" />
+    <Compile Include="Client\DebugRenderer.cs" />
+    <Compile Include="Server\User\DrinkData.cs" />
+    <Compile Include="Server\User\LearnedSpell.cs" />
+    <Compile Include="Server\User\UserInventory.cs" />
+    <Compile Include="Server\User\PlayerClass.cs" />
+    <Compile Include="Server\User\Container.cs" />
+    <Compile Include="Server\DoubleKeyDictionary.cs" />
+    <Compile Include="Engine.cs" />
+    <Compile Include="Server\User\Equipment.cs" />
+    <Compile Include="Server\SavingLoading\GameLoader.cs" />
+    <Compile Include="Server\Generation\AccessibilityChecker.cs" />
+    <Compile Include="Server\Generation\Area.cs" />
+    <Compile Include="Server\Generation\Cavern.cs" />
+    <Compile Include="Server\Generation\Connection.cs" />
+    <Compile Include="Server\Generation\ConnectionPotential.cs" />
+    <Compile Include="Server\Generation\Generators\Generator.cs" />
+    <Compile Include="Server\Generation\Pathway.cs" />
+    <Compile Include="Server\Generation\Generators\Populator.cs" />
+    <Compile Include="Server\Generation\Room.cs" />
+    <Compile Include="Server\Generation\AreaGeneration\AreaGenerator.cs" />
+    <Compile Include="Server\Generation\AreaGeneration\RoomStorage.cs" />
+    <Compile Include="Server\Generation\Spawners\SpawnData.cs" />
+    <Compile Include="Server\Generation\Spawners\Spawner.cs" />
+    <Compile Include="Server\Generation\Spawners\Lair.cs" />
+    <Compile Include="Server\Generation\Spawners\Scavenger.cs" />
+    <Compile Include="Server\Data\AttackPropertyID.cs" />
+    <Compile Include="Server\Data\AttackPropertyConverter.cs" />
+    <Compile Include="Server\User\LightLevelCalculator.cs" />
+    <Compile Include="Server\Data\SkillID.cs" />
+    <Compile Include="Server\World\Block.cs" />
+    <Compile Include="Server\World\Blocks\BlockIcicle.cs" />
+    <Compile Include="Server\World\Blocks\BlockVine.cs" />
+    <Compile Include="Server\World\Blocks\BlockCobweb.cs" />
+    <Compile Include="Server\World\Blocks\BlockMushroom.cs" />
+    <Compile Include="Server\World\Blocks\BlockData.cs" />
+    <Compile Include="Server\Data\BlockID.cs" />
+    <Compile Include="Client\Input.cs" />
+    <Compile Include="Server\Instances\Entity.cs" />
+    <Compile Include="Server\Instances\Enemy.cs" />
+    <Compile Include="Server\Instances\Instance.cs" />
+    <Compile Include="Server\Instances\NPC.cs" />
+    <Compile Include="Server\Data\InstanceID.cs" />
+    <Compile Include="Server\Instances\Enemies\3.Fiery\Demon.cs" />
+    <Compile Include="Server\Instances\Enemies\0.Universal\Goblin.cs" />
+    <Compile Include="Server\Instances\Enemies\1.Frozen\IceElemental.cs" />
+    <Compile Include="Server\Instances\Enemies\1.Frozen\IceGiant.cs" />
+    <Compile Include="Server\Instances\Enemies\2.Overgrown\GelatinousCube.cs" />
+    <Compile Include="Server\Instances\Enemies\0.Universal\Skeleton.cs" />
+    <Compile Include="Server\Instances\Enemies\2.Overgrown\Specter.cs" />
+    <Compile Include="Server\Instances\Enemies\0.Universal\Vampire.cs" />
+    <Compile Include="Server\Instances\Enemies\1.Frozen\Wolf.cs" />
+    <Compile Include="Server\Instances\Enemies\0.Universal\Wraith.cs" />
+    <Compile Include="Server\Instances\Helper\Affects\Attack.cs" />
+    <Compile Include="Server\Instances\Helper\Affects\AttackProperty.cs" />
+    <Compile Include="Server\Dir.cs" />
+    <Compile Include="Server\Instances\Helper\EntityStats.cs" />
+    <Compile Include="Server\Instances\Helper\EntityType.cs" />
+    <Compile Include="Server\Instances\Helper\Affects\Hit.cs" />
+    <Compile Include="Server\Instances\Helper\Actions\Path.cs" />
+    <Compile Include="Server\Instances\Helper\Affects\Spell.cs" />
+    <Compile Include="Server\Instances\Helper\StatusEffect.cs" />
+    <Compile Include="Server\Data\StatusEffectID.cs" />
+    <Compile Include="Server\Instances\Helper\StatusEffects\StatusEffects.cs" />
+    <Compile Include="Server\Instances\Player.cs" />
+    <Compile Include="Server\Instances\Projectile\TargetProjectile.cs" />
+    <Compile Include="Server\Instances\Projectile\Projectile.cs" />
+    <Compile Include="Server\Instances\TileInstance\Box.cs" />
+    <Compile Include="Server\Instances\TileInstance\SmallChest.cs" />
+    <Compile Include="Server\Instances\TileInstance\Door.cs" />
+    <Compile Include="Server\Instances\TileInstance\Grave.cs" />
+    <Compile Include="Server\Instances\TileInstance\GroundItem.cs" />
+    <Compile Include="Server\Instances\TileInstance\Stairs.cs" />
+    <Compile Include="Client\Assets.cs" />
+    <Compile Include="Client\ChatInterface\ChatInterface.cs" />
+    <Compile Include="Client\ChatInterface\CommandInput.cs" />
+    <Compile Include="Client\ChatInterface\TextInput.cs" />
+    <Compile Include="Client\Display.cs" />
+    <Compile Include="Client\DisplayHandler.cs" />
+    <Compile Include="Client\Tab\EnvironmentInterface.cs" />
+    <Compile Include="Client\InfoRenderer.cs" />
+    <Compile Include="Client\InfoScreen.cs" />
+    <Compile Include="Client\InputHandler.cs" />
+    <Compile Include="Client\CentralInterface\Interface.cs" />
+    <Compile Include="Client\Mouse\DragItem.cs" />
+    <Compile Include="Client\Mouse\ItemMenu.cs" />
+    <Compile Include="Client\Mouse\MouseItem.cs" />
+    <Compile Include="Client\Surface.cs" />
+    <Compile Include="Client\TabHandler.cs" />
+    <Compile Include="Client\Tab\EquipmentInterface.cs" />
+    <Compile Include="Client\Tab\InventoryInterface.cs" />
+    <Compile Include="Client\Tab\StatsInterface.cs" />
+    <Compile Include="Client\Tab\TabInterface.cs" />
+    <Compile Include="Client\Text\TextDrawer.cs" />
+    <Compile Include="Client\Text\TextFormat.cs" />
+    <Compile Include="Client\Text\TextFormatter.cs" />
+    <Compile Include="Client\View\Symbol.cs" />
+    <Compile Include="Client\View\TileDisplay.cs" />
+    <Compile Include="Client\View\ViewHandler.cs" />
+    <Compile Include="Server\User\Visibility.cs" />
+    <Compile Include="Server\User\VisibilityHandler.cs" />
+    <Compile Include="Server\Instances\Helper\VisibilityCalculator.cs" />
+    <Compile Include="Server\User\Inventory.cs" />
+    <Compile Include="Server\Items\Arrow.cs" />
+    <Compile Include="Server\Items\Bolt.cs" />
+    <Compile Include="Server\Items\Ammunition.cs" />
+    <Compile Include="Server\Items\AmmunitionType.cs" />
+    <Compile Include="Server\Items\Equipment\Crossbow.cs" />
+    <Compile Include="Server\Items\Equipment\Bow.cs" />
+    <Compile Include="Server\Items\Equipment\Equipment.cs" />
+    <Compile Include="Server\Items\Consumables\Food.cs" />
+    <Compile Include="Server\Items\Old\Itemx.cs" />
+    <Compile Include="Server\Items\IAmmunition.cs" />
+    <Compile Include="Server\Items\Equipment\RangedWeapon.cs" />
+    <Compile Include="Server\Items\Equipment\Shield.cs" />
+    <Compile Include="Server\Items\Equipment\Weapon.cs" />
+    <Compile Include="Server\Items\Old\Ammunitions.cs" />
+    <Compile Include="Server\Data\Data.cs" />
+    <Compile Include="Server\Items\Old\Equipments.cs" />
+    <Compile Include="Server\Items\Old\Foods.cs" />
+    <Compile Include="Server\Items\Old\Ingredients.cs" />
+    <Compile Include="Server\Data\ItemConverter.cs" />
+    <Compile Include="Server\Items\Old\ItemID.cs" />
+    <Compile Include="Server\Items\EmptyContainer.cs" />
+    <Compile Include="Server\Items\Old\Generic.cs" />
+    <Compile Include="Server\Items\Item.cs" />
+    <Compile Include="Server\Items\Old\Keys.cs" />
+    <Compile Include="Server\Items\Old\RingOfPower.cs" />
+    <Compile Include="Server\Items\Old\Weapons.cs" />
+    <Compile Include="Server\World\LevelManager.cs" />
+    <Compile Include="Client\Log.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Server\SavingLoading\GameSaver.cs" />
+    <Compile Include="Server\User\Stats\Skill.cs" />
+    <Compile Include="Server\User\Stats\Stats.cs" />
+    <Compile Include="Client\TargetingMode\EntityTargeting.cs" />
+    <Compile Include="Client\TargetingMode\InstanceTargeting.cs" />
+    <Compile Include="Client\TargetingMode\TargetingMode.cs" />
+    <Compile Include="Client\TargetingMode\TileTargeting.cs" />
+    <Compile Include="Server\World\Tile.cs" />
+    <Compile Include="Server\User\User.cs" />
+    <Compile Include="Server\World\BlockPos.cs" />
+    <Compile Include="Util.cs" />
+    <Compile Include="Server\Vector.cs" />
+    <Compile Include="Server\World\Level.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="MonoGame.Framework">
+      <HintPath>$(MonoGameInstallDirectory)\MonoGame\v3.0\Assemblies\Windows\MonoGame.Framework.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Icon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <MonoGameContentReference Include="Content\Content.mgcb" />
+    <None Include="app.manifest" />
+    <None Include="packages.config" />
+    <EmbeddedResource Include="Server\Data\Json\droptable_data.json" />
+    <EmbeddedResource Include="Server\Data\Json\enemy_data.json" />
+    <EmbeddedResource Include="Server\Data\Json\item_data.json" />
+    <EmbeddedResource Include="Server\Data\Json\spell_data.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath)\MonoGame\v3.0\MonoGame.Content.Builder.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

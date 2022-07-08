@@ -1,0 +1,165 @@
+{
+	"telekinesis": {
+		"name": "telekinesis",
+		"desc": "Get a hold on items beyond your reach.",
+		"spellpoints": 3,
+		"type": "utility",
+		"weight": 12,
+	},
+	"unveil": {
+		"name": "unveil",
+		"desc": "Uncover the true version of something.",
+		"spellpoints": 3,
+		"type": "utility",
+		"weight": 12,
+	},
+	"shatter": {
+		"name": "shatter",
+		"desc": "Destroy all rocks surrounding you.",
+		"spellpoints": 4,
+		"type": "utility",
+		"weight": 12,
+	},
+	"unlock": {
+		"name": "unlock",
+		"desc": "Allow access to things that are normally inaccessible.",
+		"spellpoints": 4,
+		"type": "utility",
+		"weight": 12,
+	},
+	"teleport": {
+		"name": "teleport",
+		"desc": "Appear at another location in the vicinity.",
+		"spellpoints": 4,
+		"type": "utility",
+		"weight": 12,
+	},
+	"dash": {
+		"name": "dash",
+		"desc": "Move several tiles into a certain direction.",
+		"spellpoints": 3,
+		"type": "utility",
+		"weight": 12,
+	},
+	
+	
+	
+	
+	
+	"liberate": {
+		"name": "liberate",
+		"desc": "Free yourself from any restraints.",
+		"spellpoints": 3,
+		"type": "defensive",
+		"weight": 12,
+	},
+	"healing_aura": {
+		"name": "healing aura",
+		"desc": "Heal everyting in a region around you.",
+		"spellpoints": 6,
+		"type": "defensive",
+		"weight": 12,
+	},
+	"cure": {
+		"name": "cure",
+		"desc": "Remove any effects negatively affecting your health.",
+		"spellpoints": 3,
+		"type": "defensive",
+		"weight": 12,
+	},
+	"deflect": {
+		"name": "deflect",
+		"desc": "Return the next incomming hit to its origin.",
+		"spellpoints": 3,
+		"type": "defensive",
+		"weight": 12,
+	},
+	"charge": {
+		"name": "charge",
+		"desc": "Protect yourself from incomming hits for 5 turns.",
+		"spellpoints": 4,
+		"type": "defensive",
+		"weight": 12,
+	},
+	
+	
+	
+	
+	
+	"frostbite": {
+		"name": "frostbite",
+		"desc": "Display a nagging cold to your opponent.",
+		"spellpoints": 4,
+		"type": "offensive",
+		"tier": 1,
+		"weight": 12,
+	},
+	"freeze": {
+		"name": "freeze",
+		"desc": "Stop your opponent from moving.",
+		"spellpoints": 3,
+		"type": "offensive",
+		"tier": 1,
+		"weight": 12,
+	},
+	"ensnare": {
+		"name": "ensnare",
+		"desc": "Stop your opponent from moving.",
+		"spellpoints": 4,
+		"type": "offensive",
+		"tier": 2,
+		"weight": 12,
+	},
+	"weaken": {
+		"name": "weaken",
+		"desc": "Reduce your opponent's armour effectiveness.",
+		"spellpoints": 2,
+		"type": "offensive",
+		"weight": 12,
+	},
+	"blind": {
+		"name": "blind",
+		"desc": "Marginally reduce your opponent's vision.",
+		"spellpoints": 2,
+		"type": "offensive",
+		"tier": 2,
+		"weight": 12,
+	},
+	"lightning": {
+		"name": "lightning",
+		"desc": "Send out a beam of agonizing lightning.",
+		"spellpoints": 5,
+		"type": "offensive",
+		"tier": 3,
+		"weight": 12,
+	},
+	"detonate": {
+		"name": "detonate",
+		"desc": "Create an explosion at a certain location.",
+		"spellpoints": 6,
+		"type": "offensive",
+		"tier": 3,
+		"weight": 12,
+	},
+	"disorient": {
+		"name": "disorient",
+		"desc": "Confuse your opponent to be unable to traverse a path.",
+		"spellpoints": 3,
+		"type": "offensive",
+		"weight": 12,
+	},
+	"wind_blast": {
+		"name": "wind blast",
+		"desc": "Create strong wave of air towards an enemy.",
+		"spellpoints": 3,
+		"type": "offensive",
+		"weight": 12,
+	},
+	"whirlwind": {
+		"name": "whirlwind",
+		"desc": "Blow every opponent surrounding you away.",
+		"spellpoints": 4,
+		"type": "offensive",
+		"weight": 12,
+	},
+}

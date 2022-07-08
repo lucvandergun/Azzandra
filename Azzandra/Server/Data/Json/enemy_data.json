@@ -1,0 +1,821 @@
+{
+	"goblin": {
+		"entitytypes": [ "goblin" ],
+		"stats": {
+			"health": 6,
+			"evade": 3,
+			"parry": 1,
+			"block": 0,
+			"resistance": 0,
+			"armour": 2
+		},
+		"attacks": [
+			{
+				"style": "melee",
+				"speed": 1,
+				"accuracy": 2,
+				"damage": 2
+			}
+		]
+	},
+
+	"hobgoblin": {
+		"entitytypes": [ "goblin" ],
+		"stats": {
+			"health": 8,
+			"evade": 5,
+			"parry": 5,
+			"block": 0,
+			"resistance": 4,
+			"armour": 8
+		},
+		"attacks": [
+			{
+				"style": "melee",
+				"speed": 1,
+				"accuracy": 5,
+				"damage": 5
+			}
+		]
+	},
+	
+	"skeleton": {
+		"entitytypes": [ "undead" ],
+		"stats": {
+			"health": 9,
+			"evade": 0,
+			"parry": 0,
+			"block": 0,
+			"resistance": 2,
+			"armour": 0
+		},
+		"attacks": [
+			{
+				"style": "melee",
+				"speed": 1,
+				"accuracy": 2,
+				"damage": 3
+			}
+		]
+	},
+
+	"armoured_skeleton": {
+		"entitytypes": [ "undead" ],
+		"stats": {
+			"health": 12,
+			"evade": 0,
+			"parry": 10,
+			"block": 15,
+			"resistance": 2,
+			"armour": 10
+		},
+		"attacks": [
+			{
+				"style": "melee",
+				"speed": 1,
+				"accuracy": 4,
+				"damage": 6
+			}
+		]
+	},
+	
+	"giant_skeleton": {
+		"entitytypes": [ "undead" ],
+		"stats": {
+			"health": 18,
+			"evade": 0,
+			"parry": 6,
+			"block": 6,
+			"resistance": 5,
+			"armour": 0
+		},
+		"attacks": [
+			{
+				"style": "melee",
+				"speed": 2,
+				"accuracy": 10,
+				"damage": 10
+			}
+		]
+	},
+
+	"wraith": {
+		"entitytypes": [ "spirit" ],
+		"stats": {
+			"health": 31,
+			"evade": 10,
+			"parry": 10,
+			"block": 0,
+			"resistance": 20,
+			"armour": 0
+		},
+		"attacks": [
+			{
+				"style": "melee",
+				"speed": 1,
+				"accuracy": 7,
+				"damage": 6
+			}
+		]
+	},
+
+	"rock_golem": {
+		"entitytypes": [ "rock", "animated" ],
+		"stats": {
+			"health": 13,
+			"evade": 0,
+			"parry": 0,
+			"block": 10,
+			"resistance": 5,
+			"armour": 5
+		},
+		"attacks": [
+			{
+				"style": "melee",
+				"speed": 2,
+				"accuracy": 5,
+				"damage": 7
+			},
+			{
+				"style": "ranged",
+				"speed": 2,
+				"range": 8,
+				"accuracy": 4,
+				"damage": 6
+			}
+		]
+	},
+	
+	"crystal_golem": {
+		"entitytypes": [ "rock", "animated" ],
+		"stats": {
+			"health": 16,
+			"evade": 0,
+			"parry": 0,
+			"block": 14,
+			"resistance": 8,
+			"armour": 15
+		},
+		"attacks": [
+			{
+				"style": "melee",
+				"speed": 2,
+				"accuracy": 7,
+				"damage": 12
+			},
+			{
+				"style": "ranged",
+				"speed": 2,
+				"range": 8,
+				"accuracy": 6,
+				"damage": 10
+			}
+		]
+	},
+	
+	
+	
+	
+	
+	"gargoyle": {
+		"entitytypes": [ "rock" ],
+		"stats": {
+			"health": 12,
+			"evade": 0,
+			"parry": 0,
+			"block": 10,
+			"resistance": 5,
+			"armour": 5
+		},
+		"attacks": [
+			{
+				"style": "melee",
+				"speed": 1,
+				"accuracy": 6,
+				"damage": 7
+			}
+		]
+	},
+	
+	"ice_elemental": {
+		"stats": {
+			"health": 11,
+			"evade": 0,
+			"parry": 0,
+			"block": 0,
+			"resistance": 3,
+			"armour": 0
+		},
+		"attacks": [
+			{
+				"style": "melee",
+				"speed": 1,
+				"accuracy": 4,
+				"damage": 2,
+				"properties": [{"id": "frost", "level": 1}]
+			},
+			{
+				"style": "ranged",
+				"speed": 2,
+				"range": 6,
+				"accuracy": 4,
+				"damage": 3,
+				"properties": [{"id": "frost", "level": 1}]
+			}
+		]
+	},
+	
+	"ice_giant": {
+		"stats": {
+			"health": 16,
+			"evade": 0,
+			"parry": 0,
+			"block": 10,
+			"resistance": 4,
+			"armour": 6
+		},
+		"attacks": [
+			{
+				"style": "melee",
+				"speed": 2,
+				"range": 2,
+				"accuracy": 11,
+				"damage": 9
+			},
+			{
+				"style": "ranged",
+				"speed": 2,
+				"range": 8,
+				"accuracy": 11,
+				"damage": 9
+			},
+			{
+				"style": "magic",
+				"speed": 2,
+				"range": 6,
+				"accuracy": 11,
+				"damage": 9,
+				"properties": [{"id": "frostbite", "level": 1}]
+			}
+		]
+	},
+	
+	"ghaugh": {
+		"stats": {
+			"health": 9,
+			"evade": 8,
+			"parry": 0,
+			"block": 0,
+			"resistance": 2,
+			"armour": 4
+		},
+		"attacks": [
+			{
+				"style": "melee",
+				"speed": 1,
+				"accuracy": 5,
+				"damage": 6,
+				"properties": [{"id": "knockback", "level": 1}]
+			}
+		]
+	},
+	
+	"lost_mage": {
+		"stats": {
+			"health": 12,
+			"evade": 3,
+			"parry": 0,
+			"block": 0,
+			"resistance": 5,
+			"armour": 0
+		},
+		"attacks": [
+			{
+				"style": "magic",
+				"speed": 2,
+				"range": 6,
+				"accuracy": 3,
+				"damage": 3
+			}
+		]
+	},
+	
+	"cave_worm": {
+		"stats": {
+			"health": 12,
+			"evade": 0,
+			"parry": 0,
+			"block": 0,
+			"resistance": 0,
+			"armour": 0
+		},
+		"attacks": [
+			{
+				"style": "melee",
+				"speed": 1,
+				"accuracy": 4,
+				"damage": 4,
+				"properties": [{"id": "poison", "level": 1}]
+			}
+		]
+	},
+	
+	"shadow_elemental": {
+		"stats": {
+			"health": 11,
+			"evade": 5,
+			"parry": 0,
+			"block": 0,
+			"resistance": 7,
+			"armour": 0
+		},
+		"attacks": [
+			{
+				"style": "magic",
+				"speed": 2,
+				"accuracy": 8,
+				"damage": 6
+			},
+			{
+				"style": "ranged",
+				"speed": 2,
+				"range": 6,
+				"accuracy": 7,
+				"damage": 5
+			}
+		]
+	},
+	
+	"wolf": {
+		"stats": {
+			"health": 8,
+			"evade": 5,
+			"parry": 0,
+			"block": 0,
+			"resistance": 0,
+			"armour": 0
+		},
+		"attacks": [
+			{
+				"style": "melee",
+				"speed": 1,
+				"accuracy": 2,
+				"damage": 2
+			}
+		]
+	},
+	
+	"alpha_wolf": {
+		"stats": {
+			"health": 12,
+			"evade": 7,
+			"parry": 0,
+			"block": 0,
+			"resistance": 0,
+			"armour": 0
+		},
+		"attacks": [
+			{
+				"style": "melee",
+				"speed": 1,
+				"accuracy": 4,
+				"damage": 4
+			}
+		]
+	},
+	
+	"troll": {
+		"stats": {
+			"health": 26,
+			"evade": 4,
+			"parry": 6,
+			"block": 0,
+			"resistance": 0,
+			"armour": 2
+		},
+		"attacks": [
+			{
+				"style": "melee",
+				"speed": 2,
+				"accuracy": 6,
+				"damage": 12
+			}
+		]
+	},
+	
+	"ghast": {
+		"stats": {
+			"health": 22,
+			"evade": 9,
+			"parry": 0,
+			"block": 0,
+			"resistance": 10,
+			"armour": 0
+		},
+		"attacks": [
+			{
+				"style": "melee",
+				"speed": 2,
+				"accuracy": 7,
+				"damage": 7,
+			}
+		]
+	},
+	
+	
+	
+	
+	
+	"gelatinous_cube": {
+		"entitytypes": [ "acid" ],
+		"stats": {
+			"health": 27,
+			"evade": 0,
+			"parry": 0,
+			"block": 0,
+			"resistance": 0,
+			"armour": 0
+		},
+		"attacks": [
+			
+		]
+	},
+	
+	"ooze": {
+		"entitytypes": [ "acid" ],
+		"stats": {
+			"health": 25,
+			"evade": 0,
+			"parry": 0,
+			"block": 0,
+			"resistance": 0,
+			"armour": 0
+		},
+		"attacks": [
+			{
+				"style": "melee",
+				"speed": 2,
+				"accuracy": 9,
+				"damage": 9
+			}
+		]
+	},
+	
+	"carnivorous_plant": {
+		"entitytypes": [ "plant" ],
+		"stats": {
+			"health": 28,
+			"evade": 0,
+			"parry": 0,
+			"block": 0,
+			"resistance": 0,
+			"armour": 0
+		},
+		"attacks": [
+			{
+				"style": "melee",
+				"speed": 2,
+				"range": 2,
+				"accuracy": 18,
+				"damage": 18
+			}
+		]
+	},
+	
+	"specter": {
+		"entitytypes": [ "undead" ],
+		"stats": {
+			"health": 30,
+			"evade": 12,
+			"parry": 0,
+			"block": 0,
+			"resistance": 11,
+			"armour": 0
+		},
+		"attacks": [
+			{
+				"style": "melee",
+				"speed": 1,
+				"accuracy": 8,
+				"damage": 8
+			}
+		]
+	},
+	
+	"vampire_bat": {
+		"entitytypes": [ "beast" ],
+		"stats": {
+			"health": 19,
+			"evade": 15,
+			"parry": 0,
+			"block": 0,
+			"resistance": 8,
+			"armour": 0
+		},
+		"attacks": [
+			{
+				"style": "melee",
+				"speed": 1,
+				"accuracy": 10,
+				"damage": 7,
+				"properties": [{"id": "healing", "level": 2}]
+			}
+		]
+	},
+	
+	"vine_blight": {
+		"entitytypes": [ "plant" ],
+		"stats": {
+			"health": 18,
+			"evade": 0,
+			"parry": 5,
+			"block": 0,
+			"resistance": 6,
+			"armour": 6
+		},
+		"attacks": [
+			
+		]
+	},
+	
+	"wolf_spider": {
+		"entitytypes": [ "arachnid" ],
+		"stats": {
+			"health": 33,
+			"evade": 4,
+			"parry": 0,
+			"block": 0,
+			"resistance": 3,
+			"armour": 2
+		},
+		"attacks": [
+			{
+				"style": "melee",
+				"speed": 2,
+				"range": 2,
+				"accuracy": 12,
+				"damage": 12
+			},
+		]
+	},
+	
+	"toxic_spider": {
+		"entitytypes": [ "arachnid" ],
+		"stats": {
+			"health": 4,
+			"evade": 15,
+			"parry": 0,
+			"block": 0,
+			"resistance": 2,
+			"armour": 0
+		},
+		"attacks": [
+			{
+				"style": "melee",
+				"speed": 1,
+				"accuracy": 15,
+				"damage": 5,
+				"properties": [{"id": "poison", "level": 3}]
+			}
+		]
+	},
+	
+	"shadow_hound": {
+		"entitytypes": [ "beast" ],
+		"stats": {
+			"health": 15,
+			"evade": 10,
+			"parry": 0,
+			"block": 0,
+			"resistance": 5,
+			"armour": 0
+		},
+		"attacks": [
+			{
+				"style": "melee",
+				"speed": 1,
+				"accuracy": 8,
+				"damage": 8,
+				"properties": [{"id": "blind", "level": 2}]
+			}
+		]
+	},
+	
+	"necromancer": {
+		"stats": {
+			"health": 24,
+			"evade": 7,
+			"parry": 0,
+			"block": 0,
+			"resistance": 8,
+			"armour": 0
+		},
+		"attacks": [
+			{
+				"style": "magic",
+				"speed": 2,
+				"range": 6,
+				"accuracy": 6,
+				"damage": 6
+			}
+		]
+	},
+	
+	
+	
+	
+	
+	"fire_elemental": {
+		"entitytypes": [ "fire" ],
+		"stats": {
+			"health": 20,
+			"evade": 8,
+			"parry": 0,
+			"block": 0,
+			"resistance": 8,
+			"armour": 0
+		},
+		"attacks": [
+			{
+				"style": "magic",
+				"speed": 2,
+				"range": 6,
+				"accuracy": 11,
+				"damage": 6,
+				"properties": [{"id": "fire", "level": 2}]
+			}
+		]
+	},
+	
+	"demon": {
+		"entitytypes": [ "demon" ],
+		"stats": {
+			"health": 27,
+			"evade": 6,
+			"parry": 15,
+			"block": 15,
+			"resistance": 15,
+			"armour": 10
+		},
+		"attacks": [
+			{
+				"style": "melee",
+				"speed": 2,
+				"range": 2,
+				"accuracy": 21,
+				"damage": 21
+			},
+			{
+				"style": "magic",
+				"speed": 2,
+				"range": 8,
+				"accuracy": 19,
+				"damage": 18
+			}
+		]
+	},
+	
+	"cockatrice": {
+		"stats": {
+			"health": 30,
+			"evade": 10,
+			"parry": 0,
+			"block": 0,
+			"resistance": 13,
+			"armour": 0
+		},
+		"attacks": [
+			{
+				"style": "melee",
+				"speed": 1,
+				"accuracy": 12,
+				"damage": 9
+			}
+		]
+	},
+	
+	"hellhound": {
+		"stats": {
+			"health": 23,
+			"evade": 14,
+			"parry": 0,
+			"block": 0,
+			"resistance": 6,
+			"armour": 0
+		},
+		"attacks": [
+			{
+				"style": "melee",
+				"speed": 1,
+				"accuracy": 12,
+				"damage": 11
+			}
+		]
+	},
+	
+	"fire_giant": {
+		"stats": {
+			"health": 21,
+			"evade": 8,
+			"parry": 20,
+			"block": 0,
+			"resistance": 9,
+			"armour": 15
+		},
+		"attacks": [
+			{
+				"style": "melee",
+				"speed": 2,
+				"range": 2,
+				"accuracy": 20,
+				"damage": 20,
+				"properties": [{"id": "fire", "level": 2}]
+			},
+			{
+				"style": "ranged",
+				"speed": 2,
+				"range": 8,
+				"accuracy": 16,
+				"damage": 16,
+				"properties": [{"id": "fire", "level": 2}]
+			}
+		]
+	},
+	
+	"choker": {
+		"stats": {
+			"health": 36,
+			"evade": 110,
+			"parry": 0,
+			"block": 0,
+			"resistance": 11,
+			"armour": 0
+		},
+		"attacks": [
+		
+		]
+	},
+	
+	"enchanter": {
+		"stats": {
+			"health": 32,
+			"evade": 15,
+			"parry": 0,
+			"block": 0,
+			"resistance": 18,
+			"armour": 0
+		},
+		"attacks": [
+			{
+				"style": "melee",
+				"speed": 2,
+				"range": 8,
+				"accuracy": 16,
+				"damage": 16
+			}
+		]
+	},
+	
+	"dust_mephit": {
+		"stats": {
+			"health": 39,
+			"evade": 0,
+			"parry": 0,
+			"block": 0,
+			"resistance": 5,
+			"armour": 0
+		},
+		"attacks": [ ]
+	},
+	
+	
+	
+	
+	
+	"rabnach": {
+		"stats": {
+			"health": 103,
+			"evade": 0,
+			"parry": 0,
+			"block": 25,
+			"resistance": 20,
+			"armour": 10
+		},
+		"attacks": [
+			{
+				"style": "melee",
+				"speed": 3,
+				"range": 2,
+				"accuracy": 18,
+				"damage": 18
+			},
+			{
+				"style": "magic",
+				"speed": 3,
+				"range": 8,
+				"accuracy": 18,
+				"damage": 18
+			}
+		]
+	},
+}

@@ -1,0 +1,254 @@
+{
+	"loot_chest":  [
+		{"weight": 12, "table": "loot_weapons"},
+		{"weight": 12, "table": "loot_equipment"}
+	],
+	"loot_barrel":  [
+		{"weight": 12, "table": "loot_ammunition"}
+	],
+
+	"loot_weapons": [
+		{"weight": 12, "tier": 1, "table": "melee_weapons_1"},
+		{"weight": 12, "tier": 2, "table": "melee_weapons_2"},
+		{"weight": 12, "tier": 3, "table": "melee_weapons_3"},
+		{"weight": 8, "tier": 1, "table": "ranged_weapons_1"},
+		{"weight": 8, "tier": 2, "table": "ranged_weapons_2"},
+		{"weight": 8, "tier": 3, "table": "ranged_weapons_3"},
+		{"weight": 8, "tier": 1, "table": "magic_weapons_1"},
+		{"weight": 8, "tier": 2, "table": "magic_weapons_2"},
+		{"weight": 8, "tier": 3, "table": "magic_weapons_3"},
+	],
+	
+	"melee_weapons_1": [
+		{"weight": 12, "itemid": "iron_dirk"},
+		{"weight": 12, "itemid": "iron_broadsword"},
+		{"weight": 12, "itemid": "iron_longsword"},
+		{"weight": 12, "itemid": "iron_greatsword"},
+		{"weight": 6, "itemid": "iron_spear"},
+		{"weight": 6, "itemid": "iron_spear_p"},
+		{"weight": 12, "itemid": "iron_war_axe"},
+		{"weight": 12, "itemid": "iron_mace"},
+	],
+	"ranged_weapons_1": [
+		{"weight": 12, "items": [ {"itemid": "pine_recurve_bow"}, {"itemid": "iron_arrow", "quantityrange": [36,54]} ]},
+		{"weight": 12, "items": [ {"itemid": "pine_longbow"}, {"itemid": "iron_arrow", "quantityrange": [24,36]} ]},
+		{"weight": 12, "items": [ {"itemid": "iron_crossbow"}, {"itemid": "iron_bolt", "quantityrange": [24,36]} ]}
+	],
+	"magic_weapons_1": [
+		{"weight": 12, "itemid": "wind_staff"},
+		{"weight": 12, "itemid": "ice_staff"},
+		{"weight": 12, "itemid": "shadow_staff"},
+		{"weight": 12, "itemid": "fire_staff"}
+	],
+	
+	"melee_weapons_2": [
+		{"weight": 12, "itemid": "steel_dirk"},
+		{"weight": 12, "itemid": "steel_broadsword"},
+		{"weight": 12, "itemid": "steel_longsword"},
+		{"weight": 12, "itemid": "steel_greatsword"},
+		{"weight": 6, "itemid": "steel_spear"},
+		{"weight": 6, "itemid": "steel_spear_p"},
+		{"weight": 12, "itemid": "steel_war_axe"},
+		{"weight": 12, "itemid": "steel_mace"}
+	],
+	"ranged_weapons_2": [
+		{"weight": 12, "items": [ {"itemid": "oak_recurve_bow"}, {"itemid": "steel_arrow", "quantityrange": [36,54]} ]},
+		{"weight": 12, "items": [ {"itemid": "oak_longbow"}, {"itemid": "steel_arrow", "quantityrange": [24,36]} ]},
+		{"weight": 12, "items": [ {"itemid": "steel_crossbow"}, {"itemid": "steel_bolt", "quantityrange": [24,36]} ]}
+	],
+	"magic_weapons_2": [
+		{"weight": 12, "itemid": "greater_wind_staff"},
+		{"weight": 12, "itemid": "greater_ice_staff"},
+		{"weight": 12, "itemid": "greater_shadow_staff"},
+		{"weight": 12, "itemid": "greater_fire_staff"}
+	],
+	
+	"melee_weapons_3": [
+		{"weight": 12, "itemid": "samarite_dirk"},
+		{"weight": 12, "itemid": "samarite_broadsword"},
+		{"weight": 12, "itemid": "samarite_longsword"},
+		{"weight": 12, "itemid": "samarite_greatsword"},
+		{"weight": 6, "itemid": "samarite_spear"},
+		{"weight": 6, "itemid": "samarite_spear_p"},
+		{"weight": 12, "itemid": "samarite_war_axe"},
+		{"weight": 12, "itemid": "samarite_mace"}
+	],
+	"ranged_weapons_3": [
+		{"weight": 12, "items": [ {"itemid": "yew_recurve_bow"}, {"itemid": "samarite_arrow", "quantityrange": [36,54]} ]},
+		{"weight": 12, "items": [ {"itemid": "yew_longbow"}, {"itemid": "samarite_arrow", "quantityrange": [24,36]} ]},
+		{"weight": 12, "items": [ {"itemid": "samarite_crossbow"}, {"itemid": "samarite_bolt", "quantityrange": [24,36]} ]}
+	],
+	"magic_weapons_3": [
+		{"weight": 12, "itemid": "runic_wind_staff"},
+		{"weight": 12, "itemid": "runic_ice_staff"},
+		{"weight": 12, "itemid": "runic_shadow_staff"},
+		{"weight": 12, "itemid": "runic_fire_staff"}
+	],
+
+
+
+	"loot_equipment": [
+		{"weight": 12, "tier": 1, "table": "loot_iron_equipment"},
+		{"weight": 12, "tier": 1, "table": "loot_leather_equipment"},
+		{"weight": 12, "tier": 2, "table": "loot_steel_equipment"},
+		{"weight": 12, "tier": 3, "table": "loot_samarite_equipment"},
+		{"weight": 12, "tier": 3, "table": "loot_dragonscale_equipment"},
+		{"weight": 6, "tier": 1, "table": "loot_wizard_equipment"},
+		{"weight": 6, "tier": 2, "table": "loot_conjurer_equipment"}
+	],
+	"loot_iron_equipment": [
+		{"weight": 12, "itemid": "iron_buckler"},
+		{"weight": 12, "itemid": "iron_shield"},
+		{"weight": 6, "itemid": "iron_great_helm"},
+		{"weight": 6, "itemid": "iron_helm"},
+		{"weight": 6, "itemid": "iron_chestplate"},
+		{"weight": 6, "itemid": "iron_hauberk"},
+		{"weight": 12, "itemid": "iron_platelegs"},
+		{"weight": 12, "itemid": "iron_sabatons"},
+		{"weight": 12, "itemid": "iron_gauntlets"}
+	],
+	"loot_steel_equipment": [
+		{"weight": 12, "itemid": "steel_buckler"},
+		{"weight": 12, "itemid": "steel_shield"},
+		{"weight": 6, "itemid": "steel_great_helm"},
+		{"weight": 6, "itemid": "steel_helm"},
+		{"weight": 6, "itemid": "steel_chestplate"},
+		{"weight": 6, "itemid": "steel_hauberk"},
+		{"weight": 12, "itemid": "steel_platelegs"},
+		{"weight": 12, "itemid": "steel_sabatons"},
+		{"weight": 12, "itemid": "steel_gauntlets"}
+	],
+	"loot_samarite_equipment": [
+		{"weight": 12, "itemid": "samarite_buckler"},
+		{"weight": 12, "itemid": "samarite_shield"},
+		{"weight": 6, "itemid": "samarite_great_helm"},
+		{"weight": 6, "itemid": "samarite_helm"},
+		{"weight": 6, "itemid": "samarite_chestplate"},
+		{"weight": 6, "itemid": "samarite_hauberk"},
+		{"weight": 12, "itemid": "samarite_platelegs"},
+		{"weight": 12, "itemid": "samarite_sabatons"},
+		{"weight": 12, "itemid": "samarite_gauntlets"}
+	],
+	"loot_leather_equipment": [
+		{"weight": 12, "itemid": "leather_cap"},
+		{"weight": 12, "itemid": "leather_body"},
+		{"weight": 12, "itemid": "leather_chaps"},
+		{"weight": 12, "itemid": "leather_boots"},
+		{"weight": 12, "itemid": "leather_gloves"}
+	],
+	"loot_dragonscale_equipment": [
+		{"weight": 12, "itemid": "dragonscale_cap"},
+		{"weight": 12, "itemid": "dragonscale_body"},
+		{"weight": 12, "itemid": "dragonscale_chaps"},
+		{"weight": 12, "itemid": "dragonscale_boots"},
+		{"weight": 12, "itemid": "dragonscale_gloves"}
+	],
+	"loot_wizard_equipment": [
+		{"weight": 12, "itemid": "wizard_hat"},
+		{"weight": 12, "itemid": "wizard_gown"},
+		{"weight": 12, "itemid": "wizard_robe"},
+		{"weight": 6, "itemid": "wizard_socks"},
+	],
+	"loot_conjurer_equipment": [
+		{"weight": 12, "itemid": "conjurer_hood"},
+		{"weight": 12, "itemid": "conjurer_gown"},
+		{"weight": 12, "itemid": "conjurer_robe"},
+	],
+	
+	"loot_special": [
+		{"weight": 12, "tier": 1, "itemid": "cloak_of_conceilment"},
+		{"weight": 12, "tier": 1, "itemid": "boots_of_dexterity"},
+		{"weight": 12, "tier": 2, "itemid": "amulet_of_evasion"},
+		{"weight": 12, "tier": 3, "itemid": "ring_of_deception"},
+		{"weight": 12, "tier": 3, "itemid": "chime_of_lightness"},
+		
+		{"weight": 12, "tier": 1, "itemid": "buckler_of_augury"},
+		{"weight": 12, "tier": 2, "itemid": "spellguard_shield"},
+		{"weight": 12, "tier": 3, "itemid": "amulet_of_defiance"},
+		
+		{"weight": 12, "tier": 1, "itemid": "pendant_of_strength"},
+		{"weight": 12, "tier": 1, "itemid": "pendant_of_accuracy"},
+		{"weight": 12, "tier": 2, "itemid": "pendant_of_power"},
+		{"weight": 12, "tier": 2, "itemid": "pendant_of_precision"},
+		{"weight": 12, "tier": 2, "itemid": "wizards_talisman"},
+		
+		{"weight": 9, "tier": 1, "itemid": "berserker_battleaxe"},
+		{"weight": 9, "tier": 1, "itemid": "ice_blade"},
+		{"weight": 9, "tier": 2, "itemid": "enchanted_blade"},
+		{"weight": 9, "tier": 2, "itemid": "dagger_of_venom"},
+		{"weight": 9, "tier": 3, "itemid": "obsidian_maul"},
+		{"weight": 9, "tier": 3, "itemid": "fire_dagger"},
+		
+		{"weight": 9, "tier": 1, "items": [ {"itemid": "frost_bow"}, {"itemid": "iron_arrow", "quantityrange": [36,54]} ]},
+		{"weight": 9, "tier": 2, "items": [ {"itemid": "mystic_bow"}, {"itemid": "steel_arrow", "quantityrange": [24,36]} ]},
+		{"weight": 9, "tier": 3, "items": [ {"itemid": "infernal_crossbow"}, {"itemid": "samarite_bolt", "quantityrange": [24,36]} ]},
+		
+		{"weight": 9, "tier": 1, "itemid": "spellbinding_staff"},
+		{"weight": 9, "tier": 2, "itemid": "staff_of_poison"},
+		{"weight": 9, "tier": 3, "itemid": "staff_of_augury"}
+	],
+
+
+
+	"loot_consumables": [
+		{"weight": 12, "table": "loot_ammunition"},
+		{"weight": 24, "table": "loot_food"}
+	],
+	"loot_ammunition": [
+		{"weight": 12, "tier": 1, "itemid": "iron_arrow", "quantityrange": [10,20]},
+		{"weight": 6,  "tier": 1, "itemid": "iron_bolt", "quantityrange": [8,15]},
+		{"weight": 12, "tier": 2, "itemid": "steel_arrow", "quantityrange": [10,20]},
+		{"weight": 6,  "tier": 2, "itemid": "steel_bolt", "quantityrange": [8,15]},
+		{"weight": 12, "tier": 3, "itemid": "samarite_arrow", "quantityrange": [10,20]},
+		{"weight": 6,  "tier": 3, "itemid": "samarite_bolt", "quantityrange": [8,15]}
+	],
+	"loot_food": [
+		{"weight": 12, "tier": 1, "itemid": "salted_hare"},
+		{"weight": 12, "tier": 1, "itemid": "salted_pheasant"},
+		{"weight": 12, "tier": 2, "itemid": "salted_mutton"},
+		{"weight": 12, "tier": 3, "itemid": "salted_pork"},
+		{"weight": 12, "tier": 3, "itemid": "salted_beef"},
+		{"weight": 12, "tier": 1, "itemid": "wheat_crackers", "quantityrange": [1,2]},
+		{"weight": 12, "tier": 2, "itemid": "oat_crackers", "quantityrange": [1,2]},
+		{"weight": 12, "tier": 2, "itemid": "walnut_crackers", "quantityrange": [1,2]},
+		{"weight": 12, "tier": 3, "itemid": "olive_crackers", "quantityrange": [1,2]},
+		{"weight": 12, "tier": 1, "itemid": "dried_mushroom", "quantityrange": [1,3]},
+		{"weight": 12, "tier": 2, "itemid": "moldy_cheese"},
+		{"weight": 12, "tier": 3, "itemid": "old_cheese_wheel", "quantityrange": [1,2]}
+	],
+	
+	"loot_stew": [
+		{"weight": 12, "tier": 1, "itemid": "goblin_pottage"},
+		{"weight": 12, "tier": 1, "itemid": "porridge"},
+		{"weight": 12, "tier": 2, "itemid": "pea_soup"},
+		{"weight": 12, "tier": 2, "itemid": "vegetable_stew"},
+		{"weight": 12, "tier": 3, "itemid": "mushroom_stew"},
+		{"weight": 12, "tier": 3, "itemid": "meat_stew"}
+	],
+	
+	"potions": [
+		{"weight": 12, "tier": 1, "itemid": "life_potion"},
+		{"weight": 12, "tier": 1, "itemid": "healing_potion"},
+		{"weight": 12, "tier": 1, "itemid": "enchanted_potion"},
+		{"weight": 12, "tier": 1, "itemid": "magical_potion"},
+		
+		{"weight": 12, "tier": 2, "itemid": "life_potion"},
+		{"weight": 12, "tier": 2, "itemid": "healing_potion"},
+		{"weight": 12, "tier": 2, "itemid": "enchanted_potion"},
+		{"weight": 12, "tier": 2, "itemid": "magical_potion"},
+		
+		{"weight": 12, "tier": 2, "itemid": "life_potion2"},
+		{"weight": 12, "tier": 2, "itemid": "healing_potion2"},
+		{"weight": 12, "tier": 2, "itemid": "enchanted_potion2"},
+		{"weight": 12, "tier": 2, "itemid": "magical_potion2"},
+		
+		{"weight": 12, "tier": 3, "itemid": "life_potion2"},
+		{"weight": 12, "tier": 3, "itemid": "healing_potion2"},
+		{"weight": 12, "tier": 3, "itemid": "enchanted_potion2"},
+		{"weight": 12, "tier": 3, "itemid": "magical_potion2"},
+		
+		{"weight": 12, "itemid": "regeneration_potion"},
+		{"weight": 12, "itemid": "antidote"},
+		{"weight": 12, "tier": 3, "itemid": "antifire"},
+	],
+}
