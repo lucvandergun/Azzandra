@@ -22,6 +22,10 @@ namespace Azzandra
         public bool IsInBounds(int index) => index >= 0 && index < MAX_ITEMS;
 
         public Item[] Items { get; private set; }
+        public override IEnumerable<Item> GetItems()
+        {
+            return Items;
+        }
         public Item[] WeaponSwap { get; private set; }
         public void RecomputeWeaponSwap(Item returnedMain, Item returnedOff)
         {

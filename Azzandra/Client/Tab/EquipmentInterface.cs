@@ -15,18 +15,19 @@ namespace Azzandra
 
         protected override string Title => "= Equipment =";
         public Equipment Equipment => GameClient.Server?.User.Equipment ?? null;
-        private Item HoverSlot;
-        private int ClickedSlot = -1;
+
+        private ItemListRenderer ItemListRenderer;
 
         public EquipmentInterface(GameClient gameClient) : base(gameClient)
         {
-            
+            ItemListRenderer = new ItemListRenderer(gameClient, () => Equipment, false);
+            ItemListRenderer.NoItem = (i) => "No " + SlotID[i];
         }
 
         protected override void DrawAdditional(Surface surface)
         {
             // Draw tooltip
-            DrawToolTip(surface, HoverSlot);
+            DrawToolTip(surface, ItemListRenderer.HoverSlot);
         }
 
         protected override void RenderSubArea(Rectangle outerRegion, bool isHoverSurface)
@@ -41,90 +42,24 @@ namespace Azzandra
             if (Equipment == null)
                 return;
 
-            HoverSlot = null;
-
             //Render item slots
             int slotHeight = 20;
             var startOffset = new Vector2(0, 0);
             var slotSize = new Vector2(surface.Width / 2, slotHeight);
-            var slotOffset = new Vector2(0, slotHeight);
-            var iconOffset = (new Vector2(slotHeight) - new Vector2(16)) / 2;
-            var stringOffset = new Vector2(slotHeight + 4, (slotHeight - Util.GetFontHeight(Font)) / 2);
+
+            //var slotOffset = new Vector2(0, slotHeight);
+            //var iconOffset = (new Vector2(slotHeight) - new Vector2(16)) / 2;
+            //var stringOffset = new Vector2(slotHeight + 4, (slotHeight - Util.GetFontHeight(Font)) / 2);
 
             // Update area scroll offset:
             SubArea.FullRenderSize = new Vector2(surface.Width, slotHeight * (Equipment.Items.Length + 2));
             if (isHoverSurface) SubArea.UpdateScrollPosition();
             startOffset -= SubArea.RenderOffset;
 
-
-            //render slots
-            for (int i = 0; i < Equipment.Items.Length; i++)
-            {
-                // Get current drag item
-                var dragItem = GameClient.DisplayHandler.MouseItem as DragItem;
-
-                // Leave null if drag item doesn't have inventory as container
-                if (dragItem != null)
-                    dragItem = (dragItem.Container != Equipment) ? null : dragItem;
-
-                // Get item data
-                var item = Equipment.Items[i];
-                var name = item?.ToString().CapFirst();
-                var options = item?.GetOptions();
-                
-
-                // Draw position:
-                Vector2 pos = startOffset + slotOffset * i;
-
-                // Determine whether is hovered slot
-                bool hover = isHoverSurface && Input.MouseHover(absoluteSurfacePos + pos, slotSize);
-
-
-                // Check if slot has an item
-                if (item != null)
-                {
-                    // Hover over slot
-                    if (hover)
-                    {
-                        // Perform default action
-                        if (Input.IsMouseLeftPressed)
-                        {
-                            ClickedSlot = i;
-                        }
-                        else if (ClickedSlot == i && Input.IsMouseLeftReleased)
-                        {
-                            GameClient.Server.SetPlayerAction(new ActionItem(GameClient.Server.User.Player, item, item.GetDefaultOption()));
-                        }
-
-                        // Open up slot menu
-                        else if (Input.IsMouseRightPressed)
-                        {
-                            new ItemMenu(GameClient, Equipment, i, Display.MakeRectangle(absoluteSurfacePos + pos, slotSize), outerRegion);
-                        }
-
-                        HoverSlot = item;
-
-                        // Draw hover slot bounds
-                        Display.DrawInline(Display.MakeRectangle(pos, slotSize), Color.White);
-                    }
-
-                    // Draw item string
-                    Display.DrawString(pos + stringOffset, name, Font, item.StringColor);
-                }
-                else
-                {
-                    // Draw empty slot string
-                    var str = "No " + SlotID[i];
-                    Display.DrawString(pos + stringOffset, str, Font, Color.LightSlateGray * 0.5f);
-                }
-
-
-                // Draw slot icon
-                var iconColor = item != null ? Color.White : Color.LightSlateGray * 0.5f;
-                Display.DrawTexture(pos + iconOffset, Assets.EquipmentIcons[i], iconColor);
-            }
+            ItemListRenderer.Render(absoluteSurfacePos, outerRegion, startOffset, slotSize, isHoverSurface);
 
             RenderStats(surface, startOffset + new Vector2(surface.Width / 2, 0));
+
 
             GameClient.Engine.SpriteBatch.End();
             GameClient.Engine.GraphicsDevice.SetRenderTarget(null);

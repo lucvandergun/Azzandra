@@ -66,7 +66,7 @@ namespace Azzandra
         }
 
         /// <summary>
-        /// This method adds an attack property, overriding existing same-ID lower level properties.
+        /// This method adds an attack property to this attack, overriding existing same-ID lower level properties.
         /// </summary>
         public void AddProperty(AttackProperty a)
         {
@@ -97,7 +97,7 @@ namespace Azzandra
         //}
 
         /// <summary>
-        /// Applies any properties of the Affect to the target.
+        /// Applies any attack properties of this Affect to the given target.
         /// </summary>
         public virtual void ApplyProperties(Entity attacker, Instance target)
         {

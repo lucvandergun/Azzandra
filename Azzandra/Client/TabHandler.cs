@@ -69,7 +69,7 @@ namespace Azzandra
             {
                 //retrieve button string
                 tab = tabs[i];
-                str = (i + 1) + ". " + tab;//"(" + (i + 1) + ") " + tab;
+                str = "F" + (i + 1) + ". " + tab;//"(" + (i + 1) + ") " + tab;
 
                 //calculate button sizes
                 stringWidth = Util.GetStringWidth(str, Font);
@@ -79,7 +79,7 @@ namespace Azzandra
                 //check whether tab should be switched
                 switchTab = false;
 
-                if (GameClient.KeyboardFocus == GameClient.Focus.General &&  Input.IsKeyPressed[Util.IntToKey(i + 1)])
+                if (GameClient.KeyboardFocus == GameClient.Focus.General &&  Input.IsKeyPressed[Util.IntToFKey(i + 1)])
                 {
                     switchTab = true;
                 }

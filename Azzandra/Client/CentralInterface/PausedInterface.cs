@@ -32,6 +32,12 @@ namespace Azzandra
                         GameClient.DisplayHandler.Interface = new SettingsInterface(gameClient);
                     }
                 },
+                new Button(ButtonSize, "Controls Info")
+                {
+                    OnClick = () => {
+                        GameClient.DisplayHandler.Interface = new ControlsInterface(gameClient);
+                    }
+                },
                 new Button(ButtonSize, "Save and Exit")
                 {
                     OnClick = () => {

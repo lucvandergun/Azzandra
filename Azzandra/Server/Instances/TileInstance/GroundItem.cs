@@ -13,7 +13,8 @@ namespace Azzandra
         public override bool RenderLightness => false;
         public override bool IsSolid() => false;
         public override bool IsInteractable() => true;
-        public override Symbol GetSymbol() { return new Symbol('x', Color.Red); }
+        public static Symbol Symbol = new Symbol('x', Color.Red);
+        public override Symbol GetSymbol() => Symbol;
         public override string Name => Item?.ToString() ?? "null";
         public override string ToStringAdress() => "the " + Name;
 

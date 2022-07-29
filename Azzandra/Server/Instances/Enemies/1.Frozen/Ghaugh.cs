@@ -9,7 +9,7 @@ namespace Azzandra
 {
     public class Ghaugh : Enemy
     {
-        public override EntityType EntityType => EntityType.Beast;
+        public override EntityType EntityType => EntityType.Ice;
 
 
         public Ghaugh(int x, int y) : base(x, y) { }

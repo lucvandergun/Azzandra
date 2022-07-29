@@ -129,7 +129,7 @@ namespace Azzandra
             if (KeyboardFocus == Focus.General)
             {
                 //Engine.CloseAndSaveGame();
-                if (DisplayHandler.Interface == null)
+                if (DisplayHandler.Interface == null && DisplayHandler.MouseItem == null)
                 {
                     // Open pause-game interface:
                     if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Input.IsKeyPressed[Keys.Escape])

@@ -533,6 +533,11 @@ namespace Azzandra
         public virtual bool IsImmuneToStatusEffect(int statusID, string name) => this.IsImmune(statusID, name);
 
         /// <summary>
+        /// Not currently used.
+        /// </summary>
+        public virtual bool IsVulnerableToStatusEffect(int statusID, string name) => this.IsVulnerable(statusID, name);
+
+        /// <summary>
         /// Adds a status effect to this entity, Unless immume.
         /// Overrides similar already present effect if level or new time remaining is greater than previous.
         /// </summary>

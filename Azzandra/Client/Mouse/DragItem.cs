@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,9 +14,9 @@ namespace Azzandra
         public readonly Vector2 ClickPos;
         public readonly Vector2 ClickOffset;
 
-        private string name;
-        private SpriteFont font = Assets.Medifont;
-        private Vector2 pos;
+        private string Name;
+        private SpriteFont Font = Assets.Medifont;
+        private Vector2 Pos;
 
         public DragItem(Container container, int index, Vector2 clickPos, Vector2 clickOffset, GameClient gameClient) : base(container, index, gameClient)
         {
@@ -27,23 +28,25 @@ namespace Azzandra
             if (item == null)
                 Destroy();
 
-            name = item.ToString().CapFirst();
+            Name = item.ToString().CapFirst();
 
-            int width = Util.GetStringWidth(name, font) + 4;
-            pos = new Vector2(0, 0);
+            int width = Util.GetStringWidth(Name, Font) + 4;
+            Pos = new Vector2(0, Util.GetFontHeight(Font) / 2);
 
 
             //Specify surface properties
-            Surface.SetBounds(new Rectangle(0, 0, width, Util.GetFontHeight(font)));
+            Surface.SetBounds(new Rectangle(0, 0, width, Util.GetFontHeight(Font)));
             Surface.CanHover = false;
             Surface.Outline = false;
         }
 
         public override void Render()
         {
+            if (Input.IsKeyPressed[Keys.Escape])
+                Destroy();
+
             //reposition surface to mouse pos
             Surface.SetPosition(Input.MousePosition - ClickOffset);
-            var region = Surface.Region;
 
             //start
             GraphicsDevice.SetRenderTarget(Surface.Display);
@@ -56,8 +59,7 @@ namespace Azzandra
 
 
             Color color = Color.White * 0.75f;
-            Display.DrawString(pos, name, font, color);
-
+            Display.DrawStringVCentered(Pos, Name, Font, color);
 
 
             //click release over world view
@@ -78,7 +80,7 @@ namespace Azzandra
             GraphicsDevice.SetRenderTarget(null);
         }
 
-        private string DiscardOption(Item slot)
+        private string DiscardOption(Item item)
         {
             if (GameClient.DisplayHandler.IsHoverSurface(GameClient.DisplayHandler.MenuSurface))
                 return null;
@@ -91,7 +93,7 @@ namespace Azzandra
                 {
                     if (mainInterface is ShopInterface)
                     {
-                        if (slot.Quantity > 1)
+                        if (item.Quantity > 1)
                             return "sell all";
                         else
                             return "sell 1";

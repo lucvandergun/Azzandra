@@ -1,4 +1,24 @@
 {
+	"kobold": {
+		"entitytypes": [ "humanoid" ],
+		"stats": {
+			"health": 5,
+			"evade": 3,
+			"parry": 0,
+			"block": 0,
+			"resistance": 0,
+			"armour": 0
+		},
+		"attacks": [
+			{
+				"style": "melee",
+				"speed": 1,
+				"accuracy": 2,
+				"damage": 2
+			}
+		]
+	},
+	
 	"goblin": {
 		"entitytypes": [ "goblin" ],
 		"stats": {

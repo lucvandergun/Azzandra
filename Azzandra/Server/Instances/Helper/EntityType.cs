@@ -45,12 +45,20 @@ namespace Azzandra
         {
             { EntityType.Fire, StatusEffectID.Burning, null },
             { EntityType.Ice, StatusEffectID.Frozen, "frozen" },
+            { EntityType.Ice, StatusEffectID.Frostbite, null },
             { EntityType.NonPhysical, StatusEffectID.Burning, null },
             { EntityType.NonPhysical, StatusEffectID.Frozen, null },
             { EntityType.NonPhysical, StatusEffectID.Poison, null },
             { EntityType.NonPhysical, StatusEffectID.Bleeding, null },
             { EntityType.Undead, StatusEffectID.Poison, null },
             { EntityType.Demon, StatusEffectID.Burning, null },
+        };
+
+        private static readonly Dictionary<EntityType, int, string> TypeVulnerabilities = new Dictionary<EntityType, int, string>
+        {
+            { EntityType.Fire, StatusEffectID.Frozen, "frozen" },
+            { EntityType.Fire, StatusEffectID.Frostbite, null },
+            { EntityType.Ice, StatusEffectID.Burning, null },
         };
 
 
@@ -127,7 +135,28 @@ namespace Azzandra
             return false;
         }
 
-        
+        public static bool IsVulnerable(this Entity entity, int statusID, string name)
+        {
+            foreach (var type in GetEntityTypes(entity))
+                if (IsTypeVulnerable(type, statusID, name))
+                    return true;
+
+            return false;
+        }
+
+        /// <summary>
+        /// Checks whether this specific entity type is immune to a status effect, does not check for inherited immunities.
+        /// </summary>
+        /// <returns>Returns status effect immunity.</returns>
+        private static bool IsTypeVulnerable(this EntityType type, int statusID, string name)
+        {
+            if (TypeVulnerabilities.TryGetValue(Tuple.Create(type, statusID), out string vulnerableType))
+                return vulnerableType == null || vulnerableType == name;
+
+            return false;
+        }
+
+
 
         /// <summary>
         /// This method modifies the referenced attack based on the target's entity types.

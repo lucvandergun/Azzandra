@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,7 +13,8 @@ namespace Azzandra
         {
             
         }
-        
+
+        public abstract IEnumerable<Item> GetItems();
         public abstract void RemoveItem(Item item);
         public abstract bool AddItem(Item item);
         public abstract void ReplaceItem(Item item1, Item item2);

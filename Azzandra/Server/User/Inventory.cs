@@ -13,6 +13,10 @@ namespace Azzandra
     {
         public int MaxItems = 10;
         public List<Item> Items { get; private set; }
+        public override IEnumerable<Item> GetItems()
+        {
+            return Items;
+        }
 
         public Inventory()
         {

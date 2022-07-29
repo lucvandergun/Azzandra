@@ -777,7 +777,6 @@ namespace Azzandra
         /// This function may be overridden to disposition it for e.g. movement.
         /// </summary>
         /// <param name="viewOffset">The current view offset to take into account (absolute coordinates of top left corner of viewing area).</param>
-
         public virtual void DrawView(Vector2 viewOffset, Server server, float lightness)
         {
             float turnDelay = IsOnPlayerTick ? server.TurnDelay : server.EnemyTurnDelay;

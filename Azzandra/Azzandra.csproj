@@ -94,6 +94,7 @@
     <Compile Include="Client\IScene.cs" />
     <Compile Include="Client\Mouse\ItemMenuOld.cs" />
     <Compile Include="Client\Settings\SettingsRenderer.cs" />
+    <Compile Include="Client\Tab\ItemListRenderer.cs" />
     <Compile Include="Client\Tab\SpellsInterface.cs" />
     <Compile Include="Client\TextInputBuilder.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
@@ -114,6 +115,7 @@
     <Compile Include="Server\Generation\AreaGeneration\AreaChest.cs" />
     <Compile Include="Server\Generation\AreaGeneration\AreaShrine.cs" />
     <Compile Include="Server\Generation\Spawners\Graves.cs" />
+    <Compile Include="Server\Instances\Enemies\0.Universal\Kobold.cs" />
     <Compile Include="Server\Instances\Enemies\1.Frozen\Ghaugh.cs" />
     <Compile Include="Server\Instances\Enemies\1.Frozen\LostMage.cs" />
     <Compile Include="Server\Instances\Enemies\1.Frozen\AlphaWolf.cs" />
