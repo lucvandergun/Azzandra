@@ -12,8 +12,16 @@ namespace Azzandra
 
     public class TextDrawer
     {
+        /// <summary>
+        /// The position the current line is originating from. Moving to the next line will reset the current position to this, with Y += line height.
+        /// </summary>
         public Vector2 Pos { get; set; }
-        public Vector2 CurrentPos;
+
+        /// <summary>
+        /// The current actual real-time positon to draw on.
+        /// </summary>
+        public Vector2 CurrentPos { get; set; }
+
         public TextFormat Format;
         public int LineH;
         public bool ResetColorOnCall { get; set; } = false;

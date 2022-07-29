@@ -10,6 +10,13 @@ namespace Azzandra
 {
     static class Input
     {
+        private static string[] KeyBindStrings = new string[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "-", "=" };
+        private static Keys[] KeyBinds = new Keys[] { Keys.D1, Keys.D2, Keys.D3, Keys.D4, Keys.D5, Keys.D6, Keys.D7, Keys.D8, Keys.D9, Keys.D0, Keys.OemMinus, Keys.OemPlus };
+        public static string GetKeyBindString(int i) => i >= 0 && i < KeyBindStrings.Length ? KeyBindStrings[i] : " ";
+        public static Keys GetKeyBind(int i) => i >= 0 && i < KeyBinds.Length ? KeyBinds[i] : Keys.None;
+
+
+
         public static bool IsCapsLock;
 
         public static Dictionary<Keys, bool> IsKeyDown { get; private set; } = new Dictionary<Keys, bool>();

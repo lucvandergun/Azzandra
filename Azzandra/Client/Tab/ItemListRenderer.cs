@@ -11,9 +11,6 @@ namespace Azzandra
 {
     class ItemListRenderer
     {
-        private string[] KeyBindStrings = new string[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "0", "-", "=" };
-        private Keys[] KeyBinds = new Keys[] { Keys.D1, Keys.D2, Keys.D3, Keys.D4, Keys.D5, Keys.D6, Keys.D7, Keys.D8, Keys.D9, Keys.D0, Keys.OemMinus, Keys.OemPlus};
-
         private readonly GameClient GameClient;
         public Func<Container> Container;
         private readonly bool AllowDrag;
@@ -41,7 +38,7 @@ namespace Azzandra
             // Render item slots
             var slotOffset = new Vector2(0, slotSize.Y);
             var stringOffset = new Vector2(4, slotSize.Y / 2);
-            var nameOffset = new Vector2(12, 0);//32
+            var nameOffset = new Vector2(13, 0);//32
 
             for (int i = 0; i < items.Count(); i++)
             {
@@ -63,7 +60,7 @@ namespace Azzandra
                 Vector2 pos = startOffset + slotOffset * i;
 
                 // Keyboard Handling:
-                if (item != null && GameClient.KeyboardFocus == GameClient.Focus.General && Input.IsKeyPressed[KeyBinds[i]] && GameClient.DisplayHandler.MouseItem == null)
+                if (item != null && GameClient.KeyboardFocus == GameClient.Focus.General && Input.IsKeyPressed[Input.GetKeyBind(i)] && GameClient.DisplayHandler.MouseItem == null)
                 {
                     // Perform default option directly with SHIFT:
                     if (Input.IsKeyDown[Keys.LeftShift] || Input.IsKeyDown[Keys.RightShift])
@@ -132,13 +129,12 @@ namespace Azzandra
 
                     if (item != null)
                     {
-                        TextFormatter.DrawString(pos + stringOffset, KeyBindStrings[i] + ". ", Format, Color.LightSlateGray);
+                        TextFormatter.DrawString(pos + stringOffset, Input.GetKeyBindString(i) + ". ", Format, Color.LightSlateGray);
                         TextFormatter.DrawString(pos + stringOffset + nameOffset, name, Format, item.StringColor);
-                        //Display.DrawString(pos + stringOffset + nameOffset, name, Font, item.StringColor);
                     }
                     else if (NoItem != null)
                     {
-                        TextFormatter.DrawString(pos + stringOffset, KeyBindStrings[i] + ". ", Format, Color.LightSlateGray * 0.5f);
+                        TextFormatter.DrawString(pos + stringOffset, Input.GetKeyBindString(i) + ". ", Format, Color.LightSlateGray * 0.5f);
                         TextFormatter.DrawString(pos + stringOffset + nameOffset, NoItem.Invoke(i), Format, Color.LightSlateGray * 0.5f);
                     }
                 }

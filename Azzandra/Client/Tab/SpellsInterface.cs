@@ -139,6 +139,12 @@ namespace Azzandra
                 var spell = learnedSpell.SpellData;
                 if (spell == null) continue;
 
+                // Keyboard Handling:
+                if (spell != null && GameClient.KeyboardFocus == GameClient.Focus.General && Input.IsKeyPressed[Input.GetKeyBind(i)] && GameClient.DisplayHandler.MouseItem == null)
+                {
+                    ActivateSpell(spell);
+                }
+
                 // Draw position:
                 Vector2 pos = startOffset + slotOffset * i;
 
@@ -148,27 +154,20 @@ namespace Azzandra
                 if (hover)
                 {
                     HoverSlot = spell;
+
                     if (Input.IsMouseLeftPressed)
                     {
-                        // Cast the current spell if sufficient spellpoints:
-                        if (User.Player.Sp < spell.SpellPoints && !User.IsCheatMode)
-                        {
-                            User.Player.User.ShowMessage("<rose>You don't have enough spell points to cast that spell!");
-                        }
-                        else
-                            CastSpell(spell);
+                        ActivateSpell(spell);
                     }
                     else if (Input.IsMouseRightPressed)
                     {
-                        // Reset targeting mode to default
-                        GameClient.InputHandler.TargetingMode = GameClient.InputHandler.DefaultTargetingMode;
+                        DeselectSpell();
                     }
-
-                    HoverSlot = spell;
                 }
 
-                // Draw slot strings
+                // Draw slot text
                 text.SetPosition(pos + stringOffset);
+                text.Draw(Input.GetKeyBindString(i) + ". ", Color.LightSlateGray);
                 text.Draw(spell.Name.CapFirst(), spell.GetStringColor());
                 text.DrawLine(" <r>- SP: " + spell.SpellPoints + "");
                 text.DrawLine("<slate>" + spell.Desc);
@@ -183,6 +182,26 @@ namespace Azzandra
 
             GameClient.Engine.SpriteBatch.End();
             GameClient.Engine.GraphicsDevice.SetRenderTarget(null);
+        }
+
+        private void ActivateSpell(SpellData spell)
+        {
+            // Cast the current spell if sufficient spellpoints:
+            if (User.Player.Sp < spell.SpellPoints && !User.IsCheatMode)
+            {
+                User.Player.User.ShowMessage("<rose>You don't have enough spell points to cast that spell!");
+            }
+            else
+            {
+                CastSpell(spell);
+            }
+        }
+
+
+        private void DeselectSpell()
+        {
+            // Reset targeting mode to default
+            GameClient.InputHandler.TargetingMode = GameClient.InputHandler.DefaultTargetingMode;
         }
 
 
