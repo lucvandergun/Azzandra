@@ -18,8 +18,7 @@ namespace Azzandra
 
         protected override void SetupActionPotentials()
         {
-            base.SetupActionPotentials();
-            ActionPotentials.Add(
+            Spells.Add(
                     new TemplateSpell(2, 2, 12, new SpellEffects.Web())
                     {
                         Requirement = (e) => e.Target.Instance.GetTiles().All(t => e.Level.GetTile(t).Object.ID != BlockID.Cobweb)

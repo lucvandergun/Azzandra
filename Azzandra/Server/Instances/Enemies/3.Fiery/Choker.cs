@@ -19,9 +19,9 @@ namespace Azzandra
         public Choker(int x, int y) : base(x, y)
         { }
 
-        public override void TickStart()
+        public override void TurnStart()
         {
-            base.TickStart();
+            base.TurnStart();
 
             if (AttackTimer >= 3)
                 ConsecutiveStrangles = 0;

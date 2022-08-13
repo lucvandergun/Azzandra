@@ -18,11 +18,11 @@ namespace Azzandra
 
         public VineBlight(int x, int y) : base(x, y) { }
 
-        public override void TickStart()
+        public override void TurnStart()
         {
             // Reset attack timer if loses vine.
             var hadVine = HasVine();
-            base.TickStart();
+            base.TurnStart();
 
             if (Target == null)
                 Children.FilterOut(c => c.Instance is Vine vine);

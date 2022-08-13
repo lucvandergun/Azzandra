@@ -43,7 +43,10 @@ namespace Azzandra
             if (steps.Count > 0)
             {
                 var tail = Children.FirstOrDefault(r => r.Instance is CaveWormTail).Instance;
-                tail?.Move(oldPos - tail.Position);
+                if (tail != null)
+                {
+                    tail.Move(oldPos - tail.Position);
+                }
             }
             return steps;
         }

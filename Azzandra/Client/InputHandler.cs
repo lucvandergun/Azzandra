@@ -140,7 +140,9 @@ namespace Azzandra
                 Dir = null;
 
             // Determine whether just pressed:
-            JustPressed = Input.IsKeyPressed[Keys.A] || Input.IsKeyPressed[Keys.D] || Input.IsKeyPressed[Keys.W] || Input.IsKeyPressed[Keys.S];
+            JustPressed = Input.IsKeyPressed[Keys.A] || Input.IsKeyPressed[Keys.D] || Input.IsKeyPressed[Keys.W] || Input.IsKeyPressed[Keys.S] ||
+                Input.IsKeyPressed[Keys.NumPad4] || Input.IsKeyPressed[Keys.NumPad6] || Input.IsKeyPressed[Keys.NumPad8] || Input.IsKeyPressed[Keys.NumPad2] ||
+                Input.IsKeyPressed[Keys.NumPad7] || Input.IsKeyPressed[Keys.NumPad1] || Input.IsKeyPressed[Keys.NumPad9] || Input.IsKeyPressed[Keys.NumPad3];
         }
 
 

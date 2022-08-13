@@ -19,9 +19,9 @@ namespace Azzandra
 
         public Troll(int x, int y) : base(x, y) { }
 
-        public override void TickStart()
+        public override void TurnStart()
         {
-            base.TickStart();
+            base.TurnStart();
 
             // Regeneration
             if (RegenTimer == 0 && Hp > 0 && !HasStatusEffect(StatusEffectID.Burning))

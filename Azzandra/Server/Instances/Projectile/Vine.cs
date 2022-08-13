@@ -50,9 +50,9 @@ namespace Azzandra
 
         }
 
-        public override void Tick()
+        public override void Turn()
         {
-            base.Tick();
+            base.Turn();
 
             // Check target and origin still exists..
             if (HasTarget() && !TargetExists())

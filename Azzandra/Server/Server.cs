@@ -17,10 +17,29 @@ namespace Azzandra
         public State GameState = State.Running;
 
         // === Turn Handling === \\
-        public const int TURN_SPEED = 12;
+        public const int TURN_SPEED = 12;                   // ### Not used ###
+        public const int TICK_POTENTIAL_ADDITION = 1;       // Amt of ActionPotential added to each entity every game update
+        public const int TICK_SPEED = 1;                    // Amt of updates it takes to get perform a tick.
+
+        public int TickDelay { get; private set; }
+        public int AmtUpdates = 0;
+        public int AmtTurns { get; private set; }
+
+        /// <summary>
+        /// ~1 = at the start of the turn, i.e. fully away from the end.
+        /// 0 = at the end of the turn, i.e. waiting for the next one.
+        /// </summary>
+        /// <param name="momentOfLastTurn">The server update at which the instance performed its last turn.</param>
+        /// <param name="initiative">The amount of ticks (is in ratio to amt of server updates) it takes for this instance to get a turn.</param>
+        /// <returns></returns>
+        public float GetTickFraction(int momentOfLastTurn, int initiative)
+        {
+            return Math.Max(0, 1f - ((float)AmtUpdates - momentOfLastTurn) * TICK_SPEED * TICK_POTENTIAL_ADDITION / initiative);
+        }
+
         public int TurnDelay { get; private set; }
         public int EnemyTurnDelay { get; private set; }
-        public int Turns { get; private set; }
+        
         public Turn CurrentTurn { get; private set; }
 
         // === Acting === \\
@@ -46,7 +65,7 @@ namespace Azzandra
         {
             // Set all current game's values
             CurrentTurn = Turn.Player;
-            Turns = turns;
+            AmtTurns = turns;
             TurnDelay = -1;
             EnemyTurnDelay = -1;
         }
@@ -81,71 +100,68 @@ namespace Azzandra
             else if (d < 0)
                 LevelManager.GoToPreviousLevel();
             User.UpdateVisibilityMap();
-            Turns++;
+            AmtTurns++;
         }
+
+
 
         public void Update()
         {
-            // Player tick start:
-            if (TurnDelay == 1)
-            {
-                LevelManager.CurrentLevel.TickEnd(true);
-                User.UpdateVisibilityMap();
+            var player = User.Player;
+            if (player == null) return;
 
-            }
-            else if (TurnDelay == 0)
-            {
-                LevelManager.CurrentLevel.TickStart(true);
-                User.UpdateVisibilityMap();
+            AmtUpdates++;
 
-                TurnDelay = -1;
-            }
+            // Perform the tick 
+            //if (TickDelay == 0)
+            //{
+                
+            //    TickDelay = -1;
+            //}
+            //LevelManager.CurrentLevel.TurnEnd();
 
-            // Player's turn: Wait for input first
-            if (TurnDelay <= 0)
-            {
+            // If player can take a turn, allow it to do so first:
+            if (player.ActionPotential >= player.Initiative)
+            {              
                 CheckForPlayerInput();
             }
 
-            // Enemy tick end
-            if (EnemyTurnDelay == 1)
-            {
-                LevelManager.CurrentLevel.TickEnd(false);
-                User.UpdateVisibilityMap();
-            }
-            // Enemy's turn - Perform as soon as player's turn delay hits half way point
-            else if (EnemyTurnDelay <= 0 && TurnDelay == TURN_SPEED / 2)
-            {
-                LevelManager.CurrentLevel.TickStart(false);
-                EnemyTurnDelay = -1;
-                EnemyTick();
-                User.UpdateVisibilityMap();
-                Turns++;
-            }
+            LevelManager.CurrentLevel.TurnEnd();
 
-            // Decrease turntimers:
-            if (TurnDelay > 0)
-                TurnDelay--;
-            if (EnemyTurnDelay > 0)
-                EnemyTurnDelay--;
+            User.UpdateVisibilityMap();
+
+            // If the player can't take a turn anymore, increase the action potential of all instances:
+            if (player.ActionPotential < player.Initiative)
+            {
+                if (TickDelay <= 0)
+                {
+                    LevelManager.CurrentLevel.ReQueueInstances(User.Player);
+                    LevelManager.CurrentLevel.Turn();
+                    TickDelay = TICK_SPEED;
+                }
+                if (TickDelay > 0) TickDelay--;
+            }
         }
 
         private void CheckForPlayerInput()
         {
-            if (User.Player == null) return;
-            
-            // Attempt to perform Action, if null, NextAction:
+            // Attempt to perform 'Action', if null, try 'NextAction':
             if (User.Player.Action == null)
             {
                 if (!User.Player.PutNextAction())
                     return;
             }
 
-            // Start tick cycle if action was present and could be performed.
+            // Perform the player's turn if an action was present and it could be performed:
             if (User.Player.Action.Perform())
             {
-                PlayerTick();
-                User.UpdateVisibilityMap();
+                User.Player.ActionPotential -= User.Player.Initiative;
+                User.Player.Turn();
+                User.Player.TimeSinceLastTurn = 0;
+                User.Player.MomentOfLastTurn = AmtUpdates;
+                AmtTurns++;
+                //User.ShowMessage("tick");
+                //User.UpdateVisibilityMap();
             }
             else
             {
@@ -153,25 +169,9 @@ namespace Azzandra
             }
         }
 
-        private void PlayerTick()
-        {
-            LevelManager.CurrentLevel.Tick(true);
 
-            TurnDelay = TURN_SPEED;
-        }
 
-        public bool IsPlayerTurn => CurrentTurn == Turn.Player && TurnDelay <= 0;
-
-        private void EnemyTick()
-        {
-            LevelManager.CurrentLevel.Tick(false);
-
-            EnemyTurnDelay = TURN_SPEED;
-
-            LevelManager.CurrentLevel.ReQueueInstances(User.Player);
-        }
-
-        // Send messages to client log
+        // === Error/Debug message handlers === \\
         public void ThrowError(string msg)
         {
             User.ThrowError(msg); 

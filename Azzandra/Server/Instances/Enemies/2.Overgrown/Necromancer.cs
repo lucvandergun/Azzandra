@@ -10,6 +10,7 @@ namespace Azzandra
     public class Necromancer : Enemy
     {
         public override EntityType EntityType => EntityType.Humanoid;
+        public override int Initiative => 12;
 
 
         public Necromancer(int x, int y) : base(x, y) { }
@@ -17,9 +18,7 @@ namespace Azzandra
 
         protected override void SetupActionPotentials()
         {
-            base.SetupActionPotentials();
-
-            ActionPotentials.Add(
+            Spells.Add(
                 new TemplateSpell(2, 6, 10, new SpellEffects.Revive())
                 {
                     Requirement = new Func<Entity, bool>(c => c.Level.ActiveInstances.Where(a => a is Grave g && !g.IsEmpty).Any(a => c.CanSee(a))),

@@ -9,6 +9,8 @@ namespace Azzandra
 {
     public interface IAnimation
     {
-        Vector2 GetDisposition(float tickFrac);
+        Instance Owner { get; }
+        void Update();
+        Vector2 GetDisposition();
     }
 }

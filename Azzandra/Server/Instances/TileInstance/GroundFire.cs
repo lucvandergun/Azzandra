@@ -32,9 +32,9 @@ namespace Azzandra
             
         }
 
-        public override void TickStart()
+        public override void TurnStart()
         {
-            base.TickStart();
+            base.TurnStart();
 
             Time--;
             if (Time <= 0)

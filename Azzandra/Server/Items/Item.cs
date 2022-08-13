@@ -158,8 +158,8 @@ namespace Azzandra
                 if (Container is Azzandra.Inventory && this is Items.IFilledContainer)
                     options.Add("empty");
 
+            if (Quantity > 1 && !(this is Items.Ammunition)) options.Add("drop one");
             options.Add("drop");
-            if (Quantity != 1) options.Add("drop one");
             return options;
         }
 

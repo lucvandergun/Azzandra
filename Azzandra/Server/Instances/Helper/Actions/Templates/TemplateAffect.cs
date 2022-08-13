@@ -11,6 +11,8 @@ namespace Azzandra
         public int Speed = 1, Range = 1;
         public Func<Enemy, Instance> TargetSelector = new Func<Enemy, Entity>(e => e.Target.Combatant);
 
+        public virtual bool IsInRange(int range) => Range >= range;
+
         public TemplateAffect() { }
 
         public TemplateAffect(int speed, int range)

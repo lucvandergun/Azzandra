@@ -22,7 +22,7 @@ namespace Azzandra
             var target = FindTarget();
             if (target != null)
             {
-                var affect = ((TemplateAffect)ActionPotentials[0]).ToAffect(Level.Server);
+                var affect = ((TemplateAffect)Attacks[0]).ToAffect(Level.Server);
                 if (AttackTimer >= affect.Speed && CanAffect(target, affect))
                     return new ActionAffect(this, target, affect);
             }

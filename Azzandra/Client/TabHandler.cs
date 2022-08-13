@@ -55,7 +55,25 @@ namespace Azzandra
             int stringWidth;
             int xPadding = region.Height / 2;
 
-            Vector2 buttonPos = new Vector2(surface.Width, 0);
+            // Drwa red 'x' for paused game
+            var escButtonPos = new Vector2(surface.Width - 16, 0);
+            var escButtonSize = new Vector2(16, 16);
+            var escButtonColor = Color.Red;
+            if (isHoverSurface && Input.MouseHover(escButtonPos + surface.Position, escButtonSize))
+            {
+                if (Input.IsMouseLeftPressed)
+                {
+                    // Open up Settings Window
+                    GameClient.DisplayHandler.Interface = new PausedInterface(GameClient);
+                }
+                escButtonColor = Color.Aqua;
+            }
+            float scale = 1.0f;
+            Display.DrawInstanceString(escButtonPos + new Vector2(8, (int)(8/scale)), "x", Font, escButtonColor, scale);
+
+
+            // Draw tab buttons:
+            Vector2 buttonPos = new Vector2(surface.Width - 16, 0);
             Vector2 buttonSize;
             Vector2 drawOffset = new Vector2(xPadding, surface.Height / 2);
 

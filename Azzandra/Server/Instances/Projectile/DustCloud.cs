@@ -27,23 +27,23 @@ namespace Azzandra
         public DustCloud(int x, int y) : base(x, y)
         { }
 
-        public override void TickStart()
+        public override void TurnStart()
         {
-            base.TickStart();
+            base.TurnStart();
 
             Time--;
             if (Time <= 0)
                 Destroy();
         }
 
-        public override void Tick()
+        public override void Turn()
         {
             var pos = Position;
             Move(Angle, false);
             if (pos == Position)
                 Destroy();
             
-            base.Tick();
+            base.Turn();
         }
 
         public override void OnOtherInstanceCollision(Instance collider)

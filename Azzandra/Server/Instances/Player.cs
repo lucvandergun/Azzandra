@@ -9,7 +9,6 @@ namespace Azzandra
 {
     public class Player : Entity
     {
-        public override bool IsOnPlayerTick => true;
         protected override int VisionRange => 24;
         public bool ReQueueActions() => Level?.Server.GameClient.Engine.Settings.ReQueueing ?? false;
 
@@ -179,14 +178,13 @@ namespace Azzandra
             return bytes.Concat(base.ToBytes()).ToArray();
         }
 
-        public override void TickStart()
+        public override void TurnStart()
         {
-            base.TickStart();
+            base.TurnStart();
 
-            // Remove target if no longer visible:
-            //if (Target != null)
-            //    if (!CanSee(Target.Instance))
-            //        Target = null;
+            //Remove target if no longer visible:
+            if (Target?.Combatant?.Hp <= 0)
+                Target = null;
 
             // Regeneration
             if (Hunger < GetFullHunger())
@@ -373,6 +371,12 @@ namespace Azzandra
             //    User.Log.Add("<orange>You shouldn't be attacking yourself, you fool!");
             //    return false;
             //}
+
+            if (target is Entity entity && entity.Hp <= 0)
+            {
+                User.ShowMessage("That target is already dead.");
+                return false;
+            }
 
             // Check for required ammo if style is ranged
             if (affect is Attack attack && attack.Style == Style.Ranged)

@@ -135,11 +135,16 @@
     <Compile Include="Server\Instances\Helper\Actions\ActionInstance.cs" />
     <Compile Include="Server\Instances\Helper\Actions\ActionInteract.cs" />
     <Compile Include="Server\Instances\Helper\Actions\ActionDirectional.cs" />
+    <Compile Include="Server\Instances\Helper\Actions\ActionPathTarget.cs" />
     <Compile Include="Server\Instances\Helper\Actions\ActionSwap.cs" />
     <Compile Include="Server\Instances\Helper\Actions\ActionRest.cs" />
     <Compile Include="Server\Instances\Helper\Actions\ActionPush.cs" />
     <Compile Include="Server\Instances\Helper\Actions\ActionVector.cs" />
     <Compile Include="Server\Instances\Helper\Actions\ActionSpellAcute.cs" />
+    <Compile Include="Server\Instances\Helper\Actions\Path2.cs" />
+    <Compile Include="Server\Instances\Helper\Dijkstra\AvoidanceMap.cs" />
+    <Compile Include="Server\Instances\Helper\Dijkstra\BehaviourMap.cs" />
+    <Compile Include="Server\Instances\Helper\Dijkstra\DijkstraMap.cs" />
     <Compile Include="Server\Instances\Helper\Actions\Templates\TemplateSpellAcute.cs" />
     <Compile Include="Server\Instances\Helper\Affects\DirectDamage.cs" />
     <Compile Include="Server\Instances\Helper\Affects\AttackProperties\AttackProperties.cs" />

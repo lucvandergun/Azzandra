@@ -10,13 +10,13 @@ namespace Azzandra
     public class Ooze : Enemy
     {
         public override EntityType EntityType => EntityType.Acid;
-        public override int GetMoveDelay() => 2;
+        public override int GetMoveDelay() => 1;
 
         public Ooze(int x, int y) : base(x, y) { }
 
-        public override void TickStart()
+        public override void TurnStart()
         {
-            base.TickStart();
+            base.TurnStart();
 
             // Add acid to the floor
             Level.SetObject(Position, new Block(BlockID.Acid));

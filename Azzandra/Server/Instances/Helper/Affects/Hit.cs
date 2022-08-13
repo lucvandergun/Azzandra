@@ -13,8 +13,6 @@ namespace Azzandra
     {
         public readonly Entity Owner;
 
-        public bool IsOnPlayerTick => Owner?.IsOnPlayerTick ?? false;
-
         public readonly SpriteFont Font = Assets.Medifont;
         public readonly Vector2 MaxOffset = new Vector2(0, - GameClient.GRID_SIZE);
         public Vector2 Offset = Vector2.Zero;
@@ -88,6 +86,7 @@ namespace Azzandra
                 case Style.Fire: return Color.Orange;
                 case Style.Poison: return Color.Green;
                 case Style.Ice: return Color.LightBlue;
+                case Style.Acid: return Color.YellowGreen;
             }
         }
     }

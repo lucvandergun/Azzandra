@@ -897,6 +897,9 @@ namespace Azzandra
             return newList;
         }
 
+        /// <summary>
+        /// Creates a new list with all inner sums of the items of the original list.
+        /// </summary>
         public static List<Vector> InnerSum(this IEnumerable<Vector> list)
         {
             var ip = new List<Vector>();
@@ -908,7 +911,7 @@ namespace Azzandra
 
         /// <summary>
         /// Method to remove predicate matches from the given list reference (in-list!).
-        /// Somewhat inefficient, but is in-list.
+        /// Perhaps more inefficient this way, but is in-list.
         /// </summary>
         public static void FilterOut<T>(this List<T> list, Func<T, bool> predicate)
         {
@@ -930,6 +933,17 @@ namespace Azzandra
                 return false;
 
             return RecursiveValidator(next, selector, validator);
+        }
+
+        public static void SetNodes(this int[,] map, IEnumerable<Vector> nodes, int value)
+        {
+            if (map == null) return;
+            var size = new Vector(map.GetLength(0), map.GetLength(1));
+            foreach (var node in nodes)
+            {
+                if (node >= Vector.Zero && node < size)
+                    map[node.X, node.Y] = value;
+            }
         }
     }
 }

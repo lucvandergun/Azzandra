@@ -65,13 +65,15 @@ namespace Azzandra
             int thresh = 3;
             if (maxDiff < thresh)
             {
-                var amts = new int[skills.Length];
-                amts.Populate(1);
-                return amts;
+                return levels.Select(l => (l >= Skill.MAX_LEVEL) ? 0 : 1)
+                             .ToArray();
+                //var amts = new int[skills.Length];
+                //amts.Populate(1);
+                //return amts;
             }
             else
             {
-                return levels.Select(l => (highest - l) >= thresh ? 1 : 1).ToArray();
+                return levels.Select(l => (l >= Skill.MAX_LEVEL) ? 0 : (highest - l) >= thresh ? 1 : 1).ToArray();
             }
         }
 
@@ -113,7 +115,7 @@ namespace Azzandra
                     SelectedSkill = id;
 
                 var hover = isHoverSurface && Input.MouseHover(Surface.Position + startOffset + i * slotOffset, slotSize);
-                if (hover)
+                if (hover && skill.Level < Skill.MAX_LEVEL)
                 {
                     str = "<aqua>" + str;
                     if (Input.IsMouseLeftPressed)
@@ -122,9 +124,10 @@ namespace Azzandra
                     }
                 }
 
-                
+
 
                 if (id == SelectedSkill) str = "<yellow>" + str + "*";
+                else if (skill.Level >= Skill.MAX_LEVEL) str = "<slate>" + str;
 
                 TextFormatter.DrawString(startOffset + i * slotOffset + stringOffset, pre + str, format);
             }

@@ -41,10 +41,11 @@ namespace Azzandra
             var time = gameTime.TotalGameTime;
             text.DrawLine("Up time: " + time.Hours + ":" + time.Minutes + ":" + time.Seconds);
             text.DrawLine("FPS: " + Math.Round(1 / gameTime.ElapsedGameTime.TotalSeconds, 2));
-            text.DrawLine("Turns: " + GameClient.Server.Turns);
+            text.DrawLine("Turns: " + GameClient.Server.AmtTurns);
             if (GameClient.IsDevMode)
-                text.DrawLine("Delay: " + GameClient.Server.TurnDelay);
-
+                text.DrawLine("Delay: " + GameClient.Server.TickDelay);
+            text.DrawLine("Player's Action Potential: " + GameClient.Server.User.Player.ActionPotential);
+            text.DrawLine("Player's time since last turn: " + GameClient.Server.User.Player.TimeSinceLastTurn);
 
             var player = GameClient.Server.User.Player;
             if (player != null)
@@ -96,15 +97,32 @@ namespace Azzandra
                 text.DrawLine("Object: " + tile.Object.ID);
                 text.DrawLine("Light level: " + lm.CurrentLevel.GetTileLightness(hoverPos.Value));
 
+                // Show hover instance, otherwise target instance:
                 if (GameClient.IsDevMode)
                 {
+                    Instance inst = null;
                     var hoverInst = display.ViewHandler.HoverInstance;
                     if (hoverInst != null)
                     {
-                        text.DrawLine("<ltgray>Instance:<r> " + hoverInst.ToString().CapFirst());
-                        if (hoverInst is NPC npc)
+                        inst = hoverInst;
+                        text.Draw("<ltgray>Hover");
+                    }
+                    else if (GameClient.Server.User.Target != null)
+                    {
+                        inst = GameClient.Server.User.Target;
+                        text.Draw("<ltgray>Target");
+                    }
+
+                    if (inst != null)
+                    {
+                        text.DrawLine(" <ltgray>Instance:<r> " + inst.ToString().CapFirst());
+                        text.DrawLine(" ActionPotential: " + inst.ActionPotential);
+                        text.DrawLine(" TimeSinceLastTurn: " + inst.TimeSinceLastTurn);
+
+                        if (inst is NPC npc)
                         {
                             text.DrawLine(" Base pos: " + npc.BasePosition ?? "None");
+                            text.DrawLine(" DeathTimer: " + npc.DeathTimer);
                         }
                     }
                 }

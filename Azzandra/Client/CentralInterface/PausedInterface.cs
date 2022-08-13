@@ -32,7 +32,7 @@ namespace Azzandra
                         GameClient.DisplayHandler.Interface = new SettingsInterface(gameClient);
                     }
                 },
-                new Button(ButtonSize, "Controls Info")
+                new Button(ButtonSize, "Controls")
                 {
                     OnClick = () => {
                         GameClient.DisplayHandler.Interface = new ControlsInterface(gameClient);

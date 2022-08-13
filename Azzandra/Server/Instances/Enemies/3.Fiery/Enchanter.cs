@@ -15,17 +15,15 @@ namespace Azzandra
 
         protected override void SetupActionPotentials()
         {
-            base.SetupActionPotentials();
-
-            ActionPotentials.Add(new TemplateSpell(3, 4, 7, new SpellEffects.WindBlast())
+            Spells.Add(new TemplateSpell(3, 4, 7, new SpellEffects.WindBlast())
             {
                 Requirement = c => !c.Target?.Combatant?.HasStatusEffect(StatusEffectID.Stunned) ?? false
             });
-            ActionPotentials.Add(new TemplateSpell(3, 4, 7, new SpellEffects.Freeze())
+            Spells.Add(new TemplateSpell(3, 4, 7, new SpellEffects.Freeze())
             {
                 Requirement = c => !c.Target?.Combatant?.HasStatusEffect(StatusEffectID.Frozen) ?? false
             });
-            ActionPotentials.Add(new TemplateSpellAcute(new SpellEffects.Deflect())
+            Spells.Add(new TemplateSpellAcute(new SpellEffects.Deflect())
             {
                 Requirement = c => !c.HasStatusEffect(StatusEffectID.Deflect)
             });

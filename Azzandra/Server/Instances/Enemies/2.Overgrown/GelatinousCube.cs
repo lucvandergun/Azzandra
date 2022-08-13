@@ -9,10 +9,10 @@ namespace Azzandra
 {
     public class GelatinousCube : Enemy
     {
-        public override EntityType EntityType => EntityType.Acid;
+        public override EntityType EntityType => EntityType.None;
         public override int GetW() => 3;
         public override int GetH() => 3;
-        public override int GetMoveDelay() => 2;
+        public override int GetMoveDelay() => 1;
         public Inventory Inventory { get; set; } = new Inventory();
 
         public GelatinousCube(int x, int y) : base(x, y) { }

@@ -18,13 +18,21 @@ namespace Azzandra
             Dist *= ViewHandler.GRID_SIZE / 3;
         }
 
-        public Vector2 GetDisposition(float tickFrac)
+        public Instance Owner => null;
+
+        public Vector2 GetDisposition()
         {
-            float turnAround = 0.67f;
-            if (tickFrac < turnAround)
-                return -Dist / turnAround * tickFrac;
-            else
-                return -(Dist * ((1 - tickFrac) / (1 - turnAround)));
+            //float turnAround = 0.67f;
+            //if (tickFrac < turnAround)
+            //    return -Dist / turnAround * tickFrac;
+            //else
+            //    return -(Dist * ((1 - tickFrac) / (1 - turnAround)));
+            return Vector2.Zero;
+        }
+
+        public void Update()
+        {
+            
         }
     }
 }

@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -173,6 +174,18 @@ namespace Azzandra
                             Server.GoToLevel(depth);
                             if (Server.LevelManager.Depth != depth)
                                 Server.User.ShowMessage("<medblue>You enter a new floor.");
+                        }
+
+                        // Gen DijkstraMap
+                        if (Input.IsKeyPressed[Keys.G])
+                        {
+                            var player = Server.User.Player;
+                            if (player != null)
+                            {
+                                var map = new DijkstraMap(player.Level, player, new List<Instance>() { player, player.Level.ActiveInstances.FirstOrDefault(i => i is StairsDown) });
+                                map.CreateMap();
+                                Debug.WriteLine(map.Matrix.Stringify());
+                            }
                         }
                     }
                 }

@@ -50,7 +50,7 @@ namespace Azzandra
                         movements.AddRange(movement);
                 }
 
-                Animations.Add(new MovementAnimation(movements));
+                Animations.Add(new MovementAnimation(this, movements, Initiative));
             }
 
             return null; 

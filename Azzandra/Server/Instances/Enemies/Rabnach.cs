@@ -41,23 +41,21 @@ namespace Azzandra
 
         protected override void SetupActionPotentials()
         {
-            base.SetupActionPotentials();
-            
             var fireCage = new TemplateSpell(4, 8, 20, new SpellEffects.FireCage());
             fireCage.Requirement = new Func<Entity, bool>(c => !c.Children.Any(ch => ch.Instance is GroundFire));
-            ActionPotentials.Add(fireCage);
+            Spells.Add(fireCage);
 
             var pull = new TemplateSpell(8, 9, 20, new SpellEffects.MagneticPull());
             pull.Requirement = new Func<Entity, bool>(c => WillPull);
-            ActionPotentials.Add(pull);
+            Spells.Add(pull);
 
             var shadowCloud = new TemplateSpell(4, 8, 20, new SpellEffects.ShadowCloud());
             shadowCloud.Requirement = new Func<Entity, bool>(c => !c.Children.Any(ch => ch.Instance is ShadowCloud));
-            ActionPotentials.Add(shadowCloud);
+            Spells.Add(shadowCloud);
 
             //var summonFiend = new TemplateSpell(4, 8, 20, new SpellEffects.SummonFiend());
             //summonFiend.Requirement = new Func<Entity, bool>(c => !c.Children.Any(ch => ch.Instance is Fiend));
-            //ActionPotentials.Add(summonFiend);
+            //Spells.Add(summonFiend);
         }
 
 

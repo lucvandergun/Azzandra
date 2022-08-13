@@ -13,6 +13,7 @@ namespace Azzandra
         public override int GetMovementSpeed() => Form == FormType.Humanoid ? 1 : 2;
         public override MoveType GetMovementType() => Form == FormType.Humanoid ? MoveType.Walk : MoveType.Fly;
         public override EntityType EntityType => EntityType.Vampire;
+        public override int Initiative => 12;
 
 
         protected virtual int GetMaxShapeShiftTime() => 20;
@@ -30,9 +31,9 @@ namespace Azzandra
         }
 
 
-        public override void Tick()
+        public override void Turn()
         {
-            base.Tick();
+            base.Turn();
 
             if (ShapeShiftTimer <= 0)
             {

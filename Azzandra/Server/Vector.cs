@@ -20,6 +20,7 @@ namespace Azzandra
         public static Vector operator *(Vector a, Vector b) => new Vector(a.X * b.X, a.Y * b.Y);
 
         public static Vector operator *(Vector a, int scale) => new Vector(a.X * scale, a.Y * scale);
+        public static Vector operator *(int scale, Vector a) => new Vector(a.X * scale, a.Y * scale);
         public static Vector operator /(Vector a, int scale) => new Vector(a.X / scale, a.Y / scale);
 
         public static bool operator ==(Vector a, Vector b) => a.X == b.X && a.Y == b.Y;
@@ -181,6 +182,18 @@ namespace Azzandra
             return Math.Max(Math.Abs(X), Math.Abs(Y));
         }
 
+
+        public static IEnumerable<Vector> SumTilesInRange(Vector start, Vector size)
+        {
+            for (int i, j = start.Y; j < start.Y + size.Y; j++)
+            {
+                for (i = start.X; i < start.X + size.X; i++) 
+                {
+                    yield return new Vector(i, j);
+                }
+            }
+            yield break;
+        }
 
 
         // Static Vector Values:

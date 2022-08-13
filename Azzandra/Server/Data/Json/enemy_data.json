@@ -1,6 +1,7 @@
 {
 	"kobold": {
 		"entitytypes": [ "humanoid" ],
+		"initiative": 10,
 		"stats": {
 			"health": 5,
 			"evade": 3,
@@ -21,6 +22,7 @@
 	
 	"goblin": {
 		"entitytypes": [ "goblin" ],
+		"initiative": 12,
 		"stats": {
 			"health": 6,
 			"evade": 3,
@@ -41,6 +43,7 @@
 
 	"hobgoblin": {
 		"entitytypes": [ "goblin" ],
+		"initiative": 14,
 		"stats": {
 			"health": 8,
 			"evade": 5,
@@ -61,6 +64,7 @@
 	
 	"skeleton": {
 		"entitytypes": [ "undead" ],
+		"initiative": 16,
 		"stats": {
 			"health": 9,
 			"evade": 0,
@@ -81,6 +85,7 @@
 
 	"armoured_skeleton": {
 		"entitytypes": [ "undead" ],
+		"initiative": 16,
 		"stats": {
 			"health": 12,
 			"evade": 0,
@@ -101,6 +106,7 @@
 	
 	"giant_skeleton": {
 		"entitytypes": [ "undead" ],
+		"initiative": 20,
 		"stats": {
 			"health": 18,
 			"evade": 0,
@@ -112,7 +118,7 @@
 		"attacks": [
 			{
 				"style": "melee",
-				"speed": 2,
+				"speed": 1,
 				"accuracy": 10,
 				"damage": 10
 			}
@@ -121,6 +127,7 @@
 
 	"wraith": {
 		"entitytypes": [ "spirit" ],
+		"initiative": 12,
 		"stats": {
 			"health": 31,
 			"evade": 10,
@@ -141,6 +148,7 @@
 
 	"rock_golem": {
 		"entitytypes": [ "rock", "animated" ],
+		"initiative": 20,
 		"stats": {
 			"health": 13,
 			"evade": 0,
@@ -152,13 +160,13 @@
 		"attacks": [
 			{
 				"style": "melee",
-				"speed": 2,
+				"speed": 1,
 				"accuracy": 5,
 				"damage": 7
 			},
 			{
 				"style": "ranged",
-				"speed": 2,
+				"speed": 1,
 				"range": 8,
 				"accuracy": 4,
 				"damage": 6
@@ -168,6 +176,7 @@
 	
 	"crystal_golem": {
 		"entitytypes": [ "rock", "animated" ],
+		"initiative": 20,
 		"stats": {
 			"health": 16,
 			"evade": 0,
@@ -179,13 +188,13 @@
 		"attacks": [
 			{
 				"style": "melee",
-				"speed": 2,
+				"speed": 1,
 				"accuracy": 7,
 				"damage": 12
 			},
 			{
 				"style": "ranged",
-				"speed": 2,
+				"speed": 1,
 				"range": 8,
 				"accuracy": 6,
 				"damage": 10
@@ -199,6 +208,7 @@
 	
 	"gargoyle": {
 		"entitytypes": [ "rock" ],
+		"initiative": 14,
 		"stats": {
 			"health": 12,
 			"evade": 0,
@@ -218,6 +228,7 @@
 	},
 	
 	"ice_elemental": {
+		"initiative": 12,
 		"stats": {
 			"health": 11,
 			"evade": 0,
@@ -246,6 +257,7 @@
 	},
 	
 	"ice_giant": {
+		"initiative": 24,
 		"stats": {
 			"health": 16,
 			"evade": 0,
@@ -257,21 +269,21 @@
 		"attacks": [
 			{
 				"style": "melee",
-				"speed": 2,
+				"speed": 1,
 				"range": 2,
 				"accuracy": 11,
 				"damage": 9
 			},
 			{
 				"style": "ranged",
-				"speed": 2,
+				"speed": 1,
 				"range": 8,
 				"accuracy": 11,
 				"damage": 9
 			},
 			{
 				"style": "magic",
-				"speed": 2,
+				"speed": 1,
 				"range": 6,
 				"accuracy": 11,
 				"damage": 9,
@@ -281,6 +293,7 @@
 	},
 	
 	"ghaugh": {
+		"initiative": 12,
 		"stats": {
 			"health": 9,
 			"evade": 8,
@@ -301,6 +314,7 @@
 	},
 	
 	"lost_mage": {
+		"initiative": 12,
 		"stats": {
 			"health": 12,
 			"evade": 3,
@@ -321,6 +335,7 @@
 	},
 	
 	"cave_worm": {
+		"initiative": 16,
 		"stats": {
 			"health": 12,
 			"evade": 0,
@@ -341,6 +356,7 @@
 	},
 	
 	"shadow_elemental": {
+		"initiative": 16,
 		"stats": {
 			"health": 11,
 			"evade": 5,
@@ -352,13 +368,13 @@
 		"attacks": [
 			{
 				"style": "magic",
-				"speed": 2,
+				"speed": 1,
 				"accuracy": 8,
 				"damage": 6
 			},
 			{
 				"style": "ranged",
-				"speed": 2,
+				"speed": 1,
 				"range": 6,
 				"accuracy": 7,
 				"damage": 5
@@ -367,6 +383,7 @@
 	},
 	
 	"wolf": {
+		"initiative": 10,
 		"stats": {
 			"health": 8,
 			"evade": 5,
@@ -386,6 +403,7 @@
 	},
 	
 	"alpha_wolf": {
+		"initiative": 10,
 		"stats": {
 			"health": 12,
 			"evade": 7,
@@ -405,6 +423,7 @@
 	},
 	
 	"troll": {
+		"initiative": 16,
 		"stats": {
 			"health": 26,
 			"evade": 4,
@@ -424,6 +443,7 @@
 	},
 	
 	"ghast": {
+		"initiative": 12,
 		"stats": {
 			"health": 22,
 			"evade": 9,
@@ -448,6 +468,7 @@
 	
 	"gelatinous_cube": {
 		"entitytypes": [ "acid" ],
+		"initiative": 24,
 		"stats": {
 			"health": 27,
 			"evade": 0,
@@ -463,6 +484,7 @@
 	
 	"ooze": {
 		"entitytypes": [ "acid" ],
+		"initiative": 20,
 		"stats": {
 			"health": 25,
 			"evade": 0,
@@ -474,7 +496,7 @@
 		"attacks": [
 			{
 				"style": "melee",
-				"speed": 2,
+				"speed": 1,
 				"accuracy": 9,
 				"damage": 9
 			}
@@ -483,6 +505,7 @@
 	
 	"carnivorous_plant": {
 		"entitytypes": [ "plant" ],
+		"initiative": 20,
 		"stats": {
 			"health": 28,
 			"evade": 0,
@@ -494,7 +517,7 @@
 		"attacks": [
 			{
 				"style": "melee",
-				"speed": 2,
+				"speed": 1,
 				"range": 2,
 				"accuracy": 18,
 				"damage": 18
@@ -504,6 +527,7 @@
 	
 	"specter": {
 		"entitytypes": [ "undead" ],
+		"initiative": 14,
 		"stats": {
 			"health": 30,
 			"evade": 12,
@@ -524,6 +548,7 @@
 	
 	"vampire_bat": {
 		"entitytypes": [ "beast" ],
+		"initiative": 12,
 		"stats": {
 			"health": 19,
 			"evade": 15,
@@ -545,6 +570,7 @@
 	
 	"vine_blight": {
 		"entitytypes": [ "plant" ],
+		"initiative": 18,
 		"stats": {
 			"health": 18,
 			"evade": 0,
@@ -560,6 +586,7 @@
 	
 	"wolf_spider": {
 		"entitytypes": [ "arachnid" ],
+		"initiative": 16,
 		"stats": {
 			"health": 33,
 			"evade": 4,
@@ -571,7 +598,7 @@
 		"attacks": [
 			{
 				"style": "melee",
-				"speed": 2,
+				"speed": 1,
 				"range": 2,
 				"accuracy": 12,
 				"damage": 12
@@ -581,6 +608,7 @@
 	
 	"toxic_spider": {
 		"entitytypes": [ "arachnid" ],
+		"initiative": 8,
 		"stats": {
 			"health": 4,
 			"evade": 15,
@@ -602,6 +630,7 @@
 	
 	"shadow_hound": {
 		"entitytypes": [ "beast" ],
+		"initiative": 12,
 		"stats": {
 			"health": 15,
 			"evade": 10,
@@ -622,6 +651,7 @@
 	},
 	
 	"necromancer": {
+		"initiative": 12,
 		"stats": {
 			"health": 24,
 			"evade": 7,
@@ -647,6 +677,7 @@
 	
 	"fire_elemental": {
 		"entitytypes": [ "fire" ],
+		"initiative": 8,
 		"stats": {
 			"health": 20,
 			"evade": 8,
@@ -669,6 +700,7 @@
 	
 	"demon": {
 		"entitytypes": [ "demon" ],
+		"initiative": 12,
 		"stats": {
 			"health": 27,
 			"evade": 6,
@@ -682,20 +714,21 @@
 				"style": "melee",
 				"speed": 2,
 				"range": 2,
-				"accuracy": 21,
-				"damage": 21
+				"accuracy": 19,
+				"damage": 18
 			},
 			{
 				"style": "magic",
 				"speed": 2,
 				"range": 8,
-				"accuracy": 19,
-				"damage": 18
+				"accuracy": 17,
+				"damage": 16
 			}
 		]
 	},
 	
 	"cockatrice": {
+		"initiative": 16,
 		"stats": {
 			"health": 30,
 			"evade": 10,
@@ -715,6 +748,7 @@
 	},
 	
 	"hellhound": {
+		"initiative": 12,
 		"stats": {
 			"health": 23,
 			"evade": 14,
@@ -734,6 +768,7 @@
 	},
 	
 	"fire_giant": {
+		"initiative": 18,
 		"stats": {
 			"health": 21,
 			"evade": 8,
@@ -763,6 +798,7 @@
 	},
 	
 	"choker": {
+		"initiative": 12,
 		"stats": {
 			"health": 36,
 			"evade": 110,
@@ -777,6 +813,7 @@
 	},
 	
 	"enchanter": {
+		"initiative": 12,
 		"stats": {
 			"health": 32,
 			"evade": 15,
@@ -797,6 +834,7 @@
 	},
 	
 	"dust_mephit": {
+		"initiative": 14,
 		"stats": {
 			"health": 39,
 			"evade": 0,
@@ -813,6 +851,7 @@
 	
 	
 	"rabnach": {
+		"initiative": 20,
 		"stats": {
 			"health": 103,
 			"evade": 0,
@@ -824,14 +863,14 @@
 		"attacks": [
 			{
 				"style": "melee",
-				"speed": 3,
+				"speed": 2,
 				"range": 2,
 				"accuracy": 18,
 				"damage": 18
 			},
 			{
 				"style": "magic",
-				"speed": 3,
+				"speed": 2,
 				"range": 8,
 				"accuracy": 18,
 				"damage": 18

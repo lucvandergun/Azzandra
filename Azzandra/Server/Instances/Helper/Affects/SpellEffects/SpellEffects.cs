@@ -699,6 +699,8 @@ namespace Azzandra.SpellEffects
             {
                 if (!(inst is Entity entity) || inst == attacker) continue;
 
+                
+
                 // Roll vs res
                 if (!GetSpc(attacker).RollAgainst(entity.GetRes().Round()))
                 {

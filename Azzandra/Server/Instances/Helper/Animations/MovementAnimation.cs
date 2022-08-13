@@ -30,10 +30,22 @@ namespace Azzandra
     public class MovementAnimation : IAnimation
     {
         public readonly List<Vector> Steps;
-        public MovementAnimation(List<Vector> steps)
+        public int Duration;
+        private Instance _owner;
+        public Instance Owner => _owner;
+
+        private int AnimationLength;
+        private int MomentOfStart;
+
+        public MovementAnimation(Instance owner, List<Vector> steps, int duration)
         {
             Steps = steps;
             Steps.Reverse(); // Steps have to be reversed as they are being offset FROM the ending position!
+            Duration = duration;
+            _owner = owner;
+
+            MomentOfStart = Owner.Level.Server.AmtUpdates;
+            AnimationLength = Duration * Server.TICK_SPEED;
         }
 
         public MovementAnimation(Vector step)
@@ -41,22 +53,32 @@ namespace Azzandra
             Steps = new List<Vector>() { step };
         }
 
-        public Vector2 GetDisposition(float tickFrac)
+        public void Update()
         {
-            var offset = Vector2.Zero;
-            var stepTime = 1f / Steps.Count;
-            var frac = tickFrac;
+            Duration--;
+            if (Duration <= 0)
+                Owner.Animations.Remove(this);
+        }
 
+        public Vector2 GetDisposition()
+        {
+            var offset = Vector2.Zero;              // The accumulative offset
+            var animationFraction = Math.Max(0, 1f - ((float)Owner.Level.Server.AmtUpdates - MomentOfStart) / AnimationLength);
+            var stepFraction = 1f / Steps.Count;    // The time in frames per movement step
+
+            // Line up all steps (and their offsets) until the point in the current animationFraction
             foreach (var step in Steps)
             {
-                if (tickFrac > stepTime) // >= or > ? i.e. should tickFrac == 0, or tickFrac == 1 be incorporated?
+                // If the step can be fully displayed: do so
+                if (animationFraction > stepFraction) // >= or > ? i.e. should tickFrac == 0, or tickFrac == 1 be incorporated?
                 {
                     offset += step.ToFloat() * ViewHandler.GRID_SIZE;
-                    tickFrac -= stepTime;
+                    animationFraction -= stepFraction;
                 }
+                //Else, add only a fraction of it
                 else
                 {
-                    offset += step.ToFloat() * ViewHandler.GRID_SIZE * tickFrac / stepTime;
+                    offset += step.ToFloat() * ViewHandler.GRID_SIZE * animationFraction / stepFraction;
                     break;
                 }
             }

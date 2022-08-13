@@ -32,9 +32,9 @@ namespace Azzandra
         public ShadowCloud(int x, int y) : base(x, y)
         { }
 
-        public override void TickStart()
+        public override void TurnStart()
         {
-            base.TickStart();
+            base.TurnStart();
 
             Time--;
             if (Time <= 0)
@@ -49,9 +49,9 @@ namespace Azzandra
             }
         }
 
-        public override void Tick()
+        public override void Turn()
         {
-            base.Tick();
+            base.Turn();
 
             // Action present? Keep it. Else make new path to target.
             if (Action != null)

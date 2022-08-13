@@ -12,7 +12,6 @@ namespace Azzandra
     {
         protected virtual Symbol Symbol => new Symbol('+', Color.Aqua);
         protected readonly Vector[] Nodes;
-        public override bool IsOnPlayerTick => Origin?.IsOnPlayerTick ?? false;
         public override bool RenderLightness => false;
 
 
@@ -23,7 +22,7 @@ namespace Azzandra
             Nodes = nodes;
         }
         
-        public override void TickEnd()
+        public override void TurnEnd()
         {
             Destroy();
         }

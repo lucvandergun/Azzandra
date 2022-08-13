@@ -10,7 +10,6 @@ namespace Azzandra
     public abstract class Projectile : Instance
     {
         protected readonly Instance Origin;
-        public override bool IsOnPlayerTick => Origin?.IsOnPlayerTick ?? false;
 
         public Projectile(Instance origin) : base(origin.X, origin.Y)
         {

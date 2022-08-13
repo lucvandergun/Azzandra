@@ -99,6 +99,7 @@ namespace Azzandra
             //Server.User.ShowMessage("Assigned id: " + inst.ID);
             AddInstance(inst);
             inst.Init();
+            inst.MomentOfLastTurn = Server.AmtUpdates;
             return inst;
         }
 
@@ -210,60 +211,87 @@ namespace Azzandra
         }
 
 
-        public void TickStart(bool isPlayerTick)
+
+        // === Turn Handling == \\
+
+        /// <summary>
+        /// Increase the action potential of all instances.
+        /// If the instance is not the player, allow it to perform a turn.
+        /// </summary>
+        public void Turn()
         {
-            //Debug.WriteLine("tstart: " +ActiveInstances.Where(i => i.IsOnPlayerTick == isPlayerTick).Stringify());
             Instance inst;
             for (int i = 0; i < ActiveInstances.Count; i++)
             {
                 inst = ActiveInstances[i];
-                
-                if (inst.IsOnPlayerTick == isPlayerTick)
+
+                // Skip if on DeathTimer:
+                if (inst is Entity entity && entity.DeathTimer >= 0)
+                    continue;
+
+                inst.ActionPotential += Server.TICK_POTENTIAL_ADDITION;
+
+                // Turn-Start and Turn:
+                if (inst.ActionPotential >= inst.Initiative)
                 {
-                    //if (!inst.IsDestroyed)
-                    //    inst.TickStart();
-
-                    //// Remove instance if it's destroyed.
-                    //if (inst.IsDestroyed)
-                    //    ActiveInstances.RemoveAt(i);
-
-                    inst.TickStart();
+                    inst.TurnStart();
+                    //if (inst is Player player) player.User.ShowMessage("tick start");
 
                     // If instance has been removed, it's dead: move on.
                     if (i < ActiveInstances.Count && inst != ActiveInstances[i])
                     {
                         i--; continue;
                     }
-                } 
-            }
-        }
 
-        public void Tick(bool isPlayerTick)
-        {
-            //Debug.WriteLine("tick: " + ActiveInstances.Where(i => i.IsOnPlayerTick == isPlayerTick).Stringify());
-            Instance inst;
-            for (int i = 0; i < ActiveInstances.Count; i++)
-            {
-                inst = ActiveInstances[i];
-
-                if (inst.IsOnPlayerTick == isPlayerTick)
-                {
-                    inst.Tick();
+                    if (!(inst is Player))
+                    {
+                        inst.ActionPotential -= inst.Initiative;
+                        inst.Turn();
+                        inst.TimeSinceLastTurn = 0;
+                        inst.MomentOfLastTurn = Server.AmtUpdates;
+                    }
                 }
             }
         }
 
-        public void TickEnd(bool isPlayerTick)
+        public void TurnEnd()
         {
-            //Debug.WriteLine("tend: " + ActiveInstances.Where(i => i.IsOnPlayerTick == isPlayerTick).Stringify());
             Instance inst;
             for (int i = 0; i < ActiveInstances.Count; i++)
             {
                 inst = ActiveInstances[i];
 
-                if (inst.IsOnPlayerTick == isPlayerTick)
+                // Reduce Animation counters
+                for (int j = 0; j < inst.Animations.Count; j++)
                 {
-                    inst.TickEnd();
+                    var anim = inst.Animations[j];
+                    anim.Update();
+                    if (j < inst.Animations.Count && anim != inst.Animations[j])
+                    {
+                        j--; continue;
+                    }
+                }
+
+                // Skip if on Deathtimer. Destroy if DeathTimer is 0:
+                if (inst is Entity entity && entity.DeathTimer >= 0)
+                {
+                    if (entity.DeathTimer == 0)
+                        entity.Destroy();
+                    entity.DeathTimer--;
+                    continue; ;
+                }
+
+                // Perform Turn-End just before the instances' Turn:
+                if (inst.TimeSinceLastTurn < inst.Initiative && inst.TimeSinceLastTurn >= 0)
+                    inst.TimeSinceLastTurn += Server.TICK_POTENTIAL_ADDITION;
+
+                // Turn-End - Just before the instances' Turn.
+                if (inst.TimeSinceLastTurn >= inst.Initiative)
+                {
+                    inst.TurnEnd();
+                    inst.TimeSinceLastTurn = -1;
+
+                    //if (inst is Player player) player.User.ShowMessage("tick end");
 
                     // If instance has been removed, it's dead: move on.
                     if (i < ActiveInstances.Count && inst != ActiveInstances[i])
@@ -273,6 +301,10 @@ namespace Azzandra
                 }
             }
         }
+
+
+
+
 
         public Instance InstanceCheckPosition(int x, int y, Instance self, bool reqSolidity)
         {
@@ -410,7 +442,7 @@ namespace Azzandra
             else
                 return 0f;
         }
-
+         
         public bool NodeBlocksLight(Vector n)
         {
             if (!IsInMapBounds(n.X, n.Y))
@@ -481,10 +513,13 @@ namespace Azzandra
             var instances = ActiveInstances.CreateCopy();
             instances.RemoveAll(p => p is Player);              // Don't save player, it is saved through User.
 
-            int amt = instances.Count;
+            int amt = 0;
 
             foreach (var inst in instances)
             {
+                if (inst is TargetProjectileMoving || inst is Entity entity && entity.Hp <= 0)
+                    continue;
+                
                 //Debug.WriteLine(" SAVING INSTANCE: " + inst.Name);
 
                 // First construct a header (inst type + inst bytes amt) [24 bytes], then store the instance bytes [variable bytes]
@@ -499,7 +534,8 @@ namespace Azzandra
 
                 // Add instance-specific bytes to the level total array
                 bytes = bytes.Concat(instBytes).ToArray();
-                
+
+                amt++;
             }
 
             return BitConverter.GetBytes(amt).Concat(bytes).ToArray();

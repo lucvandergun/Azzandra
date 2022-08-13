@@ -77,7 +77,7 @@ namespace Azzandra.TargetingMode
             }
 
             // Set directional command
-            if (ih.Dir != null && (ih.Server.IsPlayerTurn || ih.CanInit))
+            if (ih.Dir != null && (ih.Server.User.Player.CanPerformTurn() || ih.CanInit)) //ih.Server.IsPlayerTurn
             {
                 ih.Server.SetPlayerAction(new ActionDirectional(ih.Server.User.Player, ih.Dir, ih.CanInit, ih.IsShift));
 

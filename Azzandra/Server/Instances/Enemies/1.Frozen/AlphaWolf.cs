@@ -16,9 +16,7 @@ namespace Azzandra
 
         protected override void SetupActionPotentials()
         {
-            base.SetupActionPotentials();
-
-            ActionPotentials.Add(new TemplateSpellAcute(new SpellEffects.Howl())
+            Spells.Add(new TemplateSpellAcute(new SpellEffects.Howl())
             {
                 Requirement = c => c.Children.Any(i => i.Instance is Wolf wolf && wolf.Target?.ID != c.Target?.ID) //  / 2 > c.Children.Count(i => i.Instance is Wolf && i.Instance.TileDistanceTo(c) < 3
             });

@@ -12,6 +12,7 @@ namespace Azzandra
     {
         // == Saved attributes == \\
         public int HitTimer { get; protected set; } = 10;
+        public override int Initiative => 18;
 
 
         // == Properties == \\
@@ -30,7 +31,8 @@ namespace Azzandra
         // Stats & Attacks are loaded from Data upon initialization
         public EntityStats Stats;
         public TemplateAttack[] Attacks;
-        public List<ActionTemplate> ActionPotentials = new List<ActionTemplate>();
+        public List<ActionTemplate> Spells = new List<ActionTemplate>();
+        public virtual float SpellChance => 0.25f;
 
         //public override int GetFullHp()
         //{
@@ -80,33 +82,51 @@ namespace Azzandra
         {
             // Load the enemy stats from the database
             var data = Data.GetEnemyData(InstanceID.GetTypeID2(this));
+            Initiative = data.Initiative;
             Stats = data.Stats;
             Attacks = data.Attacks;
         }
 
         /// <summary>
-        /// Compiles the list of action potentials soluly based on the initialised attacks. Can be overridden to add e.g. spells to the list.
+        /// Used to create a list of spell actions to be done. Can be overridden to add e.g. spells.
         /// </summary>
-        protected virtual void SetupActionPotentials()
-        {
-            ActionPotentials.AddRange(Attacks.ToList());
-        }
+        protected virtual void SetupActionPotentials() { }
 
-        public override void TickStart()
+        public override void TurnStart()
         {
-            base.TickStart();
+            base.TurnStart();
 
             if (Target != null && HitTimer < 20) HitTimer++;
         }
 
-        public override void Tick()
+        public override void Turn()
         {
             Action = DetermineAction();
-            base.Tick();
+            base.Turn();
         }
 
         protected virtual EntityAction DetermineAction()
         {
+            //var player = Level.Server.User.Player;
+            //if (player != null)
+            //{
+            //    var map = new DijkstraMap(Level, this, new List<Instance>() { player });
+            //    map.CreateMap2();
+            //    map.IterateOverMap();
+            //    map.ToIntMatrix();
+            //    var step = map.GetStep();
+
+            //    //var avMap = new AvoidanceMap(Level, this);
+            //    //avMap.CreateMap();
+            //    //map.CombineWith(avMap);
+            //    //var step = map.GetStep();
+
+            //    Debug.WriteLine(map.Matrix.Stringify());
+            //    Debug.WriteLine("loc: " + Position + ", step: " + step);
+            //    return new ActionMove(this, step);
+            //}
+            
+            
             // Check whether to lose target:
             if (Target != null)
             {
@@ -153,17 +173,9 @@ namespace Azzandra
         /// </summary>
         public virtual EntityAction DetermineAggressiveAction()
         {
-            // Just to make sure: check whether target actually exists
-            var target = Target.Combatant;
-            if (target == null)
-            {
-                Target = null;
-                return null;
-            }
-
-            // Keep any current action
-            if (Action != null)
-                return Action;
+            ////// Keep any current action
+            ////if (Action != null)
+            ////    return Action;
 
             // Decide upon attack type to use:
             var template = ChooseActionTemplate();
@@ -177,16 +189,26 @@ namespace Azzandra
         /// <returns>A usable attack type. Returns null if no target or if none are suitable.</returns>
         protected virtual ActionTemplate ChooseActionTemplate()
         {
-            var actions = ActionPotentials.ToArray();
+            // Try, by chance, to perform a spell first
+            if (Util.Random.NextDouble() <= SpellChance)
+            {
+                var spellPotentials = Spells.Where(a => a.CanBePerformed(this) && (!(a is TemplateAffect aff) || aff.IsInRange(TileDistanceTo(Target.Instance)))).ToList();
+                if (spellPotentials.Count > 0)
+                {
+                    return spellPotentials.PickRandom();
+                }
+            }
+            
+            // Try to find an attack that can already be performed (in-range)
+            var potentials = Attacks.Where(a => a.IsInRange(TileDistanceTo(Target.Instance))).ToList();
+            if (potentials.Count > 0)
+            {
+                return potentials.PickRandom();
+            }
 
-            // Return if none possible:
-            if (actions.Length <= 0) return null;
-
-            // Filter by possibility:
-            actions = actions.Where(a => a.CanBePerformed(this)).ToArray();
-
-            // Pick a random action:
-            return actions[Util.Random.Next(actions.Length)];
+            // Otherwise, return the attack that is closest in-range
+            var maxRange = Attacks.Max(a => a.Range);
+            return Attacks.FirstOrDefault(a => a.Range == maxRange);
         }
 
         public virtual EntityAction CreateActionForAffect(Instance target, Affect affect)
@@ -216,26 +238,24 @@ namespace Azzandra
             // Check whether enemy can move at all:
             if (!CanMove()) return null;
 
-            // Find possible movement options:
+
+            // Try to leap at target if within one turn's movement:
             var step = GetStepTowards(target);
             var movementOptions = new Vector[] { step, new Vector(step.X, 0), new Vector(0, step.Y) };
 
-            foreach (var option in movementOptions)
+            foreach (var option in movementOptions.Where(o => !o.IsNull()))
             {
-                if (option.IsNull()) continue;
-
-                // If can move out of wander range, or no wander range
-                //if (!CanChaseToPos(Position + option)) continue;
-
                 // Try to leap at target if within one turn's movement:
                 if (affect is Attack attack && attack.Style == Style.Melee && AttackTimer >= affect.Speed)
                 {
                     if (dist.Absolute() - new Vector(affect.Range) <= new Vector(GetMovementSpeed()))
                         return new ActionLeapAttack(this, entity, option, (Attack)affect);
                 }
-
-                return new ActionMove(this, option);
             }
+
+            // TODO: move towards closest tile that meets specs: i.e. tiles in attack range!
+            // AND: make special class case to allow moving beyond its wander region.
+            return new ActionPathTarget(this, target, true);
 
             // No movement action was possible for whatever reason --> remove target/start fleeing:
             //Target = null;

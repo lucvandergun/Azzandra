@@ -17,13 +17,11 @@ namespace Azzandra
 
         protected override void SetupActionPotentials()
         {
-            base.SetupActionPotentials();
-
-            ActionPotentials.Add( new TemplateSpell(2, 6, 4, new SpellEffects.Disorient())
+            Spells.Add( new TemplateSpell(2, 6, 4, new SpellEffects.Disorient())
             {
                 Requirement = c => !c.Target?.Combatant?.HasStatusEffect(StatusEffectID.Disoriented) ?? false
             });
-            ActionPotentials.Add( new TemplateSpell(2, 6, 4, new SpellEffects.Weaken())
+            Spells.Add( new TemplateSpell(2, 6, 4, new SpellEffects.Weaken())
             {
                 Requirement = c => !c.Target?.Combatant?.HasStatusEffect(StatusEffectID.Weak) ?? false
             });

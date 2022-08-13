@@ -5,6 +5,11 @@ using System.Linq;
 
 namespace Azzandra
 {
+    /// <summary>
+    /// Entities form the next big type of instance. They resemble agents and are capable of the following:
+    ///  - Health, attackability, as well as status effects
+    ///  - Vision handling
+    /// </summary>
     public abstract class Entity : Instance
     {
         // === General Properties === \\
@@ -16,7 +21,6 @@ namespace Azzandra
         public virtual EntityType EntityType => EntityType.None;
         public override bool IsSolid() => true;
         public override bool IsAttackable() => true;
-        public virtual int GetSpRestore() => Math.Max(GetW(), GetH()) * 2;
 
         public virtual int GetVisionRange()
         {
@@ -25,6 +29,14 @@ namespace Azzandra
                     return Math.Min(Math.Max(0, 4 - se.Level), VisionRange);
             return VisionRange;
         }
+
+        /// <summary>
+        /// The amount of ticks until this creature gets destroyed. Creatures with a positive death timer won't be saved.
+        /// (Will be set to the attacker's initiative when killed.)
+        /// </summary>
+        public int DeathTimer { get; set; } = -1;
+
+        // === Behaviour Properties === \\
 
 
         // === Saved Attributes === \\
@@ -175,19 +187,19 @@ namespace Azzandra
 
 
         // Tick:
-        public override void TickStart()
+        public override void TurnStart()
         {
-            base.TickStart();
+            base.TurnStart();
             
             // Reset turn trackers:
             SightSquares = null;
             //Hits.Clear(); // Are cleared now by themselves.
 
-            if (Hp <= 0)
-            {
-                Destroy();
-                return;
-            }
+            //if (Hp <= 0)
+            //{
+            //    Destroy();
+            //    return;
+            //}
 
             // Rebound attack timer
             if (AttackTimer < 10) AttackTimer++;
@@ -208,10 +220,10 @@ namespace Azzandra
             if (HasStatusEffect(StatusEffectID.Stunned))
                 Action = new ActionMove(this, Vector.Zero, true);
 
-            // Check death again
+            // Check death again: set it to it's own initiative:
             if (Hp <= 0)
             {
-                Destroy();
+                DeathTimer = Initiative;
                 return;
             }
 
@@ -231,7 +243,7 @@ namespace Azzandra
             }
         }
 
-        public override void Tick()
+        public override void Turn()
         {
             if (!(this is Player) && Action != null)
             {
@@ -242,9 +254,9 @@ namespace Azzandra
             PutNextAction();
         }
 
-        public override void TickEnd()
+        public override void TurnEnd()
         {
-            base.TickEnd();
+            base.TurnEnd();
 
             // Perform on-standing tile actions
             foreach (var node in GetTiles())
@@ -265,9 +277,11 @@ namespace Azzandra
                 //inst.OnInstanceCollision(this);
             }
 
+            // Check death: set it to it's own initiative:
             if (Hp <= 0)
             {
-                Destroy();
+                DeathTimer = Initiative;
+                return;
             }
         }
 
@@ -326,7 +340,7 @@ namespace Azzandra
                 case BlockID.Acid:
                     if (!this.IsTypeOf(EntityType.Acid))
                     {
-                        GetHit(Style.Other, 1);
+                        GetHit(Style.Acid, 1);
                         if (this is Player p) p.User.Log.Add("<acid>The acid damages you.");
                     }
                     break;
@@ -359,6 +373,9 @@ namespace Azzandra
         /// </summary>
         public virtual bool CanAffect(Instance target, Affect affect)
         {
+            if (target is Entity entity && entity.Hp <= 0)
+                return false;
+            
             if (HasStatusEffect(StatusEffectID.Stunned))
                 return false;
 
@@ -381,12 +398,13 @@ namespace Azzandra
                 return false;
 
             // Check if entity is touching if range is 1
-            return attackRange != 1 || IsTouching(target);
+            return true;
+            //return attackRange != 1 || IsTouching(target);
         }
 
 
         /// <summary>
-        /// Attacks the target combatant with the specified attack.
+        /// Attacks the target instance with the specified attack.
         /// Calls target.GetHit(attack) to have it take the hit.
         /// Returns the same attack but modified to have it know whether it succeeded, etc.
         /// </summary>
@@ -419,11 +437,21 @@ namespace Azzandra
             if (HasStatusEffect(StatusEffectID.Invulnerable))
                 dmg = 0;
             
+            // Remove dmg value from health
             dmg = Math.Min(dmg, Hp);
             Hp -= dmg;
 
             // Add hitsplat:
             AddHit(new HitDmg(this, style, dmg));
+
+            // Check death
+            if (Hp <= 0)
+            {
+                DeathTimer = Initiative;
+                //Destroy();
+                //ActionPotential = -1;
+                //TimeSinceLastTurn = 0;
+            }
 
             return dmg;
         }

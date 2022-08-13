@@ -56,7 +56,7 @@ namespace Azzandra
 
         public void Add(string msg, bool filter = false)
         {
-            var turn = GameClient.Server?.Turns ?? 0;
+            var turn = GameClient.Server?.AmtTurns ?? 0;
             bool isSnapped = IsSnapped;
 
             // If same as previous, increase previous count by 1:
@@ -143,7 +143,7 @@ namespace Azzandra
             var text = new TextDrawer(4, msgStart * LineH - ScrollPos + 8, LineH, Alignment.VCentered, font, Color.White);
             text.ResetColorOnCall = true;
 
-            var currentTurn = GameClient.Server?.Turns ?? 0;
+            var currentTurn = GameClient.Server?.AmtTurns ?? 0;
 
             var messageCount = messages.Count;
             for (int i = msgStart; i < messageCount && i < msgStart + visibleCount; i++)

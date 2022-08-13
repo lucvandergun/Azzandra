@@ -13,6 +13,8 @@ namespace Azzandra
         public List<AttackProperty> Properties;
         public bool ShowHitMessage = true;
 
+        public override bool IsInRange(int range) => Range >= (Style == Style.Melee ? range - 1 : range);
+
         public TemplateAttack()
         { }
 

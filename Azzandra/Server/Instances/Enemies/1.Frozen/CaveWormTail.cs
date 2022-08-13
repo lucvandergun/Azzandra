@@ -12,11 +12,13 @@ namespace Azzandra
         private int Amt;
         public override bool IsSolid() => true;
         public override bool IsAttackable() => true;
+        public override int Initiative => 16;
         public CaveWormTail(int x, int y) : base(x, y) {}
 
         public CaveWormTail(int x, int y, Instance parent, int amt) : base(x, y)
         {
             Parent = new InstRef(parent);
+            ActionPotential = parent.ActionPotential;
             Amt = amt;
         }
 
@@ -32,10 +34,10 @@ namespace Azzandra
 
 
         public override Symbol GetSymbol() => new Symbol('=', Color.BurlyWood);
-        public override string ToString() => "cave snakes's tail";
+        public override string ToString() => "cave worm's tail";
         public override bool RenderLightness => true;
 
-        public override void Tick()
+        public override void Turn()
         {
             return;
         }
@@ -47,7 +49,10 @@ namespace Azzandra
             if (steps.Count > 0)
             {
                 var tail = Children.FirstOrDefault(r => r.Instance is CaveWormTail)?.Instance;
-                tail?.Move(oldPos - tail.Position);
+                if (tail != null)
+                {
+                    tail.Move(oldPos - tail.Position);
+                }
             }
             return steps;
         }

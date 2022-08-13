@@ -73,7 +73,7 @@ namespace Azzandra
             // Main:
             bytes.Insert(pos, GameSaver.GetBytes(Engine.GAME_VERSION));
             pos += 20;
-            bytes.Insert(pos, BitConverter.GetBytes(Server.Turns));
+            bytes.Insert(pos, BitConverter.GetBytes(Server.AmtTurns));
             pos += 4;
 
             // User

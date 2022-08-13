@@ -8,24 +8,32 @@ using System.Threading.Tasks;
 
 namespace Azzandra
 {
+    /// <summary>
+    /// The most general type of the instances. All instances have / are able to:
+    ///  - Positioning & movement methods
+    ///  - Movement animations
+    ///  - Initiative handling
+    ///  - A unique ID (identifier) when spawned
+    ///  - Saving & loading methods
+    ///  - A parent instance reference and or child instance references
+    ///  - Collision / distance / range checker methods
+    ///  - Rendering properties and methods
+    /// </summary>
     public abstract class Instance
     {
         public virtual bool DisplayFire => false;
         public virtual bool DisplayFrozen => false;
         public virtual bool RenderLightness => true;
-        
+
         public Level Level { get; set; }
         //public bool IsDestroyed { get; private set; } = false;
         public int MoveTimer { get; set; } = 0; // Counts down.
         public virtual int GetMoveDelay() => 1;
-        public virtual bool IsOnPlayerTick => false;
-        public int ID { get; set; } = -1;
 
         /// <summary>
-        /// The parent instance to this.
+        /// The parent instance of this.
         /// </summary>
         public InstRef Parent { get; set; }
-
         /// <summary>
         /// List of instance children, used for keeping track of long-term projectiles, spell effects or other combatants spawned by this combatant, etc.
         /// </summary>
@@ -33,7 +41,31 @@ namespace Azzandra
         public InstRef CreateRef() => new InstRef(this);
 
 
-        // Properties:
+        // === Initiative Handling === \\
+
+        /// <summary>
+        /// The time it takes until an action may be performed.
+        /// </summary>
+        public virtual int Initiative { get; set; } = 12;   // 12 is the basic unit, the player will have this speed under normal circumstances.
+        /// <summary>
+        /// The current potential for taking actions. One action or 'Turn' can be taken per initiative. If not enough potential present, it will have to be accumulated first.
+        /// </summary>
+        public int ActionPotential { get; set; } = 0;
+        /// <summary>
+        /// Checks whether ActionPotential is greater than the Initiative.
+        /// </summary>
+        public bool CanPerformTurn() => ActionPotential >= Initiative;
+
+        /// <summary>
+        /// The time in action potential built up since the last turn: should be equal to 'ActionPotential', but this counter is 
+        /// </summary>
+        public int TimeSinceLastTurn { get; set; } = 0;
+        
+        public int MomentOfLastTurn = 0;
+
+
+        // === Attributes === \\
+        public int ID { get; set; } = -1;
         public int X { get; protected set; }
         public int Y { get; protected set; }
 
@@ -47,6 +79,8 @@ namespace Azzandra
             }
         }
 
+        public virtual int GetW() { return 1; }
+        public virtual int GetH() { return 1; }
         public Vector Size => new Vector(GetW(), GetH());
 
         public virtual IEnumerable<Vector> GetTiles()
@@ -62,9 +96,7 @@ namespace Azzandra
             }
             return list;
         }
-
-        public virtual int GetW() { return 1; }
-        public virtual int GetH() { return 1; }
+        
         public virtual bool IsSolid() { return true; }
         public virtual bool BlocksLight() { return false; }
         public virtual bool IsInteractable() { return false; }
@@ -77,13 +109,14 @@ namespace Azzandra
         {
             X = x;
             Y = y;
+            ActionPotential = Util.Random.Next(Initiative);
         }
 
 
-        /// === Saving & Loading === \\\
-        /// Saving and loading is top-down: from the child class all the way to this super class.
-        /// - Overriding Load(...): call base.Load(...) at the end.
-        /// - Overriding ToBytes(...): return newArray.Concat(base.ToBytes(...)).
+        // === Saving & Loading === \\
+        // Saving and loading is top-down: from the child class all the way to this super class.
+        // - Overriding Load(...): call base.Load(...) at the end.
+        // - Overriding ToBytes(...): return newArray.Concat(base.ToBytes(...)).
 
         public virtual void Load(byte[] bytes, ref int pos)
         {
@@ -95,6 +128,10 @@ namespace Azzandra
             X = BitConverter.ToInt32(bytes, pos);
             pos += 4;
             Y = BitConverter.ToInt32(bytes, pos);
+            pos += 4;
+
+            // ActionPotential
+            ActionPotential = BitConverter.ToInt32(bytes, pos);
             pos += 4;
 
             // MoveTimer
@@ -120,7 +157,7 @@ namespace Azzandra
 
         public virtual byte[] ToBytes()
         {
-            var bytes = new byte[20];
+            var bytes = new byte[24];
             int pos = 0;
 
             // Instance id
@@ -131,6 +168,10 @@ namespace Azzandra
             bytes.Insert(pos, BitConverter.GetBytes(X));
             pos += 4;
             bytes.Insert(pos, BitConverter.GetBytes(Y));
+            pos += 4;
+
+            // ActionPotential
+            bytes.Insert(pos, BitConverter.GetBytes(ActionPotential));
             pos += 4;
 
             // MoveTimer
@@ -181,9 +222,9 @@ namespace Azzandra
         /// <summary>
         /// Update timers and check for destruction here.
         /// </summary>
-        public virtual void TickStart()
+        public virtual void TurnStart()
         {
-            Animations.Clear();
+            //Animations.Clear();
 
             // Rebound move timer
             if (MoveTimer > 0) MoveTimer--;
@@ -192,14 +233,14 @@ namespace Azzandra
         /// <summary>
         /// Perform any AI decisions here (e.g. set Combatant's .Action property), as well as executing them.
         /// </summary>
-        public virtual void Tick() { }
+        public virtual void Turn() { }
 
         /// <summary>
         /// State any handling to be done after the entire tick has passed. Method is executed just before the next tick.
         /// </summary>s
-        public virtual void TickEnd()
+        public virtual void TurnEnd()
         {
-            Animations.Clear();
+            //Animations.Clear();
         }
 
 
@@ -563,7 +604,7 @@ namespace Azzandra
                 var slideStep = distTraversed.Sign();
                 if (CanMoveUnobstructed(slideStep.X, slideStep.Y))
                 {
-                    if (this is Entity cb)
+                    if (this is Entity cb && !(this is CaveWormTail))
                     {
                         var iceSlide = new ActionMove(cb, distTraversed)
                         {
@@ -575,7 +616,9 @@ namespace Azzandra
                 }
             }
 
-            Animations.Add(new MovementAnimation(steps));
+            var tt = this;
+
+            Animations.Add(new MovementAnimation(this, steps, Initiative));
             return steps;
         }
 
@@ -762,12 +805,10 @@ namespace Azzandra
 
         public virtual Vector2 CalculateRealPos(Server server)
         {
-            float turnDelay = IsOnPlayerTick ? server.TurnDelay : server.EnemyTurnDelay;
-
             var drawOffset = Vector2.Zero;
             foreach (var anim in Animations)
                 if (anim is MovementAnimation)
-                    drawOffset += anim.GetDisposition(turnDelay / Server.TURN_SPEED);
+                    drawOffset += anim.GetDisposition();
 
             return GetAbsoluteStaticPos() + drawOffset;
         }
@@ -779,13 +820,12 @@ namespace Azzandra
         /// <param name="viewOffset">The current view offset to take into account (absolute coordinates of top left corner of viewing area).</param>
         public virtual void DrawView(Vector2 viewOffset, Server server, float lightness)
         {
-            float turnDelay = IsOnPlayerTick ? server.TurnDelay : server.EnemyTurnDelay;
-            var drawOffset = Vector2.Zero;
-            foreach (var anim in Animations)
-                if (anim is AttackAnimation)
-                    drawOffset += anim.GetDisposition(turnDelay / Server.TURN_SPEED);
+            //var drawOffset = Vector2.Zero;
+            //foreach (var anim in Animations)
+            //    if (anim is AttackAnimation)
+            //        drawOffset += anim.GetDisposition(server.GetTickFraction(MomentOfLastTurn, Initiative));
 
-            var drawPos = CalculateRealPos(server) + viewOffset + drawOffset;
+            var drawPos = CalculateRealPos(server) + viewOffset;// + drawOffset;
             Draw(drawPos, lightness);
         }
 
