@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Azzandra
 {
-    public class Rabnach : Enemy
+    public class Azzandra : Enemy
     {
         public override int GetW() => 3;
         public override int GetH() => 3;
@@ -18,7 +18,7 @@ namespace Azzandra
 
         private bool WillPull = false;
 
-        public Rabnach(int x, int y) : base(x, y)
+        public Azzandra(int x, int y) : base(x, y)
         {
             
         }
@@ -68,7 +68,7 @@ namespace Azzandra
         }
 
 
-        public override Symbol GetSymbol() => new Symbol('R', Color.Red);
+        public override Symbol GetSymbol() => new Symbol('A', Color.Red);
 
         public override string ToString() => GetType().Name;
     }

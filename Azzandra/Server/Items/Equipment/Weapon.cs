@@ -22,7 +22,7 @@ namespace Azzandra.Items
         public override bool CanParry => Style == Style.Melee;
 
         [JsonProperty(PropertyName = "properties")]
-        public Azzandra.AttackProperty[] AttackProperties = null;
+        public global::Azzandra.AttackProperty[] AttackProperties = null;
 
         public override List<string> GetInfo()
         {
@@ -33,7 +33,7 @@ namespace Azzandra.Items
 
             list.Add(GetTypeDesc());
 
-            var speedString = Azzandra.Equipment.GetSpeedName(Speed) + " (" + Speed + ")"; // TextFormatter.GetValueRatioColor(5 - Speed, 4) + 
+            var speedString = global::Azzandra.Equipment.GetSpeedName(Speed) + " (" + Speed + ")"; // TextFormatter.GetValueRatioColor(5 - Speed, 4) + 
             list.Add("Attack speed: " + speedString + ". Range: " + Range + ".");
             list.AddRange(base.GetInfo());
 

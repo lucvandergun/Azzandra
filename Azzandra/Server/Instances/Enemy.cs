@@ -12,7 +12,6 @@ namespace Azzandra
     {
         // == Saved attributes == \\
         public int HitTimer { get; protected set; } = 10;
-        public override int Initiative => 18;
 
 
         // == Properties == \\

@@ -80,7 +80,7 @@ namespace Azzandra
             if (type == null) return 0;
             var item = User.Inventory.GetAmmunitionByType(type.Value);
             if (item == null) return 0;
-            return ((Azzandra.Items.Ammunition)item).Damage;
+            return ((global::Azzandra.Items.Ammunition)item).Damage;
         }
 
         public Equipment(User user)

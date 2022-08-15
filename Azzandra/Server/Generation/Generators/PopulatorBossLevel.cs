@@ -26,7 +26,7 @@ namespace Azzandra.Generation
             // Spawn Boss
             var maxSize = Areas.Max(a => a.Size);
             BossRoom = Areas.Find(a => a.Size == maxSize);
-            if (!BossRoom.FindInstanceSpawn(new Rabnach(0, 0), true))
+            if (!BossRoom.FindInstanceSpawn(new Azzandra(0, 0), true))
                 Level.LevelManager.Server.ThrowError("Could not spawn boss!");
             
             Spawners.Shuffle();

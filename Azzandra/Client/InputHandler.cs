@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,7 +21,7 @@ namespace Azzandra
         public bool JustPressed { get; private set; } = false;
 
         protected bool IsShiftButton = false;
-        public bool IsShift => IsShiftButton || Input.IsKeyDown[Keys.LeftShift];
+        public bool IsShift => IsShiftButton || Input.IsKeyDown[Keys.LeftShift] || Input.IsKeyDown[Keys.RightShift] || Input.IsKeyDown[Keys.LeftControl] || Input.IsKeyDown[Keys.RightControl];
 
         private readonly Vector2 ButtonSize = new Vector2(96, 16);
         private readonly Button ShiftButton, TargetButton, ActionButton, RestButton, SwapButton;
@@ -118,7 +119,7 @@ namespace Azzandra
 
         private void GetInput()
         {
-            CanInit = Dir == null;
+            CanInit = (Dir == null);
 
             Dir = new Dir(
                 Input.IsKeyDown[Keys.A] && !Input.IsKeyDown[Keys.D] ? -1 : Input.IsKeyDown[Keys.D] && !Input.IsKeyDown[Keys.A] ? 1 : 0,
@@ -134,8 +135,9 @@ namespace Azzandra
             if (Input.IsKeyDown[Keys.NumPad9]) numDir -= new Dir(1, -1);
             if (Input.IsKeyDown[Keys.NumPad3]) numDir -= new Dir(1, 1);
 
+            Debug.WriteLine("1: " + Dir);
             Dir -= numDir;
-
+            Debug.WriteLine("2: " + Dir);
             if (Dir.IsNull() && !(Input.IsKeyDown[Keys.Z] || Input.IsKeyDown[Keys.NumPad5]))
                 Dir = null;
 
@@ -143,6 +145,8 @@ namespace Azzandra
             JustPressed = Input.IsKeyPressed[Keys.A] || Input.IsKeyPressed[Keys.D] || Input.IsKeyPressed[Keys.W] || Input.IsKeyPressed[Keys.S] ||
                 Input.IsKeyPressed[Keys.NumPad4] || Input.IsKeyPressed[Keys.NumPad6] || Input.IsKeyPressed[Keys.NumPad8] || Input.IsKeyPressed[Keys.NumPad2] ||
                 Input.IsKeyPressed[Keys.NumPad7] || Input.IsKeyPressed[Keys.NumPad1] || Input.IsKeyPressed[Keys.NumPad9] || Input.IsKeyPressed[Keys.NumPad3];
+            
+            Debug.WriteLine("Final: " + Dir);
         }
 
 
@@ -184,7 +188,7 @@ namespace Azzandra
 
                 if (canActivate && hover && (Input.IsMouseLeftDown && i != 8 || Input.IsMouseLeftPressed))
                 {
-                    Dir = Dir != null ? Dir + buttonDir : buttonDir;
+                    Dir = (Dir != null) ? Dir + buttonDir : buttonDir;
                 }
 
                 var rect = new Rectangle(buttonPos.ToPoint(), buttonSize.ToPoint());

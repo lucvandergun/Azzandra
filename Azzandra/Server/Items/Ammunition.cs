@@ -13,7 +13,7 @@ namespace Azzandra.Items
         public int Damage;
 
         public virtual AmmunitionType AmmunitionType { get; set; } = AmmunitionType.Arrow;
-        public List<Azzandra.AttackProperty> AttackProperties => null;
+        public List<global::Azzandra.AttackProperty> AttackProperties => null;
 
         public Ammunition() : base()
         {

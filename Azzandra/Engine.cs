@@ -16,9 +16,9 @@ namespace Azzandra
         // Save file path:
         public static string SAVE_DIRECTORY = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\.azzandra\\";
         public static string CLIENT_SETTINGS_FILE_NAME = "client_settings.json";
-        public static string GAME_VERSION = "Beta 1.0.6";
+        public static string GAME_VERSION = "Beta 1.0.7";
 
-        public readonly bool IsDevMode = true;
+        public readonly bool IsDevMode = false;
 
         // Graphics:
         public GraphicsDeviceManager Graphics { get; private set; }

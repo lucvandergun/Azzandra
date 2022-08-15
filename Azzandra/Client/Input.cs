@@ -39,10 +39,10 @@ namespace Azzandra
         public static MouseState MouseStatePrev { get; private set; }
 
 
-        public static Keys KeyLeft { get; private set; } = Keys.A;
-        public static Keys KeyRight { get; private set; } = Keys.D;
-        public static Keys KeyUp { get; private set; } = Keys.W;
-        public static Keys KeyDown { get; private set; } = Keys.S;
+        //public static Keys KeyLeft { get; private set; } = Keys.A;
+        //public static Keys KeyRight { get; private set; } = Keys.D;
+        //public static Keys KeyUp { get; private set; } = Keys.W;
+        //public static Keys KeyDown { get; private set; } = Keys.S;
 
         public static void Update()
         {

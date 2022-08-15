@@ -9,6 +9,6 @@ namespace Azzandra.Items
     public interface IAmmunition
     {
         AmmunitionType AmmunitionType { get; }
-        List<Azzandra.AttackProperty> AttackProperties { get; }
+        List<global::Azzandra.AttackProperty> AttackProperties { get; }
     }
 }

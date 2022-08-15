@@ -36,14 +36,14 @@ namespace Azzandra
             StageIndex = 0;
             Texts = new string[]
             {
-                "The Caverns of Azzandra, named after king Azzandra, was once the greatest mining facility of the continent. For decades, it's ores and gems were gathered and spread far across the lands as their purity was unparalleled.",
+                "The Caverns of Azzandra was once the greatest mining facility of the continent. For decades, it's ores and gems were gathered and spread far across the lands as their purity was unparalleled.",
                 "But, due to the extent of the excessive mining the upper levels were quickly depleted and the workers went ever deeper. They wouldn't stop as their tyrant king's lust for money and power were insatiable.\nYou must have sensed what happens next...",
                 "Their greed became their own destruction when they descended to depths they shouldn't have. They discovered they had done something irreversible.",
-                "In ancient times the archaic demon Rabnach was terrorizing the world in an attempt to eliminate all that is good. After a long battle he was put to sleep under a spell in the very same caverns, deep below the surface. Over the ages life had been good, and the people had forgotten that such horror once existed.",
-                "Rabnach was immobilized, but as he was so powerful, he could still slowly alter his environment to his desires. He set up a trap by means of growing the most precious treasures from the earth around him, so that someone would eventually come along and break the seal that had been his barrier.",
+                "In ancient times the archaic demon Azzandra was terrorizing the world in an attempt to eliminate all that is good. After a long battle he was put to sleep under a spell in the very same caverns, deep below the surface. Over the ages life had been good, and the people had forgotten that such horror once existed.",
+                "Azzandra was immobilized, but as he was so powerful, he could still slowly alter his environment to his desires. He set up a trap by means of growing the most precious treasures from the earth around him, so that someone would eventually come along and break the seal that had been his barrier.",
                 "This inevitably happened and he awoke. There was now nothing but his diminished strength standing between him and the surface world.",
-                "The king Azzandra was easily startled and fled, never to be seen again. Over the years his kingdom decayed, unable to function without its ruler. And without a centralized force, there was no courage left.",
-                "No-one dared setting foot inside the caverns, but someone should! Rabnach is commencing his return and his bane is almost anew. Someone should face him or all that history has come to will vanish forever."
+                "The king was easily startled and fled, never to be seen again. Over the years his kingdom decayed, unable to function without its ruler. And without a centralized force, there was no courage left.",
+                "No-one dared setting foot inside the caverns, while Azzandra was commencing his return. Now, his bane is almost anew. Someone should face him or all that history has come to will vanish forever!"
             };
 
             // Set back button

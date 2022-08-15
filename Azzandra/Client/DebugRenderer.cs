@@ -43,9 +43,11 @@ namespace Azzandra
             text.DrawLine("FPS: " + Math.Round(1 / gameTime.ElapsedGameTime.TotalSeconds, 2));
             text.DrawLine("Turns: " + GameClient.Server.AmtTurns);
             if (GameClient.IsDevMode)
+            {
                 text.DrawLine("Delay: " + GameClient.Server.TickDelay);
-            text.DrawLine("Player's Action Potential: " + GameClient.Server.User.Player.ActionPotential);
-            text.DrawLine("Player's time since last turn: " + GameClient.Server.User.Player.TimeSinceLastTurn);
+                //text.DrawLine("CanInit: " + GameClient.InputHandler.CanInit);
+            }
+            
 
             var player = GameClient.Server.User.Player;
             if (player != null)
@@ -65,15 +67,20 @@ namespace Azzandra
                 text.DrawLine("Action: " + player.PrevAction);
                 var swap = GameClient.Server.User.Equipment.WeaponSwap.Select((w, i) => w != null ? (w.ToString() + ((w is Items.Weapon wep && i == 1) ? " (offhand)" : "")) : null).Where(s => s != null).Stringify2();// (.Stringify2(i => i == null ? "none" : i.ToString())
                 text.DrawLine("Swap: " + (swap == "" ? "none" : swap));
-                if (GameClient.IsDevMode && level.AreaReferences != null && level.IsInMapBounds(player.X, player.Y))
+                if (GameClient.IsDevMode)
                 {
-                    var areaID = level.AreaReferences[player.X, player.Y];
-                    var area = level.GetAreaFromID(areaID);
-                    if (area != null)
-                        text.DrawLine("Area: " + areaID + " (" + area.GetType().Name + ")");
-                    else
-                        text.DrawLine("Area: none");
-                }    
+                    text.DrawLine("Action Potential: " + player.ActionPotential + "/" + player.Initiative);
+
+                    if (level.AreaReferences != null && level.IsInMapBounds(player.X, player.Y))
+                    {
+                        var areaID = level.AreaReferences[player.X, player.Y];
+                        var area = level.GetAreaFromID(areaID);
+                        if (area != null)
+                            text.DrawLine("Area: " + areaID + " (" + area.GetType().Name + ")");
+                        else
+                            text.DrawLine("Area: none");
+                    }
+                }
                 
             }
 
@@ -116,7 +123,7 @@ namespace Azzandra
                     if (inst != null)
                     {
                         text.DrawLine(" <ltgray>Instance:<r> " + inst.ToString().CapFirst());
-                        text.DrawLine(" ActionPotential: " + inst.ActionPotential);
+                        text.DrawLine(" ActionPotential: " + inst.ActionPotential + "/" + inst.Initiative);
                         text.DrawLine(" TimeSinceLastTurn: " + inst.TimeSinceLastTurn);
 
                         if (inst is NPC npc)

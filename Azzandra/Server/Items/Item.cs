@@ -153,9 +153,9 @@ namespace Azzandra
             var options = new List<string>(3);
 
             if (Container != null)
-                if (Container is Azzandra.Equipment)
+                if (Container is global::Azzandra.Equipment)
                     options.Add("remove");
-                if (Container is Azzandra.Inventory && this is Items.IFilledContainer)
+                if (Container is global::Azzandra.Inventory && this is Items.IFilledContainer)
                     options.Add("empty");
 
             if (Quantity > 1 && !(this is Items.Ammunition)) options.Add("drop one");
@@ -222,7 +222,7 @@ namespace Azzandra
         {
             //check whether item is located in equipment
             if (Container != null)
-                if (!(Container is Azzandra.Equipment))
+                if (!(Container is global::Azzandra.Equipment))
                     User.ThrowError("You don't have the item you're trying to remove equipped.");
 
             if (User.Inventory.CanAddItem(this))

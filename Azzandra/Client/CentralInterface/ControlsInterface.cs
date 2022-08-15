@@ -29,12 +29,12 @@ namespace Azzandra
                 Tuple.Create("Pause game", "<aqua>Esc<r> - To save the game or access the settings."),
                 Tuple.Create("Controls/help", "<aqua>?<r> - Directly opens the controls page."),
                 Tuple.Create("Movement", "<aqua>AWSD<r>, <aqua>Z<r> or <aqua>Numpad<r> - Can also bump to attack or interact."),
-                Tuple.Create("", " <slate>(Add <aqua>Shift<slate> for non-solids next to you, or leap attacks.)"),
+                Tuple.Create("", " <slate>(Add <aqua>Shift<slate> or <aqua>Ctrl<slate> for non-solids next to you, or leap attacks.)"),
                 Tuple.Create("Resting", "<aqua>R<r> - Starts a rest action for 10 turns (gets interrupted when attacked)."),
                 Tuple.Create("Quick-swap", "<aqua>Q<r> - Makes you swap to your previously held weapons."),
                 Tuple.Create("Targeting", "<aqua>T<r> - Targets the next nearest instance around you."),
                 Tuple.Create("Target Action", "<aqua>Space<r> - Attacks or interacts with the current target instance."),
-                Tuple.Create("", " <slate>(Add <aqua>Shift<slate> for leap attacks.)"),
+                Tuple.Create("", " <slate>(Add <aqua>Shift<slate> or <aqua>Ctrl<slate> for leap attacks.)"),
             };
         }
 

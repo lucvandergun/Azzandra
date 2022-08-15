@@ -214,7 +214,7 @@
     <Compile Include="Server\Instances\Enemies\2.Overgrown\VampireBat.cs" />
     <Compile Include="Server\Instances\Enemies\0.Universal\ArmouredSkeleton.cs" />
     <Compile Include="Server\Instances\Enemies\1.Frozen\ShadowElemental.cs" />
-    <Compile Include="Server\Instances\Enemies\Rabnach.cs" />
+    <Compile Include="Server\Instances\Enemies\Azzandra.cs" />
     <Compile Include="Server\Instances\Enemies\3.Fiery\Cockatrice.cs" />
     <Compile Include="Server\Instances\Enemies\3.Fiery\FireGiant.cs" />
     <Compile Include="Server\Instances\Enemies\3.Fiery\Hellhound.cs" />

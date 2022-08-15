@@ -72,7 +72,7 @@ namespace Azzandra
 
         public override void OnInstanceCollision(Entity collider)
         {
-            if (collider is Rabnach)
+            if (collider is Azzandra)
                 return;
 
             if (collider.AddStatusEffect(new StatusEffects.Blind(2, 8), true) && collider is Player player)

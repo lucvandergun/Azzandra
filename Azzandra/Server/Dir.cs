@@ -15,6 +15,10 @@ namespace Azzandra
 
         public Dir(int x, int y) { _x = Math.Sign(x); _y = Math.Sign(y); }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>Whether X == 0 AND Y == 0</returns>
         public bool IsNull()
         {
             return X == 0 && Y == 0;

@@ -91,7 +91,7 @@ namespace Azzandra.SpellEffects
             if (!(target is Entity cbtarget))
                 return;
 
-            var cloud = new Azzandra.ShadowCloud(attacker.X, attacker.Y, attacker, cbtarget);
+            var cloud = new global::Azzandra.ShadowCloud(attacker.X, attacker.Y, attacker, cbtarget);
             attacker.Level.CreateInstance(cloud);
             attacker.Children.Add(new InstRef(cloud));
 
