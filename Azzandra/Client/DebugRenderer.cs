@@ -128,8 +128,14 @@ namespace Azzandra
 
                         if (inst is NPC npc)
                         {
-                            text.DrawLine(" Base pos: " + npc.BasePosition ?? "None");
-                            text.DrawLine(" DeathTimer: " + npc.DeathTimer);
+                            if (inst is Enemy enemy)
+                            {
+                                text.DrawLine(" Target: " + enemy.Target?.Instance.ToString().CapFirst() ?? "None");
+                                text.DrawLine(" Action: " + enemy.PrevAction ?? "None");
+                            }
+                                
+                            //text.DrawLine(" Base pos: " + npc.BasePosition ?? "None");
+                            //text.DrawLine(" DeathTimer: " + npc.DeathTimer);
                         }
                     }
                 }

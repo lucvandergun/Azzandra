@@ -37,7 +37,7 @@ namespace Azzandra
             var par = cbtarget.GetPar().Round();
             var blk = cbtarget.GetBlk().Round();
 
-            target.Level.Server.User.ThrowDebug("Rolling acc=" + Acc + " vs evd=" + evd + ", par=" + par + ", blk=" + blk + ":");
+            //target.Level.Server.User.ThrowDebug("Rolling acc=" + Acc + " vs evd=" + evd + ", par=" + par + ", blk=" + blk + ":");
 
             // Roll accuracy against each of the defense values
             if (evd.RollAgainst(Acc * 3))
@@ -107,7 +107,7 @@ namespace Azzandra
             // Take a random number between half dmg and full dmg.
             int dmgRand = Util.Random.Next((int)Math.Floor(dmg / 2d) + 1) + (int)Math.Ceiling(dmg / 2d);
 
-            cbtarget.Level.Server.User.ThrowDebug("Rolling dmg=" + Dmg + " vs arm=" + cbtarget.GetArm() + ": --> dmg=" + dmg + ", --> dmg=" + dmgRand);
+            //cbtarget.Level.Server.User.ThrowDebug("Rolling dmg=" + Dmg + " vs arm=" + cbtarget.GetArm() + ": --> dmg=" + dmg + ", --> dmg=" + dmgRand);
 
             Dmg = cbtarget.GetHit(Style, dmgRand);
         }

@@ -64,6 +64,11 @@ namespace Azzandra
 
         public bool IsValue(int x, int y) => X == x && Y == y;
         public bool IsPerfectDiagonal() => X == Y && !IsNull();
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns>Whether X == 0 or Y == 0. Returns false when both are equal to 0!</returns>
         public bool IsOrthogonal() => !IsNull() && (X == 0 || Y == 0);
 
         /// <summary>

@@ -126,7 +126,8 @@ namespace Azzandra
             visibleInstances.Sort((a, b) => (a is Entity ? 1 : 0) - (b is Entity ? 1 : 0));
             foreach (var inst in visibleInstances)
             {
-                //if (Engine.IsDebug) DrawSightSquares(inst, viewOffset);
+                if (GameClient.IsDebug)
+                    DrawSightSquares(inst, viewOffset);
                 float lightness = INVISIBILITY_LIGHTNESS.LerpTo(1f, inst.GetTiles().Max(t => level.GetTileLightness(t)) / LightLevelCalculator.MAX_STRENGTH);
                 if (GameClient.IsLighted)
                     lightness = Math.Max(CHEAT_LIGHTNESS, lightness);

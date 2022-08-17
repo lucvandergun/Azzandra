@@ -18,7 +18,7 @@ namespace Azzandra
         public static string CLIENT_SETTINGS_FILE_NAME = "client_settings.json";
         public static string GAME_VERSION = "Beta 1.0.7";
 
-        public readonly bool IsDevMode = false;
+        public readonly bool IsDevMode = true;
 
         // Graphics:
         public GraphicsDeviceManager Graphics { get; private set; }

@@ -135,6 +135,7 @@
     <Compile Include="Server\Instances\Helper\Actions\ActionInstance.cs" />
     <Compile Include="Server\Instances\Helper\Actions\ActionInteract.cs" />
     <Compile Include="Server\Instances\Helper\Actions\ActionDirectional.cs" />
+    <Compile Include="Server\Instances\Helper\Actions\ActionLeapAttack2.cs" />
     <Compile Include="Server\Instances\Helper\Actions\ActionPathTarget.cs" />
     <Compile Include="Server\Instances\Helper\Actions\ActionSwap.cs" />
     <Compile Include="Server\Instances\Helper\Actions\ActionRest.cs" />

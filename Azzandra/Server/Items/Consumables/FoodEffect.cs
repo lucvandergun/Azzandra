@@ -16,17 +16,40 @@ namespace Azzandra.Items
 
         public bool Apply(Entity entity)
         {
+            var player = entity as Player;
+            bool isPlayer = player != null;
+
             var typeID = "Azzandra.StatusEffects." + ID.ToCamelCase();
             var type = Type.GetType(typeID);
             if (type != null)
             {
                 var effect = (StatusEffect)Activator.CreateInstance(type, Level, Time, null);
                 var s = entity.AddStatusEffect(effect);
+                if (isPlayer)
+                {
+                    if (s)
+                    {
+                        switch (ID)
+                        {
+                            case "nausea":
+                                player.User.ShowMessage("<acid>You feel nauseated.");
+                                break;
+                            case "poison":
+                                player.User.ShowMessage("<green>You have been poisoned.");
+                                break;
+                            case "fatigue":
+                                player.User.ShowMessage("<medblue>You feel fatigued.");
+                                break;
+                            default:
+                                player.User.ShowMessage("You have been "+effect.ApplyVerb+".");
+                                break;
+                        }
+                    }
+                    //else player.User.ShowMessage("You resist being " + effect.ApplyVerb + ".");
+                }
 
                 return s;
             }
-
-            var player = entity as Player;
             
             switch (ID)
             {
@@ -34,25 +57,28 @@ namespace Azzandra.Items
                 case "restorehp":
                     var amtHeal = Util.NextUpperHalf(Level);
                     entity.Heal(amtHeal);
+                    if (isPlayer) player.User.ShowMessage("<lime>It restores "+amtHeal+" hp.");
                     return true;
                 case "boosthp":
                     var amtHpBoost = Util.NextUpperHalf(Level);
                     entity.FullHp += amtHpBoost;
+                    if (isPlayer) player.User.ShowMessage("<lime>It has boosted your hitpoints by " + amtHpBoost + " hp.");
                     return true;
                 case "restoresp":
-                    if (player != null)
+                    if (isPlayer)
                     {
                         var amtSp = Util.NextUpperHalf(Level);
                         player.Sp += amtSp;
-                        player.Heal(amtSp);
+                        player.User.ShowMessage("<lavender>It restores " + amtSp + "sp.");
                     }
                     return true;
                 case "boostsp":
-                    if (player != null)
+                    if (isPlayer)
                     {
                         var amtSpBoost = Util.NextUpperHalf(Level);
                         player.FullSp += amtSpBoost;
                         player.Sp += amtSpBoost;
+                        player.User.ShowMessage("<lavender>It has boosted your spellpoints by " + amtSpBoost + " sp.");
                     }
                     return true;
             }

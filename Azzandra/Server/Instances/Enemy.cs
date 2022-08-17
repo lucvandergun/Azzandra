@@ -239,28 +239,36 @@ namespace Azzandra
 
 
             // Try to leap at target if within one turn's movement:
-            var step = GetStepTowards(target);
-            var movementOptions = new Vector[] { step, new Vector(step.X, 0), new Vector(0, step.Y) };
-
-            foreach (var option in movementOptions.Where(o => !o.IsNull()))
+            if (affect is Attack attack && attack.Style == Style.Melee && AttackTimer >= affect.Speed &&
+                dist.Absolute() - new Vector(affect.Range) <= new Vector(GetMovementSpeed()))
             {
-                // Try to leap at target if within one turn's movement:
-                if (affect is Attack attack && attack.Style == Style.Melee && AttackTimer >= affect.Speed)
-                {
-                    if (dist.Absolute() - new Vector(affect.Range) <= new Vector(GetMovementSpeed()))
-                        return new ActionLeapAttack(this, entity, option, (Attack)affect);
-                }
+                return new ActionLeapAttack2(this, entity, (Attack)affect);
             }
 
+
+            //var step = GetStepTowards(target);
+            //var movementOptions = new Vector[] { step, new Vector(step.X, 0), new Vector(0, step.Y) };
+            //foreach (var option in movementOptions.Where(o => !o.IsNull()))
+            //{
+            //    // Try to leap at target if within one turn's movement:
+            //    if (affect is Attack attack && attack.Style == Style.Melee && AttackTimer >= affect.Speed)
+            //    {
+            //        if (dist.Absolute() - new Vector(affect.Range) <= new Vector(GetMovementSpeed()))
+            //            return new ActionLeapAttack(this, entity, option, (Attack)affect);
+            //    }
+            //}
+
             // TODO: move towards closest tile that meets specs: i.e. tiles in attack range!
-            // AND: make special class case to allow moving beyond its wander region.
-            return new ActionPathTarget(this, target, true);
+            if (!(Action is ActionPathTarget))
+                return new ActionPathTarget(this, target, false);
+            else
+                return Action;
 
             // No movement action was possible for whatever reason --> remove target/start fleeing:
             //Target = null;
             //Level.Server.ThrowDebug(ToStringAdress() + " was unable to chase, lost target.");
 
-            return null;
+            //return null;
         }
 
 

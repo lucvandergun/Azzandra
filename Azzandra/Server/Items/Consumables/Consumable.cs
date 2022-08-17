@@ -54,15 +54,18 @@ namespace Azzandra.Items
                 {
                     if (effect.Apply(User.Player))
                     {
-                        switch (effect.ID)
-                        {
-                            case "nausea":
-                                User.ShowMessage("<acid>You feel nauseated.");
-                                break;
-                            case "poison":
-                                User.ShowMessage("<green>You have been poisoned.");
-                                break;
-                        }
+                        //switch (effect.ID)
+                        //{
+                        //    case "nausea":
+                        //        User.ShowMessage("<acid>You feel nauseated.");
+                        //        break;
+                        //    case "poison":
+                        //        User.ShowMessage("<green>You have been poisoned.");
+                        //        break;
+                        //    case "fatigue":
+                        //        User.ShowMessage("<medblue>You feel fatigued.");
+                        //        break;
+                        //}
                     }
                 }
             }

@@ -14,7 +14,7 @@ namespace Azzandra
         public ActionPathTarget(Entity caller, Instance target, bool mustReach) : base(caller)
         {
             Target = target;
-            Path = new Path2(caller, target, mustReach);
+            Path = new Path2(caller, target, mustReach, false);
         }
 
         /// <summary>
@@ -47,7 +47,7 @@ namespace Azzandra
 
         public override string ToString()
         {
-            return "A-Star: " + Path.Target;
+            return "Path to " + Target.ToString().CapFirst();
         }
     }
 }

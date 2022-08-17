@@ -34,7 +34,7 @@ namespace Azzandra
             }
 
             Res = (int)Math.Round(entity.GetRes(), MidpointRounding.AwayFromZero);
-            target.Level.Server.User.ThrowDebug("Rolling spc=" + Spc + " vs res=" + Res + ":");
+            //target.Level.Server.User.ThrowDebug("Rolling spc=" + Spc + " vs res=" + Res + ":");
 
             if (Res.RollAgainst(Spc))
             {

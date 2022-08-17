@@ -10,24 +10,25 @@ namespace Azzandra
     {
         public class Node
         {
-            public int X;
-            public int Y;
-            public int F;
+            public Vector Position;
+            public int X => Position.X;
+            public int Y => Position.Y;
+
+            public float F;
             public int G;
-            public int H;
+            public float H;
             public Node Parent;
 
-            public Node(int x, int y) { X = x; Y = y; }
+            public Node(int x, int y) { Position = new Vector(x, y); }
+            public Node(Vector v) { Position = v; }
 
-            public Vector ToVector() => new Vector(X, Y);
-            public override string ToString() => ToVector().ToString();
+            public override string ToString() => Position.ToString();
         }
 
 
         public Entity Entity;
         public Instance TargetInstance;
-        private IEnumerable<Node> _target;
-        public IEnumerable<Vector> Target { get => _target.Select(n => n.ToVector()); set => _target = value?.Select(n => new Node(n.X, n.Y)); }
+        public IEnumerable<Vector> Target;
         public List<Node> PathList { get; private set; }
         public int Length => PathList == null ? 0 : PathList.Count;
         public bool MustReach;
@@ -35,9 +36,14 @@ namespace Azzandra
 
         private Vector GetClosestTargetNode(Node node)
         {
-            var target = Target;
-            var minDist = target.Min(t => (t - node.ToVector()).ChebyshevLength());
-            return target.FirstOrDefault(t => (t - node.ToVector()).ChebyshevLength() == minDist);
+            var minDist = Target.Min(t => ComputeTargetCloseness(t, node.Position)); //ComputeHScore(t, node.Position)
+            var pos = Target.FirstOrDefault(t => ComputeTargetCloseness(t, node.Position) == minDist);
+            return pos;
+        }
+
+        private float ComputeTargetCloseness(Vector a, Vector t)
+        {
+            return (t - a).ChebyshevLength() + ((t - a).IsOrthogonal() ? 0.5f : 0f);
         }
 
 
@@ -71,13 +77,15 @@ namespace Azzandra
         /// <returns></returns>
         public int CalculatePath()
         {
+            //Entity.Level.Server.User.ShowMessage(Entity.ID + ": recalculated");
+            
             //check for target node
-            if (_target == null) return 0;
+            if (Target == null) return 0;
 
             //declare start node
             Node start = new Node(Entity.X, Entity.Y);
             var target = GetClosestTargetNode(start);
-            start.H = ComputeHScore(start.X, start.Y, target.X, target.Y);
+            start.H = ComputeHScore(start.Position, target);
             start.F = start.H;
 
             //initialize lists
@@ -85,6 +93,7 @@ namespace Azzandra
             var openList = new List<Node>();
             var closedList = new List<Node>();
             int g = 0;
+            int tilesChecked = 0;
 
             // start by adding the original position to the open list
             openList.Add(start);
@@ -97,14 +106,10 @@ namespace Azzandra
 
                 // add the current square to the closed list
                 closedList.Add(current);
+                tilesChecked++;
 
                 // remove it from the open list
                 openList.Remove(current);
-
-                // if we added the destination to the closed list, we've found a path
-                target = GetClosestTargetNode(start);
-                if (closedList.FirstOrDefault(l => l.X == target.X && l.Y == target.Y) != null)
-                    break;
 
                 var adjacentSquares = GetWalkableAdjacentSquares(current.X, current.Y);
                 g++;
@@ -112,20 +117,24 @@ namespace Azzandra
                 foreach (var adjacentSquare in adjacentSquares)
                 {
                     // if this adjacent square is already in the closed list, ignore it
-                    if (closedList.FirstOrDefault(l => l.X == adjacentSquare.X
-                            && l.Y == adjacentSquare.Y) != null)
+                    if (closedList.Any(l => l.Position == adjacentSquare.Position))
                         continue;
 
-                    // if it's not in the open list...
-                    if (openList.FirstOrDefault(l => l.X == adjacentSquare.X
-                            && l.Y == adjacentSquare.Y) == null)
+                    // if it's not already in the open list...
+                    if (!openList.Any(l => l.Position == adjacentSquare.Position))
                     {
                         // compute its score, set the parent
                         adjacentSquare.G = g;
                         target = GetClosestTargetNode(start);
-                        adjacentSquare.H = ComputeHScore(adjacentSquare.X, adjacentSquare.Y, target.X, target.Y);
+                        adjacentSquare.H = ComputeHScore(adjacentSquare.Position, target);
                         adjacentSquare.F = adjacentSquare.G + adjacentSquare.H;
                         adjacentSquare.Parent = current;
+
+                        // if we added the destination to the closed list, we've found a path
+                        if (closedList.Any(l => Target.Contains(adjacentSquare.Position)))
+                        {
+                            break;
+                        }
 
                         // and add it to the open list
                         openList.Insert(0, adjacentSquare);
@@ -143,20 +152,24 @@ namespace Azzandra
                     }
                 }
 
-                if (closedList.Count >= 400)
-                {
-                    if (MustReach) return 0;
-                    else
-                    {
-                        //change destination to closest known node
-                        lowest = closedList.Min(n => n.H);
-                        current = closedList.First(n => n.H == lowest);
-                        break;
-                    }
-                }
+                // Quit the algorithm after x iterations: the target could not be found - not accessible or way too far away.
+                if (tilesChecked >= 200)
+                    break;
             }
 
-            //trace path back to first node
+
+            // Find the node closest to the target, or better yet, the target itself:
+            var closest = closedList.Min(n => n.H);
+            current = closedList.First(n => n.H == closest);
+
+            // Return no path if it didn't catch the target, even though it should have:
+            if (MustReach && !Target.Contains(current.Position))
+                return 0;
+
+            //if (!Target.Contains(current.Position))
+            //    Entity.Level.Server.User.ThrowError(Entity.ToString().CapFirst() + " " + Entity.ID + ", Found best: " + current.Position + ", list: " + closedList.Stringify());
+
+            // Trace path back to first node
             PathList = new List<Node>();
             while (current.Parent != null)
             {
@@ -165,28 +178,40 @@ namespace Azzandra
             }
             PathList.Insert(0, current);
 
+            // DEBUG - set sight squares:
+            //if (!PathList.Any(n => Target.Contains(n.Position)))
+            //    Entity.SightSquares = PathList.Select(n => n.Position);
+
             return PathList.Count;
         }
 
-        private int ComputeHScore(int x, int y, int targetX, int targetY)
+        private float ComputeHScore(Vector pos, Vector target)
         {
-            return Math.Abs(targetX - x) + Math.Abs(targetY - y);
+            return (target - pos).OrthogonalLength();// + ((target - pos).Absolute() == Vector.One ? 0.5f : 0f);
         }
 
         private List<Node> GetWalkableAdjacentSquares(int x, int y)
         {
-            var potentialDirections = new List<Dir>()
-            { new Dir(0, 1), new Dir(0, -1), new Dir(1, 0), new Dir(1, -1), new Dir(1, 1), new Dir(-1, 0), new Dir(-1, -1), new Dir(-1, 1) };
+            var potentialDirections = Vector.Dirs8;
 
             var nodes = new List<Node>();
             foreach (var dir in potentialDirections)
             {
-                // If there is a region constraint and the new pos is not inside this region: don't go here.
-                if (RegionConstraint != null && !RegionConstraint.IsInRegion(dir.ToVector() + new Vector(x, y), Entity.Size))
-                    continue;
+                var newPos = dir + new Vector(x, y);
 
-                if (Entity.CanMoveUnobstructed(x, y, dir.X, dir.Y, false))
-                    nodes.Add(new Node(x + dir.X, y + dir.Y));
+                // Allow free-passes for target tiles themselves: (they don't have to be walkable)
+                // TODO: but should be able to affect!????
+                if (!Target.Contains(newPos))
+                {
+                    // If there is a region constraint and the new pos is not inside this region: don't go here.
+                    if (RegionConstraint != null && !RegionConstraint.IsInRegion(newPos, Entity.Size))
+                        continue;
+
+                    if (!Entity.CanMoveUnobstructed(x, y, dir.X, dir.Y, true))
+                        continue;
+                }
+                                    
+                nodes.Add(new Node(newPos));
             }
             return nodes;
         }
@@ -198,20 +223,21 @@ namespace Azzandra
         /// <returns></returns>
         public Vector? GetNextStep()
         {
-            if (Target != TargetInstance.GetTiles())
+            var targetTiles = TargetInstance.GetTiles();
+            if (Target.Intersect(targetTiles).Count() < targetTiles.Count())
             {
-                Target = TargetInstance.GetTiles();
+                Target = targetTiles;
                 CalculatePath();
             }
             
             if (PathList != null)
             {
                 // Reached end of path.
-                if (PathList.Count <= 1 || Entity.X == PathList.Last().X && Entity.Y == PathList.Last().Y)
+                if (PathList.Count <= 1 || Entity.Position == PathList.Last().Position)
                     return null;
 
                 // Entity is not on path.
-                if (PathList[0].X != Entity.X || PathList[0].Y != Entity.Y)
+                if (PathList[0].Position != Entity.Position || PathList[0].Y != Entity.Y)
                 {
                     // Try to calculate a new path
                     if (CalculatePath() <= 1)
@@ -224,33 +250,7 @@ namespace Azzandra
                 var next = PathList[0];
 
                 // Calculate offset to current position.
-                return new Vector(next.X - Entity.X, next.Y - Entity.Y);
-            }
-
-            return null;
-        }
-
-        /// <summary>
-        /// Retrieves the next vector step on the path. Does NOT remove it from the path list! Returns null if there is no step (e.g. at the end of the line).
-        /// </summary>
-        /// <returns></returns>
-        public Vector? PeekNextStep()
-        {
-            if (PathList != null)
-            {
-                // Reached end of path.
-                if (PathList.Count <= 1 || Entity.X == PathList.Last().X && Entity.Y == PathList.Last().Y)
-                    return null;
-
-                // Entity is not on path.
-                if (PathList[0].X != Entity.X || PathList[0].Y != Entity.Y)
-                {
-                    // Try to calculate a new path
-                    if (CalculatePath() <= 1)
-                        return null;
-                }
-
-                return PathList[0].ToVector() - Entity.Position;
+                return next.Position - Entity.Position;
             }
 
             return null;

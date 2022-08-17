@@ -62,7 +62,7 @@ namespace Azzandra.Generation.AreaGeneration
         public static readonly List<Tuple<int, Type>> CavernPopulation = new List<Tuple<int, Type>>
         {
             Tuple.Create<int, Type>(12, null),
-            Tuple.Create(6, typeof(AreaChest)),
+            Tuple.Create(3, typeof(AreaChest)),
             Tuple.Create(6, typeof(AreaCamp)),
             //Tuple.Create(3, typeof(AreaObelisk)),
         };
@@ -101,7 +101,7 @@ namespace Azzandra.Generation.AreaGeneration
             var filtered = potentials.Where(p => p.Item2 == null || GetData(p.Item2).CanGenerate(area, depth, temp, occurrences.Count(t => t == p.Item2)));
 
             // Make sure there no empty rooms at dead ends
-            if (area.Connections.Count == 1 && !filtered.All(f => f.Item2 == null))
+            if (area.Connections.Count == 1 && !filtered.All(f => f.Item2 == null) && random.NextDouble() < 0.67d)
                 filtered = filtered.Where(f => f.Item2 != null);
 
             return Util.PickItemByWeight(filtered, random);

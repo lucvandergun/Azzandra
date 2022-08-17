@@ -135,9 +135,7 @@ namespace Azzandra
             if (Input.IsKeyDown[Keys.NumPad9]) numDir -= new Dir(1, -1);
             if (Input.IsKeyDown[Keys.NumPad3]) numDir -= new Dir(1, 1);
 
-            Debug.WriteLine("1: " + Dir);
             Dir -= numDir;
-            Debug.WriteLine("2: " + Dir);
             if (Dir.IsNull() && !(Input.IsKeyDown[Keys.Z] || Input.IsKeyDown[Keys.NumPad5]))
                 Dir = null;
 
@@ -145,8 +143,6 @@ namespace Azzandra
             JustPressed = Input.IsKeyPressed[Keys.A] || Input.IsKeyPressed[Keys.D] || Input.IsKeyPressed[Keys.W] || Input.IsKeyPressed[Keys.S] ||
                 Input.IsKeyPressed[Keys.NumPad4] || Input.IsKeyPressed[Keys.NumPad6] || Input.IsKeyPressed[Keys.NumPad8] || Input.IsKeyPressed[Keys.NumPad2] ||
                 Input.IsKeyPressed[Keys.NumPad7] || Input.IsKeyPressed[Keys.NumPad1] || Input.IsKeyPressed[Keys.NumPad9] || Input.IsKeyPressed[Keys.NumPad3];
-            
-            Debug.WriteLine("Final: " + Dir);
         }
 
 

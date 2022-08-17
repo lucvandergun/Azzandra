@@ -45,7 +45,7 @@ namespace Azzandra
 
         public override string ToString()
         {
-            return "A-Star: " + Path.Target;
+            return "Path to " + Path.Target;
         }
     }
 }

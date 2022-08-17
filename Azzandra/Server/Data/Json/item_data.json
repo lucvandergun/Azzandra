@@ -1495,7 +1495,7 @@
 	},
 	"healing_potion": {
 		"name": "potion of healing",
-		"desc": "It smells horribly, but at least its visually promising.",
+		"desc": "It smells horribly. At least it looks visually promising.",
 		"type": "potion",
 		"effects": [{"id": "heal", "level": 20}]
 	},

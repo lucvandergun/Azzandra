@@ -76,8 +76,11 @@ namespace Azzandra
             set
             {
                 X = value.X; Y = value.Y;
+                //PreviousPosition = Position;
             }
         }
+        //public Vector PreviousPosition { get; protected set; }
+        //public bool HasMovedSinceLastTurn() => Position != PreviousPosition;
 
         public virtual int GetW() { return 1; }
         public virtual int GetH() { return 1; }
@@ -228,6 +231,7 @@ namespace Azzandra
 
             // Rebound move timer
             if (MoveTimer > 0) MoveTimer--;
+            //PreviousPosition = Position;
         }
 
         /// <summary>
@@ -548,6 +552,7 @@ namespace Azzandra
             //if (distance == Vector.Zero)
             //    return new List<Vector>();
 
+            //PreviousPosition = Position;
             var oldPos = Position;
 
             // Divide movement into segments of distance 1
