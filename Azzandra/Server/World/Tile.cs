@@ -91,8 +91,9 @@ namespace Azzandra
         }
         public bool Equals(Tile tile)
         {
-            return tile == this;
+            return tile.Ground == Ground && tile.Object == Object && tile.Marker == Marker;
         }
+
         public override int GetHashCode()
         {
             unchecked

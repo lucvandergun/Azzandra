@@ -28,7 +28,7 @@ namespace Azzandra.Generation.AreaGeneration
             {
                 var tier = Calculator.PickLootTier(area.Level.Depth, random);
                 var item = Data.GetDroptableDrop("loot_special", random, tier);
-                Chest chest = new Chest(0, 0, item);
+                Chest chest = new LargeChest(0, 0, item);
                 if (area.FindInstanceSpawn(chest, centerPos, 1, true, true))
                 {
                     area.Level.LevelManager.RemoveBenefit(3);

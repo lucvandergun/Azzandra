@@ -48,7 +48,7 @@ namespace Azzandra
 
         public override void OnOtherInstanceCollision(Instance collider)
         {
-            if (collider is DustMephit || collider is DustCloud)
+            if (collider is DustElemental || collider is DustCloud)
                 return;
 
             if (collider.IsAttackable())

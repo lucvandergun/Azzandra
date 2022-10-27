@@ -24,7 +24,7 @@ namespace Azzandra
 
         // Graphics:
         public DisplayHandler DisplayHandler { get; private set; }
-        public const int GRID_SIZE = 24;
+        public const int GRID_SIZE = 16;
 
         // Game server:
         public Server Server { get; private set; }
@@ -159,7 +159,10 @@ namespace Azzandra
                     if (Input.IsKeyPressed[Keys.C])
                         IsCheatMode = !IsCheatMode;
                     if (Input.IsKeyPressed[Keys.L])
+                    {
                         IsLighted = !IsLighted;
+                        DisplayHandler.ViewHandler.OnNewFloor();
+                    }
 
                     // Server settings:
                     if (Server != null)

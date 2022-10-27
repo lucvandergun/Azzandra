@@ -18,6 +18,9 @@ namespace Azzandra
                 : new Symbol('G', Color.Gray);
         }
 
+        public override string AssetName => "grave2";
+        public override Color AssetLightness => IsEmpty ? Color.Gray : Color.White;
+
         public Grave(int x, int y) : base(x, y) { }
 
 

@@ -37,6 +37,10 @@ namespace Azzandra.Generation.Spawners
                     Area.FindInstanceSpawn(new Grave(0, 0), Position, 3, true, false);
                 }
             }
+            else if (Type == typeof(ToxicSpider))
+            {
+                new ScatterBrush(BlockID.Cobweb, false, false, true, 3).Paint(Area.Level, Position, Random);
+            }
 
             // Spawn wolves:
             if (Type == typeof(Wolf))

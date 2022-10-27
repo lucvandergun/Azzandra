@@ -12,6 +12,8 @@ namespace Azzandra
         protected override int VisionRange => 24;
         public bool ReQueueActions() => Level?.Server.GameClient.Engine.Settings.ReQueueing ?? false;
 
+        public override string AssetName => "player_" + (User?.Class.ToString().ToLower() ?? "knight");
+
         public User User { get; private set; }
         //public override int GetFullHp()
         //{

@@ -82,8 +82,10 @@ namespace Azzandra
             Stats = new Stats(this);
             VisibilityHandler = new VisibilityHandler(Server);
 
+            var axe = Item.Create("iron_dirk");
+
             Name = "Nameless";
-            Class = PlayerClass.GetClass(0);
+            Class = PlayerClass.Knight;
         }
 
         public void Init(string name, int classNr, int[] stats)

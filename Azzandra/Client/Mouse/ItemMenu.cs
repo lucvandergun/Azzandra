@@ -96,7 +96,12 @@ namespace Azzandra
                 // Keyboard input for the last 2 options: "drop" and "abort":
                 if (CanClose && GameClient.KeyboardFocus == GameClient.Focus.General)
                 {
-                    if (Input.IsKeyPressed[Keys.D9])
+                    if (Input.IsKeyPressed[Keys.D8])
+                    {
+                        PerformOption("throw");
+                        Destroy();
+                    }
+                    else if (Input.IsKeyPressed[Keys.D9])
                     {
                         PerformOption("drop");
                         Destroy();
@@ -114,7 +119,7 @@ namespace Azzandra
                     var line = Options[i];
 
                     // Keyboard input:
-                    if (CanClose && GameClient.KeyboardFocus == GameClient.Focus.General && i < Options.Count - 2 && Input.IsKeyPressed[Util.IntToKey(i + 1)])
+                    if (CanClose && GameClient.KeyboardFocus == GameClient.Focus.General && i < Options.Count - 3 && Input.IsKeyPressed[Util.IntToKey(i + 1)])
                     {
                         PerformOption(line.ToLower());
                         Destroy();
@@ -132,7 +137,7 @@ namespace Azzandra
                     }
 
                     var colorStr = hover ? "<aqua>" : "<white>";
-                    var numStr = i < Options.Count - 2 ? (i + 1) + "" : i == Options.Count - 2 ? "9" : "0";
+                    var numStr = i < Options.Count - 3 ? (i + 1) + "" : i == Options.Count - 3 ? "8" : i == Options.Count - 2 ? "9" : "0";
                     textDrawer.DrawLine(colorStr + numStr + ". " + line.CapFirst() + "");
                     //if (hover) textDrawer.LastColor = Color.White;
                 }

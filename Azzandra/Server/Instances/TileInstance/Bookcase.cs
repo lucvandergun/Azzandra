@@ -19,6 +19,7 @@ namespace Azzandra
                 : new Symbol('B', Color.SaddleBrown.ChangeBrightness(-0.3f));
         }
 
+        public override Color AssetLightness => !HasSpell ? Color.DarkGray : Color.White;
 
         public Bookcase(int x, int y, bool hasSpell) : base(x, y) { HasSpell = hasSpell; }
         public Bookcase(int x, int y) : base(x, y) { }

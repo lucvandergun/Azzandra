@@ -21,8 +21,23 @@ namespace Azzandra
             }
         }
 
-        public static void DrawTextureRotated(Vector2 pos, Texture2D tex, Color color, float scale = 1, float rotation = 0)
+        public static void DrawSprite(Vector2 pos, Texture2D tex, Color color, float scale = 1, float rotation = 0)
         {
+            //if (color == Color.White)
+            //{
+            //    Color[] data = new Color[tex.Width * tex.Height];
+            //    tex.GetData(data);
+            //    for (int i, j = 0; j < tex.Height; j++)
+            //    {
+            //        for (i = 0; i < tex.Width; i++)
+            //        {
+            //            if (data[j * tex.Width + i].A != 0.0)
+            //                data[j * tex.Width + i] = color;
+            //        }
+            //    }
+                
+            //    tex.SetData(data);
+            //}
             if (tex != null)
             {
                 SpriteBatch.Draw(tex, pos, null, color, rotation, new Vector2(tex.Width, tex.Height) / 2, scale, SpriteEffects.None, 0);

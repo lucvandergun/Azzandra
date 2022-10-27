@@ -12,13 +12,15 @@ namespace Azzandra
     public class GroundFire : Instance
     {
         public override bool RenderLightness => false;
-        public override bool DisplayFire => true;
+        public override bool RenderFire => true;
         public int Time = 12;
 
         public override Symbol GetSymbol() => new Symbol("*", Color.DarkOrange);
         public override string Name => "fire";
+        public override string AssetName => "fire";
 
         public override bool IsSolid() => false;
+        public override MoveType GetMovementType() => MoveType.Fly;
         //public override bool IsInstanceSolidToThis(Instance inst) => inst is Entity ? false : base.IsInstanceSolidToThis(inst);
 
         public override void OnInstanceCollision(Entity collider)

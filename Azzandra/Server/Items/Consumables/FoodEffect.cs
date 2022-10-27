@@ -4,13 +4,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Azzandra.Items
+namespace Azzandra
 {
-    public class FoodEffect
+    public class FoodEffect : Property
     {
+        public override int GeneralTypeID => FoodID;
+
         public string ID;
         public int Level = 1;
         public int Time = 1;
+
+        public FoodEffect(string id, int level, int time)
+        {
+            ID = id;
+            Level = level;
+            Time = time;
+        }
 
         public FoodEffect() { }
 
@@ -56,8 +65,14 @@ namespace Azzandra.Items
                 case "heal":
                 case "restorehp":
                     var amtHeal = Util.NextUpperHalf(Level);
-                    entity.Heal(amtHeal);
-                    if (isPlayer) player.User.ShowMessage("<lime>It restores "+amtHeal+" hp.");
+                    amtHeal = entity.Heal(amtHeal);
+                    if (isPlayer)
+                    {
+                        if (amtHeal > 0)
+                            player.User.ShowMessage("<lime>It restores " + amtHeal + " hp.");
+                        else
+                            player.User.ShowMessage("It doesn't restore any hp, as you were already at full health.");
+                    }
                     return true;
                 case "boosthp":
                     var amtHpBoost = Util.NextUpperHalf(Level);
@@ -69,7 +84,7 @@ namespace Azzandra.Items
                     {
                         var amtSp = Util.NextUpperHalf(Level);
                         player.Sp += amtSp;
-                        player.User.ShowMessage("<lavender>It restores " + amtSp + "sp.");
+                        player.User.ShowMessage("<lavender>It restores " + amtSp + " sp.");
                     }
                     return true;
                 case "boostsp":
@@ -80,6 +95,12 @@ namespace Azzandra.Items
                         player.Sp += amtSpBoost;
                         player.User.ShowMessage("<lavender>It has boosted your spellpoints by " + amtSpBoost + " sp.");
                     }
+                    return true;
+                case "acid":
+                    int dmg = 9;
+                    entity.GetHit(Style.Acid, dmg);
+                    if (isPlayer)
+                        player.User.ShowMessage("<acid>It disintegrates your insides, dealing <red>" + dmg + "<acid> dmg.");
                     return true;
             }
 
@@ -104,6 +125,40 @@ namespace Azzandra.Items
             }
 
             return "<white>" + ID.Replace('_', ' ').CapFirst() + "<r>";
+        }
+
+
+
+        public override byte[] ToBytes()
+        {
+            var bytes = new byte[28];
+            int pos = 0;
+
+            // First thing: status effect id
+            bytes.Insert(pos, GameSaver.GetBytes(ID));
+            pos += 20;
+
+            // Level & Time:
+            bytes.Insert(pos, BitConverter.GetBytes(Level));
+            pos += 4;
+            bytes.Insert(pos, BitConverter.GetBytes(Time));
+            pos += 4;
+
+            return bytes;
+        }
+
+        public static FoodEffect Load(byte[] bytes, ref int pos)
+        {
+            string id = GameSaver.ToString(bytes, pos);
+            pos += 20;
+            int level = BitConverter.ToInt32(bytes, pos);
+            pos += 4;
+            int time = BitConverter.ToInt32(bytes, pos);
+            pos += 4;
+
+            var effect = new FoodEffect(id, level, time);
+
+            return effect;
         }
     }
 }

@@ -20,6 +20,8 @@ namespace Azzandra
                 : new Symbol("O", Color.SkyBlue.ChangeBrightness(-0.3f));
         }
 
+        public override Color AssetLightness => IsUsed ? Color.DarkGray : Color.White;
+
         public Obelisk(int x, int y) : base(x, y)
         {
             

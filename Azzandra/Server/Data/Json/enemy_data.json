@@ -70,7 +70,7 @@
 			"evade": 0,
 			"parry": 0,
 			"block": 0,
-			"resistance": 2,
+			"resistance": 0,
 			"armour": 0
 		},
 		"attacks": [
@@ -91,7 +91,7 @@
 			"evade": 0,
 			"parry": 10,
 			"block": 15,
-			"resistance": 2,
+			"resistance": 0,
 			"armour": 10
 		},
 		"attacks": [
@@ -100,6 +100,28 @@
 				"speed": 1,
 				"accuracy": 4,
 				"damage": 6
+			}
+		]
+	},
+	
+	"zombie": {
+		"entitytypes": [ "undead" ],
+		"initiative": 16,
+		"stats": {
+			"health": 35,
+			"evade": 0,
+			"parry": 0,
+			"block": 0,
+			"resistance": 0,
+			"armour": 0
+		},
+		"attacks": [
+			{
+				"style": "melee",
+				"speed": 1,
+				"accuracy": 5,
+				"damage": 7,
+				"properties": [{"id": "wither", "level": 1}, {"id": "weak", "level": 1}]
 			}
 		]
 	},
@@ -270,7 +292,7 @@
 			{
 				"style": "melee",
 				"speed": 1,
-				"range": 2,
+				"range": 1,
 				"accuracy": 11,
 				"damage": 9
 			},
@@ -455,7 +477,7 @@
 		"attacks": [
 			{
 				"style": "melee",
-				"speed": 2,
+				"speed": 1,
 				"accuracy": 7,
 				"damage": 7,
 			}
@@ -525,7 +547,7 @@
 		]
 	},
 	
-	"specter": {
+	"spectre": {
 		"entitytypes": [ "undead" ],
 		"initiative": 14,
 		"stats": {
@@ -599,7 +621,7 @@
 			{
 				"style": "melee",
 				"speed": 1,
-				"range": 2,
+				"range": 1,
 				"accuracy": 12,
 				"damage": 12
 			},
@@ -713,7 +735,7 @@
 			{
 				"style": "melee",
 				"speed": 2,
-				"range": 2,
+				"range": 1,
 				"accuracy": 19,
 				"damage": 18
 			},
@@ -781,7 +803,7 @@
 			{
 				"style": "melee",
 				"speed": 2,
-				"range": 2,
+				"range": 1,
 				"accuracy": 20,
 				"damage": 20,
 				"properties": [{"id": "fire", "level": 2}]
@@ -824,7 +846,7 @@
 		},
 		"attacks": [
 			{
-				"style": "melee",
+				"style": "magic",
 				"speed": 2,
 				"range": 8,
 				"accuracy": 16,
@@ -833,7 +855,7 @@
 		]
 	},
 	
-	"dust_mephit": {
+	"dust_elemental": {
 		"initiative": 14,
 		"stats": {
 			"health": 39,

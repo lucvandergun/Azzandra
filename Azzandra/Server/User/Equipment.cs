@@ -82,6 +82,14 @@ namespace Azzandra
             if (item == null) return 0;
             return ((global::Azzandra.Items.Ammunition)item).Damage;
         }
+        public IEnumerable<AttackProperty> GetAmmunitionAttackProperties()
+        {
+            var type = GetRequiredAmmunitionType();
+            if (type == null) return new List<AttackProperty>();
+            var item = User.Inventory.GetAmmunitionByType(type.Value);
+            if (item == null) return new List<AttackProperty>();
+            return ((global::Azzandra.Items.Ammunition)item).GetAttackProperties();
+        }
 
         public Equipment(User user)
         {
@@ -115,7 +123,7 @@ namespace Azzandra
 
         public override bool HasItem(Func<Item, bool> predicate)
         {
-            return false;
+            return Items.Any(i => i != null && (predicate?.Invoke(i) ?? false));
         }
 
         public void SetIndex(int index, Item item)
@@ -299,18 +307,19 @@ namespace Azzandra
             if (Items[0] is Items.Weapon mainhand)
             {
                 mainStyle = mainhand.Style;
-                if (mainhand.AttackProperties != null)
-                    list.AddRange(mainhand.AttackProperties);
+                list.AddRange(mainhand.GetAttackProperties());
             }
 
             if (Items[1] is Items.Weapon offhand && offhand.Style == mainStyle)
             {
-                if (offhand.AttackProperties != null)
-                    list.AddRange(offhand.AttackProperties);
+                list.AddRange(offhand.GetAttackProperties());
             }
 
-            // TODO: add ammunition attack properties:
-            //if ()
+            // Add ammunition attack properties:
+            if (mainStyle == Style.Ranged)
+            {
+                list.AddRange(GetAmmunitionAttackProperties());
+            }
 
             return list;
         }

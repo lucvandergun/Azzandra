@@ -42,7 +42,7 @@ namespace Azzandra
             return;
         }
 
-        public override List<Vector> Move(Vector distance, bool orthoDiagonal, bool hasSlided = false)
+        public override List<Vector> Move(Vector distance, bool orthoDiagonal, bool hasSlided = false, bool mergeMovements = false)
         {
             var oldPos = Position;
             var steps = base.Move(distance, hasSlided);

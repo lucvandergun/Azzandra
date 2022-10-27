@@ -10,7 +10,10 @@ namespace Azzandra
 {
     public class SpellProjectile : TargetProjectileMoving
     {
-        protected Symbol Symbol;
+        public SpellProjectile(Instance origin, Instance target, Color color, string asset = "spell") : base(origin, target, color, asset)
+        {
+            
+        }
 
         public static Color GetColor(IEnumerable<AttackProperty> props)
         {
@@ -21,7 +24,7 @@ namespace Azzandra
                 switch (p.GetID())
                 {
                     case AttackPropertyID.Fire:
-                        return Color.OrangeRed;
+                        return Color.MonoGameOrange;
                     case AttackPropertyID.Frost:
                         return Color.LightBlue;
                     case AttackPropertyID.Blind:
@@ -37,14 +40,11 @@ namespace Azzandra
             return Color.White;
         }
 
-        public SpellProjectile(Instance origin, Instance target, Symbol symbol) : base(origin, target)
-        {
-            Symbol = symbol;
-        }
-
-        public override void Draw(Vector2 pos, float lightness)
-        {
-            Display.DrawInstanceString(pos, Symbol.Char, Assets.Gridfont, Symbol.Color, 1, 0f, true);
-        }
+        //public override void Draw(SpriteBatch sb, Vector2 pos, float lightness)
+        //{
+        //    base.Draw(sb, pos, lightness);
+        //    var a = AnimationManager.Animation.Texture.Name;
+        //    //Display.DrawSprite(pos, texture, Color, 1, Angle);
+        //}
     }
 }

@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -372,9 +373,9 @@ namespace Azzandra
         // == Rendering == \\
         public override Symbol GetSymbol() => new Symbol(Name.First(), Color.Yellow);
 
-        public override void DrawView(Vector2 viewOffset, Server server, float lightness)
+        public override void DrawView(SpriteBatch sb, Vector2 viewOffset, Server server, float lightness)
         {
-            base.DrawView(viewOffset, server, lightness);
+            base.DrawView(sb, viewOffset, server, lightness);
 
             // Outline Target Instance
             if (server.GameClient.IsDevMode && server.GameClient.IsDebug && Target != null)

@@ -32,5 +32,20 @@ namespace Azzandra.Items
         {
 
         }
+
+        //public override bool OnThrow(Level level, GroundItem grit, Instance inst)
+        //{
+            
+        //    grit.Destroy();
+        //    return true;
+        //}
+
+        public override void OnThrow(Level level, GroundItem grit, Vector pos)
+        {
+            level.CreateInstance(new PotionCloud(grit.X, grit.Y, Effects));
+            grit.DestroyNextTurn();
+            User.Log.Add("<gray>The glass shattered as it hit the solid floor, freeing the liquid inside.");
+            return;
+        }
     }
 }

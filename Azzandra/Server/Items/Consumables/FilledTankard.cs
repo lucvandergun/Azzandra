@@ -41,5 +41,18 @@ namespace Azzandra.Items
 
             ApplyEffects();
         }
+
+
+        public override bool OnThrow(Level level, GroundItem grit, Instance inst)
+        {
+            EmptyOnThrow();
+            return true;
+        }
+
+        public override void OnThrow(Level level, GroundItem grit, Vector pos)
+        {
+            EmptyOnThrow();
+            return;
+        }
     }
 }

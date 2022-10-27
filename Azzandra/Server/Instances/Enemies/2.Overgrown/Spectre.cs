@@ -7,11 +7,13 @@ using System.Threading.Tasks;
 
 namespace Azzandra
 {
-    public class Specter : Enemy
+    public class Spectre : Enemy
     {
         public override EntityType EntityType => EntityType.Spirit;
 
-        public Specter(int x, int y) : base(x, y) { }
+        public override int WanderRange => 2;
+
+        public Spectre(int x, int y) : base(x, y) { }
 
 
         public override bool CanWalkOverBlock(Block block)

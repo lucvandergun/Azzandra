@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -127,8 +128,11 @@ namespace Azzandra
         }
 
 
-        public override void Draw(Vector2 pos, float lightness)
+        public override void Draw(SpriteBatch sb, Vector2 pos, float lightness)
         {
+            var sprite = GetSprite();
+            if (sprite == null) return;
+
             // Draw all nodes at once at their relative positions.
             if (Nodes != null)
             {
@@ -136,7 +140,8 @@ namespace Azzandra
                 {
                     var symbol = GetSymbol();
                     var relativeDiff = (node - Position).ToFloat() * ViewHandler.GRID_SIZE;
-                    Display.DrawStringCentered(pos + relativeDiff, symbol.Char, Assets.Gridfont, symbol.Color);
+                    Display.DrawSprite(pos + relativeDiff, sprite, Color.White, 1f, 0f);
+                    //Display.DrawStringCentered(pos + relativeDiff, symbol.Char, Assets.Gridfont, symbol.Color);
                 }
             }
         }

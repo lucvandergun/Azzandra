@@ -16,6 +16,7 @@ namespace Azzandra
         public override bool IsInteractable() => true;
         public override bool IsSolid() => !IsOpen;
         public override bool BlocksLight() => !IsOpen;
+        public override string AssetName => IsOpen ? "door_open" : "door_closed";
 
 
         public override Symbol GetSymbol() => IsOpen ? new Symbol("+", Color.Aqua) : new Symbol("-", Color.Red);
@@ -56,11 +57,13 @@ namespace Azzandra
             {
                 IsOpen = false;
                 player.User.Log.Add("<gray>You close the door.");
+                AnimationManager.Play(AssetName);
             }
             else
             {
                 IsOpen = true;
                 player.User.Log.Add("<gray>You open the door.");
+                AnimationManager.Play(AssetName);
             }
         }
     }

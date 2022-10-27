@@ -215,6 +215,9 @@ namespace Azzandra
             Server.User.VisibilityHandler.SetupVisibilityMap(CurrentLevel);
             Server.User.UpdateVisibilityMap();
 
+            // Remove all previous tile displays
+            Server.GameClient.DisplayHandler.ViewHandler.OnNewFloor();
+
             // Save the current game!
             Server.GameClient.SaveGame(false);
 
@@ -317,6 +320,7 @@ namespace Azzandra
 
             Debug.WriteLine(" - Total levels loaded: " + amt);
             Debug.WriteLine(" - Entering depth: " + Depth);
+            Server.GameClient.DisplayHandler.ViewHandler.OnNewFloor();
         }
     }
 }

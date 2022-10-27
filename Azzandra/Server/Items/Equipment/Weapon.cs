@@ -30,6 +30,8 @@ namespace Azzandra.Items
 
             if (AttackProperties != null && AttackProperties.Length > 0)
                 list.Add("<ltblue>Effects: " + AttackProperties.Select(a => a.ToString()).Stringify2() + "<r>");
+            if (Properties != null && Properties.Count > 0)
+                list.Add("<lime>Effects: " + Properties.Select(a => a.ToString()).Stringify2() + "<r>");
 
             list.Add(GetTypeDesc());
 
@@ -63,7 +65,10 @@ namespace Azzandra.Items
                 Speed = e.Speed;
                 IsTwoHander = e.IsTwoHander;
                 CanOffHand = e.CanOffHand;
-                AttackProperties = e.AttackProperties;
+
+                //Load default properties if none present.
+                if (e.AttackProperties != null)
+                    Properties.AddRange(e.AttackProperties);
             }
 
             base.SetAttributes(reference);
@@ -101,6 +106,10 @@ namespace Azzandra.Items
             {
                 case "off-hand":
                     Equip(1);
+                    return;
+                case "cleanse":
+                    if (Properties.Count > 0)
+                        Properties.RemoveAt(0);
                     return;
             }
 

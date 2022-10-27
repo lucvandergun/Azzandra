@@ -10,16 +10,25 @@ namespace Azzandra
 {
     public abstract class TargetProjectileMoving : TargetProjectile
     {
-        protected readonly float Angle;
-        protected virtual Color Color => Color.White;
         public override int Initiative => base.Initiative;
+        public override bool RenderLightness => false;
+
+        private readonly float _angle;
+        private readonly Color _color;
+        private readonly string _asset;
+
+        public override float Angle => _angle;
+        public override string AssetName => _asset;
+        public override Color AssetLightness => _color;
 
 
-        public TargetProjectileMoving(Instance origin, Instance target) : base(origin, target)
+        public TargetProjectileMoving(Instance origin, Instance target, Color color, string asset) : base(origin, target)
         {
-            Angle = CalculateAngle();
+            _angle = CalculateAngle();
             ActionPotential = -100;
             TimeSinceLastTurn = 0;
+            _color = color;
+            _asset = asset;
         }
         
         public override void TurnEnd()

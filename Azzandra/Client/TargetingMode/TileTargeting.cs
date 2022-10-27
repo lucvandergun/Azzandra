@@ -13,7 +13,7 @@ namespace Azzandra.TargetingMode
         //public Vector SetTarget(Vector pos) => TileTarget = pos;
 
         public override bool HasTarget(Server server) => true;
-        public override string GetActionString(Server server) => InboundAction is ActionVectorSpell ? "cast" : "-";
+        public override string GetActionString(Server server) => InboundAction is ActionVectorSpell ? "cast" : InboundAction is ActionThrow ? "throw" : "-";
 
         private int MoveTimer = 0;
 
@@ -70,7 +70,13 @@ namespace Azzandra.TargetingMode
                     ih.Server.SetPlayerAction(vs);
                 }
 
-                //ih.Server.User.Log.Add("<rose>Huzzah! " + target);
+                else if (InboundAction is ActionVector av)
+                {
+                    var target = (TileTarget.Value + ih.Server?.User.Player?.Position).Value;
+                    av.Target = target;
+                    ih.Server.SetPlayerAction(av);
+                }
+
                 ih.TargetingMode = ih.DefaultTargetingMode;
             }
             else

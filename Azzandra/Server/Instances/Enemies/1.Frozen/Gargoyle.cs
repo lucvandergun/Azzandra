@@ -17,6 +17,10 @@ namespace Azzandra
         public override int DetectRange => 2;
 
 
+        public override string AssetName => IsActive ? "gargoyle_flying" : "gargoyle_idle";
+        public override Color AssetLightness => !IsActive ? Color.DarkGray : Color.White;
+
+
         public Gargoyle(int x, int y) : base(x, y) { }
 
         public override EntityAction DetermineRegularAction()
@@ -33,6 +37,7 @@ namespace Azzandra
             else
             {
                 IsActive = false;
+                AnimationManager.Play("gargoyle_idle");
                 return null;
             }
         }
@@ -41,7 +46,10 @@ namespace Azzandra
         {
             var target =  base.FindTarget();
             if (target != null)
+            {
                 IsActive = true;
+                AnimationManager.Play("gargoyle_flying");
+            }
 
             return target;
         }

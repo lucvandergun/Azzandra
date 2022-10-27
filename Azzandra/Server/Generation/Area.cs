@@ -493,6 +493,19 @@ namespace Azzandra.Generation
             // Spawn barrels:
             //SpawnBarrels(random);
 
+            // Spawn graves
+            if (random.NextDouble() < 0.02)
+            {
+                var gravePos = FreeNodes.PickRandom(random);
+                FreeNodes.SortAround(gravePos);
+                int amtOfGraves = 4 + random.Next(4);
+                for (int i = 0; i < amtOfGraves; i++)
+                {
+                    FindInstanceSpawn(new Grave(0, 0), gravePos, 3, true, false);
+                }
+            }
+
+
             if (IsStart || Generator != null && !Generator.AddSpawners)
                 return;
 
@@ -536,16 +549,16 @@ namespace Azzandra.Generation
         /// </summary>
         private Spawner AssignSpawner(Vector pos, Random random)
         {
-            return new Spawners.Living(this, pos, random);
+            //return new Spawners.Living(this, pos, random);
 
-            //var roll = random.NextDouble();
+            var roll = random.NextDouble();
 
-            //if (roll < 0.75)//0.60
-            //    return new Spawners.Living(this, pos, random);
-            ////else if (roll < 0.85)
-            ////    return new Spawners.Lair(this, pos, random);
-            //else
-            //    return new Spawners.Haunted(this, pos, random);
+            if (roll < 0.95)//0.60
+                return new Spawners.Living(this, pos, random);
+            //else if (roll < 0.85)
+            //    return new Spawners.Lair(this, pos, random);
+            else
+                return new Spawners.Haunted(this, pos, random);
         }
     }
 }

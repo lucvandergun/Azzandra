@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -141,9 +142,9 @@ namespace Azzandra
 
         // === Rendering: Adds Debug info for NPC's === \\
 
-        public override void DrawView(Vector2 viewOffset, Server server, float lightness)
+        public override void DrawView(SpriteBatch sb, Vector2 viewOffset, Server server, float lightness)
         {
-            base.DrawView(viewOffset, server, lightness);
+            base.DrawView(sb, viewOffset, server, lightness);
 
             // Draw Path Target
             if (server.GameClient.IsDevMode && server.GameClient.IsDebug && server.User.Target == this)

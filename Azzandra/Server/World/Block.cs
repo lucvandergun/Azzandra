@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Azzandra
 {
-    public struct Block
+    public struct Block : IEquatable<Block>
     {
         public int ID;
         
@@ -21,5 +21,20 @@ namespace Azzandra
         {
             return ID.ToString();
         }
+
+        public override bool Equals(object obj)
+        {
+            if (obj is Block block)
+                return this.Equals(block);
+
+            return false;
+        }
+        public bool Equals(Block block)
+        {
+            return block.ID == ID;
+        }
+
+        public static bool operator ==(Block block1, Block block2) => block1.Equals(block2);
+        public static bool operator !=(Block block1, Block block2) => !block1.Equals(block2);
     }
 }

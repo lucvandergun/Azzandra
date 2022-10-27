@@ -150,7 +150,7 @@ namespace Azzandra.SpellEffects
 
         public override void Apply(Entity attacker, Instance target, Affect affect)
         {
-            attacker.Level.CreateInstance(new SpellProjectile(attacker, target, TileDisplay.Get(BlockID.Cobweb).Symbol));
+            attacker.Level.CreateInstance(new SpellProjectile(attacker, target, Color.White, "cobweb"));
 
             var specs = GetMsgAdresses(attacker, target);
 
@@ -324,7 +324,7 @@ namespace Azzandra.SpellEffects
         {
             var specs = GetMsgAdresses(attacker, target);
 
-            attacker.Level.Server.User.ShowMessage("" + specs.Item1 + " " + GetVerb(attacker, "unveil", "unveils") + " the object: <aqua>it is truly " + target.ToSecretStringArticle() + "!");
+            attacker.Level.Server.User.ShowMessage("" + specs.Item1 + " " + GetVerb(attacker, "unveil", "unveils") + " the object: <aqua>it is " + target.ToSecretStringArticle() + "!");
         }
     }
 
@@ -818,6 +818,41 @@ namespace Azzandra.SpellEffects
                     }
                 }
             }
+        }
+    }
+
+    public class Confuse : SpellEffect
+    {
+        protected int Strength;
+        public Confuse() { }
+
+        public override void Apply(Entity attacker, Instance target, Affect affect)
+        {
+            if (!(target is Entity entity))
+            {
+                attacker.Level.Server.User.ShowMessage(((target is Player) ? "you" : target.ToStringAdress()).CapFirst() + " remained unaffected by the confusion spell.");
+                return;
+            }
+
+            // Effects:
+            if (target is Enemy enemy)
+            {
+                // Forget base position
+                enemy.BasePosition = null;
+                enemy.Target = null;
+                if (target is Wraith wraith)
+                    wraith.IsAngered = false;
+
+                // Stop fleeing...
+
+            }
+
+            // De-aggro for a few turns:
+            entity.AddStatusEffect(new StatusEffects.Stunned(1, 3), true);
+
+
+            var specs = GetMsgAdresses(attacker, target);
+            attacker.Level.Server.User.ShowMessage("<yellow>" + specs.Item1 + " " + GetVerb(attacker, "confuse") + " " + specs.Item2 + ".");
         }
     }
 }

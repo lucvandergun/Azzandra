@@ -154,5 +154,33 @@ namespace Azzandra
 
             return null;
         }
+
+        /// <summary>
+        /// Load a list of a certain type from a bytes array.
+        /// The supplied array has to be of the following shape (amtOfEntries, n * (objBytesAmt, objBytes))
+        /// </summary>
+        /// <typeparam name="T">The object type in the list</typeparam>
+        /// <param name="bytes">The byte array to load from</param>
+        /// <param name="pos">The index to start at in the byte array</param>
+        /// <param name="objLoader">The way to load each object from a selection of bytes</param>
+        /// <returns></returns>
+        public static List<T> LoadList<T>(byte[] bytes, ref int pos, Func<byte[], T> objLoader)
+        {
+            int objAmt = BitConverter.ToInt32(bytes, pos);
+            pos += 4;
+            var list = new List<T>(objAmt);
+
+            for (int i = 0; i < objAmt; i++)
+            {
+                var objBytesAmt = BitConverter.ToInt32(bytes, pos);
+                pos += 4;
+                var objBytes = new byte[objBytesAmt];
+                Array.Copy(bytes, pos, objBytes, 0, objBytesAmt);
+                pos += objBytesAmt;
+                list.Add(objLoader.Invoke(objBytes));
+            }
+
+            return list;
+        }
     }
 }

@@ -18,7 +18,7 @@ namespace Azzandra
             return IsFilled ? new Symbol('U', Color.Brown)
                 : new Symbol('U', Color.Brown.ChangeBrightness(-0.5f));
         }
-
+        public override Color AssetLightness => !IsFilled ? Color.DarkGray : Color.White;
         public override string Name => IsFilled ? ("barrel of " + Type) : "barrel";
 
         public Barrel(int x, int y, string liquidType) : base(x, y)

@@ -16,6 +16,8 @@ namespace Azzandra
                 : new Symbol('¢', Color.Orange);
         }
 
+        public override string AssetName => IsOpen ? "chest_open" : "chest_closed";
+
         public Chest(int x, int y, IEnumerable<Item> items) : base(x, y)
         {
             Inventory.AddItems(items);

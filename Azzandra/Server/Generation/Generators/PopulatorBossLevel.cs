@@ -62,7 +62,7 @@ namespace Azzandra.Generation
 
         protected override void PaintDungeon()
         {
-            Paint(new BlobBrush(BlockID.Mud, true, false, true, 9), 5);
+            //Paint(new BlobBrush(BlockID.Mud, true, false, true, 9), 5);
             Paint(new ScatterBrush(BlockID.Rock, false, true, true, 3), 5);
             Paint(new ScatterBrush(BlockID.Crystal, false, true, true, 2), 4);
         }

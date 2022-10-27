@@ -21,6 +21,8 @@ namespace Azzandra
                 : new Symbol('¢', Color.LightGray);
         }
 
+        public override Color AssetLightness => !HasItems ? Color.DarkGray : Color.White;
+
         public MultipleItemContainer(int x, int y) : base(x, y) { }
 
 
@@ -65,6 +67,7 @@ namespace Azzandra
             if (!IsOpen)
             {
                 IsOpen = true;
+                AnimationManager.Play(AssetName);
                 var msg = "<r>You open the " + Name + ". ";
                 msg += HasItems ? "It contains: " + Inventory.Items.Stringify2(i => "<aqua>" + i.ToString() + "<r>") + "." : "It appears to be empty.";
 

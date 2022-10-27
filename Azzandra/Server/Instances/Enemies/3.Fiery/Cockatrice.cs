@@ -10,8 +10,8 @@ namespace Azzandra
     public class Cockatrice : Enemy
     {
         public override EntityType EntityType => EntityType.Beast;
-        public override int GetW() => 2;
-        public override int GetH() => 2;
+        public override int GetW() => 1;
+        public override int GetH() => 1;
 
         private Vector? LockedPosition;
 

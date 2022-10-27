@@ -10,8 +10,10 @@ namespace Azzandra
 {
 
     [JsonConverter(typeof(AttackPropertyConverter))]
-    public abstract class AttackProperty
+    public abstract class AttackProperty : Property
     {
+        public override int GeneralTypeID => AttackID;
+
         //[JsonConverter(typeof(AttackPropertyIDConverter))]
         //public readonly int ID;
         //[DefaultValue(1)]
@@ -24,7 +26,7 @@ namespace Azzandra
         }
 
 
-        public virtual byte[] ToBytes()
+        public override byte[] ToBytes()
         {
             var bytes = new byte[8];
             int pos = 0;
@@ -50,9 +52,11 @@ namespace Azzandra
             if (!typeof(AttackProperty).IsAssignableFrom(type))
                 return null;
 
-            var prop = (AttackProperty)Activator.CreateInstance(type, bytes, pos);
+            int level = BitConverter.ToInt32(bytes, pos);
+            pos += 4;
 
-            pos += 4; // General AP bytes amount
+            var prop = (AttackProperty)Activator.CreateInstance(type, level);
+
             return prop;
         }
 
@@ -72,7 +76,7 @@ namespace Azzandra
         /// <summary>
         /// The initial apply chance (0 to 1), if this roll succeeds, the affects accuracy might be rolled against the target's resistance stat if enabled.
         /// </summary>
-        public virtual float ApplyChance => 0.2f.LerpTo(0.4f, Level / 3f);
+        public virtual float ApplyChance => 0.2f.LerpTo(0.5f, (Level - 1) / 3f);
 
         /// <summary>
         /// Whether to roll a secondary apply chance: the affects accuracy against the target's resistance value.

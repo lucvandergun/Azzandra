@@ -94,9 +94,13 @@
     <Compile Include="Client\IScene.cs" />
     <Compile Include="Client\Mouse\ItemMenuOld.cs" />
     <Compile Include="Client\Settings\SettingsRenderer.cs" />
+    <Compile Include="Client\View\Sprite.cs" />
+    <Compile Include="Client\View\Animation.cs" />
     <Compile Include="Client\Tab\ItemListRenderer.cs" />
     <Compile Include="Client\Tab\SpellsInterface.cs" />
     <Compile Include="Client\TextInputBuilder.cs" />
+    <Compile Include="Client\View\AnimationManager.cs" />
+    <Compile Include="Client\View\TileDisplayManager.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -116,10 +120,11 @@
     <Compile Include="Server\Generation\AreaGeneration\AreaShrine.cs" />
     <Compile Include="Server\Generation\Spawners\Graves.cs" />
     <Compile Include="Server\Instances\Enemies\0.Universal\Kobold.cs" />
+    <Compile Include="Server\Instances\Enemies\0.Universal\Zombie.cs" />
     <Compile Include="Server\Instances\Enemies\1.Frozen\Ghaugh.cs" />
     <Compile Include="Server\Instances\Enemies\1.Frozen\LostMage.cs" />
     <Compile Include="Server\Instances\Enemies\1.Frozen\AlphaWolf.cs" />
-    <Compile Include="Server\Instances\Enemies\3.Fiery\DustMephit.cs" />
+    <Compile Include="Server\Instances\Enemies\3.Fiery\DustElemental.cs" />
     <Compile Include="Server\Instances\Enemies\2.Overgrown\CarnivorousPlant.cs" />
     <Compile Include="Server\Instances\Enemies\1.Frozen\Gargoyle.cs" />
     <Compile Include="Server\Instances\Enemies\0.Universal\GiantSkeleton.cs" />
@@ -142,6 +147,7 @@
     <Compile Include="Server\Instances\Helper\Actions\ActionPush.cs" />
     <Compile Include="Server\Instances\Helper\Actions\ActionVector.cs" />
     <Compile Include="Server\Instances\Helper\Actions\ActionSpellAcute.cs" />
+    <Compile Include="Server\Instances\Helper\Actions\ActionThrow.cs" />
     <Compile Include="Server\Instances\Helper\Actions\Path2.cs" />
     <Compile Include="Server\Instances\Helper\Dijkstra\AvoidanceMap.cs" />
     <Compile Include="Server\Instances\Helper\Dijkstra\BehaviourMap.cs" />
@@ -153,15 +159,19 @@
     <Compile Include="Server\Instances\Helper\Affects\SpellEffectAcute.cs" />
     <Compile Include="Server\Instances\Helper\Affects\SpellEffectVector.cs" />
     <Compile Include="Server\Instances\Helper\Affects\HitType.cs" />
+    <Compile Include="Server\Instances\Projectile\SpellProjectile.cs" />
     <Compile Include="Server\Instances\Projectile\LightningProjectile.cs" />
     <Compile Include="Server\Instances\Projectile\DustCloud.cs" />
     <Compile Include="Server\Instances\Projectile\VectorTargetProjectile.cs" />
     <Compile Include="Server\Instances\TileInstance\Bookcase.cs" />
+    <Compile Include="Server\Instances\TileInstance\LargeChest.cs" />
     <Compile Include="Server\Instances\TileInstance\CursedChest.cs" />
     <Compile Include="Server\Instances\TileInstance\GiantMushroom.cs" />
     <Compile Include="Server\Instances\TileInstance\Altar.cs" />
+    <Compile Include="Server\Instances\TileInstance\PotionCloud.cs" />
     <Compile Include="Server\Instances\TileInstance\Obelisk.cs" />
     <Compile Include="Server\Instances\TileInstance\Shrine.cs" />
+    <Compile Include="Server\Items\Bomb.cs" />
     <Compile Include="Server\Items\Consumables\Consumable.cs" />
     <Compile Include="Server\Items\Consumables\Potion.cs" />
     <Compile Include="Server\Items\Consumables\Drink.cs" />
@@ -169,6 +179,8 @@
     <Compile Include="Server\Items\Consumables\FoodEffect.cs" />
     <Compile Include="Server\Items\Equipment\Staff.cs" />
     <Compile Include="Server\Items\Equipment\MagicWeapon.cs" />
+    <Compile Include="Server\Items\ILightable.cs" />
+    <Compile Include="Server\Items\Property.cs" />
     <Compile Include="Server\Region.cs" />
     <Compile Include="Server\Data\Droptables\Droptable.cs" />
     <Compile Include="Server\Data\Droptables\DroptableConverter.cs" />
@@ -223,7 +235,7 @@
     <Compile Include="Server\Instances\Projectile\TargetProjectileMoving.cs" />
     <Compile Include="Server\Instances\Projectile\ShadowCloud.cs" />
     <Compile Include="Server\Instances\Projectile\Vine.cs" />
-    <Compile Include="Server\Instances\Projectile\SpellProjectile.cs" />
+    <Compile Include="Server\Instances\Projectile\SpellProjectile2.cs" />
     <Compile Include="Server\Instances\Projectile\ArrowProjectile.cs" />
     <Compile Include="Server\Data\Droptables\DroptableEntryConverter.cs" />
     <Compile Include="Server\Instances\TileInstance\Barrel.cs" />
@@ -285,7 +297,7 @@
     <Compile Include="Server\Instances\Enemies\1.Frozen\IceGiant.cs" />
     <Compile Include="Server\Instances\Enemies\2.Overgrown\GelatinousCube.cs" />
     <Compile Include="Server\Instances\Enemies\0.Universal\Skeleton.cs" />
-    <Compile Include="Server\Instances\Enemies\2.Overgrown\Specter.cs" />
+    <Compile Include="Server\Instances\Enemies\2.Overgrown\Spectre.cs" />
     <Compile Include="Server\Instances\Enemies\0.Universal\Vampire.cs" />
     <Compile Include="Server\Instances\Enemies\1.Frozen\Wolf.cs" />
     <Compile Include="Server\Instances\Enemies\0.Universal\Wraith.cs" />

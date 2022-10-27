@@ -55,6 +55,7 @@ namespace Azzandra
             if (!IsOpen)
             {
                 IsOpen = true;
+                AnimationManager.Play(AssetName);
                 var msg = "<r>You open the " + Name + ". ";
                 msg += Item != null ? "It contains: <aqua>" + Item.ToString() + "<r>." : "It appears to be empty.";
 

@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -88,21 +89,15 @@ namespace Azzandra
 
 
         // === Rendering === \\
-        public override void Draw(Vector2 pos, float lightness = 1f)
+        public override void Draw(SpriteBatch sb, Vector2 pos, float lightness = 1f)
         {
-            base.Draw(pos, lightness);
+            base.Draw(sb, pos, lightness);
             
             if (Inventory.Items.Count > 0)
             {
-                var symbol = GroundItem.Symbol;
-
-                var color = symbol.Color;
+                var asset = GroundItem.Asset;
                 var itemOffset = new Vector2((GetW() - 1) * GameClient.GRID_SIZE / 4 + 3);
-
-                //if (RenderLightness)
-                color = color.ChangeBrightness(-1f + lightness);
-
-                Display.DrawInstanceString(pos + itemOffset, symbol.Char, Assets.Gridfont, color, 1, 0f, true);
+                new AnimationManager(asset).Draw(sb, pos + itemOffset);
             }
         }
     }

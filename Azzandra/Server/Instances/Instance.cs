@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -21,9 +22,15 @@ namespace Azzandra
     /// </summary>
     public abstract class Instance
     {
-        public virtual bool DisplayFire => false;
-        public virtual bool DisplayFrozen => false;
+        public virtual bool RenderFire => false;
+        public virtual bool RenderFrozen => false;
         public virtual bool RenderLightness => true;
+        public virtual float Angle => 0f;
+        public AnimationManager AnimationManager;
+
+        public virtual string AssetName => GetType().Name.ToUnderscore();
+        public virtual Color AssetLightness => Color.White;
+        public virtual Texture2D GetSprite() => Assets.GetSprite(AssetName);
 
         public Level Level { get; set; }
         //public bool IsDestroyed { get; private set; } = false;
@@ -46,7 +53,7 @@ namespace Azzandra
         /// <summary>
         /// The time it takes until an action may be performed.
         /// </summary>
-        public virtual int Initiative { get; set; } = 12;   // 12 is the basic unit, the player will have this speed under normal circumstances.
+        public virtual int Initiative { get; protected set; } = 12;   // 12 is the basic unit, the player will have this speed under normal circumstances.
         /// <summary>
         /// The current potential for taking actions. One action or 'Turn' can be taken per initiative. If not enough potential present, it will have to be accumulated first.
         /// </summary>
@@ -62,6 +69,12 @@ namespace Azzandra
         public int TimeSinceLastTurn { get; set; } = 0;
         
         public int MomentOfLastTurn = 0;
+
+        /// <summary>
+        /// The amount of ticks until this creature gets destroyed. Creatures with a positive death timer won't be saved.
+        /// (Will be set to the attacker's initiative when killed.)
+        /// </summary>
+        public int DeathTimer { get; set; } = -1;
 
 
         // === Attributes === \\
@@ -155,6 +168,7 @@ namespace Azzandra
                 pos += 4;
             }
 
+            SetupAnimationManager();
             //base.Load(bytes, ref pos);
         }
 
@@ -202,14 +216,34 @@ namespace Azzandra
         // Methods:
 
         /// <summary>
-        /// Is called right after the instance is added to the level. Could be overridden to set the enemy's hp to it's loaded full hp, etc.
-        /// Is not called when instances are loaded from the save file.
+        /// Is called right after the instance is first added to the level. Could be overridden to set the enemy's hp to it's loaded full hp, etc.
+        /// Is not called when instances are loaded from the save file!
         /// </summary>
         public virtual void Init()
         {
-
+            
         }
-        
+
+        /// <summary>
+        /// Is the very last thing called when instances are spawned or loaded.
+        /// Is used e.g. for setting up the asset.!
+        /// </summary>
+        public virtual void SetupAnimationManager()
+        {
+            AnimationManager = new AnimationManager(AssetName)
+            {
+                RenderLightness = () => RenderLightness,
+                RenderFire = () => RenderFire,
+                RenderFrozen = () => RenderFrozen,
+                Angle = () => Angle
+            };
+        }
+
+        public void DestroyNextTurn()
+        {
+            DeathTimer = Initiative;
+        }
+
         public void Destroy()
         {
             //IsDestroyed = true;
@@ -537,16 +571,16 @@ namespace Azzandra
 
 
         // === Movement === \\
-        public virtual List<Vector> Move(Vector distance, bool orthoDiagonal = true, bool hasSlided = false)
+        public virtual List<Vector> Move(Vector distance, bool orthoDiagonal = true, bool hasSlided = false, bool mergeMovements = false)
         {
             // Skip function if no movement
             if (distance == Vector.Zero)
                 return new List<Vector>();
 
-            return Move(new Vector[] { distance }, orthoDiagonal, hasSlided);
+            return Move(new Vector[] { distance }, orthoDiagonal, hasSlided, mergeMovements);
         }
 
-        public virtual List<Vector> Move(IEnumerable<Vector> distances, bool orthoDiagonal = true, bool hasSlided = false)
+        public virtual List<Vector> Move(IEnumerable<Vector> distances, bool orthoDiagonal = true, bool hasSlided = false, bool mergeMovements = false)
         {
             //// Skip function if no movement
             //if (distance == Vector.Zero)
@@ -570,10 +604,21 @@ namespace Azzandra
                 // If diagonal movement is not possible: edit the step to either dimensional component (solely X or Y):
                 if (step.X != 0 && step.Y != 0 && (orthoDiagonal && !CanMoveUnobstructed(step.X, step.Y) || !CanMoveDiagonal()))
                 {
-                    if (CanMoveUnobstructed(step.X, 0))
-                        step.Y = 0;
-                    else if (CanMoveUnobstructed(0, step.Y))
-                        step.X = 0;
+                    var remainder = distsToGo.Aggregate((a, b) => a + b).Absolute();
+                    if (remainder.X >= remainder.Y)
+                    {
+                        if (CanMoveUnobstructed(step.X, 0))
+                            step.Y = 0;
+                        else if (CanMoveUnobstructed(0, step.Y))
+                            step.X = 0;
+                    }
+                    else
+                    {
+                        if (CanMoveUnobstructed(0, step.Y))
+                            step.X = 0;
+                        else if (CanMoveUnobstructed(step.X, 0))
+                            step.Y = 0;
+                    }
                 }
 
                 if (CanMoveUnobstructed(step.X, step.Y))
@@ -622,6 +667,10 @@ namespace Azzandra
             }
 
             var tt = this;
+
+            // Merge all movements to one, if requested:
+            if (mergeMovements && steps.Count > 0)
+                steps = new List<Vector>() { steps.Aggregate((cur, val) => val + cur) };
 
             Animations.Add(new MovementAnimation(this, steps, Initiative));
             return steps;
@@ -812,7 +861,7 @@ namespace Azzandra
         {
             var drawOffset = Vector2.Zero;
             foreach (var anim in Animations)
-                if (anim is MovementAnimation)
+                //if (anim is MovementAnimation)
                     drawOffset += anim.GetDisposition();
 
             return GetAbsoluteStaticPos() + drawOffset;
@@ -823,15 +872,11 @@ namespace Azzandra
         /// This function may be overridden to disposition it for e.g. movement.
         /// </summary>
         /// <param name="viewOffset">The current view offset to take into account (absolute coordinates of top left corner of viewing area).</param>
-        public virtual void DrawView(Vector2 viewOffset, Server server, float lightness)
+        public virtual void DrawView(SpriteBatch sb, Vector2 viewOffset, Server server, float lightness)
         {
-            //var drawOffset = Vector2.Zero;
-            //foreach (var anim in Animations)
-            //    if (anim is AttackAnimation)
-            //        drawOffset += anim.GetDisposition(server.GetTickFraction(MomentOfLastTurn, Initiative));
-
+            AnimationManager.Update();
             var drawPos = CalculateRealPos(server) + viewOffset;// + drawOffset;
-            Draw(drawPos, lightness);
+            Draw(sb, drawPos, lightness);
         }
 
         /// <summary>
@@ -839,21 +884,30 @@ namespace Azzandra
         /// Does not draw movement disposition.
         /// </summary>
         /// <param name="pos">The position to draw at (centered).</param>
-        public virtual void Draw(Vector2 pos, float lightness = 1f)
+        public virtual void Draw(SpriteBatch sb, Vector2 pos, float lightness = 1f)
         {
-            var symbol = GetSymbol();
-            if (symbol == null)
-                return;
+            //var symbol = GetSymbol();
+            //if (symbol == null)
+            //    return;
+            //var color = symbol.Color;
 
-            var color = symbol.Color;
-            if (DisplayFire)
-                color = ViewHandler.FireColor;
-            else if (DisplayFrozen)
-                color = Color.LightBlue;
+            //// Get sprite:
+            //var sprite = GetSprite();
+            //if (sprite == null) return;
 
-            if (RenderLightness)
-                color = color.ChangeBrightness(-1f + lightness);
-            Display.DrawInstanceString(pos, symbol.Char, Assets.Gridfont, color, GetW(), 0f, true);
+            //var color = AssetLightness;
+            //if (RenderFire)
+            //    color = ViewHandler.FireColor;
+            //else if (RenderFrozen)
+            //    color = Color.LightBlue;
+
+            //if (RenderLightness)
+            //    color = color;
+
+            //Display.DrawSprite(pos, sprite, color, 1f, 0f);
+
+            var color = AssetLightness;
+            AnimationManager.Draw(sb, pos, color, lightness);
         }
     }
 }

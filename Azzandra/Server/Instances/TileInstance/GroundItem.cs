@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,10 +14,12 @@ namespace Azzandra
         public override bool RenderLightness => false;
         public override bool IsSolid() => false;
         public override bool IsInteractable() => true;
-        public static Symbol Symbol = new Symbol('x', Color.Red);
-        public override Symbol GetSymbol() => Symbol;
+        public static Texture2D Asset => Assets.GetSprite("item");
+        public override string AssetName => Item?.ID.Substring(Item.ID.Length - 4, 4) == "_key" ? "key" : "item";
+        public override Symbol GetSymbol() => new Symbol('x', Color.Red);
         public override string Name => Item?.ToString() ?? "null";
         public override string ToStringAdress() => "the " + Name;
+        public override MoveType GetMovementType() => MoveType.Fly;
 
 
         public GroundItem(int x, int y) : base(x, y) { }
@@ -41,6 +44,11 @@ namespace Azzandra
             var bytes = Item.ToBytesUnknown(Item);
 
             return bytes.Concat(base.ToBytes()).ToArray();
+        }
+
+        public override bool CanBlockBeCornered(Block block)
+        {
+            return true;
         }
 
         public override void Interact(Entity entity)

@@ -20,7 +20,7 @@ namespace Azzandra
         protected override bool PerformAction()
         {
             Item?.PerformOption(Option);
-            return Item != null;
+            return Item != null && Option != "throw";
         }
     }
 }

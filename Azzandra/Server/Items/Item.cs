@@ -39,6 +39,13 @@ namespace Azzandra
 
         public int Durability { get; set; } = -1;
 
+        public List<Property> Properties = new List<Property>();
+
+        public IEnumerable<AttackProperty> GetAttackProperties() => Properties.Where(p => p is AttackProperty).Select(p => (AttackProperty)p);
+        public IEnumerable<FoodEffect> GetFoodEffects() => Properties.Where(p => p is FoodEffect).Select(p => (FoodEffect)p);
+
+
+
 
         // === DATA ATTRIBUTES === \\
 
@@ -153,16 +160,23 @@ namespace Azzandra
             var options = new List<string>(3);
 
             if (Container != null)
+            {
                 if (Container is global::Azzandra.Equipment)
                     options.Add("remove");
-                if (Container is global::Azzandra.Inventory && this is Items.IFilledContainer)
-                    options.Add("empty");
+                if (Container is global::Azzandra.Inventory)
+                {
+                    if (this is Items.IFilledContainer)
+                        options.Add("empty");
+                    if (this is Items.ILightable)
+                        options.Add("light");
+                }
+                options.Add("throw");
+            }
 
             if (Quantity > 1 && !(this is Items.Ammunition)) options.Add("drop one");
             options.Add("drop");
             return options;
         }
-
 
         public void PerformDefaultOption()
         {
@@ -178,6 +192,10 @@ namespace Azzandra
                 
                 case "examine":
                     User.Log.Add(Desc);
+                    return;
+
+                case "throw":
+                    Throw();
                     return;
 
                 case "drop":
@@ -203,6 +221,9 @@ namespace Azzandra
                 case "empty":
                     Empty();
                     return;
+                case "light":
+                    Light();
+                    return;
             }
         }
 
@@ -216,6 +237,34 @@ namespace Azzandra
             }
             else
                 User.ThrowError("That item cannot be emptied.");
+        }
+
+        public void Light()
+        {
+            if (this is Items.ILightable lightable)
+            {
+                lightable.Light();
+            }
+            else
+                User.ShowMessage("You attempt to light it, but it doesn't catch fire.");
+        }
+
+
+        public void EmptyOnThrow()
+        {
+            if (this is Items.IFilledContainer container)
+            {
+                var emptyItem = container.EmptyItem;
+                Container?.ReplaceItem(this, emptyItem);
+                User.Log.Add("<tan>Its contents fell out in the process.");
+            }
+        }
+
+        public void Throw()
+        {
+            var tt = new TargetingMode.TileTargeting();
+            tt.InboundAction = new ActionThrow(User.Player, User.Player.Position, this);
+            User.Server.GameClient.InputHandler.TargetingMode = tt;
         }
 
         private void Unequip()
@@ -249,6 +298,29 @@ namespace Azzandra
             Container.ReplaceItem(this, item);
         }
 
+        /// <summary>
+        /// Performs the on throw event, on a specific instance, for this particular item.
+        /// Always call base.OnThrow() if it doesn't have an effect.
+        /// </summary>
+        /// <param name="level"></param>
+        /// <param name="inst"></param>
+        /// <returns>Whether there was an effect, and the item is to be 'consumed', i.e. no longer checking for other instances/the floor.</returns>
+        public virtual bool OnThrow(Level level, GroundItem grit, Instance inst)
+        {
+            return false;
+        }
+
+        /// <summary>
+        /// Performs the on throw event, on a specific location, for this particular item.
+        /// Always call base.OnThrow() if it doesn't have an effect.
+        /// </summary>
+        /// <param name="level"></param>
+        /// <param name="pos"></param>
+        public virtual void OnThrow(Level level, GroundItem grit, Vector pos)
+        {
+            
+        }
+
 
 
         /* Saving Format:
@@ -266,6 +338,9 @@ namespace Azzandra
             bytes.Insert(20, BitConverter.GetBytes(Quantity));
             bytes.Insert(24, BitConverter.GetBytes(Durability));
 
+            var propertiesBytes = GameSaver.SaveList(Properties, i => Property.Save(i));
+            bytes = bytes.Concat(propertiesBytes).ToArray();
+
             return bytes;
         }
 
@@ -278,8 +353,14 @@ namespace Azzandra
             var durability = BitConverter.ToInt32(bytes, pos);
             pos += 4;
 
+            // Properties
+            var properties = GameLoader.LoadList(bytes, ref pos, i => Property.Load(i));
+
             var item = Item.Create(id, qty);
             item.Durability = durability;
+            item.Properties = properties; // overrides default properties
+
+            User.ShowMessage("loaded props for "+item.Name+": " + properties.Stringify());
             return item;
         }
 
@@ -300,20 +381,28 @@ namespace Azzandra
                 return null;
             else
             {
-                var id = GameSaver.ToString(bytes, pos);
-                pos += 20;
-                var qty = BitConverter.ToInt32(bytes, pos);
-                pos += 4;
-                var durability = BitConverter.ToInt32(bytes, pos);
-                pos += 4;
+                return Item.Load(bytes, ref pos);
+                //var id = GameSaver.ToString(bytes, pos);
+                //pos += 20;
+                //var qty = BitConverter.ToInt32(bytes, pos);
+                //pos += 4;
+                //var durability = BitConverter.ToInt32(bytes, pos);
+                //pos += 4;
 
-                var item = Item.Create(id, qty);
-                item.Durability = durability;
-                return item;
+                //var item = Item.Create(id, qty);
+                //item.Durability = durability;
+                //return item;
             }
         }
 
 
+        /// <summary>
+        /// Used to create new Items from a given string ID.
+        /// Should not be used when loading from a save file.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="qty"></param>
+        /// <returns></returns>
         public static Item Create(string id, int qty = 1)
         {
             var data = Data.GetItemData(id);
@@ -337,7 +426,5 @@ namespace Azzandra
             Asset = reference.Asset;
             MaxDurability = reference.MaxDurability;
         }
-
-
     }
 }

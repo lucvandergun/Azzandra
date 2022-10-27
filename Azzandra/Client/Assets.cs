@@ -22,6 +22,37 @@ namespace Azzandra
         public static Texture2D MenuArch, CoALogo;
         public static Texture2D[] MenuBackgrounds;
 
+        // Game Animation
+        //private static Dictionary<string, Animation> Animations;
+        //public static Animation GetAnimation(string assetID)
+        //{
+        //    if (assetID != null)
+        //    {
+        //        Animations.TryGetValue(assetID, out var anim);
+        //        if (anim != null) return anim;
+        //    }
+
+        //    return new Animation(UnknownSprite);
+        //}
+
+
+        //Game Sprites
+        private static Dictionary<string, Texture2D> Sprites;
+        private static Dictionary<string, Texture2D> EntitySprites;
+        public static Texture2D UnknownSprite;
+        public static Texture2D GetSprite(string assetID)
+        {
+            if (assetID == null) return UnknownSprite;
+            
+            Sprites.TryGetValue(assetID, out var img);
+            if (img != null) return img;
+            
+            EntitySprites.TryGetValue(assetID, out img);
+            if (img != null) return img;
+
+            return UnknownSprite;
+        }
+
         ////items
         //private static Dictionary<string, Texture2D> ItemSprites;
         //public static Texture2D UnknownItem;
@@ -67,6 +98,11 @@ namespace Azzandra
             CoALogo = content.Load<Texture2D>("interface/logo");
             LoadMenuBackgrounds(content);
 
+
+            Sprites = LoadAll(content, "Content\\textures");
+            EntitySprites = LoadAll(content, "Content\\textures\\entity");
+
+            UnknownSprite = Sprites["unknown"];
             //LoadItemSprites(content);
             LoadEquipmentIcons(content);
         }
@@ -100,6 +136,24 @@ namespace Azzandra
         public static Texture2D GetRandomMenuBackground(Texture2D current)
         {
             return MenuBackgrounds[Util.Random.Next(MenuBackgrounds.Length)];
+        }
+
+        private static Dictionary<string, Texture2D> LoadAll(ContentManager content, string root)
+        {
+            string[] files = Directory.GetFiles(root);
+            var images = new Dictionary<string, Texture2D>(files.Length);
+
+            int rootLength = root.Length + 1;
+            content.RootDirectory = root.Replace('\\', '/');
+
+            for (int i = 0; i < files.Length; i++)
+            {
+                var fileName = files[i].Remove(0, rootLength);
+                fileName = fileName.Remove(fileName.Length - 4, 4);
+                images.Add(fileName, content.Load<Texture2D>(fileName));
+            }
+
+            return images;
         }
 
         //private static void LoadItemSprites(ContentManager content)

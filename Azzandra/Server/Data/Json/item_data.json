@@ -1471,7 +1471,7 @@
 	},
 	"water_vial": {
 		"name": "vial of water",
-		"desc": "A vial filled simply with water - at least, you think it is.",
+		"desc": "A vial simply filled with water - or at least, that's what you think it is.",
 		"type": "filled_container",
 	},
 	"poison_vial": {
@@ -1495,19 +1495,19 @@
 	},
 	"healing_potion": {
 		"name": "potion of healing",
-		"desc": "It smells horribly. At least it looks visually promising.",
+		"desc": "It smells horribly! At least its visually promising.",
 		"type": "potion",
 		"effects": [{"id": "heal", "level": 20}]
 	},
 	"healing_potion2": {
 		"name": "greater potion of healing",
-		"desc": "It smells horribly, but at least its visually promising.",
+		"desc": "It smells horribly! At least its visually promising.",
 		"type": "potion",
 		"effects": [{"id": "heal", "level": 30}]
 	},
 	"regeneration_potion": {
 		"name": "potion of regeneration",
-		"desc": "It has a yellowish glow emanating from it.",
+		"desc": "There's a yellowish glow emanating from it.",
 		"type": "potion",
 		"effects": [{"id": "regeneration", "time": 20}]
 	},
@@ -1525,19 +1525,19 @@
 	},
 	"magical_potion": {
 		"name": "magical potion",
-		"desc": "And you say you don't believe in hocus pocus...",
+		"desc": "Liquid-form hocus-pocus.",
 		"type": "potion",
 		"effects": [{"id": "restoresp", "level": 12}]
 	},
 	"magical_potion2": {
 		"name": "greater magical potion",
-		"desc": "And you say you don't believe in hocus pocus...",
+		"desc": "Liquid-form hocus-pocus.",
 		"type": "potion",
 		"effects": [{"id": "restoresp", "level": 18}]
 	},
 	"sight_potion": {
 		"name": "potion of sight",
-		"desc": "Ironically this potion is black as the night.",
+		"desc": "Ironically, this potion is black as the night.",
 		"type": "potion",
 		"effects": [{"id": "supervision"}]
 	},
@@ -1552,6 +1552,30 @@
 		"desc": "It seems to be twinkling slightly when you move it around.",
 		"type": "potion",
 		"effects": [{"id": "boostsp", "level": 5}]
+	},
+	"acid_potion": {
+		"name": "potion of acid",
+		"desc": "The liquid inside is quite gooey.",
+		"type": "potion",
+		"effects": [{"id": "acid"}]
+	},
+	
+	
+	
+	"bomb": {
+		"name": "bomb",
+		"desc": "A curious explosive device.",
+		"type": "bomb"
+	},
+	"bomb_lighted": {
+		"name": "bomb",
+		"desc": "The fuse has been lighted, it will explode soon!",
+		"type": "bomb_lighted"
+	},
+	"flint_and_steel": {
+		"name": "flint and steel",
+		"desc": "Its not very effective, but at least its reliable.",
+		"type": "firelighter"
 	},
 	
 	

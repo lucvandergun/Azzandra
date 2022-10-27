@@ -232,15 +232,14 @@
 		{"weight": 12, "tier": 1, "itemid": "enchanted_potion"},
 		{"weight": 12, "tier": 1, "itemid": "magical_potion"},
 		
-		{"weight": 12, "tier": 2, "itemid": "life_potion"},
-		{"weight": 12, "tier": 2, "itemid": "healing_potion"},
-		{"weight": 12, "tier": 2, "itemid": "enchanted_potion"},
-		{"weight": 12, "tier": 2, "itemid": "magical_potion"},
-		
-		{"weight": 12, "tier": 2, "itemid": "life_potion2"},
-		{"weight": 12, "tier": 2, "itemid": "healing_potion2"},
-		{"weight": 12, "tier": 2, "itemid": "enchanted_potion2"},
-		{"weight": 12, "tier": 2, "itemid": "magical_potion2"},
+		{"weight": 6, "tier": 2, "itemid": "life_potion"},
+		{"weight": 6, "tier": 2, "itemid": "healing_potion"},
+		{"weight": 6, "tier": 2, "itemid": "enchanted_potion"},
+		{"weight": 6, "tier": 2, "itemid": "magical_potion"},
+		{"weight": 6, "tier": 2, "itemid": "life_potion2"},
+		{"weight": 6, "tier": 2, "itemid": "healing_potion2"},
+		{"weight": 6, "tier": 2, "itemid": "enchanted_potion2"},
+		{"weight": 6, "tier": 2, "itemid": "magical_potion2"},
 		
 		{"weight": 12, "tier": 3, "itemid": "life_potion2"},
 		{"weight": 12, "tier": 3, "itemid": "healing_potion2"},
@@ -250,5 +249,7 @@
 		{"weight": 12, "itemid": "regeneration_potion"},
 		{"weight": 12, "itemid": "antidote"},
 		{"weight": 12, "tier": 3, "itemid": "antifire"},
+		{"weight": 12, "itemid": "acid_potion"},
+		{"weight": 12, "itemid": "poison_vial"}
 	],
 }

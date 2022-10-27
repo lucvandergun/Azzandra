@@ -195,8 +195,8 @@ namespace Azzandra.Generation
 
         protected virtual void PaintDungeon()
         {
-            if ((int)Level.Temp >= (int)Temp.Cold && (int)Level.Temp <= (int)Temp.Warm)
-                Paint(new BlobBrush(BlockID.Mud, true, false, true, 7), 5);
+            //if ((int)Level.Temp >= (int)Temp.Cold && (int)Level.Temp <= (int)Temp.Warm)
+            //    Paint(new BlobBrush(BlockID.Mud, true, false, true, 7), 5);
 
             Paint(new ScatterBrush(BlockID.Rock, false, true, true, 3), 7);
             Paint(new SpreadBrush(BlockID.Mushroom, false, true, true, 0), 3);

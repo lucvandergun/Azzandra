@@ -369,6 +369,13 @@ namespace Azzandra
             return words.ToArray();
         }
 
+        /// <summary>
+        /// Changes the brightness of a color, where 1.0f is fullly white, and -1.0f is fully black.
+        /// Alpha channels remain unchanged.
+        /// </summary>
+        /// <param name="color"></param>
+        /// <param name="correctionFactor"></param>
+        /// <returns></returns>
         public static Color ChangeBrightness(this Color color, float correctionFactor)
         {
             float red = (float)color.R;
@@ -723,6 +730,13 @@ namespace Azzandra
                 (int)b1.LerpTo(b2, amount));
         }
 
+        /// <summary>
+        /// Pick the float svalue that is exactly at the "amount" ratio between the "min" and "max" values
+        /// </summary>
+        /// <param name="min">Float value between 0 and 1.0</param>
+        /// <param name="max">Float value between 0 and 1.0</param>
+        /// <param name="amount">Float value between 0 and 1.0</param>
+        /// <returns></returns>
         public static float LerpTo(this float min, float max, float amount)
         {
             return min + (max - min) * amount;

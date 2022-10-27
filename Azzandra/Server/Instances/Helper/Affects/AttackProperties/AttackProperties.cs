@@ -163,6 +163,34 @@ namespace Azzandra.AttackProperties
         }
     }
 
+    public class Wither : AttackProperty
+    {
+        public override float ApplyChance => 1f;
+
+        public Wither(int level = 1) : base(level) { }
+
+        public override string Apply(Entity attacker, Entity target, Affect affect, bool returnFailed = false)
+        {
+            if (!(affect is Attack attack))
+                return null;
+
+            // Wither away 1 permanent hp for each level
+            var amt = 1;
+            if (amt > 0)
+            {
+                target.Hp -= 1;
+                target.FullHp -= 1;
+                target.AddHit(new HitDmg(target, Style.Wither, amt));
+
+                var specs = GetSuccessMsgSpecsHave(attacker, target);
+                var color = target is Player ? "<dkgreen>" : "<maroon>";
+                return color + specs.Item1 + "withered " + amt + " of " + (specs.Item2 == "you" ? "your" : (specs.Item2 + "'s")) + " hitpoints away.";
+            }
+
+            return null;
+        }
+    }
+
     public class Entangle : AttackProperty
     {
         public Entangle(int level = 1) : base(level) { }

@@ -27,7 +27,8 @@ namespace Azzandra.Items
         {
             if (reference is Consumable e)
             {
-                Effects = e.Effects;
+                if (e.Effects != null)
+                    Properties.AddRange(e.Effects);
             }
 
             base.SetAttributes(reference);
@@ -48,25 +49,22 @@ namespace Azzandra.Items
         /// </summary>
         public virtual void ApplyEffects()
         {
-            if (Effects != null)
+            foreach (var effect in GetFoodEffects())
             {
-                foreach (var effect in Effects)
+                if (effect.Apply(User.Player))
                 {
-                    if (effect.Apply(User.Player))
-                    {
-                        //switch (effect.ID)
-                        //{
-                        //    case "nausea":
-                        //        User.ShowMessage("<acid>You feel nauseated.");
-                        //        break;
-                        //    case "poison":
-                        //        User.ShowMessage("<green>You have been poisoned.");
-                        //        break;
-                        //    case "fatigue":
-                        //        User.ShowMessage("<medblue>You feel fatigued.");
-                        //        break;
-                        //}
-                    }
+                    //switch (effect.ID)
+                    //{
+                    //    case "nausea":
+                    //        User.ShowMessage("<acid>You feel nauseated.");
+                    //        break;
+                    //    case "poison":
+                    //        User.ShowMessage("<green>You have been poisoned.");
+                    //        break;
+                    //    case "fatigue":
+                    //        User.ShowMessage("<medblue>You feel fatigued.");
+                    //        break;
+                    //}
                 }
             }
         }

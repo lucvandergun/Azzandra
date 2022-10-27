@@ -29,16 +29,20 @@ namespace Azzandra
 
 
         // Rendering:
-        public override void Draw(Vector2 pos, float lightness = 1)
+        public override void Draw(SpriteBatch sb, Vector2 pos, float lightness = 1)
         {
             //Vector2 dist = (End - Start).ToFloat() * ViewHandler.GRID_SIZE;
             //int length = (End - Start).ChebyshevLength();
             //for (int i = 0; i <= length; i++)
             //    Display.DrawInstanceString(pos + dist / length * i, Symbol.Char, Assets.Gridfont, Symbol.Color, 1, 0f, true);
 
+            var sprite = GetSprite();
+            if (sprite == null) return;
+
             foreach (var node in Nodes)
             {
-                Display.DrawInstanceString((node - Position).ToFloat() * ViewHandler.GRID_SIZE + pos, Symbol.Char, Assets.Gridfont, Symbol.Color, 1, 0f, true);
+                Display.DrawSprite((node - Position).ToFloat() * ViewHandler.GRID_SIZE + pos, sprite, Color.White, 1f, 0f);
+                //Display.DrawInstanceString((node - Position).ToFloat() * ViewHandler.GRID_SIZE + pos, Symbol.Char, Assets.Gridfont, Symbol.Color, 1, 0f, true);
             }
         }
     }

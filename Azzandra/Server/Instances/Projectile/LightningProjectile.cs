@@ -11,6 +11,7 @@ namespace Azzandra
     public class LightningProjectile : VectorTargetProjectile
     {
         protected override Symbol Symbol => new Symbol('+', Color.Aqua);
+        public override string AssetName => "lightning";
         public LightningProjectile(Instance origin, Vector[] nodes) : base(origin, nodes)
         { }
     }

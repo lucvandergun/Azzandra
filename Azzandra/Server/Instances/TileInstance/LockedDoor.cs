@@ -14,7 +14,7 @@ namespace Azzandra
         private bool IsLocked = true;
 
         public override string Name => "door";
-        public override string SecretName => "locked door";
+        public override string SecretName => "locked door requiring a " + LockType + " key";
 
         public LockedDoor(int x, int y) : base(x, y) { }
 

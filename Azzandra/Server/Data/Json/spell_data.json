@@ -143,8 +143,15 @@
 	},
 	"disorient": {
 		"name": "disorient",
-		"desc": "Confuse your opponent to be unable to traverse a path.",
+		"desc": "Make your opponent dizzy, so that it is unable to traverse a path.",
 		"spellpoints": 3,
+		"type": "offensive",
+		"weight": 12,
+	},
+	"confuse": {
+		"name": "confuse",
+		"desc": "Alter your opponent's memory, intentions and sense-making.",
+		"spellpoints": 4,
 		"type": "offensive",
 		"weight": 12,
 	},

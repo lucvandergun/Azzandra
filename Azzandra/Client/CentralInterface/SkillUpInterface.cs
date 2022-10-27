@@ -37,7 +37,7 @@ namespace Azzandra
                         GameClient.Server.User.ShowMessage("<tan>You drink the water from the shrine, you feel invigorated.");
                         var amt = LevelUpAmts[SkillChoices.ToList().IndexOf(SelectedSkill)];
                         Stats.IncreaseLevel(SelectedSkill, amt);
-                        Shrine.IsUsed = true;
+                        Shrine.UseUp();
                     }
                     Close();
                 },

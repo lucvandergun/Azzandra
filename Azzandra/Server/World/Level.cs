@@ -113,6 +113,7 @@ namespace Azzandra
         {
             ActiveInstances.Add(inst);
             inst.Level = this;
+            inst.SetupAnimationManager();
             return inst;
         }
 
@@ -273,11 +274,11 @@ namespace Azzandra
                 }
 
                 // Skip if on Deathtimer. Destroy if DeathTimer is 0:
-                if (inst is Entity entity && entity.DeathTimer >= 0)
+                if (inst.DeathTimer >= 0)
                 {
-                    if (entity.DeathTimer == 0)
-                        entity.Destroy();
-                    entity.DeathTimer--;
+                    if (inst.DeathTimer == 0)
+                        inst.Destroy();
+                    inst.DeathTimer--;
                     continue; ;
                 }
 
@@ -305,7 +306,14 @@ namespace Azzandra
 
 
 
-
+        /// <summary>
+        /// Returns the "best match" instance at the given position. That is, entities first.
+        /// </summary>
+        /// <param name="x"></param>
+        /// <param name="y"></param>
+        /// <param name="self">Will ignore any calling instance.</param>
+        /// <param name="reqSolidity">Whether the instance needs to be solid.</param>
+        /// <returns></returns>
         public Instance InstanceCheckPosition(int x, int y, Instance self, bool reqSolidity)
         {
             Instance bestMatch = null;
@@ -384,6 +392,11 @@ namespace Azzandra
             ActiveInstances = newList;
         }
 
+        /// <summary>
+        /// This method will update the memory tilemap to reflect the true tilemap on every tick.
+        /// Only the area visible to the player (these are 'true' in the matrix) will be updated.
+        /// </summary>
+        /// <param name="visibilityMap"></param>
         public void UpdateMemoryTileMap(bool[,] visibilityMap)
         {
             // Add new visible tiles to memory tile map

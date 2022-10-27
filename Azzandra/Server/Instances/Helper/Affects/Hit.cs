@@ -74,7 +74,8 @@ namespace Azzandra
         {
             Vector2 iconOffset = new Vector2(8, 8);
 
-            Display.DrawTexture(pos - iconOffset, Assets.Hit, GetHitColor());
+            var color = GetHitColor();
+            Display.DrawTexture(pos - iconOffset, Assets.Hit, color);
             Display.DrawStringCentered(pos, Dmg.ToString(), Font, true);
         }
 
@@ -83,10 +84,11 @@ namespace Azzandra
             switch (Style)
             {
                 default: return Color.Red;
-                case Style.Fire: return Color.Orange;
-                case Style.Poison: return Color.Green;
-                case Style.Ice: return Color.LightBlue;
-                case Style.Acid: return Color.YellowGreen;
+                case Style.Fire: return Color.Orange.ChangeBrightness(-0.15f);
+                case Style.Poison: return Color.Green.ChangeBrightness(-0.15f);
+                case Style.Ice: return Color.LightBlue.ChangeBrightness(-0.15f);
+                case Style.Acid: return Color.YellowGreen.ChangeBrightness(-0.15f);
+                case Style.Wither: return new Color(153, 119, 151);
             }
         }
     }
@@ -94,6 +96,7 @@ namespace Azzandra
     public class HitString : Hit
     {
         public readonly string Text;
+        public virtual Color Color => Color.White;
 
         public HitString(Entity owner, string text) : base(owner)
         {
@@ -103,6 +106,15 @@ namespace Azzandra
         protected override void DrawHit(Vector2 pos, Server server)
         {
             Display.DrawStringCentered(pos, Text, Font, true);
+        }
+    }
+
+    public class HealSplat : HitString
+    {
+        public override Color Color => Color.Purple;
+        public HealSplat(Entity owner, int amt) : base(owner, "+ " + amt)
+        {
+            
         }
     }
 }

@@ -16,6 +16,8 @@ namespace Azzandra
                 : new Symbol('b', Color.Brown);
         }
 
+        public override string AssetName => IsOpen ? "box_open" : "box_closed";
+
         public Box(int x, int y, IEnumerable<Item> items) : base(x, y)
         {
             Inventory.AddItems(items);

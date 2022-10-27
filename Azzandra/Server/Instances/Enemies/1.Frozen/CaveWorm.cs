@@ -36,7 +36,7 @@ namespace Azzandra
         public override Symbol GetSymbol() => new Symbol('c', Color.AntiqueWhite);
 
 
-        public override List<Vector> Move(Vector distance, bool orthoDiagonal = true, bool hasSlided = false)
+        public override List<Vector> Move(Vector distance, bool orthoDiagonal = true, bool hasSlided = false, bool mergeMovements = false)
         {
             var oldPos = Position;
             var steps = base.Move(distance, hasSlided);

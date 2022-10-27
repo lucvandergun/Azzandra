@@ -1,5 +1,6 @@
 ﻿
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +12,7 @@ namespace Azzandra
     
     public class Shrine : Instance
     {
-        public bool IsUsed { get; set; } = false;
+        public bool IsUsed { get; private set; } = false;
         private int[] SkillChoices;
         public override bool IsInteractable() => true;
 
@@ -20,6 +21,9 @@ namespace Azzandra
             return !IsUsed ? new Symbol("$", Color.SpringGreen)
                 : new Symbol("$", Color.SpringGreen.ChangeBrightness(-0.3f));
         }
+
+        public override string AssetName => IsUsed ? "shrine_empty" : "shrine_filled";
+        public override Color AssetLightness => IsUsed ? Color.DarkGray : Color.White;
 
         public Shrine(int x, int y) : base(x, y)
         {
@@ -76,6 +80,12 @@ namespace Azzandra
             {
                 player.User.Server.GameClient.DisplayHandler.Interface = new SkillUpInterface(player.User.Server.GameClient, this, SkillChoices);
             }
+        }
+
+        public void UseUp()
+        {
+            IsUsed = true;
+            AnimationManager.Play(AssetName);
         }
     }
 }

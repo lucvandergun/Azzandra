@@ -36,7 +36,11 @@ namespace Azzandra
             VisibilityMap = new bool[w, h];
         }
 
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="origin"></param>
+        /// <param name="sightRadius"></param>
         public void Update(Vector origin, int sightRadius = 8)
         {
             var level = Server.LevelManager.CurrentLevel;

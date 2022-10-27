@@ -123,5 +123,29 @@ namespace Azzandra
 
             return str;
         }
+
+
+        /// <summary>
+        /// Save an enumerable of a certain type to a bytes array.
+        /// The resulting array is of the following shape (amtOfEntries, n * (objBytesAmt, objBytes))
+        /// </summary>
+        /// <typeparam name="T">The object type in the list</typeparam>
+        /// <param name="list">The list of objects to save</param>
+        /// <param name="objSaver">They way to convert each object to bytes</param>
+        /// <returns></returns>
+        public static byte[] SaveList<T>(IEnumerable<T> list, Func<T, byte[]> objSaver)
+        {
+            int objAmt = list.Count();
+            var bytes = BitConverter.GetBytes(objAmt);
+
+            foreach (var obj in list)
+            {
+                var objBytes = objSaver.Invoke(obj);
+                var objBytesAmt = objBytes.Length;
+                objBytes = BitConverter.GetBytes(objBytesAmt).Concat(objBytes).ToArray();
+                bytes = bytes.Concat(objBytes).ToArray();
+            }
+            return bytes;
+        }
     }
 }

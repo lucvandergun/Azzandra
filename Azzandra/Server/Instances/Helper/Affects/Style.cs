@@ -6,5 +6,5 @@ using System.Threading.Tasks;
 
 namespace Azzandra
 {
-    public enum Style { Melee, Ranged, Magic, Poison, Fire, Ice, Acid, Other }
+    public enum Style { Melee, Ranged, Magic, Poison, Fire, Ice, Acid, Wither, Other }
 }

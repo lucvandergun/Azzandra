@@ -7,14 +7,14 @@ using System.Threading.Tasks;
 
 namespace Azzandra
 {
-    public class DustMephit : Enemy
+    public class DustElemental : Enemy
     {
         public override EntityType EntityType => EntityType.Rock;
         public override int GetMoveDelay() => 4;
 
         private bool FireStraight = true;
 
-        public DustMephit(int x, int y) : base(x, y) { }
+        public DustElemental(int x, int y) : base(x, y) { }
 
         public override EntityAction DetermineAggressiveAction()
         {

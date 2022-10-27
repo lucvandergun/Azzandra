@@ -1,4 +1,5 @@
 ﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,8 +14,8 @@ namespace Azzandra
     public abstract class Entity : Instance
     {
         // === General Properties === \\
-        public override bool DisplayFire => HasStatusEffect(StatusEffectID.Burning);
-        public override bool DisplayFrozen => StatusEffects.Exists(effect => effect.VariantName == "frozen");
+        public override bool RenderFire => HasStatusEffect(StatusEffectID.Burning);
+        public override bool RenderFrozen => StatusEffects.Exists(effect => effect.VariantName == "frozen");
         public override bool RenderLightness => false;
 
         public virtual int GetFullHp() => FullHp;
@@ -29,12 +30,6 @@ namespace Azzandra
                     return Math.Min(Math.Max(0, 4 - se.Level), VisionRange);
             return VisionRange;
         }
-
-        /// <summary>
-        /// The amount of ticks until this creature gets destroyed. Creatures with a positive death timer won't be saved.
-        /// (Will be set to the attacker's initiative when killed.)
-        /// </summary>
-        public int DeathTimer { get; set; } = -1;
 
         // === Behaviour Properties === \\
 
@@ -223,7 +218,7 @@ namespace Azzandra
             // Check death again: set it to it's own initiative:
             if (Hp <= 0)
             {
-                DeathTimer = Initiative;
+                DestroyNextTurn();
                 return;
             }
 
@@ -280,7 +275,7 @@ namespace Azzandra
             // Check death: set it to it's own initiative:
             if (Hp <= 0)
             {
-                DeathTimer = Initiative;
+                DestroyNextTurn();
                 return;
             }
         }
@@ -419,9 +414,9 @@ namespace Azzandra
                 if (attack.Style == Style.Ranged)
                     Level.CreateInstance(new ArrowProjectile(this, target));
                 else if (attack.Style == Style.Magic)
-                    Level.CreateInstance(new SpellProjectile(this, target, new Symbol('o', SpellProjectile.GetColor(affect.Properties))));
-                //else if (attack.Style == Style.Melee)
-                //    Animations.Add(new AttackAnimation(this, target));
+                    Level.CreateInstance(new SpellProjectile(this, target, SpellProjectile.GetColor(affect.Properties)));
+                else if (attack.Style == Style.Melee)
+                    Animations.Add(new AttackAnimation(this, target, Initiative));
             }
 
             affect = target.GetAffected(this, affect);
@@ -447,7 +442,7 @@ namespace Azzandra
             // Check death
             if (Hp <= 0)
             {
-                DeathTimer = Initiative;
+                DestroyNextTurn();
                 //Destroy();
                 //ActionPotential = -1;
                 //TimeSinceLastTurn = 0;
@@ -738,7 +733,7 @@ namespace Azzandra
 
 
 
-        public override void Draw(Vector2 pos, float lightness)
+        public override void Draw(SpriteBatch sb, Vector2 pos, float lightness)
         {
             //var size = new Vector2(GetW(), GetH()) * GameClient.GRID_SIZE; // Real pixel size of this entity
 
@@ -748,7 +743,7 @@ namespace Azzandra
             //if (StatusEffects.Exists(effect => effect.VariantName == "frozen"))
             //    Display.DrawTexture(pos + offset, Assets.Ice, scale);
 
-            base.Draw(pos, lightness);
+            base.Draw(sb, pos, lightness);
         }
     }
 }
