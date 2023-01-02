@@ -123,7 +123,7 @@ namespace Azzandra
         /// </summary>
         /// <param name="sb"></param>
         /// <param name="pos"></param>
-        public void Draw(SpriteBatch sb, Vector2 pos, Color? colorEffect = null, float lightness = 1f)
+        public void Draw(SpriteBatch sb, Vector2 pos, float scale = 1f, Color? colorEffect = null, float lightness = 1f)
         {
             var color = colorEffect ?? Color.White;
 
@@ -131,7 +131,7 @@ namespace Azzandra
             else if (RenderFrozen.Invoke()) color = Color.LightBlue;
             if (RenderLightness.Invoke()) color = color.ChangeBrightness(-1f + lightness);
 
-            Animation?.Draw(sb, pos, GetFrameIndex(), color, Angle.Invoke());
+            Animation?.Draw(sb, pos, GetFrameIndex(), scale, color, Angle.Invoke());
         }
     }
 }

@@ -120,6 +120,7 @@ namespace Azzandra
 
             // Draw 'infinite' arches:
             Texture2D arch = Assets.MenuArch;
+            Texture2D archBg = Assets.MenuArchBg;
             var drawOffset = new Vector2(0, -32);
             int xStart = ((ScreenBounds.Width - arch.Width) / 2);
             while (xStart > 0) xStart -= arch.Width;
@@ -128,6 +129,7 @@ namespace Azzandra
                 for (i = xStart; i < ScreenBounds.Width; i += arch.Width)
                 {
                     var pos = new Vector2(i, j);
+                    Display.DrawTexture(pos + drawOffset, archBg);
                     Display.DrawTexture(pos + drawOffset, arch, new Color(127, 127, 127));
                 }
             }

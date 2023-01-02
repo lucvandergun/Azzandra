@@ -51,10 +51,10 @@ namespace Azzandra.Generation.AreaGeneration
                 area.TryCreateTile(altarNode - new Vector(1, 0), BlockID.Torch, false, true);
                 area.TryCreateTile(altarNode + new Vector(1, 0), BlockID.Torch, false, true);
 
-                area.TryCreateTile(altarNode - new Vector(-2, side * 2), BlockID.Bench, false, true);
-                area.TryCreateTile(altarNode - new Vector(-1, side * 2), BlockID.Bench, false, true);
-                area.TryCreateTile(altarNode - new Vector(1, side * 2), BlockID.Bench, false, true);
-                area.TryCreateTile(altarNode - new Vector(2, side * 2), BlockID.Bench, false, true);
+                area.TryCreateTile(altarNode - new Vector(-2, side * 2), BlockID.Stool, false, true);
+                area.TryCreateTile(altarNode - new Vector(-1, side * 2), BlockID.Stool, false, true);
+                area.TryCreateTile(altarNode - new Vector(1, side * 2), BlockID.Stool, false, true);
+                area.TryCreateTile(altarNode - new Vector(2, side * 2), BlockID.Stool, false, true);
             }
             else
             {

@@ -39,6 +39,12 @@ namespace Azzandra
 
         //public static rdg.Dir Opposite(this rdg.Dir dir) => (rdg.Dir)(((int)dir + 2) % 4);
 
+        /// <summary>
+        /// Shuffles the list in-place.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="list"></param>
+        /// <param name="random"></param>
         public static void Shuffle<T>(this IList<T> list, Random random = null)
         {
             if (random == null) random = Random;
@@ -492,7 +498,7 @@ namespace Azzandra
         }
 
         /// <summary>
-        /// Computes a list of absolute vectors that occupy the line space between two points.
+        /// Computes a list of absolute nodes that occupy the line space between two points.
         /// </summary>
         /// <param name="start">The starting node.</param>
         /// <param name="end">The ending node.</param>
@@ -522,7 +528,7 @@ namespace Azzandra
         }
 
         /// <summary>
-        /// Computes a list of absolute vectors that occupy the line space between two points.
+        /// Computes a list of absolute nodes that occupy the line space between two points.
         /// </summary>
         /// <param name="start">The starting node.</param>
         /// <param name="end">The ending node.</param>

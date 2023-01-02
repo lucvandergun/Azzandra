@@ -13,17 +13,12 @@ namespace Azzandra.Generation.AreaGeneration
             if (area.Level.BenefitPoints < 4)
                 return;
 
-            // Find center node:
-            var nodes = area.FreeNodes.CreateCopy();
-            if (nodes.Count < 1) return;
-            nodes.Sort((v1, v2) => v1.OrthogonalLength() - v2.OrthogonalLength());
-            var centerPos = nodes[nodes.Count / 2];
-
-            // Spawn chest:
+            // Spawn obelisk:
             var obelisk = new Obelisk(0, 0);
-            if (area.FindInstanceSpawn(obelisk, centerPos, 1, true, true))
+            if (area.FindInstanceSpawn(obelisk, area.RemoteNode, 3, true, true))
             {
                 area.Level.LevelManager.RemoveBenefit(4);
+                //new BlobBrush(BlockID.Plant, false, false, false, 3).Paint(area.Level, obelisk.Position, random);
             }
         }
     }

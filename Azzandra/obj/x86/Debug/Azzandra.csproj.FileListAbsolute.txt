@@ -413,7 +413,6 @@ D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra\Azzandra\bin\Windows\x86\Debug\C
 D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra\Azzandra\bin\Windows\x86\Debug\Content\textures\door_open.xnb
 D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra\Azzandra\bin\Windows\x86\Debug\Content\textures\ice.xnb
 D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra\Azzandra\bin\Windows\x86\Debug\Content\textures\item.xnb
-D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra\Azzandra\bin\Windows\x86\Debug\Content\textures\key.xnb
 D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra\Azzandra\bin\Windows\x86\Debug\Content\textures\lava.xnb
 D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra\Azzandra\bin\Windows\x86\Debug\Content\textures\mushroom.xnb
 D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra\Azzandra\bin\Windows\x86\Debug\Content\textures\rock.xnb
@@ -479,3 +478,19 @@ D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra\Azzandra\bin\Windows\x86\Debug\C
 D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra\Azzandra\bin\Windows\x86\Debug\Content\textures\spell_large.xnb
 D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra\Azzandra\bin\Windows\x86\Debug\Content\textures\stool.xnb
 D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra\Azzandra\bin\Windows\x86\Debug\Content\textures\lightning.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra\Azzandra\bin\Windows\x86\Debug\Content\textures\entity\azzandra.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra\Azzandra\bin\Windows\x86\Debug\Content\textures\entity\cave_worm.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra\Azzandra\bin\Windows\x86\Debug\Content\textures\item_arrow.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra\Azzandra\bin\Windows\x86\Debug\Content\textures\item_bolt.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra\Azzandra\bin\Windows\x86\Debug\Content\textures\item_key.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra\Azzandra\bin\Windows\x86\Debug\Content\textures\entity\fiend.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra\Azzandra\bin\Windows\x86\Debug\Content\textures\entity\skeleton_bones.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra\Azzandra\bin\Windows\x86\Debug\Content\textures\root.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra\Azzandra\bin\Windows\x86\Debug\Content\textures\spell_small.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra\Azzandra\bin\Windows\x86\Debug\Content\textures\altar.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra\Azzandra\bin\Windows\x86\Debug\Content\textures\obelisk.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra\Azzandra\bin\Windows\x86\Debug\Content\textures\pillar.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra\Azzandra\bin\Windows\x86\Debug\Content\textures\torch.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra\Azzandra\bin\Windows\x86\Debug\Content\interface\menu_arch_bg.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra\Azzandra\bin\Windows\x86\Debug\Content\textures\entity\armoured_skeleton_bones.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra\Azzandra\bin\Windows\x86\Debug\Content\interface\button.xnb

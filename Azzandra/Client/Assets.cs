@@ -19,7 +19,7 @@ namespace Azzandra
 
         public static Texture2D Target12, Target16, Target20, Target24, Target32, Target48;
 
-        public static Texture2D MenuArch, CoALogo;
+        public static Texture2D MenuArch, MenuArchBg, CoALogo, Button;
         public static Texture2D[] MenuBackgrounds;
 
         // Game Animation
@@ -95,7 +95,9 @@ namespace Azzandra
             Target48 = content.Load<Texture2D>("interface/target48");
 
             MenuArch = content.Load<Texture2D>("interface/menu_arch");
+            MenuArchBg = content.Load<Texture2D>("interface/menu_arch_bg");
             CoALogo = content.Load<Texture2D>("interface/logo");
+            Button = content.Load<Texture2D>("interface/button");
             LoadMenuBackgrounds(content);
 
 

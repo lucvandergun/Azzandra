@@ -9,9 +9,6 @@ namespace Azzandra
 {
     public class ArmouredSkeleton : Skeleton
     {
-        public override EntityType EntityType => EntityType.Undead;
-
-
         public ArmouredSkeleton(int x, int y) : base(x, y) { }
 
 

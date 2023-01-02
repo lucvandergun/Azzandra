@@ -23,9 +23,12 @@ namespace Azzandra
         public override MoveType GetMovementType() => MoveType.Fly;
         //public override bool IsInstanceSolidToThis(Instance inst) => inst is Entity ? false : base.IsInstanceSolidToThis(inst);
 
-        public override void OnInstanceCollision(Entity collider)
+        public override void OnCollisionWithInstance(Instance inst)
         {
-            if (collider.AddStatusEffect(new StatusEffects.Burning(1, 6), true) && collider is Player player)
+            if (!(inst is Entity entity))
+                return;
+
+            if (entity.AddStatusEffect(new StatusEffects.Burning(1, 6), true) && entity is Player player)
                 player.User.ShowMessage("<orange>As you move through the fire you are set ablaze!");
         }
 

@@ -41,11 +41,6 @@ namespace Azzandra
 
         public List<Property> Properties = new List<Property>();
 
-        public IEnumerable<AttackProperty> GetAttackProperties() => Properties.Where(p => p is AttackProperty).Select(p => (AttackProperty)p);
-        public IEnumerable<FoodEffect> GetFoodEffects() => Properties.Where(p => p is FoodEffect).Select(p => (FoodEffect)p);
-
-
-
 
         // === DATA ATTRIBUTES === \\
 
@@ -61,9 +56,24 @@ namespace Azzandra
 
         // === SPECIAL GETTERS === \\
 
+        public IEnumerable<AttackProperty> GetAttackProperties() => Properties.Where(p => p is AttackProperty).Select(p => (AttackProperty)p);
+        public IEnumerable<FoodEffect> GetFoodEffects() => Properties.Where(p => p is FoodEffect).Select(p => (FoodEffect)p);
+
         public virtual List<string> GetInfo()
         {
             return new List<string>();
+        }
+
+        private bool DisplayProperty(Property p) => !p.IsHidden;
+        public string GetPropertyInfo()
+        {
+            var props = Properties.Where(p => DisplayProperty(p));
+            if (props.Count() > 0)
+            {
+                return "<lime>Effects: " + props.Select(a => a.ToString()).Stringify2() + "<r>";
+            }
+
+            return null;
         }
 
         public virtual string GetNameNotNull()
@@ -300,27 +310,47 @@ namespace Azzandra
 
         /// <summary>
         /// Performs the on throw event, on a specific instance, for this particular item.
-        /// Always call base.OnThrow() if it doesn't have an effect.
+        /// Always call base method if it doesn't have an effect.
         /// </summary>
         /// <param name="level"></param>
         /// <param name="inst"></param>
         /// <returns>Whether there was an effect, and the item is to be 'consumed', i.e. no longer checking for other instances/the floor.</returns>
-        public virtual bool OnThrow(Level level, GroundItem grit, Instance inst)
+        public virtual bool OnThrowOnInstance(Level level, GroundItem grit, Instance inst)
         {
+            if (inst is Entity entity && entity.IsAttackable())
+            {
+                var attack = new Attack(User.Server, Style.Other, 1, 8, GetThrowAcc(), GetThrowDmg(), GetAttackProperties().ToList());
+                var affect = User.Player.Affect(inst, attack);
+                return affect.IsSuccess();
+            }
+            
             return false;
         }
 
+        public virtual int GetThrowAcc() => 1;
+        public virtual int GetThrowDmg() => 1;
+
+
         /// <summary>
         /// Performs the on throw event, on a specific location, for this particular item.
-        /// Always call base.OnThrow() if it doesn't have an effect.
+        /// Always call base method if it doesn't have an effect.
         /// </summary>
         /// <param name="level"></param>
         /// <param name="pos"></param>
-        public virtual void OnThrow(Level level, GroundItem grit, Vector pos)
+        public virtual void OnThrowOnTile(Level level, GroundItem grit, Vector pos)
         {
             
         }
 
+
+        public bool AddProperty(Property p)
+        {
+            if (Properties.Any(prop => prop.Equals(p)))
+                return false;
+
+            Properties.Add(p);
+            return true;
+        }
 
 
         /* Saving Format:
@@ -360,7 +390,7 @@ namespace Azzandra
             item.Durability = durability;
             item.Properties = properties; // overrides default properties
 
-            User.ShowMessage("loaded props for "+item.Name+": " + properties.Stringify());
+            //User.ShowMessage("loaded props for "+item.Name+": " + properties.Stringify());
             return item;
         }
 
@@ -425,6 +455,31 @@ namespace Azzandra
             Desc = reference.Desc;
             Asset = reference.Asset;
             MaxDurability = reference.MaxDurability;
+        }
+
+        /// <summary>
+        /// Check whether two item stacks are stackable, they have to: 
+        /// 1) be stackable, 
+        /// 2) have the same ID, 
+        /// 3) have the same Properties and in the same order.
+        /// </summary>
+        /// <param name="other"></param>
+        /// <returns></returns>
+        public bool IsStackableWith(Item other)
+        {
+            if (!Stack || other.ID != ID)
+                return false;
+
+            if (Properties.Count != other.Properties.Count)
+                return false;
+
+            for (int i = 0; i < Math.Min(Properties.Count, other.Properties.Count); i++)
+            {
+                if (!Properties[i].Equals(other.Properties[i]))
+                    return false;
+            }
+
+            return true;
         }
     }
 }

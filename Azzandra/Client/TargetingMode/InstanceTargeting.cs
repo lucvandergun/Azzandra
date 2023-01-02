@@ -62,7 +62,8 @@ namespace Azzandra.TargetingMode
 
         protected virtual List<Instance> GetPotentialTargets(Server server)
         {
-            var list = server.User.VisibilityHandler.VisibleInstances.CreateCopy().Where(i => i.CanBeTargetedByPlayer()).ToList();
+            var list = server.User.VisibilityHandler.VisibleEnvironmentInstances.CreateCopy();
+            list = list.Where(i => i.CanBeTargetedByPlayer()).ToList();
             if (!CanTargetPlayer) list.RemoveAll(i => i is Player);
             return list;
         }

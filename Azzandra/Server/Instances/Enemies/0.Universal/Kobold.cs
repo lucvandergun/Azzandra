@@ -33,7 +33,7 @@ namespace Azzandra
             if (HasItem())
             {
                 // Flee
-                return new ActionMove(this, (Position - Target.Instance.Position).Sign());
+                return new ActionFlee(this, Target.Instance);// ActionMove(this, (Position - Target.Instance.Position).Sign());
             }
             else
             {

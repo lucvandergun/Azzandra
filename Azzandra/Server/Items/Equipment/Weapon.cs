@@ -28,11 +28,6 @@ namespace Azzandra.Items
         {
             var list = new List<string>();
 
-            if (AttackProperties != null && AttackProperties.Length > 0)
-                list.Add("<ltblue>Effects: " + AttackProperties.Select(a => a.ToString()).Stringify2() + "<r>");
-            if (Properties != null && Properties.Count > 0)
-                list.Add("<lime>Effects: " + Properties.Select(a => a.ToString()).Stringify2() + "<r>");
-
             list.Add(GetTypeDesc());
 
             var speedString = global::Azzandra.Equipment.GetSpeedName(Speed) + " (" + Speed + ")"; // TextFormatter.GetValueRatioColor(5 - Speed, 4) + 

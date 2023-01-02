@@ -53,7 +53,7 @@ namespace Azzandra
         /// <summary>
         /// The time it takes until an action may be performed.
         /// </summary>
-        public virtual int Initiative { get; protected set; } = 12;   // 12 is the basic unit, the player will have this speed under normal circumstances.
+        public virtual int Initiative { get; protected set; } = 8;   // 8 is the basic unit, the player will have this speed under normal circumstances.
         /// <summary>
         /// The current potential for taking actions. One action or 'Turn' can be taken per initiative. If not enough potential present, it will have to be accumulated first.
         /// </summary>
@@ -125,7 +125,7 @@ namespace Azzandra
         {
             X = x;
             Y = y;
-            ActionPotential = Util.Random.Next(Initiative);
+            ActionPotential = 0;
         }
 
 
@@ -212,6 +212,13 @@ namespace Azzandra
             return bytes; //.Concat(base.ToBytes());
         }
 
+        IEnumerable<Vector> SightSquares;
+        public void CheckSightLine(Vector start, Vector end)
+        {
+            var ray = start.CastRay(end, true, true);
+            SightSquares = ray;
+        }
+
 
         // Methods:
 
@@ -262,16 +269,36 @@ namespace Azzandra
         public virtual void TurnStart()
         {
             //Animations.Clear();
+            SightSquares = null;
 
             // Rebound move timer
             if (MoveTimer > 0) MoveTimer--;
             //PreviousPosition = Position;
+
+            // Perform collision-BY actions with other instances
+            var colliding = Level.ActiveInstances.Where(i => IsCollisionWith(i)).ToList();
+            foreach (var inst in colliding)
+            {
+                if (inst != this)
+                    OnCollisionByInstance(inst);
+                //inst.OnCollisionByInstance(this);
+            }
         }
 
         /// <summary>
         /// Perform any AI decisions here (e.g. set Combatant's .Action property), as well as executing them.
         /// </summary>
-        public virtual void Turn() { }
+        public virtual void Turn()
+        {
+            // Perform collision-WITH actions with other instances
+            var colliding = Level.ActiveInstances.Where(i => IsCollisionWith(i)).ToList();
+            foreach (var inst in colliding)
+            {
+                if (inst != this)
+                    OnCollisionWithInstance(inst);
+                //inst.OnCollisionByInstance(this);
+            }
+        }
 
         /// <summary>
         /// State any handling to be done after the entire tick has passed. Method is executed just before the next tick.
@@ -342,10 +369,29 @@ namespace Azzandra
         /// </summary>
         public virtual bool IsInstanceSolidToThis(Instance inst) => IsSolid() && inst.IsSolid();
 
-        public virtual void OnInstanceCollision(Entity collider)
+
+
+        /// <summary>
+        /// This method performs on-collision effects with another instance, as seen FROM this instance. 
+        /// E.g. a gelatinous cube moves onto a spot and collides onto the other. 
+        /// Should therefore be called AFTER ticking.
+        /// </summary>
+        /// <param name="inst"></param>
+        public virtual void OnCollisionWithInstance(Instance inst)
+        {
+            // Pass on to collision-BY method, this allows this specific entity to override any effects performed by the colliding instance.
+            inst.OnCollisionByInstance(this);
+        }
+
+        /// <summary>
+        /// This method is called and performs on-collision effects as seen as TOWARDS this instance.
+        /// </summary>
+        /// <param name="collider"></param>
+        public virtual void OnCollisionByInstance(Instance collider)
         {
 
         }
+
 
 
 
@@ -907,7 +953,7 @@ namespace Azzandra
             //Display.DrawSprite(pos, sprite, color, 1f, 0f);
 
             var color = AssetLightness;
-            AnimationManager.Draw(sb, pos, color, lightness);
+            AnimationManager.Draw(sb, pos, 1f, color, lightness);
         }
     }
 }

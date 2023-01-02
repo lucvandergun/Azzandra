@@ -24,11 +24,11 @@ namespace Azzandra
             Dist.Normalize();
             Dist *= ViewHandler.GRID_SIZE / 3;
 
-            Duration = duration;
+            Duration = duration * Server.TICK_SPEED;
             _owner = origin;
 
             MomentOfStart = Owner.Level.Server.AmtUpdates;
-            AnimationLength = Duration * Server.TICK_SPEED;
+            AnimationLength = Duration;
         }
 
         public Vector2 GetDisposition()

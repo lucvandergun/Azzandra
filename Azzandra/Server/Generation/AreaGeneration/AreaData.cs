@@ -24,16 +24,16 @@ namespace Azzandra.Generation.AreaGeneration
         public readonly int LowestDepth, UpperDepth;
         public readonly Temp LowestTemp, UpperTemp;
         public readonly int MaxAmt;
-        public readonly Func<Area, bool> Predicates;
+        public readonly Func<Area, bool> Requirements;
 
-        public AreaData(int maxAmt, int lowestDepth, int upperDepth, Temp lowestTemp, Temp upperTemp, Func<Area, bool> predicates = null)
+        public AreaData(int maxAmt, int lowestDepth, int upperDepth, Temp lowestTemp, Temp upperTemp, Func<Area, bool> requirements = null)
         {
             MaxAmt = maxAmt;
             LowestDepth = lowestDepth;
             UpperDepth = upperDepth;
             LowestTemp = lowestTemp;
             UpperTemp = upperTemp;
-            Predicates = predicates;
+            Requirements = requirements;
         }
 
         /// <summary>
@@ -45,7 +45,7 @@ namespace Azzandra.Generation.AreaGeneration
                 depth >= LowestDepth && depth <= UpperDepth
                 && (int)temp >= (int)LowestTemp && (int)temp <= (int)UpperTemp
                 && occurrences < MaxAmt
-                && (Predicates?.Invoke(area) ?? true);
+                && (Requirements?.Invoke(area) ?? true);
         }
 
         public static AreaData GetData(Type genType)
@@ -64,7 +64,7 @@ namespace Azzandra.Generation.AreaGeneration
             Tuple.Create<int, Type>(12, null),
             Tuple.Create(3, typeof(AreaChest)),
             Tuple.Create(6, typeof(AreaCamp)),
-            //Tuple.Create(3, typeof(AreaObelisk)),
+            Tuple.Create(3, typeof(AreaObelisk)),
         };
 
         public static readonly List<Tuple<int, Type>> RoomPopulation = new List<Tuple<int, Type>>
@@ -75,7 +75,7 @@ namespace Azzandra.Generation.AreaGeneration
             Tuple.Create(9, typeof(RoomLibrary)),
             Tuple.Create(6, typeof(AreaChest)),
             Tuple.Create(6, typeof(AreaCamp)),
-            //Tuple.Create(3, typeof(AreaObelisk)),
+            Tuple.Create(3, typeof(AreaObelisk)),
         };
 
 

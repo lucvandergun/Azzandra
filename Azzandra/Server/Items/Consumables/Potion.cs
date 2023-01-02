@@ -33,18 +33,24 @@ namespace Azzandra.Items
 
         }
 
-        //public override bool OnThrow(Level level, GroundItem grit, Instance inst)
-        //{
-            
-        //    grit.Destroy();
-        //    return true;
-        //}
 
-        public override void OnThrow(Level level, GroundItem grit, Vector pos)
+        public override bool OnThrowOnInstance(Level level, GroundItem grit, Instance inst)
         {
-            level.CreateInstance(new PotionCloud(grit.X, grit.Y, Effects));
+            base.OnThrowOnInstance(level, grit, inst);
+
+            level.CreateInstance(new PotionCloud(grit.X, grit.Y, GetFoodEffects().ToArray()));
             grit.DestroyNextTurn();
-            User.Log.Add("<gray>The glass shattered as it hit the solid floor, freeing the liquid inside.");
+            var name = inst == User.Player ? "you" : inst.ToStringAdress();
+            User.Log.Add("<gray>The glass vial shattered as it hit " + name + ", freeing the liquid inside.");
+
+            return true;
+        }
+
+        public override void OnThrowOnTile(Level level, GroundItem grit, Vector pos)
+        {
+            level.CreateInstance(new PotionCloud(grit.X, grit.Y, GetFoodEffects().ToArray()));
+            grit.DestroyNextTurn();
+            User.Log.Add("<gray>The glass vial shattered as it hit the floor, freeing the liquid inside.");
             return;
         }
     }

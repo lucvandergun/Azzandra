@@ -37,6 +37,11 @@ namespace Azzandra
 
             int width = 14 * 16;
             Desc = Util.SeparateString(item.Desc, Font, width - 2 * Pad);
+
+            // Add properties:
+            var props = item.GetPropertyInfo();
+            Info.InsertRange(0, Util.SeparateString(props, Font, width - 2 * Pad));
+
             int height = (Desc.Length + Info.Count + Options.Count + 1) * LineH + 3 * LineH / 2 + 2 * Pad;
 
             var screen = GameClient.DisplayHandler.Screen;

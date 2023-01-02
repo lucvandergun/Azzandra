@@ -10,53 +10,73 @@ namespace Azzandra
     public class CaveWorm : Enemy
     {
         public override EntityType EntityType => EntityType.Beast;
-        public override bool CanMoveDiagonal() => false;
-        public override bool IsInstanceSolidToThis(Instance inst)
-        {
-            return inst is CaveWormTail ?
-                // return cwt is not a child
-                !Util.RecursiveValidator(
-                    Children.FirstOrDefault(c => c.Instance is CaveWormTail)?.Instance,
-                    (cwt) => cwt.Children.FirstOrDefault(cwt2 => cwt2.Instance is CaveWormTail)?.Instance,
-                    (cwt3) => cwt3 == inst
-                )
-                : base.IsInstanceSolidToThis(inst);
-        }
+        public override int Initiative => 18;
+        private int DigTimer = 5;
+        private int GetDigDelay() => Util.Random.Next(4) + 4;
 
-        public CaveWorm(int x, int y) : base(x, y) {}
-
-        public override void Init()
-        {
-            // Create all the tail parts once and only:
-            var tail = new CaveWormTail(X, Y, this, 3);
-            Level.CreateInstance(tail);
-            Children.Add(tail.CreateRef());
-        }
+        public CaveWorm(int x, int y) : base(x, y) { }
 
         public override Symbol GetSymbol() => new Symbol('c', Color.AntiqueWhite);
 
 
-        public override List<Vector> Move(Vector distance, bool orthoDiagonal = true, bool hasSlided = false, bool mergeMovements = false)
+        public override EntityAction DetermineAggressiveAction()
         {
-            var oldPos = Position;
-            var steps = base.Move(distance, hasSlided);
-            if (steps.Count > 0)
+            /* This method overrides the general behaviour with the following:
+             * If a random timer == 0, dig a hole and show up on a random walkable tile next to the target.
+             */
+            
+            // Just to make sure: check whether target actually exists
+            var target = Target.Combatant;
+            if (target == null)
             {
-                var tail = Children.FirstOrDefault(r => r.Instance is CaveWormTail).Instance;
-                if (tail != null)
+                Target = null;
+                return null;
+            }
+
+            if (DigTimer >= 0)
+                DigTimer--;
+
+            // Dig a hole and show up elsewhere:
+            if (DigTimer <= 0 && CanMove())
+            {
+                var surroundingTiles = Vector.Dirs4.SelectMany(d => target.GetTiles().Select(t => t + d)).Distinct().Where(n => !target.GetTiles().Contains(n)).ToList();
+                surroundingTiles.Shuffle();
+                foreach (var node in surroundingTiles)
                 {
-                    tail.Move(oldPos - tail.Position);
+                    if (CanExist(node.X, node.Y))
+                    {
+                        DigTimer = GetDigDelay();
+                        // If the chosen position is not the same as the current position, "teleport" right to it.
+                        if (Position != node)
+                        {
+                            if (target is Player player)
+                                player.User.ShowMessage("<tan>" + ToStringAdress().CapFirst() + " tunnels through the ground and shows up right next to you.");
+                            Position = node;
+                        }
+                        return null;
+                    }
                 }
             }
-            return steps;
+
+            return base.DetermineAggressiveAction();
         }
 
-        protected override void ApplyDeathEffects()
+
+        public override void Load(byte[] bytes, ref int pos)
         {
-            base.ApplyDeathEffects();
-            foreach (var c in Children)
-                if (c.Instance is CaveWormTail bt)
-                    bt.Destroy();
+            // Active
+            DigTimer = BitConverter.ToInt32(bytes, pos);
+            pos += 4;
+
+            base.Load(bytes, ref pos);
+        }
+
+        public override byte[] ToBytes()
+        {
+            var bytes = new byte[4];
+            bytes.Insert(0, BitConverter.GetBytes(DigTimer));
+
+            return bytes.Concat(base.ToBytes()).ToArray();
         }
     }
 }

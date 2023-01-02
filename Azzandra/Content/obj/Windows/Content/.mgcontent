@@ -18,9 +18,11 @@
     <File>D:/Users/Luc/Documents/Dev/C#/Azzandra/Azzandra/Azzandra/Content/eqslots/eqslot9.png</File>
     <File>D:/Users/Luc/Documents/Dev/C#/Azzandra/Azzandra/Azzandra/Content/fonts/Dungeonscript.spritefont</File>
     <File>D:/Users/Luc/Documents/Dev/C#/Azzandra/Azzandra/Azzandra/Content/fonts/Medifont.spritefont</File>
+    <File>D:/Users/Luc/Documents/Dev/C#/Azzandra/Azzandra/Azzandra/Content/interface/button.png</File>
     <File>D:/Users/Luc/Documents/Dev/C#/Azzandra/Azzandra/Azzandra/Content/interface/hit.png</File>
     <File>D:/Users/Luc/Documents/Dev/C#/Azzandra/Azzandra/Azzandra/Content/interface/logo.png</File>
     <File>D:/Users/Luc/Documents/Dev/C#/Azzandra/Azzandra/Azzandra/Content/interface/menu_arch.png</File>
+    <File>D:/Users/Luc/Documents/Dev/C#/Azzandra/Azzandra/Azzandra/Content/interface/menu_arch_bg.png</File>
     <File>D:/Users/Luc/Documents/Dev/C#/Azzandra/Azzandra/Azzandra/Content/interface/menu_backgrounds/0.png</File>
     <File>D:/Users/Luc/Documents/Dev/C#/Azzandra/Azzandra/Azzandra/Content/interface/menu_backgrounds/1.png</File>
     <File>D:/Users/Luc/Documents/Dev/C#/Azzandra/Azzandra/Azzandra/Content/interface/menu_backgrounds/2.png</File>
@@ -33,6 +35,7 @@
     <File>D:/Users/Luc/Documents/Dev/C#/Azzandra/Azzandra/Azzandra/Content/interface/target32.png</File>
     <File>D:/Users/Luc/Documents/Dev/C#/Azzandra/Azzandra/Azzandra/Content/interface/target48.png</File>
     <File>D:/Users/Luc/Documents/Dev/C#/Azzandra/Azzandra/Azzandra/Content/textures/acid.png</File>
+    <File>D:/Users/Luc/Documents/Dev/C#/Azzandra/Azzandra/Azzandra/Content/textures/altar.png</File>
     <File>D:/Users/Luc/Documents/Dev/C#/Azzandra/Azzandra/Azzandra/Content/textures/arrow.png</File>
     <File>D:/Users/Luc/Documents/Dev/C#/Azzandra/Azzandra/Azzandra/Content/textures/barrel.png</File>
     <File>D:/Users/Luc/Documents/Dev/C#/Azzandra/Azzandra/Azzandra/Content/textures/bookcase.png</File>
@@ -58,15 +61,17 @@
     <File>D:/Users/Luc/Documents/Dev/C#/Azzandra/Azzandra/Azzandra/Content/textures/empty_tile.png</File>
     <File>D:/Users/Luc/Documents/Dev/C#/Azzandra/Azzandra/Azzandra/Content/textures/entity/alpha_wolf.png</File>
     <File>D:/Users/Luc/Documents/Dev/C#/Azzandra/Azzandra/Azzandra/Content/textures/entity/armoured_skeleton.png</File>
+    <File>D:/Users/Luc/Documents/Dev/C#/Azzandra/Azzandra/Azzandra/Content/textures/entity/armoured_skeleton_bones.png</File>
+    <File>D:/Users/Luc/Documents/Dev/C#/Azzandra/Azzandra/Azzandra/Content/textures/entity/azzandra.png</File>
     <File>D:/Users/Luc/Documents/Dev/C#/Azzandra/Azzandra/Azzandra/Content/textures/entity/carnivorous_plant.png</File>
-    <File>D:/Users/Luc/Documents/Dev/C#/Azzandra/Azzandra/Azzandra/Content/textures/entity/cave_worm_head.png</File>
-    <File>D:/Users/Luc/Documents/Dev/C#/Azzandra/Azzandra/Azzandra/Content/textures/entity/cave_worm_tail.png</File>
+    <File>D:/Users/Luc/Documents/Dev/C#/Azzandra/Azzandra/Azzandra/Content/textures/entity/cave_worm.png</File>
     <File>D:/Users/Luc/Documents/Dev/C#/Azzandra/Azzandra/Azzandra/Content/textures/entity/choker.png</File>
     <File>D:/Users/Luc/Documents/Dev/C#/Azzandra/Azzandra/Azzandra/Content/textures/entity/cockatrice.png</File>
     <File>D:/Users/Luc/Documents/Dev/C#/Azzandra/Azzandra/Azzandra/Content/textures/entity/crystal_golem.png</File>
     <File>D:/Users/Luc/Documents/Dev/C#/Azzandra/Azzandra/Azzandra/Content/textures/entity/demon.png</File>
     <File>D:/Users/Luc/Documents/Dev/C#/Azzandra/Azzandra/Azzandra/Content/textures/entity/dust_elemental.png</File>
     <File>D:/Users/Luc/Documents/Dev/C#/Azzandra/Azzandra/Azzandra/Content/textures/entity/enchanter.png</File>
+    <File>D:/Users/Luc/Documents/Dev/C#/Azzandra/Azzandra/Azzandra/Content/textures/entity/fiend.png</File>
     <File>D:/Users/Luc/Documents/Dev/C#/Azzandra/Azzandra/Azzandra/Content/textures/entity/fire_elemental.png</File>
     <File>D:/Users/Luc/Documents/Dev/C#/Azzandra/Azzandra/Azzandra/Content/textures/entity/fire_giant.png</File>
     <File>D:/Users/Luc/Documents/Dev/C#/Azzandra/Azzandra/Azzandra/Content/textures/entity/gargoyle_flying.png</File>
@@ -93,6 +98,7 @@
     <File>D:/Users/Luc/Documents/Dev/C#/Azzandra/Azzandra/Azzandra/Content/textures/entity/shadow_elemental.png</File>
     <File>D:/Users/Luc/Documents/Dev/C#/Azzandra/Azzandra/Azzandra/Content/textures/entity/shadow_hound.png</File>
     <File>D:/Users/Luc/Documents/Dev/C#/Azzandra/Azzandra/Azzandra/Content/textures/entity/skeleton.png</File>
+    <File>D:/Users/Luc/Documents/Dev/C#/Azzandra/Azzandra/Azzandra/Content/textures/entity/skeleton_bones.png</File>
     <File>D:/Users/Luc/Documents/Dev/C#/Azzandra/Azzandra/Azzandra/Content/textures/entity/spectre.png</File>
     <File>D:/Users/Luc/Documents/Dev/C#/Azzandra/Azzandra/Azzandra/Content/textures/entity/toxic_spider.png</File>
     <File>D:/Users/Luc/Documents/Dev/C#/Azzandra/Azzandra/Azzandra/Content/textures/entity/troll.png</File>
@@ -109,28 +115,46 @@
     <File>D:/Users/Luc/Documents/Dev/C#/Azzandra/Azzandra/Azzandra/Content/textures/ice.png</File>
     <File>D:/Users/Luc/Documents/Dev/C#/Azzandra/Azzandra/Azzandra/Content/textures/icicle.png</File>
     <File>D:/Users/Luc/Documents/Dev/C#/Azzandra/Azzandra/Azzandra/Content/textures/item.png</File>
-    <File>D:/Users/Luc/Documents/Dev/C#/Azzandra/Azzandra/Azzandra/Content/textures/key.png</File>
+    <File>D:/Users/Luc/Documents/Dev/C#/Azzandra/Azzandra/Azzandra/Content/textures/item_arrow.png</File>
+    <File>D:/Users/Luc/Documents/Dev/C#/Azzandra/Azzandra/Azzandra/Content/textures/item_bolt.png</File>
+    <File>D:/Users/Luc/Documents/Dev/C#/Azzandra/Azzandra/Azzandra/Content/textures/item_key.png</File>
     <File>D:/Users/Luc/Documents/Dev/C#/Azzandra/Azzandra/Azzandra/Content/textures/lava.png</File>
     <File>D:/Users/Luc/Documents/Dev/C#/Azzandra/Azzandra/Azzandra/Content/textures/lightning.png</File>
     <File>D:/Users/Luc/Documents/Dev/C#/Azzandra/Azzandra/Azzandra/Content/textures/mushroom.png</File>
+    <File>D:/Users/Luc/Documents/Dev/C#/Azzandra/Azzandra/Azzandra/Content/textures/obelisk.png</File>
+    <File>D:/Users/Luc/Documents/Dev/C#/Azzandra/Azzandra/Azzandra/Content/textures/pillar.png</File>
     <File>D:/Users/Luc/Documents/Dev/C#/Azzandra/Azzandra/Azzandra/Content/textures/plant.png</File>
     <File>D:/Users/Luc/Documents/Dev/C#/Azzandra/Azzandra/Azzandra/Content/textures/rock.png</File>
+    <File>D:/Users/Luc/Documents/Dev/C#/Azzandra/Azzandra/Azzandra/Content/textures/root.png</File>
     <File>D:/Users/Luc/Documents/Dev/C#/Azzandra/Azzandra/Azzandra/Content/textures/shadow_cloud.png</File>
     <File>D:/Users/Luc/Documents/Dev/C#/Azzandra/Azzandra/Azzandra/Content/textures/shrine_empty.png</File>
     <File>D:/Users/Luc/Documents/Dev/C#/Azzandra/Azzandra/Azzandra/Content/textures/shrine_filled.png</File>
     <File>D:/Users/Luc/Documents/Dev/C#/Azzandra/Azzandra/Azzandra/Content/textures/spell.png</File>
-    <File>D:/Users/Luc/Documents/Dev/C#/Azzandra/Azzandra/Azzandra/Content/textures/spell_large.png</File>
+    <File>D:/Users/Luc/Documents/Dev/C#/Azzandra/Azzandra/Azzandra/Content/textures/spell_small.png</File>
     <File>D:/Users/Luc/Documents/Dev/C#/Azzandra/Azzandra/Azzandra/Content/textures/stairs_down.png</File>
     <File>D:/Users/Luc/Documents/Dev/C#/Azzandra/Azzandra/Azzandra/Content/textures/stairs_up.png</File>
     <File>D:/Users/Luc/Documents/Dev/C#/Azzandra/Azzandra/Azzandra/Content/textures/stool.png</File>
     <File>D:/Users/Luc/Documents/Dev/C#/Azzandra/Azzandra/Azzandra/Content/textures/sulphur.png</File>
     <File>D:/Users/Luc/Documents/Dev/C#/Azzandra/Azzandra/Azzandra/Content/textures/table.png</File>
+    <File>D:/Users/Luc/Documents/Dev/C#/Azzandra/Azzandra/Azzandra/Content/textures/torch.png</File>
     <File>D:/Users/Luc/Documents/Dev/C#/Azzandra/Azzandra/Azzandra/Content/textures/unknown.png</File>
     <File>D:/Users/Luc/Documents/Dev/C#/Azzandra/Azzandra/Azzandra/Content/textures/vine.png</File>
     <File>D:/Users/Luc/Documents/Dev/C#/Azzandra/Azzandra/Azzandra/Content/textures/wall.png</File>
     <File>D:/Users/Luc/Documents/Dev/C#/Azzandra/Azzandra/Azzandra/Content/textures/water.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

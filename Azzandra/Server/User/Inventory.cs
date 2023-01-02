@@ -39,7 +39,7 @@ namespace Azzandra
             {
                 foreach (var invItem in Items)
                 {
-                    if (invItem.ID == item.ID)
+                    if (item.IsStackableWith(invItem)) //invItem.ID == item.ID
                     {
                         // Add as much quantity as possible
                         if (invItem.Quantity + item.Quantity < invItem.Quantity)
@@ -107,7 +107,7 @@ namespace Azzandra
             {
                 foreach (var invItem in Items)
                 {
-                    if (invItem.GetType() == item.GetType())
+                    if (item.IsStackableWith(invItem))
                     {
                         // Check whether slot holds quantity
                         if (invItem.Quantity + item.Quantity <= invItem.Quantity)
@@ -133,7 +133,7 @@ namespace Azzandra
                 {
                     foreach (var invItem in Items)
                     {
-                        if (invItem.GetType() == item.GetType())
+                        if (item.IsStackableWith(invItem))
                         {
                             // Check whether overflow happens:
                             if (invItem.Quantity + item.Quantity <= invItem.Quantity)

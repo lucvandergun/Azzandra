@@ -30,6 +30,7 @@ namespace Azzandra.Generation
 
         protected readonly List<Spawner> Spawners = new List<Spawner>();
         public void AddSpawner(Spawner s) => Spawners.Add(s);
+        private float PillarChance = 0.67f;
 
 
         // Difficulty points - used to determine how many and what type of enemies can be spawned.
@@ -100,6 +101,11 @@ namespace Azzandra.Generation
 
         protected virtual void PopulateAreas()
         {
+            // Add room pillars
+            foreach (Room room in Areas.Where(a => a is Room))
+                if (Random.NextDouble() < PillarChance)
+                    room?.AddPillars(Random);
+
             // Populate the dungeon
             PaintDungeon();
             AssignRoomGenerators(Level.Depth, Level.Temp);
@@ -134,7 +140,7 @@ namespace Azzandra.Generation
                 if (FindStairsLocation(Start, stairsUp)) //Start.FindInstanceSpawn(stairsUp, Start.RemoteNode, 5, true, true)
                 {
                     // Added
-                    foreach (var node in Vector.Dirs8)
+                    foreach (var node in Vector.Dirs9)
                         Start.FreeNodes.Remove(node + stairsUp.Position);
                     
                     if (End.FindInstanceSpawn(stairsDown, End.RemoteNode, 5, true, true))
@@ -147,7 +153,7 @@ namespace Azzandra.Generation
                     {
                         Start.RemoveInstance(stairsUp);
                         // Added
-                        foreach (var node in Vector.Dirs8)
+                        foreach (var node in Vector.Dirs9)
                             Start.FreeNodes.Add(node + stairsUp.Position);
                     }  
                 }
@@ -206,6 +212,9 @@ namespace Azzandra.Generation
 
             if (Level.Temp == Temp.Freezing || Level.Temp == Temp.Glacial)
                 Paint(new ScatterBrush(BlockID.Icicle, false, false, true, 3), 7);
+
+            if (Level.Depth > 5 && (int)Level.Temp >= (int)Temp.Lukewarm && (int)Level.Temp <= (int)Temp.Warm)
+                Paint(new ScatterBrush(BlockID.Root, false, false, true, 5, 3), 2);
         }
 
         protected void Paint(IBrush brush, int repetitions)

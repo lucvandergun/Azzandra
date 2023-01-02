@@ -21,6 +21,10 @@ namespace Azzandra
         public bool JustPressed { get; private set; } = false;
 
         protected bool IsShiftButton = false;
+
+        /// <summary>
+        /// A general checker for SHIFT-behaviour: either by left/right shift/control key down, or if the on-screen shift-button is down.
+        /// </summary>
         public bool IsShift => IsShiftButton || Input.IsKeyDown[Keys.LeftShift] || Input.IsKeyDown[Keys.RightShift] || Input.IsKeyDown[Keys.LeftControl] || Input.IsKeyDown[Keys.RightControl];
 
         private readonly Vector2 ButtonSize = new Vector2(96, 16);
@@ -38,21 +42,21 @@ namespace Azzandra
             GameClient = gameClient;
             TargetingMode = DefaultTargetingMode;
 
-            ShiftButton = new Button(ButtonSize, "Shift", ButtonFormat.Dark)
+            ShiftButton = new Button(ButtonSize, "Shift", new ButtonFormat.SimpleDark())
             {
                 OnClick = () => {
                     IsShiftButton = !IsShiftButton;
                 },
                 IsSelected = () => IsShiftButton
             };
-            TargetButton = new Button(ButtonSize, "Target", ButtonFormat.Dark)
+            TargetButton = new Button(ButtonSize, "Target", new ButtonFormat.SimpleDark())
             {
                 OnClick = () => {
                     if (TargetingMode is TargetingMode.InstanceTargeting t)
                         t.SwitchTarget(this);
                 },
             };
-            ActionButton = new Button(ButtonSize, "Action", ButtonFormat.Dark)
+            ActionButton = new Button(ButtonSize, "Action", new ButtonFormat.SimpleDark())
             {
                 OnClick = () => {
                     TargetingMode?.PerformTargetAction(this);
@@ -62,13 +66,13 @@ namespace Azzandra
                     return TargetingMode.GetActionString(GameClient.Server).CapFirst();
                 }
             };
-            RestButton = new Button(ButtonSize, "Rest", ButtonFormat.Dark)
+            RestButton = new Button(ButtonSize, "Rest", new ButtonFormat.SimpleDark())
             {
                 OnClick = () => {
                     if (Server != null) SetRestAction();
                 },
             };
-            SwapButton = new Button(ButtonSize, "Quick-swap", ButtonFormat.Dark)
+            SwapButton = new Button(ButtonSize, "Quick-swap", new ButtonFormat.SimpleDark())
             {
                 OnClick = () => {
                     if (Server != null) Server.User.Player.Action = new ActionSwap(Server?.User.Player, Server?.User.Equipment.WeaponSwap.CreateCopy());

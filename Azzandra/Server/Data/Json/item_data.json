@@ -959,7 +959,7 @@
 	
 	"cloak_of_conceilment": {
 		"name": "cloak of conceilment",
-		"desc": "-",
+		"desc": "A camouflaged cloak that seems to match the environment wherever you go.",
 		"type": "equipment",
 		"slot": 9,
 		"evade": 2
@@ -973,21 +973,21 @@
 	},
 	"amulet_of_evasion": {
 		"name": "amulet of evasion",
-		"desc": "-",
+		"desc": "This makes you difficult to get a grasp on.",
 		"type": "equipment",
 		"slot": 7,
 		"evade": 4
 	},
 	"ring_of_deception": {
 		"name": "ring of deception",
-		"desc": "-",
+		"desc": "A powerful ring that will make it impossible to see where you are exactly.",
 		"type": "equipment",
 		"slot": 8,
 		"evade": 7
 	},
 	"chime_of_lightness": {
 		"name": "chime of lightness",
-		"desc": "-",
+		"desc": "This will make you incredibly light-weight, making it easy to dodge incoming attacks.",
 		"type": "equipment",
 		"slot": 7,
 		"evade": 8
@@ -1049,7 +1049,7 @@
 	},
 	"wizards_talisman": {
 		"name": "wizard's talisman",
-		"desc": "-",
+		"desc": "An ancient necklace belonging to the wizards of old.",
 		"type": "equipment",
 		"slot": 7,
 		"spellcast": 3
@@ -1093,7 +1093,7 @@
 	},
 	"dagger_of_venom": {
 		"name": "dagger of venom",
-		"desc": "-",
+		"desc": "It's somewhat shaped like a fang.",
 		"type": "weapon",
 		"sub": "dagger",
 		"canoffhand": true,
@@ -1340,6 +1340,14 @@
 		"spellcast": 12,
 		"properties": [{"id": "fire"}]
 	},
+
+
+
+
+
+
+
+
 
 
 

@@ -783,7 +783,7 @@ namespace Azzandra.SpellEffects
             var specs = GetMsgAdresses(attacker, attacker);
             attacker.Level.Server.User.ShowMessage("<vred>" + specs.Item1 + " " + GetVerb(attacker, "cast") + " charge!");
 
-            var effect = new StatusEffects.Invulnerable(1, 5);
+            var effect = new StatusEffects.Invulnerable(1, 3);
             attacker.AddStatusEffect(effect, true);
         }
     }

@@ -43,13 +43,13 @@ namespace Azzandra.Items
         }
 
 
-        public override bool OnThrow(Level level, GroundItem grit, Instance inst)
+        public override bool OnThrowOnInstance(Level level, GroundItem grit, Instance inst)
         {
             EmptyOnThrow();
-            return true;
+            return base.OnThrowOnInstance(level, grit, inst);
         }
 
-        public override void OnThrow(Level level, GroundItem grit, Vector pos)
+        public override void OnThrowOnTile(Level level, GroundItem grit, Vector pos)
         {
             EmptyOnThrow();
             return;

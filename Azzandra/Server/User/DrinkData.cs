@@ -34,11 +34,15 @@ namespace Azzandra
             // Negative effect
             foreach (var negID in NegativeEffects)
             {
+                var negative = CreateStatusEffect(negID, 1);
                 if (Util.RollAgainst(3, player.User.Stats.GetLevel(SkillID.Vitality)))
                 {
-                    var negative = CreateStatusEffect(negID, 1);
                     player.AddStatusEffect(negative);
                     effects.Add(negative);
+                }
+                else
+                {
+                    player.User.ShowMessage("<gray>You were able to stomach the side effect of " + negative.ToString() + ".");
                 }
             }
 

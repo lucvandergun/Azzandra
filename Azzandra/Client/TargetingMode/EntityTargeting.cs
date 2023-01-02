@@ -15,7 +15,10 @@ namespace Azzandra.TargetingMode
         
         protected override List<Instance> GetPotentialTargets(Server server)
         {
-            return base.GetPotentialTargets(server).Where(i => i is Entity).ToList();
+            if (!server.GameClient.InputHandler.IsShift)
+                return base.GetPotentialTargets(server).Where(i => i is Entity).ToList();
+
+            return base.GetPotentialTargets(server);
         }
     }
 }

@@ -46,15 +46,15 @@ namespace Azzandra
 
             // Try to affect any instance it lands on:
             var pos = grit.Position;
-            var instances = Caller.Level.ActiveInstances.Where(i => i.GetTiles().Contains(pos));
-            foreach (var inst in instances)
+            var instances = Caller.Level.ActiveInstances.Where(i => i.GetTiles().Contains(pos)).ToList();
+            for (int i = 0; i < instances.Count(); i++)
             {
-                if (item.OnThrow(Caller.Level, grit, inst))
+                if (item.OnThrowOnInstance(Caller.Level, grit, instances[i]))
                     return true;
             }
 
             // Otherwise try to affect the tile it lands on:
-            item.OnThrow(Caller.Level, grit, pos);
+            item.OnThrowOnTile(Caller.Level, grit, pos);
 
             return true;
         }

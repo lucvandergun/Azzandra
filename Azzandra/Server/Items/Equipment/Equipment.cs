@@ -23,6 +23,9 @@ namespace Azzandra.Items
         public virtual bool CanBlock => false;
         public virtual bool CanParry => false;
 
+        public override int GetThrowAcc() => Accuracy;
+        public override int GetThrowDmg() => Damage;
+
         public Equipment() : base()
         {
 

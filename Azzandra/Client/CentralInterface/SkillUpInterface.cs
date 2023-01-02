@@ -28,7 +28,7 @@ namespace Azzandra
             Shrine = shrine;
             SkillChoices = choices;
             LevelUpAmts = GetLevelUpAmounts(choices);
-            ConfirmButton = new Button(ButtonSize, "Confirm", ButtonFormat.Dark)
+            ConfirmButton = new Button(ButtonSize, "Confirm", new ButtonFormat.SimpleDark())
             {
                 OnClick = () =>
                 {
@@ -43,6 +43,7 @@ namespace Azzandra
                 },
                 Text = () => SelectedSkill >= 0 && SelectedSkill < Stats.AMT_OF_SKILLS ? "Confirm" : "Cancel"
             };
+            ConfirmButton.SetFocussed();
         }
 
         public override void OnResize(Point screenSize)
@@ -90,20 +91,27 @@ namespace Azzandra
             Display.DrawInline(lineRegion, new Color(31, 31, 31), 2);
 
             int slotHeight = 20;
-            var startOffset = new Vector2(16, 38);
             var slotSize = new Vector2(region.Width, slotHeight);
-            var slotOffset = new Vector2(0, slotHeight);
+            var slotOffset = new Vector2(0, 20);
             var stringOffset = new Vector2(4, slotHeight / 2);
             var format = new TextFormat(Color.White, Font, Alignment.VCentered, false);
             var titleFormat = new TextFormat(Color.White, TitleFont, Alignment.VCentered, false);
 
             bool isHoverSurface = GameClient.DisplayHandler.IsHoverSurface(Surface);
 
-            TextFormatter.DrawString(new Vector2(16, 16 + 10), "= Choose a Skill to Improve =", titleFormat);
+            var text = new TextDrawer(new Vector2(16 + 4, 16 + 10), 16, titleFormat);
+            text.DrawLine("<spring>= Shrine =");
+            text.Format = format;
+            text.Skip();
+            text.DrawLine("<white>The shrine is attuned to the following skills:");
+            text.DrawLine("<slate>You may choose to attune with one of them.");
+            text.Skip();
 
             if (Stats == null) return;
 
             // Display skills
+            var startOffset = text.Pos - new Vector2(0, slotHeight / 2);
+            text.LineH = slotHeight;
             for (int i = 0; i < SkillChoices.Length; i++)
             {
                 int id = SkillChoices[i];
@@ -124,12 +132,11 @@ namespace Azzandra
                     }
                 }
 
-
-
                 if (id == SelectedSkill) str = "<yellow>" + str + "*";
                 else if (skill.Level >= Skill.MAX_LEVEL) str = "<slate>" + str;
 
-                TextFormatter.DrawString(startOffset + i * slotOffset + stringOffset, pre + str, format);
+                //TextFormatter.DrawString(startOffset + i * slotOffset + stringOffset, pre + str, format);
+                text.DrawLine(pre + str);
             }
 
             ConfirmButton.Render(Surface, new Vector2(region.Width - 64, region.Height - 32), gd, sb, true);

@@ -12,17 +12,18 @@ namespace Azzandra.Generation
         {
             { typeof(Goblin),       new SpawnData(1, 2, 3, 1, 24, Temp.Freezing, Temp.Warm) },
             { typeof(Kobold),       new SpawnData(1, 1, 2, 1, 12, Temp.Freezing, Temp.Warm) },
+            { typeof(Fiend),        new SpawnData(2, 1, 2, 16, 29, Temp.Warm, Temp.Scorching) },
             { typeof(Hobgoblin),    new SpawnData(1, 2, 3, 17, 29, Temp.Cold, Temp.Hot) },
-            { typeof(Skeleton),     new SpawnData(1, 3, 4, 1, 14, Temp.Glacial, Temp.Scorching) },
-            { typeof(ArmouredSkeleton),new SpawnData(3, 3, 3, 15, 29, Temp.Glacial, Temp.Scorching) },
+            { typeof(Skeleton),     new SpawnData(1, 1, 2, 1, 14, Temp.Glacial, Temp.Scorching) },
+            { typeof(ArmouredSkeleton),new SpawnData(3, 1, 2, 15, 29, Temp.Glacial, Temp.Scorching) },
             { typeof(Wraith),       new SpawnData(5, 1, 1, 6, 29, Temp.Glacial, Temp.Scorching) },
             { typeof(RockGolem),    new SpawnData(7, 1, 1, 5, 15, Temp.Cold, Temp.Scorching) },
             { typeof(CrystalGolem), new SpawnData(8, 1, 1, 19, 29, Temp.Cold, Temp.Scorching) },
             { typeof(Zombie),       new SpawnData(10, 1, 1, 7, 20, Temp.Freezing, Temp.Hot) },
 
             { typeof(IceElemental), new SpawnData(1, 1, 2, 3, 9, Temp.Glacial, Temp.Cold) },
-            { typeof(IceGiant),     new SpawnData(15, 1, 2, 6, 11, Temp.Glacial, Temp.Cold) },
-            { typeof(Wolf),         new SpawnData(2, 4, 5, 1, 7, Temp.Freezing, Temp.Lukewarm) },
+            { typeof(IceGiant),     new SpawnData(15, 1, 1, 6, 11, Temp.Glacial, Temp.Cold) },
+            { typeof(Wolf),         new SpawnData(2, 3, 4, 1, 7, Temp.Freezing, Temp.Lukewarm) },
             { typeof(Ghast),        new SpawnData(6, 1, 2, 5, 10, Temp.Cold, Temp.Hot) },
             { typeof(Gargoyle),     new SpawnData(12, 1, 1, 2, 12, Temp.Cold, Temp.Hot) },
             { typeof(ShadowElemental),new SpawnData(3, 1, 1, 3, 14, Temp.Glacial, Temp.Scorching) },
@@ -44,7 +45,7 @@ namespace Azzandra.Generation
 
             { typeof(Demon),        new SpawnData(15, 1, 1, 25, 29, Temp.Hot, Temp.Scorching) },
             { typeof(FireElemental),new SpawnData(2, 1, 2, 23, 29, Temp.Hot, Temp.Scorching) },
-            { typeof(FireGiant),    new SpawnData(13, 1, 2, 24, 29, Temp.Hot, Temp.Scorching) },
+            { typeof(FireGiant),    new SpawnData(13, 1, 1, 24, 29, Temp.Hot, Temp.Scorching) },
             { typeof(Hellhound),    new SpawnData(8, 2, 3, 22, 29, Temp.Hot, Temp.Scorching) },
             { typeof(Cockatrice),   new SpawnData(8, 1, 2, 21, 29, Temp.Lukewarm, Temp.Hot) },
             { typeof(Choker),       new SpawnData(10, 1, 2, 23, 29, Temp.Lukewarm, Temp.Scorching) },
@@ -171,6 +172,7 @@ namespace Azzandra.Generation
         public static readonly List<Tuple<int, Type>> HauntedPopulation = new List<Tuple<int, Type>>
         {
             Tuple.Create(4, typeof(Kobold)),
+            Tuple.Create(2, typeof(Fiend)),
             Tuple.Create(2, typeof(Wraith)),
             Tuple.Create(2, typeof(Spectre)),
             //Tuple.Create(3, typeof(ShadowElemental)),

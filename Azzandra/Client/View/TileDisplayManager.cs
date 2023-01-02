@@ -77,7 +77,7 @@ namespace Azzandra
             }
 
             // Draw tile texture
-            AnimationManager.Draw(sb, pos, null, lightness);
+            AnimationManager.Draw(sb, pos, 1f, null, lightness);
         }
 
         private void DrawTileTexture(SpriteBatch sb, Vector2 pos, Texture2D tex, Color col, int deg = 0)

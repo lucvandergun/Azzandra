@@ -24,12 +24,15 @@ namespace Azzandra
         public override bool IsSolid() => false;
         public override MoveType GetMovementType() => MoveType.Fly;
 
-        public override void OnInstanceCollision(Entity collider)
+        public override void OnCollisionWithInstance(Instance inst)
         {
+            if (!(inst is Entity entity))
+                return;
+            
             if (Effects == null) return;
             foreach (var effect in Effects)
             {
-                effect.Apply(collider);
+                effect.Apply(entity);
 
                 //if (collider.AddStatusEffect(new StatusEffects.Burning(1, 6), true) && collider is Player player)
                 //    player.User.ShowMessage("<orange>As you move through the fire you are set ablaze!");
@@ -54,7 +57,7 @@ namespace Azzandra
 
             Time--;
             if (Time <= 0)
-                Destroy();
+                DestroyNextTurn();
         }
 
         /// Saving & Loading:

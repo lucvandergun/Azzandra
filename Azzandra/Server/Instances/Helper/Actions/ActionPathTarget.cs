@@ -47,7 +47,7 @@ namespace Azzandra
 
         public override string ToString()
         {
-            return "Path to " + Target.ToString().CapFirst();
+            return "PathTarget to " + Target.ToString().CapFirst();
         }
     }
 }

@@ -410,12 +410,10 @@ namespace Azzandra.Generation
         /// <param name="checkObstruction">Whether it should be checked if it obstructs crucial inner area paths.</param>
         /// <param name="removeNonSolidObjectNodes">Whether the corresponding FreeNode must be removed if it is a non-solid object tile.</param>
         /// <returns>Whether it could be successfully created.</returns>
-        public bool TryCreateTile(Vector node, int blockID, bool isFloor = true, bool checkObstruction = false, bool removeNonSolidObjectNodes = true)
+        public bool TryCreateTile(Vector node, int blockID, bool isFloor = true, bool checkObstruction = false, bool removeNonSolidObjectNodes = true, bool requiresFreeNode = false)
         {
-            if (blockID == BlockID.Mud)
-            {
-
-            }
+            if (requiresFreeNode && !FreeNodes.Contains(node))
+                return false;
             
             if (checkObstruction && !CanCreateTile(node, blockID))
                 return false;

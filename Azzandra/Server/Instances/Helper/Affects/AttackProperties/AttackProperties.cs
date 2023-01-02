@@ -80,9 +80,9 @@ namespace Azzandra.AttackProperties
         }
     }
 
-    public class Blind : AttackProperty
+    public class Shadow : AttackProperty
     {
-        public Blind(int level = 1) : base(level) { }
+        public Shadow(int level = 1) : base(level) { }
 
         public override string Apply(Entity attacker, Entity target, Affect affect, bool returnFailed = false)
         {

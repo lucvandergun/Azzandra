@@ -50,9 +50,13 @@ namespace Azzandra
             VisibilityMap.Populate(false);
             Visibility.Compute(origin, sightRadius);
             VisibleInstances = level.ActiveInstances.Where(i => IsInstanceVisible(i)).ToList();
-            VisibleEnvironmentInstances = VisibleInstances.Where(i => i.CanBeTargetedByPlayer()).ToList(); //.Where(i => i is Entity || i is GroundItem).ToList();
+            VisibleEnvironmentInstances = VisibleInstances.Where(i => i.CanBeTargetedByPlayer()).ToList();
             VisibleEnvironmentInstances.Remove(Server.User.Player);
-            VisibleEnvironmentInstances.Sort((a, b) => a.TileDistanceTo(player) - b.TileDistanceTo(player));
+            VisibleEnvironmentInstances.Sort((a, b) =>
+                {
+                    int distSort = a.TileDistanceTo(player) - b.TileDistanceTo(player);
+                    return distSort != 0 ? distSort : (!(a is Entity) && b is Entity ? 1 : -1);
+                }); // TODO: fix this??
 
             // Update light map by player vision:
             //LightMap.Populate(0f);

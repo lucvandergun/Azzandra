@@ -25,6 +25,18 @@ namespace Azzandra
             Level = level;
         }
 
+        public AttackProperty()
+        {
+            Level = 1;
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (!(obj is AttackProperty p))
+                return false;
+            return GetType() == p.GetType() && Level == p.Level;
+        }
+
 
         public override byte[] ToBytes()
         {

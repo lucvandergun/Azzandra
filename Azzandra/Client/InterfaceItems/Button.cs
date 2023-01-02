@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,9 +13,10 @@ namespace Azzandra
     {
         public Vector2 Size { get; set; }
         public string DefaultText { get; set; }
-        public Action<Rectangle> Format { get; set; } = ButtonFormat.Menu; // Action to draw the button bg.
+        public ButtonFormat Format { get; set; } = new ButtonFormat.Menu(); // Action to draw the button bg.
         public Action OnClick { get; set; }
         public Func<string> Text { get; set; }
+        public AnimationManager AnimationManager { get; set; }
         public Color TextColor { get; set; } = Color.White;
         public Color TextColorHover { get; set; } = Color.Aqua;
         public Func<bool> IsSelected { get; set; }
@@ -22,7 +24,7 @@ namespace Azzandra
 
         private string GetCurrentButtonText()
         {
-            return Text != null ? Text() : DefaultText;
+            return Text != null ? Text() : DefaultText ?? "";
         }
 
         public override void OnEnterKey()
@@ -31,7 +33,7 @@ namespace Azzandra
             OnTabKey();
         }
 
-        public Button(Vector2 size, string defaultText, Action<Rectangle> buttonFormat = null)
+        public Button(Vector2 size, string defaultText, ButtonFormat buttonFormat = null)
         {
             Size = size;
             DefaultText = defaultText;
@@ -50,19 +52,21 @@ namespace Azzandra
         /// <param name="canHover">Whether the button can be hovered.</param>
         public void Render(Surface surface, Vector2 pos, GraphicsDevice gd, SpriteBatch sb, bool canHover)
         {
+            UpdateKeyInput();
+            
             bool canInteract = CanInteract == null || CanInteract();
             bool isSelected = IsSelected != null && IsSelected();
 
-            if (canInteract && IsFocussed) UpdateKeyInput();
+            if (canInteract && isSelected) UpdateKeyInput();
 
             bool hover = Input.MouseHover(surface.Position + pos - Size/2, Size) && canHover;
             var color = canInteract && hover ? TextColorHover : TextColor;
 
             // Draw rectangle
             var rect = new Rectangle((pos - Size / 2).ToPoint(), Size.ToPoint());
-            Format?.Invoke(rect);
+            Format.DrawBackground(rect, sb);
 
-            if (IsFocussed)
+            if (isSelected)
                 Display.DrawInline(rect, Color.White);
 
             // Hover & selected overlay
@@ -70,6 +74,9 @@ namespace Azzandra
                 Display.DrawRect(rect, Color.White * 0.35f);
             else if (isSelected)
                 Display.DrawRect(rect, Color.White * 0.25f);
+
+            // Draw button image/animation
+            AnimationManager?.Draw(sb, pos, 2f);
 
             // Draw button text
             var format = new TextFormat(color, Assets.Gridfont, Alignment.Centered, true);
@@ -79,9 +86,10 @@ namespace Azzandra
             if (!canInteract)
                 Display.DrawRect(rect, Color.Black * 0.5f);
 
+
             // On-click event
             if (canInteract && hover && Input.IsMouseLeftReleased)
-                OnClick.Invoke();
+                OnClick?.Invoke();
         }
 
         //protected virtual void DrawForm(Rectangle rect)

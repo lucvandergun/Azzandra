@@ -127,7 +127,8 @@ namespace Azzandra
 
         /// <summary>
         /// Save an enumerable of a certain type to a bytes array.
-        /// The resulting array is of the following shape (amtOfEntries, n * (objBytesAmt, objBytes))
+        /// The resulting array is of the following shape (amtOfEntries, n * (objBytesAmt, objBytes)).
+        /// Removes any "null" objects first - does not save them.
         /// </summary>
         /// <typeparam name="T">The object type in the list</typeparam>
         /// <param name="list">The list of objects to save</param>
@@ -135,6 +136,9 @@ namespace Azzandra
         /// <returns></returns>
         public static byte[] SaveList<T>(IEnumerable<T> list, Func<T, byte[]> objSaver)
         {
+            // Remove any null references
+            list = list.Where(i => i != null);
+            
             int objAmt = list.Count();
             var bytes = BitConverter.GetBytes(objAmt);
 

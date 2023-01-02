@@ -15,7 +15,7 @@ namespace Azzandra
         // Drawing variables:
         private readonly Vector2 LineOffset = new Vector2(0, 16);
         private readonly Vector2 InstOffset = new Vector2(10);
-        private readonly Vector2 StringOffset = new Vector2(32, 10);
+        private readonly Vector2 StringOffset = new Vector2(10 + 16, 10);
         private TextFormat Format = new TextFormat(Color.White, Assets.Medifont, Alignment.VCentered);
 
         public EnvironmentInterface(GameClient gameClient) : base(gameClient)
@@ -108,14 +108,17 @@ namespace Azzandra
         private void RenderInstanceInfo(Surface surface, Instance inst, ref Vector2 pos, bool isTarget, bool isDebug)
         {
             // Render instance picture
-            var symbol = inst.GetSymbol();
-            Display.DrawInstanceString(pos + InstOffset, symbol.Char, Assets.Gridfont, symbol.Color, 1f);
+            //var symbol = inst.GetSymbol();
+            //Display.DrawInstanceString(pos + InstOffset, symbol.Char, Assets.Gridfont, symbol.Color, 1f);
+            inst.AnimationManager.Animation?.DrawIcon(Surface.SpriteBatch, pos + InstOffset);
+
 
             // Show target box if this inst is user's target
             if (inst == GameClient.Server.User.Target || inst == GameClient.DisplayHandler.ViewHandler.HoverInstance)
             {
                 var color = inst == GameClient.Server.User.Target ? Color.Yellow : Color.White;
                 Display.DrawTexture(pos + InstOffset - new Vector2(8), Assets.Target16, color);
+                //Display.DrawInstanceString(pos + InstOffset, ">", Assets.Gridfont, color, 1f);
             }
 
             // Render type-specific information

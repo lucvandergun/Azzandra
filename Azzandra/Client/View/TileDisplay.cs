@@ -39,7 +39,7 @@ namespace Azzandra
         {
             { BlockID.Void, new TileDisplay(Color.Black, null) },
             { BlockID.Wall, new TileDisplay(null, "wall") },
-            { BlockID.Pillar, new TileDisplay(null, "rock") },
+            { BlockID.Pillar, new TileDisplay(null, "pillar") },
             { BlockID.Bricks, new TileDisplay(null, "bricks") },
             { BlockID.Floor, new TileDisplay(null, "floor") },
             { BlockID.Chasm, new TileDisplay(Color.Black, null) },
@@ -60,7 +60,7 @@ namespace Azzandra
             { BlockID.Plant, new TileDisplay(null, "plant") },
             { BlockID.Root, new TileDisplay(null, "root") },
             { BlockID.Vine, new TileDisplay(null, "vine") },
-            { BlockID.Bench, new TileDisplay(null, "bench") },
+            { BlockID.Stool, new TileDisplay(null, "stool") },
             { BlockID.Table, new TileDisplay(null, "table") },
             { BlockID.Acid, new TileDisplay(null, "acid") },
         };

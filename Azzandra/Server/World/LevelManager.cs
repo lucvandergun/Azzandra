@@ -153,6 +153,7 @@ namespace Azzandra
             // Setup user's visibility map of level
             Server.User.VisibilityHandler.SetupVisibilityMap(CurrentLevel);
             Server.User.UpdateVisibilityMap();
+            Server.GameClient.DisplayHandler.ViewHandler.OnNewFloor();
         }
 
         private Level CreateLevel(int depth)

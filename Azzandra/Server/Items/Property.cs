@@ -10,6 +10,8 @@ namespace Azzandra
     {
         protected const int AttackID = 0, DefenseID = 1, FoodID = 2;
 
+        public bool IsHidden { get; set; } = false;
+
         public virtual int GeneralTypeID => -1;
         
         public static Property Load(byte[] bytes)

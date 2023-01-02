@@ -150,6 +150,12 @@ namespace Azzandra
                 // Developer commands:
                 if (IsDevMode)
                 {
+                    if (Input.IsKeyPressed[Keys.V])
+                    {
+                        Server.User.ShowMessage(Util.CastRay(new Vector(0, 0), new Vector(5, 3), true, true).Stringify());
+                    }
+
+
                     // Open command input interface
                     if (DisplayHandler.ChatInterface == null)
                         if (Input.IsKeyPressed[Keys.OemQuestion] && !Input.IsKeyDown[Keys.LeftShift] && !Input.IsKeyDown[Keys.RightShift])

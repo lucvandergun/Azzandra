@@ -19,7 +19,7 @@ namespace Azzandra
         // === Turn Handling === \\
         public const int TURN_SPEED = 16;                   // ### Not used ###
         public const int TICK_POTENTIAL_ADDITION = 1;       // Amt of ActionPotential added to each entity every game update
-        public const int TICK_SPEED = 1;                    // Amt of updates it takes to get perform a tick.
+        public const int TICK_SPEED = 2;                    // Amt of updates it takes to get perform a tick.
 
         public int TickDelay { get; private set; }
         public int AmtUpdates = 0;

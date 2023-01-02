@@ -70,12 +70,15 @@ namespace Azzandra
             }
         }
 
-        public override void OnInstanceCollision(Entity collider)
+        public override void OnCollisionWithInstance(Instance inst)
         {
-            if (collider is Azzandra)
+            if (!(inst is Entity entity))
+                return;
+            
+            if (entity is Azzandra)
                 return;
 
-            if (collider.AddStatusEffect(new StatusEffects.Blind(2, 8), true) && collider is Player player)
+            if (entity.AddStatusEffect(new StatusEffects.Blind(2, 8), true) && entity is Player player)
                 player.User.ShowMessage("<red>You have been blinded by the shadow cloud!");
         }
 

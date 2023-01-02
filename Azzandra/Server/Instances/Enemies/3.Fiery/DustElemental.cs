@@ -42,7 +42,8 @@ namespace Azzandra
                     var angles = (dist.X == 0 || dist.Y == 0) ? Vector.Dirs4 : dist.X == dist.Y ? Vector.Dirs4Diagonal : Util.Random.Next(2) == 1 ? Vector.Dirs4 : Vector.Dirs4Diagonal;
                     foreach (var angle in angles)
                     {
-                        Level.CreateInstance(new DustCloud(X, Y, angle));
+                        var inst = Level.CreateInstance(new DustCloud(X, Y, angle));
+                        inst.ActionPotential = ActionPotential;
                     }
                     FireStraight = !FireStraight;
 

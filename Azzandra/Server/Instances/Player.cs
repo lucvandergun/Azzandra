@@ -279,18 +279,21 @@ namespace Azzandra
             return User.IsCheatMode || base.CanMoveUnobstructed(x, y, dx, dy, incorporateEntities);
         }
 
-        public override void OnOtherInstanceCollision(Instance inst)
+        public override void OnCollisionWithInstance(Instance inst)
         {
             if (inst is GroundItem grit && grit.Item is Items.Ammunition ammo)
             {
-                if (User.Inventory.HasItem(i => i.ID == ammo.ID))
+                if (User.Inventory.HasItem(i => ammo.IsStackableWith(i)))
                 {
-                    User.Inventory.AddItem(ammo);
-                    grit.Destroy();
+                    if (User.Inventory.CanAddItem(ammo))
+                    {
+                        User.Inventory.AddItem(ammo);
+                        grit.Destroy();
+                    }
                 }
             }
 
-            base.OnOtherInstanceCollision(inst);
+            base.OnCollisionWithInstance(inst);
         }
 
         public override Affect Affect(Instance target, Affect affect)

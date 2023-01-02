@@ -21,6 +21,7 @@ namespace Azzandra
         Plant,
 
         Undead,
+        Skeleton,
         Spirit,
         Demon,
         Beast,
@@ -184,7 +185,8 @@ namespace Azzandra
             switch (type)
             {
                 default: return true;
-
+                case EntityType.Skeleton:
+                    return Skeleton(affect, target);
                 case EntityType.Undead:
                     return Undead(affect, target);
                 case EntityType.NonPhysical:
@@ -192,6 +194,18 @@ namespace Azzandra
                 case EntityType.Fire:
                     return Fire(affect, target);
             }
+        }
+
+        private static bool Skeleton(Affect affect, Entity target)
+        {
+            if (affect is Attack attack && attack.Style == Style.Ranged)
+            {
+                affect.Fail("Your projectile goes straight trough " + target.ToStringAdress() + ".");
+                affect.HitType = HitType.Evaded;
+                return false;
+            }
+
+            return true;
         }
 
         private static bool Undead(Affect affect, Entity target)

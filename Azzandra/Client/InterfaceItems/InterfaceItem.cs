@@ -24,7 +24,7 @@ namespace Azzandra
         }
 
         public bool IsFocussed { get; protected set; } = false;
-        protected bool JustFocussed = true;
+        protected bool JustFocussed = false;
         public virtual void SetFocussed()
         {
             IsFocussed = true;
@@ -48,13 +48,16 @@ namespace Azzandra
                 return;
             }  
 
-            if (Input.IsKeyPressed[Keys.Enter])
+            if (IsFocussed)
             {
-                OnEnterKey();
-            }
-            else if (Input.IsKeyPressed[Keys.Tab])
-            {
-                OnTabKey();
+                if (Input.IsKeyPressed[Keys.Enter])
+                {
+                    OnEnterKey();
+                }
+                else if (Input.IsKeyPressed[Keys.Tab])
+                {
+                    OnTabKey();
+                }
             }
         }
     }

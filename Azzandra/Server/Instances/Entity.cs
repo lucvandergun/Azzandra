@@ -108,6 +108,7 @@ namespace Azzandra
         public Entity(int x, int y) : base(x, y)
         {
             Hp = GetFullHp();
+            ActionPotential = Util.Random.Next(Initiative);
         }
 
 
@@ -187,12 +188,9 @@ namespace Azzandra
             base.TurnStart();
             
             // Reset turn trackers:
-            SightSquares = null;
-            //Hits.Clear(); // Are cleared now by themselves.
-
             //if (Hp <= 0)
             //{
-            //    Destroy();
+            //    DestroyNextTurn();
             //    return;
             //}
 
@@ -247,11 +245,6 @@ namespace Azzandra
 
             // Sets the current action to the next(queued) action, and sets the next action to null.
             PutNextAction();
-        }
-
-        public override void TurnEnd()
-        {
-            base.TurnEnd();
 
             // Perform on-standing tile actions
             foreach (var node in GetTiles())
@@ -261,16 +254,14 @@ namespace Azzandra
                 StandOnTile(tile, node);
             }
 
-            // Perform on-collision actions with instances
-            var colliding = Level.ActiveInstances.Where(i => IsCollisionWith(i)).ToList();
-            foreach (var inst in colliding)
-            {
-                // Player instance is respawned on death... this gives complications... Maybe AddList and DeleteList in Level? (added after looping)
-                // insts.onplayer tick are added at that tickstart, and the others not!
-                if (inst != this)
-                    OnOtherInstanceCollision(inst);
-                //inst.OnInstanceCollision(this);
-            }
+            base.Turn();
+        }
+
+        public override void TurnEnd()
+        {
+            base.TurnEnd();
+
+            
 
             // Check death: set it to it's own initiative:
             if (Hp <= 0)
@@ -340,11 +331,6 @@ namespace Azzandra
                     }
                     break;
             }
-        }
-
-        public virtual void OnOtherInstanceCollision(Instance inst)
-        {
-            inst.OnInstanceCollision(this);
         }
 
 
@@ -704,34 +690,6 @@ namespace Azzandra
 
             return other.GetTiles().Any(t => calculator.VisibleTiles.Contains(t) && Level.GetTileLightness(t) > 0);
         }
-
-
-        //private bool CheckSightLine(int xstart, int ystart, int xend, int yend)
-        //{
-        //    var start = new Vector(xstart, ystart);
-        //    var end = new Vector(xend, yend);
-
-        //    var ray = start.CastRay(end, true, true);
-
-        //    SightSquares = ray;
-
-        //    //check marked squares for see through
-        //    int tile;
-        //    foreach (var point in ray)
-        //    {
-        //        tile = Level.TileMap[point.X, point.Y].Floor;
-        //        if (!CanSeeThroughTile(tile))
-        //        {
-        //            return false;
-        //        }
-        //    }
-
-
-        //    return true;
-        //}
-
-
-
 
         public override void Draw(SpriteBatch sb, Vector2 pos, float lightness)
         {

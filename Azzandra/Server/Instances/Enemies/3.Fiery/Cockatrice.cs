@@ -19,6 +19,15 @@ namespace Azzandra
         public Cockatrice(int x, int y) : base(x, y)
         { }
 
+        public override void Turn()
+        {
+            if (Target == null)
+            {
+                LockedPosition = null;
+            }
+            base.Turn();
+        }
+
         public override EntityAction DetermineAggressiveAction()
         {
             // Just to make sure: check whether target actually exists

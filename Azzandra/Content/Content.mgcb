@@ -171,6 +171,18 @@
 /processorParam:TextureFormat=Compressed
 /build:fonts/Medifont.spritefont
 
+#begin interface/button.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:interface/button.png
+
 #begin interface/hit.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -206,6 +218,18 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:interface/menu_arch.png
+
+#begin interface/menu_arch_bg.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:interface/menu_arch_bg.png
 
 #begin interface/menu_backgrounds/0.png
 /importer:TextureImporter
@@ -350,6 +374,18 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:textures/acid.png
+
+#begin textures/altar.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:textures/altar.png
 
 #begin textures/arrow.png
 /importer:TextureImporter
@@ -651,6 +687,30 @@
 /processorParam:TextureFormat=Color
 /build:textures/entity/armoured_skeleton.png
 
+#begin textures/entity/armoured_skeleton_bones.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:textures/entity/armoured_skeleton_bones.png
+
+#begin textures/entity/azzandra.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:textures/entity/azzandra.png
+
 #begin textures/entity/carnivorous_plant.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -663,7 +723,7 @@
 /processorParam:TextureFormat=Color
 /build:textures/entity/carnivorous_plant.png
 
-#begin textures/entity/cave_worm_head.png
+#begin textures/entity/cave_worm.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -673,19 +733,7 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:textures/entity/cave_worm_head.png
-
-#begin textures/entity/cave_worm_tail.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:textures/entity/cave_worm_tail.png
+/build:textures/entity/cave_worm.png
 
 #begin textures/entity/choker.png
 /importer:TextureImporter
@@ -758,6 +806,18 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:textures/entity/enchanter.png
+
+#begin textures/entity/fiend.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:textures/entity/fiend.png
 
 #begin textures/entity/fire_elemental.png
 /importer:TextureImporter
@@ -1071,6 +1131,18 @@
 /processorParam:TextureFormat=Color
 /build:textures/entity/skeleton.png
 
+#begin textures/entity/skeleton_bones.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:textures/entity/skeleton_bones.png
+
 #begin textures/entity/spectre.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -1263,7 +1335,7 @@
 /processorParam:TextureFormat=Color
 /build:textures/item.png
 
-#begin textures/key.png
+#begin textures/item_arrow.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -1273,7 +1345,31 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:textures/key.png
+/build:textures/item_arrow.png
+
+#begin textures/item_bolt.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:textures/item_bolt.png
+
+#begin textures/item_key.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:textures/item_key.png
 
 #begin textures/lava.png
 /importer:TextureImporter
@@ -1311,6 +1407,30 @@
 /processorParam:TextureFormat=Color
 /build:textures/mushroom.png
 
+#begin textures/obelisk.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:textures/obelisk.png
+
+#begin textures/pillar.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:textures/pillar.png
+
 #begin textures/plant.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -1334,6 +1454,18 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:textures/rock.png
+
+#begin textures/root.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:textures/root.png
 
 #begin textures/shadow_cloud.png
 /importer:TextureImporter
@@ -1383,7 +1515,7 @@
 /processorParam:TextureFormat=Color
 /build:textures/spell.png
 
-#begin textures/spell_large.png
+#begin textures/spell_small.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -1393,7 +1525,7 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:textures/spell_large.png
+/build:textures/spell_small.png
 
 #begin textures/stairs_down.png
 /importer:TextureImporter
@@ -1454,6 +1586,18 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:textures/table.png
+
+#begin textures/torch.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:textures/torch.png
 
 #begin textures/unknown.png
 /importer:TextureImporter

@@ -23,9 +23,9 @@ namespace Azzandra
             return inst is GelatinousCube;
         }
 
-        public override void OnOtherInstanceCollision(Instance inst)
+        public override void OnCollisionWithInstance(Instance inst)
         {
-            base.OnOtherInstanceCollision(inst);
+            base.OnCollisionWithInstance(inst);
             //if (inst is Entity entity)
             //{
             //    entity.GetHit(Style.Other, entity.Hp);

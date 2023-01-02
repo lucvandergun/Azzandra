@@ -11,6 +11,7 @@ namespace Azzandra.Items
     public abstract class Ammunition : Item, IAmmunition
     {
         public int Damage;
+        public override int GetThrowDmg() => Damage;
 
         public virtual AmmunitionType AmmunitionType { get; set; } = AmmunitionType.Arrow;
         public List<global::Azzandra.AttackProperty> AttackProperties => null;

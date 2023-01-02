@@ -46,7 +46,7 @@ namespace Azzandra
             base.Turn();
         }
 
-        public override void OnOtherInstanceCollision(Instance collider)
+        public override void OnCollisionWithInstance(Instance collider)
         {
             if (collider is DustElemental || collider is DustCloud)
                 return;

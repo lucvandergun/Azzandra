@@ -27,7 +27,7 @@ namespace Azzandra
                         return Color.MonoGameOrange;
                     case AttackPropertyID.Frost:
                         return Color.LightBlue;
-                    case AttackPropertyID.Blind:
+                    case AttackPropertyID.Shadow:
                         return Color.Purple;
                     case AttackPropertyID.Poison:
                         return Color.Green;

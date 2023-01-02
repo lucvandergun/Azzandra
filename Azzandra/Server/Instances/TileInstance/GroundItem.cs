@@ -15,7 +15,23 @@ namespace Azzandra
         public override bool IsSolid() => false;
         public override bool IsInteractable() => true;
         public static Texture2D Asset => Assets.GetSprite("item");
-        public override string AssetName => Item?.ID.Substring(Item.ID.Length - 4, 4) == "_key" ? "key" : "item";
+        public override string AssetName
+        {
+            get
+            {
+                int str_length = Item?.ID.Length ?? 0;
+                
+                if (str_length > 4 && Item?.ID.Substring(Item.ID.Length - 4, 4) == "_key")
+                    return "item_key";
+                else if (str_length > 6 && Item?.ID.Substring(Item.ID.Length - 6, 6) == "_arrow")
+                    return "item_arrow";
+                else if (str_length > 5 && Item?.ID.Substring(Item.ID.Length - 5, 5) == "_bolt")
+                    return "item_bolt";
+                else
+                    return "item";
+            }
+            
+        }
         public override Symbol GetSymbol() => new Symbol('x', Color.Red);
         public override string Name => Item?.ToString() ?? "null";
         public override string ToStringAdress() => "the " + Name;

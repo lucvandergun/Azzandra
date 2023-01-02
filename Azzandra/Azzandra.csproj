@@ -119,11 +119,13 @@
     <Compile Include="Server\Generation\AreaGeneration\AreaChest.cs" />
     <Compile Include="Server\Generation\AreaGeneration\AreaShrine.cs" />
     <Compile Include="Server\Generation\Spawners\Graves.cs" />
+    <Compile Include="Server\Instances\Enemies\3.Fiery\Fiend.cs" />
     <Compile Include="Server\Instances\Enemies\0.Universal\Kobold.cs" />
     <Compile Include="Server\Instances\Enemies\0.Universal\Zombie.cs" />
     <Compile Include="Server\Instances\Enemies\1.Frozen\Ghaugh.cs" />
     <Compile Include="Server\Instances\Enemies\1.Frozen\LostMage.cs" />
     <Compile Include="Server\Instances\Enemies\1.Frozen\AlphaWolf.cs" />
+    <Compile Include="Server\Instances\Enemies\1.Frozen\CaveWorm.cs" />
     <Compile Include="Server\Instances\Enemies\3.Fiery\DustElemental.cs" />
     <Compile Include="Server\Instances\Enemies\2.Overgrown\CarnivorousPlant.cs" />
     <Compile Include="Server\Instances\Enemies\1.Frozen\Gargoyle.cs" />
@@ -132,7 +134,7 @@
     <Compile Include="Server\Instances\Enemies\2.Overgrown\ShadowHound.cs" />
     <Compile Include="Server\Instances\Enemies\2.Overgrown\Necromancer.cs" />
     <Compile Include="Server\Instances\Enemies\1.Frozen\CaveWormTail.cs" />
-    <Compile Include="Server\Instances\Enemies\1.Frozen\CaveWorm.cs" />
+    <Compile Include="Server\Instances\Enemies\1.Frozen\CaveWormHead.cs" />
     <Compile Include="Server\Instances\Enemies\2.Overgrown\Ooze.cs" />
     <Compile Include="Server\Instances\Enemies\2.Overgrown\Troll.cs" />
     <Compile Include="Server\Instances\Enemies\3.Fiery\Enchanter.cs" />
@@ -141,6 +143,7 @@
     <Compile Include="Server\Instances\Helper\Actions\ActionInteract.cs" />
     <Compile Include="Server\Instances\Helper\Actions\ActionDirectional.cs" />
     <Compile Include="Server\Instances\Helper\Actions\ActionLeapAttack2.cs" />
+    <Compile Include="Server\Instances\Helper\Actions\ActionFlee.cs" />
     <Compile Include="Server\Instances\Helper\Actions\ActionPathTarget.cs" />
     <Compile Include="Server\Instances\Helper\Actions\ActionSwap.cs" />
     <Compile Include="Server\Instances\Helper\Actions\ActionRest.cs" />
@@ -179,6 +182,7 @@
     <Compile Include="Server\Items\Consumables\FoodEffect.cs" />
     <Compile Include="Server\Items\Equipment\Staff.cs" />
     <Compile Include="Server\Items\Equipment\MagicWeapon.cs" />
+    <Compile Include="Server\Items\Scroll.cs" />
     <Compile Include="Server\Items\ILightable.cs" />
     <Compile Include="Server\Items\Property.cs" />
     <Compile Include="Server\Region.cs" />
@@ -279,6 +283,7 @@
     <Compile Include="Server\User\LightLevelCalculator.cs" />
     <Compile Include="Server\Data\SkillID.cs" />
     <Compile Include="Server\World\Block.cs" />
+    <Compile Include="Server\World\Blocks\BlockRoot.cs" />
     <Compile Include="Server\World\Blocks\BlockIcicle.cs" />
     <Compile Include="Server\World\Blocks\BlockVine.cs" />
     <Compile Include="Server\World\Blocks\BlockCobweb.cs" />

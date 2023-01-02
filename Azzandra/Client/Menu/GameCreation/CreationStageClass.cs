@@ -14,6 +14,7 @@ namespace Azzandra
     {
         private class ClassInfo
         {
+            public string Asset { get; set; }
             public string Name { get; set; }
             public Color Color { get; set; }
             public string[] Info { get; set; }
@@ -44,6 +45,7 @@ namespace Azzandra
             {
                 new ClassInfo()
                 {
+                    Asset = "player_knight",
                     Name = "Knight",
                     Color = new Color(255, 35, 0),
                     Info = new string[]
@@ -57,6 +59,7 @@ namespace Azzandra
                 },
                 new ClassInfo()
                 {
+                    Asset = "player_rogue",
                     Name = "Rogue",
                     Color = new Color(0, 204, 0),
                     Info = new string[]
@@ -70,6 +73,7 @@ namespace Azzandra
                 },
                 new ClassInfo()
                 {
+                    Asset = "player_wizard",
                     Name = "Wizard",
                     Color = new Color(113, 200, 247),
                     Info = new string[]
@@ -83,6 +87,7 @@ namespace Azzandra
                 },
                 new ClassInfo()
                 {
+                    Asset = "player_barbarian",
                     Name = "Barbarian",
                     Color = new Color(255, 215, 0),
                     Info = new string[]
@@ -96,6 +101,7 @@ namespace Azzandra
                 },
                 new ClassInfo()
                 {
+                    Asset = "player_priest",
                     Name = "Priest",
                     Color = new Color(130, 92, 214),
                     Info = new string[]
@@ -111,7 +117,7 @@ namespace Azzandra
             for (int i = 0; i < Classes.Length; i++)
             {
                 var index = i;
-                Classes[i].Button = new Button(buttonSize, Classes[i].GetSymbol())
+                Classes[i].Button = new Button(buttonSize, null)
                 {
                     OnClick = () => {
                         if (SelectedClass != index)
@@ -119,7 +125,8 @@ namespace Azzandra
                     },
                     IsSelected = () => SelectedClass == index,
                     TextColor = Classes[i].Color,
-                    TextColorHover = Color.White
+                    TextColorHover = Color.White,
+                    AnimationManager = new AnimationManager(Classes[i].Asset)
                 };
             }
         }

@@ -76,7 +76,7 @@
 	},
 	"charge": {
 		"name": "charge",
-		"desc": "Protect yourself from incomming hits for 5 turns.",
+		"desc": "Protect yourself from incomming hits for 3 turns.",
 		"spellpoints": 4,
 		"type": "defensive",
 		"weight": 12,
@@ -143,14 +143,14 @@
 	},
 	"disorient": {
 		"name": "disorient",
-		"desc": "Make your opponent dizzy, so that it is unable to traverse a path.",
+		"desc": "Make your opponent dizzy.",
 		"spellpoints": 3,
 		"type": "offensive",
 		"weight": 12,
 	},
 	"confuse": {
 		"name": "confuse",
-		"desc": "Alter your opponent's memory, intentions and sense-making.",
+		"desc": "Mystify your opponent's intentions.",
 		"spellpoints": 4,
 		"type": "offensive",
 		"weight": 12,

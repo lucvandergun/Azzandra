@@ -30,22 +30,28 @@ namespace Azzandra
     public class MovementAnimation : IAnimation
     {
         public readonly List<Vector> Steps;
-        public int Duration;
+        public int Duration { get; set; }
         private Instance _owner;
         public Instance Owner => _owner;
 
         private int AnimationLength;
         private int MomentOfStart;
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="owner">The owner instance of the animation.</param>
+        /// <param name="steps">The list of relative steps the movement is to display.</param>
+        /// <param name="duration">Is usually the initiative of the instance, i.e. the amount of ticks it takes to perform a turn: thus one full turn-length.</param>
         public MovementAnimation(Instance owner, List<Vector> steps, int duration)
         {
             Steps = steps;
             Steps.Reverse(); // Steps have to be reversed as they are being offset FROM the ending position!
-            Duration = duration;
+            Duration = duration * Server.TICK_SPEED;
             _owner = owner;
 
             MomentOfStart = Owner.Level.Server.AmtUpdates;
-            AnimationLength = Duration * Server.TICK_SPEED;
+            AnimationLength = Duration;
         }
 
         public MovementAnimation(Vector step)

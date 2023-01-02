@@ -23,6 +23,18 @@ namespace Azzandra
 
         public FoodEffect() { }
 
+        public override string ToString()
+        {
+            return ID.CapFirst();
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (!(obj is FoodEffect p))
+                return false;
+            return ID == p.ID && Level == p.Level && Time == p.Time;
+        }
+
         public bool Apply(Entity entity)
         {
             var player = entity as Player;
@@ -131,7 +143,7 @@ namespace Azzandra
 
         public override byte[] ToBytes()
         {
-            var bytes = new byte[28];
+            var bytes = new byte[29];
             int pos = 0;
 
             // First thing: status effect id
@@ -139,6 +151,8 @@ namespace Azzandra
             pos += 20;
 
             // Level & Time:
+            bytes.Insert(pos, BitConverter.GetBytes(IsHidden));
+            pos += 1;
             bytes.Insert(pos, BitConverter.GetBytes(Level));
             pos += 4;
             bytes.Insert(pos, BitConverter.GetBytes(Time));
@@ -151,12 +165,15 @@ namespace Azzandra
         {
             string id = GameSaver.ToString(bytes, pos);
             pos += 20;
+            bool isHidden = BitConverter.ToBoolean(bytes, pos);
+            pos += 1;
             int level = BitConverter.ToInt32(bytes, pos);
             pos += 4;
             int time = BitConverter.ToInt32(bytes, pos);
             pos += 4;
 
             var effect = new FoodEffect(id, level, time);
+            effect.IsHidden = isHidden;
 
             return effect;
         }

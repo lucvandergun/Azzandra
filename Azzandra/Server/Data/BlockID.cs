@@ -33,7 +33,7 @@ namespace Azzandra
             Vine = 110,
             Root = 111,
             Icicle = 112,
-            Bench = 113,
+            Stool = 113,
             Table = 114,
             Acid = 115,
             Rubble = 116;
@@ -66,9 +66,9 @@ namespace Azzandra
             BlockRegistry.Add(Cobweb, new BlockCobweb(true, true, true, true, false, 0));
             BlockRegistry.Add(Plant, new BlockData(true, true, true, true, false, 0));
             BlockRegistry.Add(Vine, new BlockVine(true, true, true, true, false, 0));
-            BlockRegistry.Add(Root, new BlockData(true, true, true, true, false, 0));
+            BlockRegistry.Add(Root, new BlockRoot(false, true, false, true, false, 0));
             BlockRegistry.Add(Icicle, new BlockIcicle(false, true, true, true, false, 0));
-            BlockRegistry.Add(Bench, new BlockData(false, true, true, true, false, 0));
+            BlockRegistry.Add(Stool, new BlockData(false, true, true, true, false, 0));
             BlockRegistry.Add(Table, new BlockData(false, true, true, false, false, 0));
             BlockRegistry.Add(Acid, new BlockData(true, true, true, true, false, 0));
             BlockRegistry.Add(Rubble, new BlockData(true, true, true, true, false, 0));

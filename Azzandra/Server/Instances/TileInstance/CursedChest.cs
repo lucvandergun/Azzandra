@@ -49,8 +49,11 @@ namespace Azzandra
                 Level.CreateInstance(new GiantSkeleton(X, Y));
                 IsOpen = true;
             }
-            
-            base.Interact(entity);
+
+            else
+            {
+                base.Interact(entity);
+            }
         }
     }
 }
