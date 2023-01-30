@@ -12,7 +12,7 @@ namespace Azzandra
         public override int GetW() => 2;
         public override int GetH() => 2;
         public override EntityType EntityType => EntityType.Ice;
-
+        public override bool CanFlee() => false;
 
         public IceGiant(int x, int y) : base(x, y) { }
 

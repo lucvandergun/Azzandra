@@ -11,6 +11,7 @@ namespace Azzandra
     public abstract class NPC : Entity
     {
         public Vector? BasePosition { get; set; }   // Base position to stick location to:  null = no restricitons
+        public bool IsHaunting = false;
         public virtual int WanderRange => 4;        // The distance from the base position the npc is allowed to target a wander path to
         
         public List<NPC> Group { get; set; }
@@ -31,16 +32,20 @@ namespace Azzandra
             if (x != 0 || y != 0)   // base pos wasn't 0
                 BasePosition = new Vector(x, y);
 
+            IsHaunting = BitConverter.ToBoolean(bytes, pos);
+            pos += 1;
+
             base.Load(bytes, ref pos);
         }
 
         public override byte[] ToBytes()
         {
-            var bytes = new byte[8];
+            var bytes = new byte[9];
 
             var basePos = BasePosition ?? Vector.Zero;
             bytes.Insert(0, BitConverter.GetBytes(basePos.X));
             bytes.Insert(4, BitConverter.GetBytes(basePos.Y));
+            bytes.Insert(8, BitConverter.GetBytes(IsHaunting));
 
             return bytes.Concat(base.ToBytes()).ToArray();
         }
@@ -111,7 +116,7 @@ namespace Azzandra
             //var e = CanExist(target.X, target.Y);
             if (CanTargetTile(Level.GetTile(target)) && CanExist(target.X, target.Y))
             {
-                return new ActionPath(this, target, true);
+                return new ActionPath(this, target, true, true);
             }
 
             return null;

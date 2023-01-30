@@ -233,7 +233,7 @@ namespace Azzandra
                 inst.ActionPotential += Server.TICK_POTENTIAL_ADDITION;
 
                 // Turn-Start and Turn:
-                if (inst.ActionPotential >= inst.Initiative)
+                if (inst.ActionPotential >= inst.GetInitiative())
                 {
                     inst.TurnStart();
                     //if (inst is Player player) player.User.ShowMessage("tick start");
@@ -246,7 +246,7 @@ namespace Azzandra
 
                     if (!(inst is Player))
                     {
-                        inst.ActionPotential -= inst.Initiative;
+                        inst.ActionPotential -= inst.GetInitiative();
                         inst.Turn();
                         inst.TimeSinceLastTurn = 0;
                         inst.MomentOfLastTurn = Server.AmtUpdates;
@@ -283,11 +283,11 @@ namespace Azzandra
                 }
 
                 // Perform Turn-End just before the instances' Turn:
-                if (inst.TimeSinceLastTurn < inst.Initiative && inst.TimeSinceLastTurn >= 0)
+                if (inst.TimeSinceLastTurn < inst.GetInitiative() && inst.TimeSinceLastTurn >= 0)
                     inst.TimeSinceLastTurn += Server.TICK_POTENTIAL_ADDITION;
 
                 // Turn-End - Just before the instances' Turn.
-                if (inst.TimeSinceLastTurn >= inst.Initiative)
+                if (inst.TimeSinceLastTurn >= inst.GetInitiative())
                 {
                     inst.TurnEnd();
                     inst.TimeSinceLastTurn = -1;
@@ -509,10 +509,14 @@ namespace Azzandra
                 for (x = 0; x < MapWidth; x++)
                 {
                     tile = tiles[x, y];
-                    bytes.Insert(pos, BitConverter.GetBytes(tile.Ground.ID));
-                    pos += 4;
-                    bytes.Insert(pos, BitConverter.GetBytes(tile.Object.ID));
-                    pos += 4;
+                    bytes.Insert(pos, BitConverter.GetBytes(Convert.ToInt16(tile.Ground.ID)));
+                    pos += 2;
+                    bytes.Insert(pos, BitConverter.GetBytes(Convert.ToInt16(tile.Ground.Value)));
+                    pos += 2;
+                    bytes.Insert(pos, BitConverter.GetBytes(Convert.ToInt16(tile.Object.ID)));
+                    pos += 2;
+                    bytes.Insert(pos, BitConverter.GetBytes(Convert.ToInt16(tile.Object.Value)));
+                    pos += 2;
                 }
             }
 
@@ -593,17 +597,21 @@ namespace Azzandra
         private Tile[,] LoadTileMap(byte[] bytes, ref int pos)
         {
             var tiles = new Tile[MapWidth, MapHeight];
-            int id1, id2;
+            int id1, id2, val1, val2;
             
             for (int x, y = 0; y < MapHeight; y++)
             {
                 for (x = 0; x < MapWidth; x++)
                 {
-                    id1 = BitConverter.ToInt32(bytes, pos);
-                    pos += 4;
-                    id2 = BitConverter.ToInt32(bytes, pos);
-                    pos += 4;
-                    tiles[x, y] = new Tile(id1, id2);
+                    id1 = Convert.ToInt32(BitConverter.ToInt16(bytes, pos));
+                    pos += 2;
+                    val1 = Convert.ToInt32(BitConverter.ToInt16(bytes, pos));
+                    pos += 2;
+                    id2 = Convert.ToInt32(BitConverter.ToInt16(bytes, pos));
+                    pos += 2;
+                    val2 = Convert.ToInt32(BitConverter.ToInt16(bytes, pos));
+                    pos += 2;
+                    tiles[x, y] = new Tile(id1, val1, id2, val2);
                 }
             }
 

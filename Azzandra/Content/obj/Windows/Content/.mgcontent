@@ -28,6 +28,8 @@
     <File>D:/Users/Luc/Documents/Dev/C#/Azzandra/Azzandra/Azzandra/Content/interface/menu_backgrounds/2.png</File>
     <File>D:/Users/Luc/Documents/Dev/C#/Azzandra/Azzandra/Azzandra/Content/interface/menu_backgrounds/3.png</File>
     <File>D:/Users/Luc/Documents/Dev/C#/Azzandra/Azzandra/Azzandra/Content/interface/menu_backgrounds/4.png</File>
+    <File>D:/Users/Luc/Documents/Dev/C#/Azzandra/Azzandra/Azzandra/Content/interface/menu_backgrounds/5.png</File>
+    <File>D:/Users/Luc/Documents/Dev/C#/Azzandra/Azzandra/Azzandra/Content/interface/menu_backgrounds/6.png</File>
     <File>D:/Users/Luc/Documents/Dev/C#/Azzandra/Azzandra/Azzandra/Content/interface/target12.png</File>
     <File>D:/Users/Luc/Documents/Dev/C#/Azzandra/Azzandra/Azzandra/Content/interface/target16.png</File>
     <File>D:/Users/Luc/Documents/Dev/C#/Azzandra/Azzandra/Azzandra/Content/interface/target20.png</File>
@@ -79,7 +81,9 @@
     <File>D:/Users/Luc/Documents/Dev/C#/Azzandra/Azzandra/Azzandra/Content/textures/entity/gelatinous_cube.png</File>
     <File>D:/Users/Luc/Documents/Dev/C#/Azzandra/Azzandra/Azzandra/Content/textures/entity/gelatinous_cube_small.png</File>
     <File>D:/Users/Luc/Documents/Dev/C#/Azzandra/Azzandra/Azzandra/Content/textures/entity/ghaugh.png</File>
-    <File>D:/Users/Luc/Documents/Dev/C#/Azzandra/Azzandra/Azzandra/Content/textures/entity/giant_skeleton.png</File>
+    <File>D:/Users/Luc/Documents/Dev/C#/Azzandra/Azzandra/Azzandra/Content/textures/entity/giant_skeleton_archer.png</File>
+    <File>D:/Users/Luc/Documents/Dev/C#/Azzandra/Azzandra/Azzandra/Content/textures/entity/giant_skeleton_warlock.png</File>
+    <File>D:/Users/Luc/Documents/Dev/C#/Azzandra/Azzandra/Azzandra/Content/textures/entity/giant_skeleton_warrior.png</File>
     <File>D:/Users/Luc/Documents/Dev/C#/Azzandra/Azzandra/Azzandra/Content/textures/entity/goblin.png</File>
     <File>D:/Users/Luc/Documents/Dev/C#/Azzandra/Azzandra/Azzandra/Content/textures/entity/hellhound.png</File>
     <File>D:/Users/Luc/Documents/Dev/C#/Azzandra/Azzandra/Azzandra/Content/textures/entity/hobgoblin.png</File>
@@ -143,6 +147,10 @@
     <File>D:/Users/Luc/Documents/Dev/C#/Azzandra/Azzandra/Azzandra/Content/textures/water.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

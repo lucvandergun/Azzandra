@@ -29,6 +29,7 @@ namespace Azzandra
         public AnimationManager AnimationManager;
 
         public virtual string AssetName => GetType().Name.ToUnderscore();
+        protected virtual void UpdateAnimation(string animation = null) => AnimationManager.Play(animation ?? AssetName);
         public virtual Color AssetLightness => Color.White;
         public virtual Texture2D GetSprite() => Assets.GetSprite(AssetName);
 
@@ -51,9 +52,13 @@ namespace Azzandra
         // === Initiative Handling === \\
 
         /// <summary>
-        /// The time it takes until an action may be performed.
+        /// The regular time it takes until a "Turn" or action may be performed by this instance.
         /// </summary>
-        public virtual int Initiative { get; protected set; } = 8;   // 8 is the basic unit, the player will have this speed under normal circumstances.
+        public virtual int BaseInitiative { get; protected set; } = 8; // 8 is the basic unit, the player will have this speed under normal circumstances.
+        /// <summary>
+        /// The actual time (modified by e.g. status effects) it takes until an action may be performed.
+        /// </summary>
+        public virtual int GetInitiative() => BaseInitiative;
         /// <summary>
         /// The current potential for taking actions. One action or 'Turn' can be taken per initiative. If not enough potential present, it will have to be accumulated first.
         /// </summary>
@@ -61,7 +66,7 @@ namespace Azzandra
         /// <summary>
         /// Checks whether ActionPotential is greater than the Initiative.
         /// </summary>
-        public bool CanPerformTurn() => ActionPotential >= Initiative;
+        public bool CanPerformTurn() => ActionPotential >= GetInitiative();
 
         /// <summary>
         /// The time in action potential built up since the last turn: should be equal to 'ActionPotential', but this counter is 
@@ -248,7 +253,7 @@ namespace Azzandra
 
         public void DestroyNextTurn()
         {
-            DeathTimer = Initiative;
+            DeathTimer = GetInitiative();
         }
 
         public void Destroy()
@@ -534,6 +539,28 @@ namespace Azzandra
             return DistanceTo(other).ChebyshevLength();
         }
 
+
+
+
+        public Vector DistanceTo(Vector hypotheticalPosition, Instance other)
+        {
+            if (other == null) return Vector.Zero;
+
+            var offset = Position - hypotheticalPosition;
+            // For all tiles in 1 to all tiles in 2, select min distance:
+            Vector? minDist = null;
+            foreach (var t1 in GetTiles())
+            {
+                foreach (var t2 in other.GetTiles())
+                {
+                    if (!minDist.HasValue || (t2 - t1 + offset).OrthogonalLength() < minDist.Value.OrthogonalLength())
+                        minDist = (t2 - t1 + offset);
+                }
+            }
+
+            return minDist.Value;
+        }
+
         /// <summary>
         /// Returns true if entity is colliding with instance OR entity is touching and instance is solid.
         /// </summary>
@@ -718,7 +745,7 @@ namespace Azzandra
             if (mergeMovements && steps.Count > 0)
                 steps = new List<Vector>() { steps.Aggregate((cur, val) => val + cur) };
 
-            Animations.Add(new MovementAnimation(this, steps, Initiative));
+            Animations.Add(new MovementAnimation(this, steps, GetInitiative()));
             return steps;
         }
 

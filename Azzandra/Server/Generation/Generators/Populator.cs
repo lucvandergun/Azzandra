@@ -111,7 +111,7 @@ namespace Azzandra.Generation
             AssignRoomGenerators(Level.Depth, Level.Temp);
             CreateDungeonStructure();
 
-            Spawners.Shuffle();
+            Spawners.Shuffle(Random);
             foreach (var s in Spawners)
                 s.Spawn();
         }
@@ -179,7 +179,7 @@ namespace Azzandra.Generation
                 area.CheckTilesObstruct(null, true);
 
                 foreach (var node in area.CrucialNodes.Distinct()) {
-                    if (!AccessibilityChecker.IsWalkableTile(Level, node)) {
+                    if (Level.Server.GameClient.IsDevMode && !AccessibilityChecker.IsWalkableTile(Level, node)) {
                         Level.Server.ThrowError("Obstructing node: " + node + Level.GetTile(node));
                         Level.MarkTile(node, 5);
                     }
@@ -255,8 +255,8 @@ namespace Azzandra.Generation
         {
             // Copy all areas and shuffle them
             var areas = Areas.CreateCopy();
-            areas.Shuffle();
-            KeyTypes.Shuffle();
+            areas.Shuffle(Random);
+            KeyTypes.Shuffle(Random);
 
             // Find a starting area to spawn in
             //Start = FindStart(areas);

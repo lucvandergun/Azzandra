@@ -20,7 +20,7 @@ namespace Azzandra
         {
             level.SetBlock(pos, new Block(BlockID.Void));
             if (inst is Player player)
-                player.User.Log.Add("You step on the mushroom.");
+                player.User.ShowMessage("You step on the mushroom.");
         }
 
         public override void OnInteraction(Level level, BlockPos pos, Entity entity)
@@ -33,9 +33,10 @@ namespace Azzandra
             if (player.User.Inventory.CanAddItem(item))
             {
                 player.User.Inventory.AddItem(item);
-                player.User.Log.Add("You pick the mushroom.");
+                player.User.ShowMessage("You pick the mushroom.");
                 level.RemoveBlock(pos);
             }
+            else player.User.ShowMessage("You don't have enough space in your inventory to hold that.");
         }
     }
 }

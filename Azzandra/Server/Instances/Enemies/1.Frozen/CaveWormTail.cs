@@ -12,7 +12,7 @@ namespace Azzandra
         private int Amt;
         public override bool IsSolid() => true;
         public override bool IsAttackable() => true;
-        public override int Initiative => 16;
+        public override int BaseInitiative => 16;
         public CaveWormTail(int x, int y) : base(x, y) {}
 
         public CaveWormTail(int x, int y, Instance parent, int amt) : base(x, y)

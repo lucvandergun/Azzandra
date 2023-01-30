@@ -11,7 +11,7 @@ namespace Azzandra
     {
         public override EntityType EntityType => EntityType.Shadow;
         public override MoveType GetMovementType() => MoveType.Fly;
-
+        public override bool CanFlee() => false;
         public ShadowElemental(int x, int y) : base(x, y) { }
 
 

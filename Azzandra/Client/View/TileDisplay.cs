@@ -46,7 +46,7 @@ namespace Azzandra
             { BlockID.Water, new TileDisplay(Color.Navy, "water") },
             { BlockID.Lava, new Lava() }, // new TileDisplay(Color.MonoGameOrange * 0.9f, "lava") }, // MonoGameOrange & Orange
             { BlockID.Sulphur, new TileDisplay(new Color(201, 194, 0), "sulphur") },
-            { BlockID.Ice, new TileDisplay(new Color(66, 105, 122), "ice") },
+            { BlockID.Ice, new TileDisplay(new Color(112, 154, 170), "ice") },
             { BlockID.Poison, new TileDisplay(Color.Green, "water") },
             { BlockID.Dock, new TileDisplay(null, "dock") },
             { BlockID.Rock, new TileDisplay(null, "rock") },

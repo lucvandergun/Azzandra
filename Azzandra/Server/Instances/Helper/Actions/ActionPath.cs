@@ -10,9 +10,9 @@ namespace Azzandra
     {
         public Path Path { get; protected set; }
         
-        public ActionPath(Entity caller, Vector vector, bool mustReach) : base(caller)
+        public ActionPath(Entity caller, Vector vector, bool mustReach, bool regionConstraint) : base(caller)
         {
-            Path = new Path(caller, vector, mustReach);
+            Path = new Path(caller, vector, mustReach, regionConstraint);
         }
 
         /// <summary>

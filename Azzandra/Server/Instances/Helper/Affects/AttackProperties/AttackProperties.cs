@@ -52,6 +52,29 @@ namespace Azzandra.AttackProperties
         }
     }
 
+    public class Slow : AttackProperty
+    {
+        public Slow(int level = 1) : base(level) { }
+
+        public override string Apply(Entity attacker, Entity target, Affect affect, bool returnFailed = false)
+        {
+            var effect = new StatusEffects.Slow(Level, 1);
+            var success = target.AddStatusEffect(effect);
+
+            if (success)
+            {
+                var specs = GetSuccessMsgSpecsHave(attacker, target);
+                return "<medblue>" + specs.Item1 + "slowed " + specs.Item2 + "!";
+            }
+            else if (returnFailed)
+            {
+                return GetFailedMsgSpecs(target) + " cannot be " + effect.VariantName + ".";
+            }
+
+            return null;
+        }
+    }
+
     public class Enchanted : AttackProperty
     {
         public Enchanted(int level = 1) : base(level) { }
@@ -222,7 +245,7 @@ namespace Azzandra.AttackProperties
 
         public override string Apply(Entity attacker, Entity target, Affect affect, bool returnFailed = false)
         {
-            var effect = new StatusEffects.Frostbite(Level, 1);
+            var effect = new StatusEffects.Slow(Level, 1);
             var success = target.AddStatusEffect(effect);
 
             if (success)

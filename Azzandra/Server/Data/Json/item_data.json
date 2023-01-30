@@ -1341,7 +1341,147 @@
 		"properties": [{"id": "fire"}]
 	},
 
-
+	
+	"wand": {
+		"name": "wand",
+		"desc": "This wooden rod ain't completely powerless!",
+		"type": "wand",
+		"maxdurability": -1,
+		"range": 4,
+		"accuracy": 3,
+		"damage": 3,
+		"spellcast": 3
+	},
+	"wind_wand": {
+		"name": "wind wand",
+		"desc": "It's small, but you feel some power emanating from it.",
+		"type": "wand",
+		"range": 4,
+		"accuracy": 4,
+		"damage": 3,
+		"spellcast": 4,
+		"properties": [{"id": "knockback"}]
+	},
+	"ice_wand": {
+		"name": "ice wand",
+		"desc": "It's small, but you feel some power emanating from it.",
+		"type": "wand",
+		"range": 4,
+		"accuracy": 4,
+		"damage": 3,
+		"spellcast": 4,
+		"properties": [{"id": "frost"}]
+	},
+	"shadow_wand": {
+		"name": "shadow wand",
+		"desc": "It's small, but you feel some power emanating from it.",
+		"type": "wand",
+		"range": 4,
+		"accuracy": 4,
+		"damage": 3,
+		"spellcast": 4,
+		"properties": [{"id": "blind"}]
+	},
+	"fire_wand": {
+		"name": "fire wand",
+		"desc": "It's small, but you feel some power emanating from it.",
+		"type": "wand",
+		"range": 4,
+		"accuracy": 4,
+		"damage": 3,
+		"spellcast": 4,
+		"properties": [{"id": "fire"}]
+	},
+	"greater_wind_wand": {
+		"name": "greater wind wand",
+		"desc": "It's small, but you feel much power emanating from it.",
+		"type": "wand",
+		"range": 4,
+		"accuracy": 6,
+		"damage": 4,
+		"spellcast": 6,
+		"properties": [{"id": "knockback"}]
+	},
+	"greater_ice_wand": {
+		"name": "greater ice wand",
+		"desc": "It's small, but you feel much power emanating from it.",
+		"type": "wand",
+		"range": 4,
+		"accuracy": 6,
+		"damage": 4,
+		"spellcast": 6,
+		"properties": [{"id": "frost"}]
+	},
+	"greater_shadow_wand": {
+		"name": "greater shadow wand",
+		"desc": "It's small, but you feel much power emanating from it.",
+		"type": "wand",
+		"range": 4,
+		"accuracy": 6,
+		"damage": 4,
+		"spellcast": 6,
+		"properties": [{"id": "blind"}]
+	},
+	"greater_fire_wand": {
+		"name": "greater fire wand",
+		"desc": "It's small, but you feel much power emanating from it.",
+		"type": "wand",
+		"range": 4,
+		"accuracy": 6,
+		"damage": 4,
+		"spellcast": 6,
+		"properties": [{"id": "fire"}]
+	},
+	"runic_wind_wand": {
+		"name": "runic wind wand",
+		"desc": "It's small, but you feel a great amount power emanating from it.",
+		"type": "wand",
+		"range": 4,
+		"accuracy": 8,
+		"damage": 6,
+		"spellcast": 8,
+		"properties": [{"id": "wind"}]
+	},
+	"runic_ice_wand": {
+		"name": "runic ice wand",
+		"desc": "It's small, but you feel a great amount power emanating from it.",
+		"type": "wand",
+		"range": 4,
+		"accuracy": 8,
+		"damage": 6,
+		"spellcast": 8,
+		"properties": [{"id": "frost"}]
+	},
+	"runic_shadow_wand": {
+		"name": "runic shadow wand",
+		"desc": "It's small, but you feel a great amount power emanating from it.",
+		"type": "wand",
+		"range": 4,
+		"accuracy": 8,
+		"damage": 6,
+		"spellcast": 8,
+		"properties": [{"id": "blind"}]
+	},
+	"runic_fire_wand": {
+		"name": "runic fire wand",
+		"desc": "It's small, but you feel a great amount power emanating from it.",
+		"type": "wand",
+		"range": 4,
+		"accuracy": 8,
+		"damage": 6,
+		"spellcast": 8,
+		"properties": [{"id": "fire"}]
+	},
+	"wand_of_lightning": {
+		"name": "wand of lightning",
+		"desc": "This rod does not catch lightning, but rather it sends it!",
+		"type": "wand",
+		"range": 6,
+		"accuracy": 6,
+		"damage": 5,
+		"spellcast": 6,
+		"properties": [{"id": "fire"}]
+	},
 
 
 

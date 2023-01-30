@@ -37,7 +37,7 @@ namespace Azzandra
         {
             "For better use of close-combat weapons.",
             "For better use of bows and crossbows.",
-            "For better use of staves, spells and more spellpoints.",
+            "For better use of wands, staves, spells and more spellpoints.",
             "For blocking and parrying attacks.",
             "For avoiding getting hit by attacks.", // and spells.
             "For more health and better food side-effect tolerance."

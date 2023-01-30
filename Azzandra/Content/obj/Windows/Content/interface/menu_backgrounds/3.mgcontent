@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <SourceFile>D:/Users/Luc/Documents/Dev/C#/Azzandra/Azzandra/Azzandra/Content/interface/menu_backgrounds/3.png</SourceFile>
-  <SourceTime>2021-07-30T21:48:40.304223+02:00</SourceTime>
+  <SourceTime>2023-01-17T11:50:38.2902605+01:00</SourceTime>
   <DestFile>D:/Users/Luc/Documents/Dev/C#/Azzandra/Azzandra/Azzandra/Content/bin/Windows/Content/interface/menu_backgrounds/3.xnb</DestFile>
-  <DestTime>2022-03-24T01:15:25.4927115+01:00</DestTime>
+  <DestTime>2023-01-17T11:53:21.1346378+01:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2018-12-08T17:35:54+01:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

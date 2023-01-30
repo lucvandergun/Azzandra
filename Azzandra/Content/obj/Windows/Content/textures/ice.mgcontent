@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <SourceFile>D:/Users/Luc/Documents/Dev/C#/Azzandra/Azzandra/Azzandra/Content/textures/ice.png</SourceFile>
-  <SourceTime>2022-10-08T11:43:11.7816311+02:00</SourceTime>
+  <SourceTime>2023-01-15T11:25:22.9298809+01:00</SourceTime>
   <DestFile>D:/Users/Luc/Documents/Dev/C#/Azzandra/Azzandra/Azzandra/Content/bin/Windows/Content/textures/ice.xnb</DestFile>
-  <DestTime>2022-10-08T11:43:36.1548146+02:00</DestTime>
+  <DestTime>2023-01-15T11:25:26.0663179+01:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2018-12-08T17:35:54+01:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

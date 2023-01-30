@@ -49,11 +49,14 @@ namespace Azzandra
                     player.GetDmg(style),
                     user.Equipment.GetAttackProperties());
 
+                bool hasLeaped = false;
+
                 // If cannot (yet) attack, and style is melee
                 if (IsShift && user.Equipment.AttackStyle == Style.Melee && Caller.TileDistanceTo(Target) <= 1 + user.Equipment.AttackRange && !Caller.CanAffect(inst, attack))
                 {
                     if (!new ActionMoveTo(Caller, Target).Perform())
                         return false;
+                    else hasLeaped = true;
                 }
 
                 if (Caller.CanAffect(inst, attack))
@@ -69,6 +72,8 @@ namespace Azzandra
                     else
                     {
                         Caller.Affect(inst, attack);
+                        if (hasLeaped)
+                            Caller.AttackTimer = -1; // Leap attacks introduce additional time to recover for one's next attack.
                         return true;
                     }
                 }

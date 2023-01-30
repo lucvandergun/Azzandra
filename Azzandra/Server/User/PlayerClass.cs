@@ -75,7 +75,7 @@ namespace Azzandra
 
             Wizard = new PlayerClass("Wizard",
                 new Item[] {
-                    Item.Create("staff"),
+                    Item.Create("wand"),
                     Item.Create("iron_dirk"),
                     Item.Create("wizard_hat"),
                     Item.Create("wizard_socks")

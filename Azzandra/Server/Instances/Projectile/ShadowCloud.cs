@@ -10,10 +10,9 @@ namespace Azzandra
     public class ShadowCloud : Entity
     {
         public override EntityType EntityType => EntityType.NonPhysical;
-        public override int GetW() => 2;
-        public override int GetH() => 2;
         public override int GetMovementSpeed() => 2;
         public override Symbol GetSymbol() => new Symbol('@', Color.SlateBlue);
+        public override string AssetName => "cloud";
         public override bool IsSolid() => false;
         public override bool IsInstanceSolidToThis(Instance inst) => false;
         public override MoveType GetMovementType() => MoveType.Fly;
@@ -66,7 +65,7 @@ namespace Azzandra
             var target = Target?.Combatant;
             if (target != null)
             {
-                Action = new ActionPath(this, target.Position, false);
+                Action = new ActionPath(this, target.Position, false, false);
             }
         }
 

@@ -126,7 +126,7 @@
 		]
 	},
 	
-	"giant_skeleton": {
+	"giant_skeleton_warrior": {
 		"entitytypes": [ "undead" ],
 		"initiative": 14,
 		"stats": {
@@ -143,6 +143,46 @@
 				"speed": 1,
 				"accuracy": 10,
 				"damage": 10
+			}
+		]
+	},
+	"giant_skeleton_archer": {
+		"entitytypes": [ "undead" ],
+		"initiative": 14,
+		"stats": {
+			"health": 18,
+			"evade": 0,
+			"parry": 0,
+			"block": 0,
+			"resistance": 5,
+			"armour": 0
+		},
+		"attacks": [
+			{
+				"style": "ranged",
+				"speed": 1,
+				"accuracy": 10,
+				"damage": 6
+			}
+		]
+	},
+	"giant_skeleton_warlock": {
+		"entitytypes": [ "undead" ],
+		"initiative": 14,
+		"stats": {
+			"health": 18,
+			"evade": 0,
+			"parry": 0,
+			"block": 0,
+			"resistance": 12,
+			"armour": 0
+		},
+		"attacks": [
+			{
+				"style": "magic",
+				"speed": 1,
+				"accuracy": 8,
+				"damage": 8
 			}
 		]
 	},
@@ -230,7 +270,7 @@
 	
 	"gargoyle": {
 		"entitytypes": [ "rock" ],
-		"initiative": 10,
+		"initiative": 6,
 		"stats": {
 			"health": 12,
 			"evade": 0,
@@ -242,7 +282,7 @@
 		"attacks": [
 			{
 				"style": "melee",
-				"speed": 1,
+				"speed": 2,
 				"accuracy": 6,
 				"damage": 7
 			}
@@ -299,7 +339,7 @@
 			{
 				"style": "ranged",
 				"speed": 1,
-				"range": 8,
+				"range": 6,
 				"accuracy": 11,
 				"damage": 9
 			},
@@ -309,7 +349,7 @@
 				"range": 6,
 				"accuracy": 11,
 				"damage": 9,
-				"properties": [{"id": "frostbite", "level": 1}]
+				"properties": [{"id": "slow", "level": 1}]
 			}
 		]
 	},
@@ -330,7 +370,7 @@
 				"speed": 1,
 				"accuracy": 5,
 				"damage": 6,
-				"properties": [{"id": "knockback", "level": 1}]
+				"properties": [{"id": "knockback", "level": 2}]
 			}
 		]
 	},
@@ -357,7 +397,7 @@
 	},
 	
 	"cave_worm": {
-		"initiative": 11,
+		"initiative": 10,
 		"stats": {
 			"health": 12,
 			"evade": 0,
@@ -405,7 +445,7 @@
 	},
 	
 	"wolf": {
-		"initiative": 7,
+		"initiative": 6,
 		"stats": {
 			"health": 8,
 			"evade": 5,
@@ -425,7 +465,7 @@
 	},
 	
 	"alpha_wolf": {
-		"initiative": 7,
+		"initiative": 6,
 		"stats": {
 			"health": 12,
 			"evade": 7,
@@ -600,7 +640,7 @@
 				"speed": 1,
 				"accuracy": 10,
 				"damage": 7,
-				"properties": [{"id": "healing", "level": 2}]
+				"properties": [{"id": "healing", "level": 3}]
 			}
 		]
 	},
@@ -847,7 +887,7 @@
 			{
 				"style": "ranged",
 				"speed": 2,
-				"range": 8,
+				"range": 6,
 				"accuracy": 16,
 				"damage": 16,
 				"properties": [{"id": "fire", "level": 2}]

@@ -494,3 +494,8 @@ D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra\Azzandra\bin\Windows\x86\Debug\C
 D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra\Azzandra\bin\Windows\x86\Debug\Content\interface\menu_arch_bg.xnb
 D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra\Azzandra\bin\Windows\x86\Debug\Content\textures\entity\armoured_skeleton_bones.xnb
 D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra\Azzandra\bin\Windows\x86\Debug\Content\interface\button.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra\Azzandra\bin\Windows\x86\Debug\Content\textures\entity\giant_skeleton_archer.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra\Azzandra\bin\Windows\x86\Debug\Content\textures\entity\giant_skeleton_warlock.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra\Azzandra\bin\Windows\x86\Debug\Content\textures\entity\giant_skeleton_warrior.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra\Azzandra\bin\Windows\x86\Debug\Content\interface\menu_backgrounds\5.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra\Azzandra\bin\Windows\x86\Debug\Content\interface\menu_backgrounds\6.xnb

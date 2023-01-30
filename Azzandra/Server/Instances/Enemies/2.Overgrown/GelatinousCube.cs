@@ -13,7 +13,7 @@ namespace Azzandra
         public override EntityType EntityType => EntityType.None;
         public override int GetW() => 3;
         public override int GetH() => 3;
-        public override int GetMoveDelay() => 1;
+        public override bool CanFlee() => false;
         public Inventory Inventory { get; set; } = new Inventory();
 
         public GelatinousCube(int x, int y) : base(x, y) { }

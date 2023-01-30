@@ -196,7 +196,7 @@ namespace Azzandra.SpellEffects
     public class Frostbite : StatusEffectSpell
     {
         public Frostbite() { }
-        public override StatusEffect GetStatusEffect() => new StatusEffects.Frostbite(2, 13);
+        public override StatusEffect GetStatusEffect() => new StatusEffects.Slow(2, 13);
     }
     public class Freeze : StatusEffectSpell
     {

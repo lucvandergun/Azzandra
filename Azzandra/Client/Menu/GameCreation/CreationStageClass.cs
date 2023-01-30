@@ -81,7 +81,7 @@ namespace Azzandra
                         "Having researched the very essence of matter itself, the wizard has achieved a grasp on all magical abilities.",
                         "<ltgray>+20% Magic Accuracy and Damage",
                         "+20% Spellcast and spell Resistance",
-                        "Starts with a staff.",
+                        "Starts with a wand.",
                         "Is able to cast freeze and lightning."
                     }
                 },

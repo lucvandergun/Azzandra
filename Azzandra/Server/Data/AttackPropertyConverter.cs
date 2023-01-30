@@ -42,7 +42,7 @@ namespace Azzandra
         private AttackProperty InstantiateItemByType(string typeID)
         {
             // Retrieve the corresponding type, otherwise set it to generic "item".
-            var type = Type.GetType("Azzandra.AttackProperty." + typeID.ToCamelCase());
+            var type = Type.GetType("Azzandra.AttackProperties." + typeID.ToCamelCase());
             if (type == null || !typeof(AttackProperty).IsAssignableFrom(type))
                 type = typeof(AttackProperty);
 

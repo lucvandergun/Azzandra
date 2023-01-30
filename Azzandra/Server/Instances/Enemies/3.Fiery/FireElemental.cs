@@ -11,7 +11,7 @@ namespace Azzandra
     {
         public override EntityType EntityType => EntityType.Fire;
         public override MoveType GetMovementType() => MoveType.Fly;
-
+        public override bool CanFlee() => false;
         public FireElemental(int x, int y) : base(x, y)
         { }
 

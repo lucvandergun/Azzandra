@@ -11,7 +11,7 @@ namespace Azzandra
     {
         public override EntityType EntityType => EntityType.Acid;
         public override int GetMoveDelay() => 1;
-
+        public override bool CanFlee() => false;
         public Ooze(int x, int y) : base(x, y) { }
 
         public override void TurnStart()

@@ -10,6 +10,7 @@ namespace Azzandra
     public class Necromancer : Enemy
     {
         public override EntityType EntityType => EntityType.Humanoid;
+        public override int WanderRange => 2;
 
 
         public Necromancer(int x, int y) : base(x, y) { }

@@ -193,6 +193,10 @@ namespace Azzandra
                     return NonPhysical(affect, target);
                 case EntityType.Fire:
                     return Fire(affect, target);
+                case EntityType.Ice:
+                    return Ice(affect, target);
+                case EntityType.Shadow:
+                    return Shadow(affect, target);
             }
         }
 
@@ -215,6 +219,34 @@ namespace Azzandra
 
         private static bool Fire(Affect affect, Entity target)
         {
+            if (affect is Attack attack && (affect.Properties?.Any(p => p.GetID() == AttackPropertyID.Fire) ?? true))
+            {
+                affect.Fail("<orange>" + target.ToStringAdress().CapFirst() + " seems to remain unaffected by your fire attack!");
+                return false;
+            }
+
+            return true;
+        }
+
+        private static bool Ice(Affect affect, Entity target)
+        {
+            if (affect is Attack attack && (affect.Properties?.Any(p => p.GetID() == AttackPropertyID.Frost) ?? true))
+            {
+                affect.Fail("<ltblue>" + target.ToStringAdress().CapFirst() + " seems to remain unaffected by your frost attack!");
+                return false;
+            }
+
+            return true;
+        }
+
+        private static bool Shadow(Affect affect, Entity target)
+        {
+            if (affect is Attack attack && (affect.Properties?.Any(p => p.GetID() == AttackPropertyID.Shadow) ?? true))
+            {
+                affect.Fail("<purple>" + target.ToStringAdress().CapFirst() + " seems to remain unaffected by your shadow attack!");
+                return false;
+            }
+
             return true;
         }
 

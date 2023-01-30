@@ -23,11 +23,6 @@ namespace Azzandra
 
         public FoodEffect() { }
 
-        public override string ToString()
-        {
-            return ID.CapFirst();
-        }
-
         public override bool Equals(object obj)
         {
             if (!(obj is FoodEffect p))
@@ -120,23 +115,23 @@ namespace Azzandra
         }
 
 
-        public string GetEffectString()
+        public override string ToString()
         {
             string randAmt = (Level + 1) / 2 + "-" + Level;
             switch (ID)
             {
                 case "heal":
                 case "restorehp":
-                    return "Heals: <lime>" + randAmt + " hp<r>.";
+                    return "Heal " + randAmt + " hp";
                 case "boosthp":
-                    return "Boosts: <lime>" + randAmt + " hp<r>.";
+                    return "Boost " + randAmt + " hp";
                 case "restoresp":
-                    return "Restores: <yellow>" + randAmt + " sp<r>.";
+                    return "Restore " + randAmt + " sp";
                 case "boostsp":
-                    return "Boosts: <yellow>" + randAmt + " sp<r>.";
+                    return "Boost " + randAmt + " sp";
             }
 
-            return "<white>" + ID.Replace('_', ' ').CapFirst() + "<r>";
+            return "" + ID.Replace('_', ' ').CapFirst() + "<r>";
         }
 
 

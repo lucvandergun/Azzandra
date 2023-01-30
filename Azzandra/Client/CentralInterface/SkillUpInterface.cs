@@ -104,7 +104,7 @@ namespace Azzandra
             text.Format = format;
             text.Skip();
             text.DrawLine("<white>The shrine is attuned to the following skills:");
-            text.DrawLine("<slate>You may choose to attune with one of them.");
+            text.DrawLine("<slate>You may choose for which one you wish to gain insights.");
             text.Skip();
 
             if (Stats == null) return;

@@ -17,6 +17,8 @@ namespace Azzandra
         private int RegenTimer = 0;
         private const int RegenDelay = 2;
 
+        public override bool CanFlee() => false;
+
         public Troll(int x, int y) : base(x, y) { }
 
         public override void TurnStart()

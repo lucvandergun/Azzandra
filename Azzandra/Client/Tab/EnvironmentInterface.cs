@@ -107,6 +107,8 @@ namespace Azzandra
 
         private void RenderInstanceInfo(Surface surface, Instance inst, ref Vector2 pos, bool isTarget, bool isDebug)
         {
+            if (inst == null) return;
+            
             // Render instance picture
             //var symbol = inst.GetSymbol();
             //Display.DrawInstanceString(pos + InstOffset, symbol.Char, Assets.Gridfont, symbol.Color, 1f);
@@ -151,19 +153,28 @@ namespace Azzandra
             {
                 pos += LineOffset;
                 TextFormatter.DrawString(pos + StringOffset, " <gray>Action: " + entity.PrevAction, Format);
-                pos += LineOffset;
-                TextFormatter.DrawString(pos + StringOffset, " <gray>Parent: " + entity.Parent?.ID, Format);
-                pos += LineOffset;
-                TextFormatter.DrawString(pos + StringOffset, " <gray>Children: " + entity.Children.Stringify(i => i.ID + ""), Format);
+                //pos += LineOffset;
+                //TextFormatter.DrawString(pos + StringOffset, " <gray>Parent: " + entity.Parent?.ID, Format);
+                //pos += LineOffset;
+                //TextFormatter.DrawString(pos + StringOffset, " <gray>Children: " + entity.Children.Stringify(i => i.ID + ""), Format);
 
                 if (entity is Enemy enemy)
                 {
                     pos += LineOffset;
                     var str2 = " <gray>Target: " + enemy.Target;
                     TextFormatter.DrawString(pos + StringOffset, str2, Format);
-                    
+
+                    //pos += LineOffset;
+                    //TextFormatter.DrawString(pos + StringOffset, " <gray>IsFleeing: " + enemy.IsFleeing, Format);
+
                     pos += LineOffset;
                     TextFormatter.DrawString(pos + StringOffset, " <gray>RetreatTimer: " + enemy.HitTimer, Format);
+
+                    //pos += LineOffset;
+                    //TextFormatter.DrawString(pos + StringOffset, " <gray>Target loc: " + (enemy.Target?.LastKnownLocation ?? Vector.Zero), Format);
+
+                    pos += LineOffset;
+                    TextFormatter.DrawString(pos + StringOffset, " <gray>Time since seen target: " + (enemy.Target?.TimeSinceLastSeen ?? -1), Format);
                 }
             }
         }

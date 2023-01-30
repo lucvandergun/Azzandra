@@ -32,7 +32,7 @@ namespace Azzandra
             }
 
             var msg = player.HasStatusEffect(StatusEffectID.Fatigue)
-                ? "<lime>You feel recovered, but only slightly as you were very tired."
+                ? "<lime>You feel recovered, but only slightly as you were very fatigued."
                 : "<lime>You feel fully recovered again!";
 
             player.Rest();

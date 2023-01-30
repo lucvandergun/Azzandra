@@ -9,10 +9,18 @@ namespace Azzandra
     public struct Block : IEquatable<Block>
     {
         public int ID;
+        public int Value;
         
         public Block(int id)
         {
             ID = id;
+            Value = 0;
+        }
+
+        public Block(int id, int value)
+        {
+            ID = id;
+            Value = value;
         }
 
         public BlockData Data => BlockID.GetData(ID);

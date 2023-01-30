@@ -180,6 +180,7 @@
     <Compile Include="Server\Items\Consumables\Drink.cs" />
     <Compile Include="Server\Items\Consumables\FilledTankard.cs" />
     <Compile Include="Server\Items\Consumables\FoodEffect.cs" />
+    <Compile Include="Server\Items\Equipment\Wand.cs" />
     <Compile Include="Server\Items\Equipment\Staff.cs" />
     <Compile Include="Server\Items\Equipment\MagicWeapon.cs" />
     <Compile Include="Server\Items\Scroll.cs" />

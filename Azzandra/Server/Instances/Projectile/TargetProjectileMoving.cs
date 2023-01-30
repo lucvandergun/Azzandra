@@ -10,7 +10,6 @@ namespace Azzandra
 {
     public abstract class TargetProjectileMoving : TargetProjectile
     {
-        public override int Initiative => base.Initiative;
         public override bool RenderLightness => false;
 
         private readonly float _angle;
@@ -40,7 +39,7 @@ namespace Azzandra
         //Rendering:
         public override Vector2 CalculateRealPos(Server server)
         {
-            float tickFraction = Level.Server.GetTickFraction(MomentOfLastTurn, Initiative);
+            float tickFraction = Level.Server.GetTickFraction(MomentOfLastTurn, GetInitiative());
             tickFraction = 1 - tickFraction; // Because it is rendered FROM the coordinates of the Origin instance.
 
             Vector2 fullMovement = Target.CalculateRealPos(server) - Origin.CalculateRealPos(server);

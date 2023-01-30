@@ -15,7 +15,7 @@ namespace Azzandra
         protected override bool IsAgressive() => IsAngered;
         public override string Name => IsAngered ? "angered wraith" : "wraith";
         public override bool IsSolid() => false;
-
+        public override bool CanFlee() => false;
 
         public Wraith(int x, int y) : base(x, y) { }
 

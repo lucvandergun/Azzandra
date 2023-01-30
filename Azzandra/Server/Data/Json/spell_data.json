@@ -55,7 +55,7 @@
 	},
 	"healing_aura": {
 		"name": "healing aura",
-		"desc": "Heal everyting in a region around you.",
+		"desc": "Heal everyting in a region of two tiles surrounding you.",
 		"spellpoints": 6,
 		"type": "defensive",
 		"weight": 12,
@@ -88,7 +88,7 @@
 	
 	"frostbite": {
 		"name": "frostbite",
-		"desc": "Display a nagging cold to your opponent.",
+		"desc": "Display a nagging cold that slows down your opponent.",
 		"spellpoints": 4,
 		"type": "offensive",
 		"tier": 1,

@@ -15,18 +15,18 @@ namespace Azzandra.Items
 
         public override string Message => "You quaff the " + Name + ".";
 
-        public override List<string> GetInfo()
-        {
-            var list = base.GetInfo();
+        //public override List<string> GetInfo()
+        //{
+        //    var list = base.GetInfo();
 
-            if (Effects != null)
-            {
-                //list.Add(Effects.Length > 1 ? "Effects:" : "Effect:");
-                Effects.ToList().ForEach(e => list.Add("" + e.GetEffectString() + "<r>"));
-            }
+        //    if (Effects != null)
+        //    {
+        //        //list.Add(Effects.Length > 1 ? "Effects:" : "Effect:");
+        //        Effects.ToList().ForEach(e => list.Add("" + e.GetEffectString() + "<r>"));
+        //    }
 
-            return list;
-        }
+        //    return list;
+        //}
 
         public Potion() : base()
         {

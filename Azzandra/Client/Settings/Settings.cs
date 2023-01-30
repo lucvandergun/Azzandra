@@ -28,7 +28,7 @@ namespace Azzandra
         [JsonProperty("is_debug_mode")]
         public bool IsDebugMode = false;
         [JsonProperty("display_input")]
-        public bool DisplayInput = true;
+        public bool DisplayInput = false;
         [JsonProperty("slide_diagonals")]
         public bool SlidingDiagonals = true;
         [JsonProperty("re_queueing")]

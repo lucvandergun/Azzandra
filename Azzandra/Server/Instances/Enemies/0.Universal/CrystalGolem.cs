@@ -12,6 +12,7 @@ namespace Azzandra
         public override int GetW() => 2;
         public override int GetH() => 2;
         public override EntityType EntityType => EntityType.Rock;
+        public override bool CanFlee() => false;
 
 
         public CrystalGolem(int x, int y) : base(x, y) { }

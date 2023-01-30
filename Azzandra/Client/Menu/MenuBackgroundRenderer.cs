@@ -115,7 +115,7 @@ namespace Azzandra
 
         public void Render(GraphicsDevice gd, SpriteBatch sb)
         {
-            sb.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend, SamplerState.LinearClamp, null, null, null, null);
+            sb.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend, SamplerState.AnisotropicClamp, null, null, null, null);
             Display.DrawTexture(BgPos, Background, Color.White * GetBgLightness(BgTime));
 
             // Draw 'infinite' arches:

@@ -38,7 +38,11 @@
 		{"weight": 12, "itemid": "wind_staff"},
 		{"weight": 12, "itemid": "ice_staff"},
 		{"weight": 12, "itemid": "shadow_staff"},
-		{"weight": 12, "itemid": "fire_staff"}
+		{"weight": 12, "itemid": "fire_staff"},
+		{"weight": 12, "itemid": "wind_wand"},
+		{"weight": 12, "itemid": "ice_wand"},
+		{"weight": 12, "itemid": "shadow_wand"},
+		{"weight": 12, "itemid": "fire_wand"}
 	],
 	
 	"melee_weapons_2": [
@@ -60,7 +64,11 @@
 		{"weight": 12, "itemid": "greater_wind_staff"},
 		{"weight": 12, "itemid": "greater_ice_staff"},
 		{"weight": 12, "itemid": "greater_shadow_staff"},
-		{"weight": 12, "itemid": "greater_fire_staff"}
+		{"weight": 12, "itemid": "greater_fire_staff"},
+		{"weight": 12, "itemid": "greater_wind_wand"},
+		{"weight": 12, "itemid": "greater_ice_wand"},
+		{"weight": 12, "itemid": "greater_shadow_wand"},
+		{"weight": 12, "itemid": "greater_fire_wand"}
 	],
 	
 	"melee_weapons_3": [
@@ -82,7 +90,11 @@
 		{"weight": 12, "itemid": "runic_wind_staff"},
 		{"weight": 12, "itemid": "runic_ice_staff"},
 		{"weight": 12, "itemid": "runic_shadow_staff"},
-		{"weight": 12, "itemid": "runic_fire_staff"}
+		{"weight": 12, "itemid": "runic_fire_staff"},
+		{"weight": 12, "itemid": "runic_wind_wand"},
+		{"weight": 12, "itemid": "runic_ice_wand"},
+		{"weight": 12, "itemid": "runic_shadow_wand"},
+		{"weight": 12, "itemid": "runic_fire_wand"}
 	],
 
 

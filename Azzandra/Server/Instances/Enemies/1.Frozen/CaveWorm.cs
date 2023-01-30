@@ -10,9 +10,10 @@ namespace Azzandra
     public class CaveWorm : Enemy
     {
         public override EntityType EntityType => EntityType.Beast;
-        public override int Initiative => 18;
-        private int DigTimer = 5;
-        private int GetDigDelay() => Util.Random.Next(4) + 4;
+
+        private int DigTimer = 0;
+        private int GetDigDelay() => 5;
+        public override bool CanFlee() => false;
 
         public CaveWorm(int x, int y) : base(x, y) { }
 
@@ -36,24 +37,27 @@ namespace Azzandra
             if (DigTimer >= 0)
                 DigTimer--;
 
-            // Dig a hole and show up elsewhere:
-            if (DigTimer <= 0 && CanMove())
+            if (TileDistanceTo(target) > 2 || !CanAffectivelyReachTarget(target))
             {
-                var surroundingTiles = Vector.Dirs4.SelectMany(d => target.GetTiles().Select(t => t + d)).Distinct().Where(n => !target.GetTiles().Contains(n)).ToList();
-                surroundingTiles.Shuffle();
-                foreach (var node in surroundingTiles)
+                // Dig a hole and show up elsewhere:
+                if (DigTimer <= 0 && CanMove())
                 {
-                    if (CanExist(node.X, node.Y))
+                    var surroundingTiles = Vector.Dirs4.SelectMany(d => target.GetTiles().Select(t => t + d)).Distinct().Where(n => !target.GetTiles().Contains(n)).ToList();
+                    surroundingTiles.Shuffle();
+                    foreach (var node in surroundingTiles)
                     {
-                        DigTimer = GetDigDelay();
-                        // If the chosen position is not the same as the current position, "teleport" right to it.
-                        if (Position != node)
+                        if (CanExist(node.X, node.Y))
                         {
-                            if (target is Player player)
-                                player.User.ShowMessage("<tan>" + ToStringAdress().CapFirst() + " tunnels through the ground and shows up right next to you.");
-                            Position = node;
+                            DigTimer = GetDigDelay();
+                            // If the chosen position is not the same as the current position, "teleport" right to it.
+                            if (Position != node)
+                            {
+                                if (target is Player player)
+                                    player.User.ShowMessage("<tan>" + ToStringAdress().CapFirst() + " tunnels through the ground and shows up right next to you.");
+                                Position = node;
+                            }
+                            return null;
                         }
-                        return null;
                     }
                 }
             }

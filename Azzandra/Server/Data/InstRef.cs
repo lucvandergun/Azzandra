@@ -11,6 +11,8 @@ namespace Azzandra
         public int ID { get; private set; } = -1;
         public Instance Instance { get; set; }
         public Entity Combatant => Instance as Entity;
+        public Vector LastKnownLocation;
+        public int TimeSinceLastSeen = 0;
 
         public static int GetSaveID(InstRef instRef) => instRef?.ID ?? -1;
         public static InstRef Load(int id)
@@ -37,6 +39,24 @@ namespace Azzandra
 
         public bool Exists() => Instance?.Level.GetInstanceByID(ID) != null;
 
+
+        /// <summary>
+        /// Update the time since last seen this instance,
+        /// and the last known location of this instance,
+        /// both to the owner.
+        /// </summary>
+        /// <param name="owner"></param>
+        public void Update(Entity owner)
+        {
+            TimeSinceLastSeen++;
+            if (owner.CanSee(Instance))
+            {
+                LastKnownLocation = Instance.Position;
+                TimeSinceLastSeen = 0;
+            }
+        }
+
         public override string ToString() => "[ID: " + ID + ", Type: " + Instance?.GetType().Name + "]";
+
     }
 }

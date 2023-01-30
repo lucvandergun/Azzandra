@@ -21,7 +21,10 @@ namespace Azzandra.Generation.Spawners
             if (MaxAmtSpawnable(Type, Area.Level) <= 0)  // Chech whether the level difficulty points still allow a spawn.
                 return;
 
-            var inst = Populator.CreateInstanceFromType(Type);
+            var inst = (NPC)Populator.CreateInstanceFromType(Type);
+            if (inst == null) return;
+
+            inst.IsHaunting = true;
             if (Area.FindInstanceSpawn(inst, false))
                 Area.Level.DifficultyPointsUsed += SpawnData.GetDifficulty(Type);
 

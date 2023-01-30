@@ -11,6 +11,7 @@ namespace Azzandra
     {
         public override EntityType EntityType => EntityType.Rock;
         public override int GetMoveDelay() => 4;
+        public override bool CanFlee() => false;
 
         private bool FireStraight = true;
 

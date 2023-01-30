@@ -69,7 +69,7 @@ namespace Azzandra
                 text.DrawLine("Swap: " + (swap == "" ? "none" : swap));
                 if (GameClient.IsDevMode)
                 {
-                    text.DrawLine("Action Potential: " + player.ActionPotential + "/" + player.Initiative);
+                    text.DrawLine("Action Potential: " + player.ActionPotential + "/" + player.GetInitiative());
 
                     if (level.AreaReferences != null && level.IsInMapBounds(player.X, player.Y))
                     {
@@ -123,7 +123,7 @@ namespace Azzandra
                     if (inst != null)
                     {
                         text.DrawLine(" <ltgray>Instance:<r> " + inst.ToString().CapFirst());
-                        text.DrawLine(" ActionPotential: " + inst.ActionPotential + "/" + inst.Initiative);
+                        text.DrawLine(" ActionPotential: " + inst.ActionPotential + "/" + inst.GetInitiative());
                         text.DrawLine(" TimeSinceLastTurn: " + inst.TimeSinceLastTurn);
 
                         if (inst is NPC npc)

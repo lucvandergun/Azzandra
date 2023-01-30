@@ -129,7 +129,7 @@ namespace Azzandra.Generation
 
             // At this point the A* has failed to find a valid path
 
-            if (draw)
+            if (draw && level.Server.GameClient.IsDevMode)
             {
                 level.Server.ThrowError("Accessibility check failed: " + start.ToVector() + " to " + target.ToVector() + ", Area: " + area.ID);
                 DrawPath(area, current);
@@ -186,7 +186,7 @@ namespace Azzandra.Generation
         {
             // Check tileID is walkable
             var tile = world.TileMap[node.X, node.Y];
-            if (tile.Ground.Data.IsWalkable && tile.Object.ID == BlockID.Icicle)
+            if (tile.Ground.Data.IsWalkable && (tile.Object.ID == BlockID.Icicle || tile.Object.ID == BlockID.Root))
                 return true;
             return tile.IsWalkable();
         }

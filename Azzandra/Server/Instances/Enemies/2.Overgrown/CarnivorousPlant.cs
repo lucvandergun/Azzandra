@@ -13,7 +13,7 @@ namespace Azzandra
         public override int GetH() => 2;
         public override EntityType EntityType => EntityType.Plant;
         public override int DetectRange => 2;
-
+        public override bool CanFlee() => false;
 
         public CarnivorousPlant(int x, int y) : base(x, y) { }
 

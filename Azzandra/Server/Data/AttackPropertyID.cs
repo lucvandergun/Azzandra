@@ -17,7 +17,7 @@ namespace Azzandra
             Entangle = 5,
             Knockback = 6,
             Shadow = 7,
-            Frostbite = 8;
+            Slow = 8;
 
         private static readonly Dictionary<int, Type> AttackPropertyIDs = new Dictionary<int, Type>()
         {
@@ -29,7 +29,7 @@ namespace Azzandra
             { Entangle, typeof(AttackProperties.Entangle) },
             { Knockback, typeof(AttackProperties.Knockback) },
             { Shadow, typeof(AttackProperties.Shadow) },
-            { Frostbite, typeof(AttackProperties.Frostbite) },
+            { Slow, typeof(AttackProperties.Slow) },
             //{ Smite, "smite" },
         };
 

@@ -14,6 +14,7 @@ namespace Azzandra
         public override int GetMovementSpeed() => 1;
         public override int GetSightRange() => 20;
         public override int DetectRange => 20;
+        public override bool CanFlee() => false;
         public override EntityType EntityType => EntityType.Demon;
 
         private bool WillPull = false;

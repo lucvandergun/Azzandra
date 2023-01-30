@@ -44,30 +44,6 @@ namespace Azzandra.StatusEffects
         }
     }
 
-    public class Frostbite : StatusEffectOverTime
-    {
-        public override bool IsPermanent => true;
-        public override string Color => "<ltblue>";
-
-        protected override int GetApplyDelay() => 5;
-        public int GetDamage() => Level;
-
-        public Frostbite(int level, int time, string name = null) : base(level, time, name) { }
-        public Frostbite(byte[] bytes, ref int pos) : base(bytes, ref pos) { }
-
-        protected override void Apply(Entity entity)
-        {
-            // Don't stun when resting:
-            if (entity.Action is ActionRest)
-                return;
-            
-            if (entity is Player player)
-                player.User.ShowMessage("<ltblue>You feel a debilitating chill run down your spine!");
-            //entity.GetHit(Style.Ice, GetDamage());
-            entity.AddStatusEffect(new Stunned(1, 1));
-        }
-    }
-
     public class Regeneration : StatusEffectOverTime
     {
         public override string Color => "<lavender>";
@@ -95,6 +71,22 @@ namespace Azzandra.StatusEffects
         public override string Color => "<yellow>";
         public Stunned(int level, int time, string name = null) : base(level, time, name) { }
         public Stunned(byte[] bytes, ref int pos) : base(bytes, ref pos) { }
+    }
+
+    public class Slow : StatusEffect
+    {
+        public override bool IsPermanent => true;
+        public override string Color => "<medblue>";
+        public Slow(int level, int time, string name = null) : base(level, time, name) { }
+        public Slow(byte[] bytes, ref int pos) : base(bytes, ref pos) { }
+    }
+
+    public class Speed : StatusEffect
+    {
+        public override bool IsPermanent => true;
+        public override string Color => "<yellow>";
+        public Speed(int level, int time, string name = null) : base(level, time, name) { }
+        public Speed(byte[] bytes, ref int pos) : base(bytes, ref pos) { }
     }
 
     public class Weak : StatusEffect

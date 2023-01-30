@@ -13,6 +13,7 @@ namespace Azzandra
 
         public override int GetW() => 2;
         public override int GetH() => 2;
+        public override bool CanFlee() => false;
 
         public bool HasVine() => Children.Any(c => c.Instance is Vine vine);
 

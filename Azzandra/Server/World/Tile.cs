@@ -20,6 +20,13 @@ namespace Azzandra
             Marker = 0;
         }
 
+        public Tile(int groundID, int groundValue, int objectID, int objectValue)
+        {
+            Ground = new Block(groundID, groundValue);
+            Object = new Block(objectID, objectValue);
+            Marker = 0;
+        }
+
         public Tile(Block ground, Block obj)
         {
             Ground = ground;

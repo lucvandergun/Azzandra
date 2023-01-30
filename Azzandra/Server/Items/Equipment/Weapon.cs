@@ -14,7 +14,7 @@ namespace Azzandra.Items
         public override string EquipAction => "wield";
 
         public int Range = 1;
-        public int Speed = 3;
+        public int Speed = 1;
 
         public virtual Style Style => Style.Melee;
         public bool IsTwoHander = false;
@@ -31,7 +31,7 @@ namespace Azzandra.Items
             list.Add(GetTypeDesc());
 
             var speedString = global::Azzandra.Equipment.GetSpeedName(Speed) + " (" + Speed + ")"; // TextFormatter.GetValueRatioColor(5 - Speed, 4) + 
-            list.Add("Attack speed: " + speedString + ". Range: " + Range + ".");
+            list.Add("Attack speed: <white>" + speedString + "<r>. Range: <white>" + Range + "<r>.");
             list.AddRange(base.GetInfo());
 
             return list;

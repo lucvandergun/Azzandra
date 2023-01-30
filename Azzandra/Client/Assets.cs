@@ -98,7 +98,7 @@ namespace Azzandra
             MenuArchBg = content.Load<Texture2D>("interface/menu_arch_bg");
             CoALogo = content.Load<Texture2D>("interface/logo");
             Button = content.Load<Texture2D>("interface/button");
-            LoadMenuBackgrounds(content);
+            MenuBackgrounds = LoadAllArray(content, "Content\\interface\\menu_backgrounds");
 
 
             Sprites = LoadAll(content, "Content\\textures");
@@ -122,22 +122,15 @@ namespace Azzandra
             }
         }
 
-        private static void LoadMenuBackgrounds(ContentManager content)
-        {
-            string root = "interface\\menu_backgrounds";
-            int amt = 5;
-
-            MenuBackgrounds = new Texture2D[amt];
-
-            for (int i = 0; i < amt; i++)
-            {
-                MenuBackgrounds[i] = content.Load<Texture2D>(root + "\\" + i);
-            }
-        }
-
         public static Texture2D GetRandomMenuBackground(Texture2D current)
         {
-            return MenuBackgrounds[Util.Random.Next(MenuBackgrounds.Length)];
+            var list = new List<Texture2D>();
+            foreach (var bg in MenuBackgrounds)
+            {
+                if (bg != current)
+                    list.Add(bg);
+            }
+            return list.PickRandom();
         }
 
         private static Dictionary<string, Texture2D> LoadAll(ContentManager content, string root)
@@ -153,6 +146,24 @@ namespace Azzandra
                 var fileName = files[i].Remove(0, rootLength);
                 fileName = fileName.Remove(fileName.Length - 4, 4);
                 images.Add(fileName, content.Load<Texture2D>(fileName));
+            }
+
+            return images;
+        }
+
+        private static Texture2D[] LoadAllArray(ContentManager content, string root)
+        {
+            string[] files = Directory.GetFiles(root);
+            var images = new Texture2D[files.Length];
+
+            int rootLength = root.Length + 1;
+            content.RootDirectory = root.Replace('\\', '/');
+
+            for (int i = 0; i < files.Length; i++)
+            {
+                var fileName = files[i].Remove(0, rootLength);
+                fileName = fileName.Remove(fileName.Length - 4, 4);
+                images[i] = content.Load<Texture2D>(fileName);
             }
 
             return images;

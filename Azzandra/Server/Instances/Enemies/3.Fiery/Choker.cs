@@ -14,7 +14,7 @@ namespace Azzandra
         public override int GetH() => 2;
 
         private int ConsecutiveStrangles = 0;
-
+        public override bool CanFlee() => false;
 
         public Choker(int x, int y) : base(x, y)
         { }

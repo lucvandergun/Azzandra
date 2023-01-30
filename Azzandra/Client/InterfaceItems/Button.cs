@@ -60,31 +60,34 @@ namespace Azzandra
             if (canInteract && isSelected) UpdateKeyInput();
 
             bool hover = Input.MouseHover(surface.Position + pos - Size/2, Size) && canHover;
+            bool isClicked = canInteract && hover && Input.IsMouseLeftDown;
             var color = canInteract && hover ? TextColorHover : TextColor;
 
             // Draw rectangle
             var rect = new Rectangle((pos - Size / 2).ToPoint(), Size.ToPoint());
-            Format.DrawBackground(rect, sb);
-
-            if (isSelected)
-                Display.DrawInline(rect, Color.White);
+            Format.DrawBackground(sb, rect, isSelected, isClicked, true);
 
             // Hover & selected overlay
-            if (canInteract && hover && Input.IsMouseLeftDown)
-                Display.DrawRect(rect, Color.White * 0.35f);
-            else if (isSelected)
-                Display.DrawRect(rect, Color.White * 0.25f);
+            //if (isSelected)
+            //    Display.DrawInline(rect, Color.White);
+            //if (canInteract && hover && Input.IsMouseLeftDown)
+            //    Display.DrawRect(rect, Color.White * 0.35f);
+            //else if (isSelected)
+            //    Display.DrawRect(rect, Color.White * 0.25f);
 
             // Draw button image/animation
             AnimationManager?.Draw(sb, pos, 2f);
 
             // Draw button text
-            var format = new TextFormat(color, Assets.Gridfont, Alignment.Centered, true);
+            var format = new TextFormat(color, Assets.Gridfont, Alignment.Centered, false);
             TextFormatter.DrawMultiLineString(pos, GetCurrentButtonText().Split('\n'), format);
 
             // Draw not-activatable overlay
             if (!canInteract)
-                Display.DrawRect(rect, Color.Black * 0.5f);
+            {
+                Format.DrawBackground(sb, rect, false, false, canInteract);
+                //Display.DrawRect(rect, Color.Black * 0.5f);
+            }
 
 
             // On-click event

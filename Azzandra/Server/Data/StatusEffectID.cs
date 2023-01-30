@@ -26,7 +26,7 @@ namespace Azzandra
             Nausea = 13,
 
             // Positive
-            Haste = 20,
+            Speed = 20,
             Regeneration = 21,
 
             Strong = 22,
@@ -51,7 +51,8 @@ namespace Azzandra
             { Weak, typeof(StatusEffects.Weak) },
             { Blind, typeof(StatusEffects.Blind) },
             { Regeneration, typeof(StatusEffects.Regeneration) },
-            { Frostbite, typeof(StatusEffects.Frostbite) },
+            { Slow, typeof(StatusEffects.Slow) },
+            { Speed, typeof(StatusEffects.Speed) },
             { Disoriented, typeof(StatusEffects.Disoriented) },
             { Deflect, typeof(StatusEffects.Deflect) },
             { Starving, typeof(StatusEffects.Starving) },

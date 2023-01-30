@@ -13,12 +13,9 @@ namespace Azzandra
         public bool IsActive { get; protected set; } = true;
         public override bool IsAttackable() => IsActive;
         public override bool IsSolid() => IsActive;
+        public override bool CanFlee() => false;
 
         public override string AssetName => IsActive ? base.AssetName : (base.AssetName + "_bones");
-        protected virtual void UpdateAnimation() {
-            var a = AssetName;
-            AnimationManager.Play(AssetName);
-    }
 
 
         public Skeleton(int x, int y) : base(x, y) { }
@@ -49,7 +46,7 @@ namespace Azzandra
         public override int GetHit(Style style, int dmg)
         {
             var hit = base.GetHit(style, dmg);
-            if (Hp <= FullHp / 3)
+            if (Hp <= FullHp / 3 && Hp > 0)
             {
                 IsActive = false;
                 UpdateAnimation();

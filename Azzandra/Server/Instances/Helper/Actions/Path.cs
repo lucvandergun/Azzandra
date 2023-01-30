@@ -31,7 +31,8 @@ namespace Azzandra
         public int Length => PathList == null ? 0 : PathList.Count;
         public bool MustReach;
         public Region RegionConstraint;
-        
+        public bool FollowRegionConstraint;
+
 
         /// <summary>
         /// This class creates an A* path to specified target.
@@ -39,7 +40,7 @@ namespace Azzandra
         /// <param name="entity">What entity this A* is for.</param>
         /// <param name="target"></param>Target destination to move towards.
         /// <param name="mustReach">Whether algorythm is allowed to proceed if target is unreachable.</param>
-        public Path(Entity entity, Vector target, bool mustReach = false)
+        public Path(Entity entity, Vector target, bool mustReach = false, bool regionConstraint = true)
         {
             Entity = entity;
             Target = target;
@@ -49,6 +50,7 @@ namespace Azzandra
             if (entity is Enemy enemy && enemy.IsInRangeFromPoint(enemy.BasePosition, enemy.WanderRange))
             {
                 RegionConstraint = enemy.GetRegionAroundBasePos(enemy.WanderRange);
+                FollowRegionConstraint = regionConstraint;
             }
                 
 
@@ -170,7 +172,7 @@ namespace Azzandra
             foreach (var dir in potentialDirections)
             {
                 // If there is a region constraint and the new pos is not inside this region: don't go here.
-                if (RegionConstraint != null && !RegionConstraint.IsInRegion(dir.ToVector() + new Vector(x, y), Entity.Size))
+                if (FollowRegionConstraint && RegionConstraint != null && !RegionConstraint.IsInRegion(dir.ToVector() + new Vector(x, y), Entity.Size))
                     continue;
 
                 if (Entity.CanMoveUnobstructed(x, y, dir.X, dir.Y, false))

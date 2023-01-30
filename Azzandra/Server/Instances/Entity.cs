@@ -104,11 +104,21 @@ namespace Azzandra
         public virtual float GetRes() => ResistanceMod;
         public virtual float GetArm() => WeakMod;
 
+        public override int GetInitiative()
+        {
+            var init = base.GetInitiative();
+            if (TryGetStatusEffect(StatusEffectID.Slow, out var slow))
+                init += 2 * slow.Level;
+            if (TryGetStatusEffect(StatusEffectID.Speed, out var speed))
+                init = Math.Max(2, init + 2 * speed.Level);
+            return init;
+        }
+
 
         public Entity(int x, int y) : base(x, y)
         {
             Hp = GetFullHp();
-            ActionPotential = Util.Random.Next(Initiative);
+            ActionPotential = Util.Random.Next(GetInitiative());
         }
 
 
@@ -128,6 +138,16 @@ namespace Azzandra
             // Target
             Target = InstRef.Load(BitConverter.ToInt32(bytes, pos));
             pos += 4;
+            if (Target != null)
+            {
+                Target.LastKnownLocation = Vector.Load(bytes, ref pos);
+                Target.TimeSinceLastSeen = BitConverter.ToInt32(bytes, pos);
+                pos += 4;
+            }
+            else
+            {
+                pos += 12;
+            }
 
             // Status effects
             int amt = BitConverter.ToInt32(bytes, pos);
@@ -144,7 +164,7 @@ namespace Azzandra
 
         public override byte[] ToBytes()
         {
-            var bytes = new byte[20];
+            var bytes = new byte[32];
             int pos = 0;
 
             // Health
@@ -159,6 +179,10 @@ namespace Azzandra
 
             // Target
             bytes.Insert(pos, BitConverter.GetBytes(InstRef.GetSaveID(Target)));
+            pos += 4;
+            bytes.Insert(pos, Target?.LastKnownLocation.ToBytes() ?? Vector.Zero.ToBytes());
+            pos += 8;
+            bytes.Insert(pos, BitConverter.GetBytes(Target?.TimeSinceLastSeen ?? 0));
             pos += 4;
 
             // Status effects
@@ -402,7 +426,7 @@ namespace Azzandra
                 else if (attack.Style == Style.Magic)
                     Level.CreateInstance(new SpellProjectile(this, target, SpellProjectile.GetColor(affect.Properties)));
                 else if (attack.Style == Style.Melee)
-                    Animations.Add(new AttackAnimation(this, target, Initiative));
+                    Animations.Add(new AttackAnimation(this, target, GetInitiative()));
             }
 
             affect = target.GetAffected(this, affect);

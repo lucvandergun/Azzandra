@@ -20,6 +20,8 @@ namespace Azzandra
         //[JsonProperty(DefaultValueHandling = DefaultValueHandling.Populate)]
         public readonly int Level;
 
+
+
         public AttackProperty(int level = 1)
         {
             Level = level;
@@ -71,7 +73,6 @@ namespace Azzandra
 
             return prop;
         }
-
 
         public override string ToString()
         {

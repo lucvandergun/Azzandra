@@ -121,7 +121,7 @@ namespace Azzandra
             //LevelManager.CurrentLevel.TurnEnd();
 
             // If player can take a turn, allow it to do so first:
-            if (player.ActionPotential >= player.Initiative)
+            if (player.ActionPotential >= player.GetInitiative())
             {              
                 CheckForPlayerInput();
             }
@@ -131,7 +131,7 @@ namespace Azzandra
             User.UpdateVisibilityMap();
 
             // If the player can't take a turn anymore, increase the action potential of all instances:
-            if (player.ActionPotential < player.Initiative)
+            if (player.ActionPotential < player.GetInitiative())
             {
                 if (TickDelay <= 0)
                 {
@@ -155,7 +155,7 @@ namespace Azzandra
             // Perform the player's turn if an action was present and it could be performed:
             if (User.Player.Action.Perform())
             {
-                User.Player.ActionPotential -= User.Player.Initiative;
+                User.Player.ActionPotential -= User.Player.GetInitiative();
                 User.Player.Turn();
                 User.Player.TimeSinceLastTurn = 0;
                 User.Player.MomentOfLastTurn = AmtUpdates;

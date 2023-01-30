@@ -111,17 +111,16 @@ namespace Azzandra.Generation
             var tileMap = new Tile[MapWidth, MapHeight];
             for (int x, y = 0; y < MapHeight; y++)
                 for (x = 0; x < MapWidth; x++)
-                    tileMap[x, y] = CreateTileFromSurroundings(x, y, map);
+                    tileMap[x, y] = CreateTileFromSurroundings(map, x, y);
 
             return tileMap;
         }
 
-        private Tile CreateTileFromSurroundings(int x, int y, int[,] map)
+        private Tile CreateTileFromSurroundings(int[,] map, int x, int y)
         {
-            //var surroundingTiles = GetSurroundingTiles(x, y, map);
             var type = map[x, y];
 
-            return new Tile(type, -1);
+            return new Tile(type);
         }
 
         protected int[,] GenerateLakes(int[,] map, List<LakeData> lakeData, int lakePercent, int minLakeSize, int minCaveSize)
@@ -363,17 +362,6 @@ namespace Azzandra.Generation
                     list.Add(new LakeData(BlockID.Sulphur, 35));
                     break;
             }
-            return list;
-        }
-
-
-        public List<Vector> GetSurroundingTiles(int x, int y, int mapWidth, int mapHeight)
-        {
-            var list = new List<Vector>(4);
-            if (x > 0) list.Add(new Vector(x - 1, y));
-            if (y > 0) list.Add(new Vector(x, y - 1));
-            if (x < mapWidth - 1) list.Add(new Vector(x + 1, y));
-            if (y < mapHeight - 1) list.Add(new Vector(x, y + 1));
             return list;
         }
 

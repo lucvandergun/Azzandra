@@ -291,6 +291,30 @@
 /processorParam:TextureFormat=Color
 /build:interface/menu_backgrounds/4.png
 
+#begin interface/menu_backgrounds/5.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:interface/menu_backgrounds/5.png
+
+#begin interface/menu_backgrounds/6.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:interface/menu_backgrounds/6.png
+
 #begin interface/target12.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -903,7 +927,7 @@
 /processorParam:TextureFormat=Color
 /build:textures/entity/ghaugh.png
 
-#begin textures/entity/giant_skeleton.png
+#begin textures/entity/giant_skeleton_archer.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -913,7 +937,31 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:textures/entity/giant_skeleton.png
+/build:textures/entity/giant_skeleton_archer.png
+
+#begin textures/entity/giant_skeleton_warlock.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:textures/entity/giant_skeleton_warlock.png
+
+#begin textures/entity/giant_skeleton_warrior.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:textures/entity/giant_skeleton_warrior.png
 
 #begin textures/entity/goblin.png
 /importer:TextureImporter

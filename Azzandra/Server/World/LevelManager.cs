@@ -161,6 +161,12 @@ namespace Azzandra
             if (depth < 1 || depth > MAX_DEPTH)
                 return null;
 
+            // Temp/atmosphere message:
+            var oldTemp = LevelTemperatures[Depth - 1];
+            var newTemp = LevelTemperatures[depth - 1];
+            if (oldTemp != newTemp)
+                Server.User.ShowMessage("You notice that the atmosphere is " + Enum.GetName(typeof(Temp), newTemp).ToLower() + " here.");
+
             //BenefitValue += LEVEL_BENEFIT;
             //var level = new Level(Server, depth, LevelTemperatures[depth - 1], LevelSeeds[depth - 1]);
             //level.Generate();

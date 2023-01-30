@@ -32,7 +32,7 @@ namespace Azzandra
             // Path to base position
             if (BasePosition != null && Position != BasePosition)
             {
-                return new ActionPath(this, BasePosition.Value, true);
+                return new ActionPath(this, BasePosition.Value, true, false);
             }
             else
             {
@@ -48,10 +48,18 @@ namespace Azzandra
             if (target != null)
             {
                 IsActive = true;
-                AnimationManager.Play("gargoyle_flying");
+                UpdateAnimation();
             }
 
             return target;
+        }
+
+        public override Affect GetAffected(Entity attacker, Affect affect)
+        {
+            IsActive = true;
+            UpdateAnimation();
+
+            return base.GetAffected(attacker, affect);
         }
 
 

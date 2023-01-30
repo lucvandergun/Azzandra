@@ -24,7 +24,7 @@ namespace Azzandra
             if (dist == Vector.Zero)
                 dist = Dir.Random.ToVector();
 
-            return new ActionMove(Caller, dist, IsForced).Perform();
+            return new ActionMove(Caller, dist, false).Perform();
         }
     }
 }

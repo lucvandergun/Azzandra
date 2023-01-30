@@ -54,6 +54,7 @@ namespace Azzandra
             VisibleEnvironmentInstances.Remove(Server.User.Player);
             VisibleEnvironmentInstances.Sort((a, b) =>
                 {
+                    //if (a == null || b == null) return 0;
                     int distSort = a.TileDistanceTo(player) - b.TileDistanceTo(player);
                     return distSort != 0 ? distSort : (!(a is Entity) && b is Entity ? 1 : -1);
                 }); // TODO: fix this??

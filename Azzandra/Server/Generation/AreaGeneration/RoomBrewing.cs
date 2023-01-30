@@ -14,7 +14,7 @@ namespace Azzandra.Generation.AreaGeneration
             int benefit = 3;
 
             bool hasSpawnedTankard = false;
-            bool hasSpawnedFilled = false;
+            bool hasSpawnedReward = false;
 
             // Spawn items (barrel or table)
             for (int i = 0; i < 3; i++)
@@ -30,7 +30,7 @@ namespace Azzandra.Generation.AreaGeneration
                     if (SpawnBarrel(area, random, pos, true))
                     {
                         area.Level.LevelManager.RemoveBenefit(benefit);
-                        hasSpawnedFilled = true;
+                        hasSpawnedReward = true;
 
                         if (!hasSpawnedTankard && random.Next(10) > 0)
                         {
@@ -43,12 +43,12 @@ namespace Azzandra.Generation.AreaGeneration
                     if (SpawnPotion(area, random, pos, true))
                     {
                         area.Level.LevelManager.RemoveBenefit(benefit);
-                        hasSpawnedFilled = true;
+                        hasSpawnedReward = true;
                     }
                 }
             }
 
-            if (!hasSpawnedFilled)
+            if (!hasSpawnedReward)
                 return;
 
             for (int i = 0; i < 1 + random.Next(3); i++)
@@ -84,6 +84,18 @@ namespace Azzandra.Generation.AreaGeneration
                         area.Level.CreateInstance(new GroundItem(tablePos.X, tablePos.Y, item));
                     }
                 }
+
+                // Spawn stools:
+                int amt = 0;
+                var dirs = Vector.Dirs8;
+                dirs.Shuffle(random);
+                foreach (var dir in dirs)
+                {
+                    area.FindTileSpawn(BlockID.Stool, false, tablePos, 2, false, true);
+                    amt++;
+                    if (amt >= 4) break;
+                }
+
                 return true;
             }
             

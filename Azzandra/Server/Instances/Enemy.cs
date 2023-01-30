@@ -24,11 +24,12 @@ namespace Azzandra
         
         public virtual int DetectRange => 5;            // The range at which they will target an instance: measured from self.
         public virtual int AggressiveRange => 2;        // The range up to which they will always be aggressive towards a target (additionally to wander range, from base pos)
-        public virtual int LoseTargetTime => 10;        // The time needed to pass after last being hit by a target in order to consider returning to the wander area.
+        public virtual int LoseTargetTime => 20;        // The time needed to pass after last being hit by a target in order to consider returning to the wander area.
         public virtual bool ReturnHome() => HitTimer >= LoseTargetTime && LoseTargetTime != -1 && !IsInRangeFromPoint(BasePosition, WanderRange + AggressiveRange);
         public virtual bool CanFlee() => true;
         public virtual float FleeHpThreshold => 0.25f;  // The Hp at which the enemy will flee
         public virtual bool FleesIfCannotAttackBack() => true;
+        public virtual int LoseTargetTimeSinceSeen => 10;        // The maximum time allowed to not see the target; lose it otherwise.
 
 
 
@@ -90,7 +91,7 @@ namespace Azzandra
         {
             // Load the enemy stats from the database
             var data = Data.GetEnemyData(InstanceID.GetTypeID2(this));
-            Initiative = data.Initiative;
+            BaseInitiative = data.Initiative;
             Stats = data.Stats;
             Attacks = data.Attacks;
         }
@@ -138,6 +139,8 @@ namespace Azzandra
             // Check whether to lose target:
             if (Target != null)
             {
+                Target.Update(this);
+
                 if (!IsTargetStillValid() || ReturnHome())
                 {
                     //if (returnHome && Target.Instance is Player player)
@@ -169,10 +172,12 @@ namespace Azzandra
             }
 
             // Set "IsFleeing":
-            if (!IsFleeing)
+            if (CanFlee() && !IsFleeing)
             {
                 if (Target != null && Hp <= FullHp * FleeHpThreshold)
-                    IsFleeing = true;
+                {
+                    SetFleeing();
+                }
             }
 
             if (IsFleeing)
@@ -182,6 +187,10 @@ namespace Azzandra
                     TileDistanceTo(Target.Instance) >= 10)
                 {
                     IsFleeing = false;
+                    Target = null;
+                    // Set new base pos:
+                    if (!IsHaunting)
+                        BasePosition = Position;
                 }
             }
 
@@ -199,16 +208,25 @@ namespace Azzandra
             }
         }
 
+        public void SetFleeing()
+        {
+            IsFleeing = true;
+            if (Target?.Instance is Player)
+                Level.Server.User.ShowMessage(ToStringAdress().CapFirst() + " starts to flee.");
+            BasePosition = null;
+        }
 
         /// <summary>
         /// This method should be able to assume that enemy has a valid target.
         /// </summary>
         public virtual EntityAction DetermineFleeAction()
         {
-            if (BasePosition != null)
-                return new ActionPath(this, BasePosition.Value, false);
-            else
-                return new ActionFlee(this, Target.Instance);
+            //if (BasePosition != null)
+            //    return new ActionPath(this, BasePosition.Value, false, false);
+            //else
+            //    return new ActionFlee(this, Target.Instance);
+
+            return new ActionFlee(this, Target.Instance);
         }
 
         /// <summary>
@@ -281,35 +299,42 @@ namespace Azzandra
             // Check whether enemy can move at all:
             if (!CanMove()) return null;
 
-
-            // Try to leap at target if within one turn's movement:
-            if (affect is Attack attack && attack.Style == Style.Melee && AttackTimer >= affect.Speed &&
-                dist.Absolute() - new Vector(affect.Range) <= new Vector(GetMovementSpeed()))
+            if (CanSee(target))
             {
-                return new ActionLeapAttack2(this, entity, (Attack)affect);
+                // Try to leap at target if within one turn's movement:
+                if (affect is Attack attack && attack.Style == Style.Melee && AttackTimer >= affect.Speed &&
+                    dist.Absolute() - new Vector(affect.Range) <= new Vector(GetMovementSpeed()))
+                {
+                    return new ActionLeapAttack2(this, entity, (Attack)affect);
+                }
+
+                //var step = GetStepTowards(target);
+                //var movementOptions = new Vector[] { step, new Vector(step.X, 0), new Vector(0, step.Y) };
+                //foreach (var option in movementOptions.Where(o => !o.IsNull()))
+                //{
+                //    // Try to leap at target if within one turn's movement:
+                //    if (affect is Attack attack && attack.Style == Style.Melee && AttackTimer >= affect.Speed)
+                //    {
+                //        if (dist.Absolute() - new Vector(affect.Range) <= new Vector(GetMovementSpeed()))
+                //            return new ActionLeapAttack(this, entity, option, (Attack)affect);
+                //    }
+                //}
+
+                // TODO: move towards closest tile that meets specs: i.e. tiles in attack range!
+                // Make sure not to needlessly override old PathTarget actions.
+                //if (Action == null || !(Action is ActionPathTarget))
+                //else return Action;
+
+                // Just move towards the target:
+                return new ActionPathTarget(this, target, false);
             }
+            else
+            {
+                // Try to move to last known location:
+                var p = new ActionPath(this, Target.LastKnownLocation, false, false);
 
-
-            //var step = GetStepTowards(target);
-            //var movementOptions = new Vector[] { step, new Vector(step.X, 0), new Vector(0, step.Y) };
-            //foreach (var option in movementOptions.Where(o => !o.IsNull()))
-            //{
-            //    // Try to leap at target if within one turn's movement:
-            //    if (affect is Attack attack && attack.Style == Style.Melee && AttackTimer >= affect.Speed)
-            //    {
-            //        if (dist.Absolute() - new Vector(affect.Range) <= new Vector(GetMovementSpeed()))
-            //            return new ActionLeapAttack(this, entity, option, (Attack)affect);
-            //    }
-            //}
-
-
-            // TODO: move towards closest tile that meets specs: i.e. tiles in attack range!
-            // Make sure not to needlessly override old PathTarget actions.
-            //if (Action == null || !(Action is ActionPathTarget))
-            //else return Action;
-
-            // Just move towards the target:
-            return new ActionPathTarget(this, target, false);
+                return p;
+            }
         }
 
 
@@ -376,7 +401,11 @@ namespace Azzandra
                 return false;
             
             // Check instance is attackable and visible
-            if (!inst.IsAttackable() || !IsInRange(inst, GetSightRange()) || !CanSee(inst))
+            if (!inst.IsAttackable()) // || !IsInRange(inst, GetSightRange()) || !CanSee(inst)
+                return false;
+
+            // Lose target if havent seen it for a while.
+            if (Target.TimeSinceLastSeen >= LoseTargetTimeSinceSeen)
                 return false;
 
             return true;
@@ -395,12 +424,11 @@ namespace Azzandra
             }
 
             // Flee if cannot attack back:
-            if (FleesIfCannotAttackBack() && attacker == Target.Instance)
+            if (CanFlee() && FleesIfCannotAttackBack() && attacker == Target.Instance)
             {
                 if (!CanAffectivelyReachTarget(Target.Instance))
                 {
-                    Level.Server.ThrowDebug(ToStringAdress() + " was unable to chase " + attacker.ToStringAdress() + ", lost target.");
-                    IsFleeing = true;
+                    SetFleeing();
                 }
             }
                 
@@ -411,16 +439,27 @@ namespace Azzandra
             return base.GetAffected(attacker, affect);
         }
 
-        protected bool CanAffectivelyReachTarget(Instance inst)
+        protected bool CanAffectivelyReachTarget(Instance target)
         {
-            var maxAttackRange = Attacks.Max(a => a.Range);
-            var maxRangeAttack = Attacks.FirstOrDefault(a => a.Range == maxAttackRange).ToAffect(Level.Server);
+            if (target == null)
+                return false;
+            
+            // If can attack from current position: return true
+            int maxAttackRange = 1;
+            if (Attacks.Length > 0)
+            {
+                maxAttackRange = Attacks.Max(a => a.Range);
+                var maxRangeAttack = Attacks.FirstOrDefault(a => a.Range == maxAttackRange).ToAffect(Level.Server);
 
-            if (CanAffect(inst, maxRangeAttack))
-                return true;
+                if (CanAffect(target, maxRangeAttack))
+                    return true;
+            }
 
-            var newPath = new ActionPathTarget(this, inst, true);
-            if (newPath.Path.Length >= 1)
+            // Else if can find a path towards target: reject if cannot come close enough
+            var newPath = new Path2(this, target, false, false).PathList;
+            var pathEnd = newPath.Last().Position;
+            var dist = DistanceTo(pathEnd, target);
+            if (dist.OrthogonalLength() <= maxAttackRange)
                 return true;
 
             return false;

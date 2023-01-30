@@ -10,7 +10,7 @@ namespace Azzandra
     public class Zombie : Enemy
     {
         public override EntityType EntityType => EntityType.Undead;
-
+        public override bool CanFlee() => false;
 
         public Zombie(int x, int y) : base(x, y) { }
 

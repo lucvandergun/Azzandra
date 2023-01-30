@@ -12,7 +12,7 @@ namespace Azzandra
         public override int GetW() => 2;
         public override int GetH() => 2;
         public override EntityType EntityType => EntityType.Fire;
-
+        public override bool CanFlee() => false;
 
         public FireGiant(int x, int y) : base(x, y)
         { }

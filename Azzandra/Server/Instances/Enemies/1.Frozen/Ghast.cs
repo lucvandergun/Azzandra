@@ -11,6 +11,7 @@ namespace Azzandra
     {
         public override EntityType EntityType => EntityType.Undead;
         public override int GetMoveDelay() => 3;
+        public override bool CanFlee() => false;
 
         public Ghast(int x, int y) : base(x, y) { }
 
@@ -50,7 +51,7 @@ namespace Azzandra
                         movements.AddRange(movement);
                 }
 
-                Animations.Add(new MovementAnimation(this, movements, Initiative));
+                Animations.Add(new MovementAnimation(this, movements, GetInitiative()));
             }
 
             return null; 
