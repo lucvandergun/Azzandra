@@ -112,8 +112,6 @@ namespace Azzandra
             EvaluateBasePositionByGroup();
             Vector target = PickWanderTarget();
 
-            //var t = CanTargetTile(Level.GetTile(target));
-            //var e = CanExist(target.X, target.Y);
             if (CanTargetTile(Level.GetTile(target)) && CanExist(target.X, target.Y))
             {
                 return new ActionPath(this, target, true, true);
@@ -125,7 +123,7 @@ namespace Azzandra
 
         protected virtual bool CanTargetTile(Tile tile)
         {
-            return CanWalkOverBlock(tile.Ground) && CanWalkOverBlock(tile.Object);
+            return CanStandOnTile(tile, GetMovementType());
         }
 
         /// <summary>

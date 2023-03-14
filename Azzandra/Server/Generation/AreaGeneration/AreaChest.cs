@@ -20,7 +20,7 @@ namespace Azzandra.Generation.AreaGeneration
             var centerPos = nodes[nodes.Count / 2];
 
             // Spawn chest:
-            if (random.Next(3) == 1)
+            if (random.Next(2) == 0)
             {
                 area.FindInstanceSpawn(new CursedChest(0, 0), centerPos, 1, true, true);
             }

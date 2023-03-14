@@ -47,7 +47,7 @@ namespace Azzandra
             {
                 player.User.Log.Add("<gold>You open the chest. It contains bones that look alive!");
                 
-                var r = Util.Random.Next(3);
+                var r = Util.Random.Next(4);
                 Enemy inst;
                 if (r == 0) inst = new GiantSkeletonWarlock(X, Y);
                 else if (r == 1) inst = new GiantSkeletonArcher(X, Y);

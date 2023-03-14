@@ -90,7 +90,7 @@ namespace Azzandra
             sb.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend, SamplerState.PointClamp, null, null, null, null);
 
             // Render Title:
-            int scale = 4;
+            int scale = 1;
             var titlePos = new Vector2(Surface.Width / 2, Surface.Height * 2 / 11);
             titlePos -= new Vector2(Assets.CoALogo.Width, Assets.CoALogo.Height) * scale / 2;
             Display.DrawTexture(titlePos, Assets.CoALogo, scale);

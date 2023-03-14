@@ -44,7 +44,7 @@ namespace Azzandra
             text.DrawLine("Turns: " + GameClient.Server.AmtTurns);
             if (GameClient.IsDevMode)
             {
-                text.DrawLine("Delay: " + GameClient.Server.TickDelay);
+                //text.DrawLine("Delay: " + GameClient.Server.TickDelay);
                 //text.DrawLine("CanInit: " + GameClient.InputHandler.CanInit);
             }
             

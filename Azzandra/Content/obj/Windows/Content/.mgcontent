@@ -57,6 +57,7 @@
     <File>D:/Users/Luc/Documents/Dev/C#/Azzandra/Azzandra/Azzandra/Content/textures/cobweb.png</File>
     <File>D:/Users/Luc/Documents/Dev/C#/Azzandra/Azzandra/Azzandra/Content/textures/crystal.png</File>
     <File>D:/Users/Luc/Documents/Dev/C#/Azzandra/Azzandra/Azzandra/Content/textures/dock.png</File>
+    <File>D:/Users/Luc/Documents/Dev/C#/Azzandra/Azzandra/Azzandra/Content/textures/dock_oriented.png</File>
     <File>D:/Users/Luc/Documents/Dev/C#/Azzandra/Azzandra/Azzandra/Content/textures/door_closed.png</File>
     <File>D:/Users/Luc/Documents/Dev/C#/Azzandra/Azzandra/Azzandra/Content/textures/door_open.png</File>
     <File>D:/Users/Luc/Documents/Dev/C#/Azzandra/Azzandra/Azzandra/Content/textures/dust_cloud.png</File>
@@ -147,6 +148,7 @@
     <File>D:/Users/Luc/Documents/Dev/C#/Azzandra/Azzandra/Azzandra/Content/textures/water.png</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

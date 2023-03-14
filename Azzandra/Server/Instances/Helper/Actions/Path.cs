@@ -165,14 +165,13 @@ namespace Azzandra
 
         private List<Node> GetWalkableAdjacentSquares(int x, int y)
         {
-            var potentialDirections = new List<Dir>()
-            { new Dir(0, 1), new Dir(0, -1), new Dir(1, 0), new Dir(1, -1), new Dir(1, 1), new Dir(-1, 0), new Dir(-1, -1), new Dir(-1, 1) };
+            var potentialDirections = Vector.Dirs8;
 
             var nodes = new List<Node>();
             foreach (var dir in potentialDirections)
             {
                 // If there is a region constraint and the new pos is not inside this region: don't go here.
-                if (FollowRegionConstraint && RegionConstraint != null && !RegionConstraint.IsInRegion(dir.ToVector() + new Vector(x, y), Entity.Size))
+                if (FollowRegionConstraint && RegionConstraint != null && !RegionConstraint.IsInRegion(dir + new Vector(x, y), Entity.Size))
                     continue;
 
                 if (Entity.CanMoveUnobstructed(x, y, dir.X, dir.Y, false))

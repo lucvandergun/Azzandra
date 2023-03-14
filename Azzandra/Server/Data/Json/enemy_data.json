@@ -161,6 +161,7 @@
 			{
 				"style": "ranged",
 				"speed": 1,
+				"range": 6,
 				"accuracy": 10,
 				"damage": 6
 			}
@@ -181,6 +182,7 @@
 			{
 				"style": "magic",
 				"speed": 1,
+				"range": 6,
 				"accuracy": 8,
 				"damage": 8
 			}

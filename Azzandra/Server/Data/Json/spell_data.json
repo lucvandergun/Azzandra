@@ -55,7 +55,7 @@
 	},
 	"healing_aura": {
 		"name": "healing aura",
-		"desc": "Heal everyting in a region of two tiles surrounding you.",
+		"desc": "Heal everything in a region of two tiles around you.",
 		"spellpoints": 6,
 		"type": "defensive",
 		"weight": 12,

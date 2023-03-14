@@ -149,10 +149,12 @@ namespace Azzandra
             }
 
             // Draw selected info
-            if (isTarget && isDebug)
+            if (isTarget && isDebug && GameClient.IsDevMode)
             {
                 pos += LineOffset;
                 TextFormatter.DrawString(pos + StringOffset, " <gray>Action: " + entity.PrevAction, Format);
+                pos += LineOffset;
+                TextFormatter.DrawString(pos + StringOffset, " <gray>Initiative: " + entity.ActionPotential + "/" + entity.GetInitiative(), Format);
                 //pos += LineOffset;
                 //TextFormatter.DrawString(pos + StringOffset, " <gray>Parent: " + entity.Parent?.ID, Format);
                 //pos += LineOffset;

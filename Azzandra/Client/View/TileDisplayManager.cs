@@ -29,13 +29,14 @@ namespace Azzandra
             AnimationManager.AmtOfLoops = 0;
             AnimationManager.RenderFire = () => TileDisplayGround.RenderFire || TileDisplayObject.RenderFire;
 
-            
+            if (Tile.Object.ID == BlockID.Dock)
+                AnimationManager.FrameStage = Tile.Object.Value;
         }
 
         public void Play()
         {
             // For lava/sulphur: 
-            if (Tile.Ground.ID == BlockID.Lava || Tile.Ground.ID == BlockID.Sulphur)
+            if ((Tile.Ground.ID == BlockID.Lava || Tile.Ground.ID == BlockID.Sulphur) && Tile.Object.ID == BlockID.Void)
             {
                 AnimationManager.AmtOfLoops = -1;
                 AnimationManager.FrameStage = Util.Random.Next(AnimationManager.Animation.AmtOfFrames);
@@ -48,7 +49,7 @@ namespace Azzandra
 
         public void Update()
         {
-            if (Tile.Ground.ID == BlockID.Water && Util.Random.NextDouble() < 0.002d)
+            if (Tile.Ground.ID == BlockID.Water && Tile.Object.ID == BlockID.Void && Util.Random.NextDouble() < 0.002d)
             {
                 AnimationManager.AmtOfLoops = 1;
             }

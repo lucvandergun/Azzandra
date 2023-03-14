@@ -14,6 +14,7 @@ namespace Azzandra.Generation
             MapHeight = 40;
 
         public int[,] IDMap;
+        public Tile[,] TileMap;
         protected List<Area> Areas;
         protected List<Area> Lakes;
         protected Area Floor;
@@ -55,7 +56,7 @@ namespace Azzandra.Generation
             GenerateAreaLayout();
 
             // Convert integer map to Tile map (Could slope wall & water tiles here)
-            Level.TileMap = ConvertToTileMap(IDMap);
+            Level.TileMap = TileMap;
             Level.MapWidth = MapWidth;
             Level.MapHeight = MapHeight;
             Level.Areas = Areas;
@@ -92,8 +93,11 @@ namespace Azzandra.Generation
             Areas.ForEach(a => a.IdentifyEdgePoints());
             Areas.Shuffle(Random);
 
+            // Convert current (int) IDMap to a (Tile) TileMap:
+            TileMap = ConvertToTileMap(IDMap);
+
             // Create connections and pathways between all areas:
-            ConnectAreas(IDMap, Areas);
+            ConnectAreas(TileMap, Areas);
 
             // Inter-connect all non-connected rooms
             //ConnectNonConnectedRooms(IDMap, Areas);
@@ -105,7 +109,7 @@ namespace Azzandra.Generation
         /// </summary>
         /// <param name="map">The integer type map</param>
         /// <returns>A Tile map of the same dimensions.</returns>
-        private Tile[,] ConvertToTileMap(int[,] map)
+        protected Tile[,] ConvertToTileMap(int[,] map)
         {
             // Check the surroundings of each position to create the corresponding tile
             var tileMap = new Tile[MapWidth, MapHeight];
@@ -638,7 +642,7 @@ namespace Azzandra.Generation
         /// <summary>
         /// This method connects all areas and makes all areas accessible with with paths
         /// </summary>
-        protected void ConnectNonConnectedRooms(int[,] map, List<Area> areas)
+        protected void ConnectNonConnectedRooms(Tile[,] map, List<Area> areas)
         {
             var areas2 = areas.CreateCopy();
             // Find all room-combinations that arent connected
@@ -659,7 +663,7 @@ namespace Azzandra.Generation
         /// <summary>
         /// This method connects all areas and makes all areas accessible with with paths
         /// </summary>
-        protected void ConnectAreas(int[,] map, List<Area> areas)
+        protected void ConnectAreas(Tile[,] map, List<Area> areas)
         {
             // Create list of connected areas
             var remainingAreas = areas.CreateCopy();
@@ -686,7 +690,7 @@ namespace Azzandra.Generation
         /// <param name="map">The tilemap.</param>
         /// <param name="areaMap">The list of already connected areas.</param>
         /// <param name="remainingAreas">The list of areas not yet connected.</param>
-        private void ConnectNearestArea(int [,] map, ref List<Area> areaMap, ref List<Area> remainingAreas)
+        private void ConnectNearestArea(Tile[,] map, ref List<Area> areaMap, ref List<Area> remainingAreas)
         {
             // Compile list of connection potentials
             var connections = ListConnectionPotentials(areaMap, remainingAreas);
@@ -811,7 +815,7 @@ namespace Azzandra.Generation
         /// <param name="areaMap">The list of connected areas.</param>
         /// <param name="remainingAreas">The list of remaining areas.</param>
         /// <returns>Whether the connection could be made.</returns>
-        private bool ConnectOverConnectionPotential(ConnectionPotential cp, int[,] map, List<Area> areaMap, List<Area> remainingAreas)
+        private bool ConnectOverConnectionPotential(ConnectionPotential cp, Tile[,] map, List<Area> areaMap, List<Area> remainingAreas)
         {
             // Connect directly:
             if (cp is ConnectionPotentialTouching)
@@ -849,7 +853,7 @@ namespace Azzandra.Generation
         /// <param name="start">The starting node of the pathway (inclusive).</param>
         /// <param name="end">The ending node of the pathway (inclusive).</param>
         /// <returns></returns>
-        private Pathway MakePathway(int[,] map, Vector start, Vector end)
+        private Pathway MakePathway(Tile[,] map, Vector start, Vector end)
         {
             //return new Pathway(new List<Vector>());
             // Create list of nodes
@@ -857,13 +861,15 @@ namespace Azzandra.Generation
             var node = start;
 
 
-            // Walk horizontally
+            // Walk horizontally:
             while (node.X != end.X)
             {
                 pathwayNodes.Add(new Vector(node.X, node.Y));
                 node.X += Math.Sign(end.X - node.X);
             }
-            // Walk vertically
+            int changeDirIndex = pathwayNodes.Count;
+
+            // Walk vertically:
             while (node.Y != end.Y)
             {
                 pathwayNodes.Add(new Vector(node.X, node.Y));
@@ -872,18 +878,31 @@ namespace Azzandra.Generation
             pathwayNodes.Add(end);
 
 
-            //add patway to map
-            int oldType, newType;
+            // Add patway to map:
+            int groundID, pathID, i = 0;
             foreach (var point in pathwayNodes)
             {
-                //base new tile on old
-                oldType = IDMap[point.X, point.Y];
-                newType = GetPathType(oldType);
+                // Base the pathing tile and layer on the current ground id:
+                groundID = map[point.X, point.Y].Ground.ID;
+                pathID = GetPathType(groundID);
 
-                //edit tile on the map
-                IDMap[point.X, point.Y] = newType;
+                // If the path id is just a floor, change the ground id to "Floor", otherwise change the object id:
+                if (pathID == BlockID.Floor)
+                {
+                    //groundID = pathID;
+                    map[point.X, point.Y].Ground.ID = pathID;
+                }
+                else
+                {
+                    map[point.X, point.Y].Object.ID = pathID;
 
-                //smoothify surrounding tiles of edited tile
+                    // Select the Dock tile orientation
+                    if (pathID == BlockID.Dock)
+                        map[point.X, point.Y].Object.Value = i < changeDirIndex ? 0 : 1;
+                }
+
+
+                // Smoothify surrounding tiles of edited tile
                 /*
                 //identify surrounding tiles
                 var surroundingTiles = GetSurroundingTiles(point.X, point.Y, TileMap);
@@ -906,6 +925,8 @@ namespace Azzandra.Generation
                     }
                 }
                 */
+
+                i++;
             }
 
             var pathway = new Pathway(Level, pathwayNodes);

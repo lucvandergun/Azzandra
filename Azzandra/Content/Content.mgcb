@@ -639,6 +639,18 @@
 /processorParam:TextureFormat=Color
 /build:textures/dock.png
 
+#begin textures/dock_oriented.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:textures/dock_oriented.png
+
 #begin textures/door_closed.png
 /importer:TextureImporter
 /processor:TextureProcessor

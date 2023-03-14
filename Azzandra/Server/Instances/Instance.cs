@@ -121,7 +121,7 @@ namespace Azzandra
         public virtual bool IsSolid() { return true; }
         public virtual bool BlocksLight() { return false; }
         public virtual bool IsInteractable() { return false; }
-        public virtual bool IsInInteractionRange(Entity entity) { return IsTouchingOrColliding(entity); }
+        public virtual bool IsInInteractionRange(Entity entity) { return IsInRange(entity, 1); } //{ return IsTouchingOrColliding(entity); }
         public virtual bool IsAttackable() => false;
         public virtual bool CanBeTargetedByPlayer() => IsAttackable() || IsInteractable();
         public virtual bool CanBeDestroyed() => true;
@@ -328,18 +328,17 @@ namespace Azzandra
 
 
             // TileMap collision
-            var ownTiles = GetTiles().Select(t => t + new Vector(nx - X, ny - Y));
-            foreach (var node in ownTiles)
+            var newNodes = GetTiles().Select(t => t + new Vector(nx - X, ny - Y));
+            foreach (var node in newNodes)
             {
-                var tile = Level.TileMap[node.X, node.Y];
-                if (!CanWalkOverBlock(tile.Ground) || !CanWalkOverBlock(tile.Object))
+                if (!CanStandOnTile(Level.GetTile(node.X, node.Y), GetMovementType()))// CanWalkOverBlock(tile.Ground) || !CanWalkOverBlock(tile.Object))
                     return false;
             }
 
             // Instance collision
             foreach (var inst in Level.ActiveInstances)
             {
-                if (inst != this && IsInstanceSolidToThis(inst) && ownTiles.Intersect(inst.GetTiles()).Count() > 0)
+                if (inst != this && IsInstanceSolidToThis(inst) && newNodes.Intersect(inst.GetTiles()).Count() > 0)
                     return false;
             }
 
@@ -807,15 +806,16 @@ namespace Azzandra
 
                     // Determine whether can move on tile depending on movement mode
                     bool isWalk = GetMovementType() == MoveType.Walk; // && isGrounded - Could be additional parameter to e.g. 'blow away' walking entity.
-                    var canMoveOnFloor = isWalk ? CanWalkOverBlock(tile.Ground) : CanFlyOverBlock(tile.Ground);
-                    var canMoveOnObject = isWalk ? CanWalkOverBlock(tile.Object) : CanFlyOverBlock(tile.Object);
+                    //var canMoveOnFloor = isWalk ? CanWalkOverBlock(tile.Ground) : CanFlyOverBlock(tile.Ground);
+                    //var canMoveOnObject = isWalk ? CanWalkOverBlock(tile.Object) : CanFlyOverBlock(tile.Object);
 
-                    if (canMoveOnFloor && canMoveOnObject ||
-                        !canMoveOnFloor && canMoveOnObject && isCorner && CanBlockBeCornered(tile.Ground) ||
-                        canMoveOnFloor && !canMoveOnObject && isCorner && CanBlockBeCornered(tile.Object) ||
-                        !canMoveOnFloor && !canMoveOnObject && isCorner && CanBlockBeCornered(tile.Ground) && CanBlockBeCornered(tile.Object))
+                    //if (canMoveOnFloor && canMoveOnObject ||
+                    //    !canMoveOnFloor && canMoveOnObject && isCorner && CanBlockBeCornered(tile.Ground) ||
+                    //    canMoveOnFloor && !canMoveOnObject && isCorner && CanBlockBeCornered(tile.Object) ||
+                    //    !canMoveOnFloor && !canMoveOnObject && isCorner && CanBlockBeCornered(tile.Ground) && CanBlockBeCornered(tile.Object))
+                    if (CanStandOnTile(tile, GetMovementType()) || isCorner && CanTileBeCornered(tile))
                     {
-
+                        //practially 'continue;'
                     }
                     else
                     {
@@ -850,17 +850,27 @@ namespace Azzandra
         {
             if (moveType == MoveType.Walk)
             {
-                return CanWalkOverBlock(tile.Ground) && CanWalkOverBlock(tile.Object);
+                return CanWalkOverTile(tile);// CanWalkOverBlock(tile.Ground) && CanWalkOverBlock(tile.Object);
             }
             else
             {
-                return CanFlyOverBlock(tile.Ground) && CanFlyOverBlock(tile.Object);
+                return CanFlyOverTile(tile);// CanFlyOverBlock(tile.Ground) && CanFlyOverBlock(tile.Object);
             }
+        }
+
+        public virtual bool CanWalkOverTile(Tile tile)
+        {
+            return tile.IsWalkable() || (CanWalkOverBlock(tile.Ground) && CanWalkOverBlock(tile.Object));
+        }
+
+        public virtual bool CanFlyOverTile(Tile tile)
+        {
+            return tile.IsFlyable() || (CanFlyOverBlock(tile.Ground) && CanFlyOverBlock(tile.Object));
         }
 
         public virtual bool CanTileBeCornered(Tile tile)
         {
-            return CanBlockBeCornered(tile.Ground) && CanBlockBeCornered(tile.Object);
+            return tile.IsCornerable() || (CanBlockBeCornered(tile.Ground) && CanBlockBeCornered(tile.Object));
         }
 
 

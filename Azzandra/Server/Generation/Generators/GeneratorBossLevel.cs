@@ -41,8 +41,11 @@ namespace Azzandra.Generation
             Areas.ForEach(a => a.IdentifyEdgePoints());
             Areas.Shuffle(Random);
 
+            // Convert current (int) IDMap to a (Tile) TileMap:
+            TileMap = ConvertToTileMap(IDMap);
+
             // Create connections and pathways between all areas:
-            ConnectAreas(IDMap, Areas);
+            ConnectAreas(TileMap, Areas);
         }
 
         protected override List<LakeData> GetLakeTypes(Temp temp)
