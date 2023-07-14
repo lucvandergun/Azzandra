@@ -137,10 +137,12 @@ namespace Azzandra
         }
 
 
+        public bool IsInMapBounds(Vector pos) => IsInMapBounds(pos.X, pos.Y);
         public bool IsInMapBounds(int x, int y)
         {
             return x >= 0 && y >= 0 && x < MapWidth && y < MapHeight;
         }
+        public bool IsInMapBounds(Instance inst) => IsInMapBounds(inst.Position);
 
         public void MarkTile(Vector v, int id)
         {

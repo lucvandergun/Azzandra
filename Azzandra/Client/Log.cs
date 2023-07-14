@@ -41,7 +41,7 @@ namespace Azzandra
         private bool IsSnapped => ScrollPos == MaxScrollPos(ListOfMessages?.Count ?? 0);
         private readonly int LineH = 16;
         private int RegionHeight => GameClient.DisplayHandler?.LogSurface.Height ?? 100;
-        private int RegionWidth => GameClient.DisplayHandler?.LogSurface.Width ?? 500;
+        private int RegionWidth => GameClient.DisplayHandler?.LogSurface.Width - 100 ?? 400;
         private int MinScrollPos => 0;
         private int MaxScrollPos(int msgCount) => msgCount * LineH - RegionHeight;
 

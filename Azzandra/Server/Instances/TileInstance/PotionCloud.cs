@@ -22,7 +22,7 @@ namespace Azzandra
         public FoodEffect[] Effects;
 
         public override bool IsSolid() => false;
-        public override MoveType GetMovementType() => MoveType.Fly;
+        public override MoveType StartingMoveType => MoveType.Fly;
 
         public override void OnCollisionWithInstance(Instance inst)
         {

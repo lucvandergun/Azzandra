@@ -11,6 +11,7 @@ namespace Azzandra
     {
         public override EntityType EntityType => EntityType.Spirit;
         public bool IsAngered { get; set; } = false;
+        public override int AggressiveRange => 5;
 
         protected override bool IsAgressive() => IsAngered;
         public override string Name => IsAngered ? "angered wraith" : "wraith";

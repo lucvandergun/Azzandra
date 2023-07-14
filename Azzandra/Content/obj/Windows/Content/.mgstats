@@ -1,1 +1,4 @@
 Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Size,Build Seconds
+"D:/Users/Luc/Documents/Dev/C#/Azzandra/Azzandra/Azzandra/Content/interface/logo.png","D:/Users/Luc/Documents/Dev/C#/Azzandra/Azzandra/Azzandra/Content/bin/Windows/Content/interface/logo.xnb","TextureProcessor","Texture2DContent",526,8277,0.4551673
+"D:/Users/Luc/Documents/Dev/C#/Azzandra/Azzandra/Azzandra/Content/textures/entity/giant_skeleton_archer.png","D:/Users/Luc/Documents/Dev/C#/Azzandra/Azzandra/Azzandra/Content/bin/Windows/Content/textures/entity/giant_skeleton_archer.xnb","TextureProcessor","Texture2DContent",296,4181,0.5627629
+"D:/Users/Luc/Documents/Dev/C#/Azzandra/Azzandra/Azzandra/Content/textures/entity/giant_skeleton_warrior.png","D:/Users/Luc/Documents/Dev/C#/Azzandra/Azzandra/Azzandra/Content/bin/Windows/Content/textures/entity/giant_skeleton_warrior.xnb","TextureProcessor","Texture2DContent",318,4181,0.0069999

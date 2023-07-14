@@ -10,8 +10,8 @@ namespace Azzandra
     public class Vampire : Enemy
     {
         public override int GetSightRange() => 10;
+        public override int AggressiveRange => 5;
         public override int GetMovementSpeed() => Form == FormType.Humanoid ? 1 : 2;
-        public override MoveType GetMovementType() => Form == FormType.Humanoid ? MoveType.Walk : MoveType.Fly;
         public override EntityType EntityType => EntityType.Vampire;
 
 
@@ -40,6 +40,7 @@ namespace Azzandra
                 if (Form != FormType.Humanoid)
                 {
                     Form = FormType.Humanoid;
+                    SetMoveType(MoveType.Walk);
                     ShapeShiftTimer = -1;
                 }
 
@@ -47,6 +48,7 @@ namespace Azzandra
                 if (CanShapeShift && Hp <= 15)
                 {
                     Form = FormType.Bat;
+                    SetMoveType(MoveType.Fly);
                     ShapeShiftTimer = GetMaxShapeShiftTime();
                     CanShapeShift = false;
 

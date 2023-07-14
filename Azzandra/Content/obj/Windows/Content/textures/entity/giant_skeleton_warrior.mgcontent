@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <SourceFile>D:/Users/Luc/Documents/Dev/C#/Azzandra/Azzandra/Azzandra/Content/textures/entity/giant_skeleton_warrior.png</SourceFile>
-  <SourceTime>2022-10-01T23:57:19.1125975+02:00</SourceTime>
+  <SourceTime>2023-07-12T12:10:44.1857078+02:00</SourceTime>
   <DestFile>D:/Users/Luc/Documents/Dev/C#/Azzandra/Azzandra/Azzandra/Content/bin/Windows/Content/textures/entity/giant_skeleton_warrior.xnb</DestFile>
-  <DestTime>2023-01-16T00:53:23.3643784+01:00</DestTime>
+  <DestTime>2023-07-12T12:31:44.3954821+02:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2018-12-08T17:35:54+01:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

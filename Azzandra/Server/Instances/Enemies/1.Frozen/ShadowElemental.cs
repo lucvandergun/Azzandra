@@ -10,7 +10,8 @@ namespace Azzandra
     public class ShadowElemental : Enemy
     {
         public override EntityType EntityType => EntityType.Shadow;
-        public override MoveType GetMovementType() => MoveType.Fly;
+        public override MoveType StartingMoveType => MoveType.Fly;
+        public override int AggressiveRange => 5;
         public override bool CanFlee() => false;
         public ShadowElemental(int x, int y) : base(x, y) { }
 

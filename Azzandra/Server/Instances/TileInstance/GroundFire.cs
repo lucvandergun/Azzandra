@@ -20,7 +20,6 @@ namespace Azzandra
         public override string AssetName => "fire";
 
         public override bool IsSolid() => false;
-        public override MoveType GetMovementType() => MoveType.Fly;
         //public override bool IsInstanceSolidToThis(Instance inst) => inst is Entity ? false : base.IsInstanceSolidToThis(inst);
 
         public override void OnCollisionWithInstance(Instance inst)
@@ -66,5 +65,10 @@ namespace Azzandra
 
             return bytes.Concat(base.ToBytes()).ToArray();
         }
+
+
+        public override bool CanBlockBeCornered(Block block) => true;
+
+        public override bool CanWalkOverBlock(Block block) => CanFlyOverBlock(block);
     }
 }

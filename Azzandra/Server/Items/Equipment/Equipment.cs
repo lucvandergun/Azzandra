@@ -88,9 +88,9 @@ namespace Azzandra.Items
             var currentAttributes = ((Equipment)User.Equipment.GetItemByIndex(Slot))?.GetAttributes() ?? new int[AttributeNames.Length];
             
 
-            var stats = AttributeNames.Select((a, i) => a + ": <white>" + GetValueColorCode(attributes[i] - currentAttributes[i]) + attributes[i] + "<r>" + 
+            var stats = AttributeNames.Select((a, i) => a + ": <white>" + attributes[i] + "<r>" + 
                 (attributes[i] == currentAttributes[i] ? "" :
-                    " <white>(" + (attributes[i] - currentAttributes[i]).GetSignString() + ")<r>"))
+                    " " + GetValueColorCode(attributes[i] - currentAttributes[i]) + "(" + (attributes[i] - currentAttributes[i]).GetSignString() + ")<r>"))
                 .Where((a, i) => attributes[i] != 0 || currentAttributes[i] != 0);
 
             return stats.ToList();

@@ -15,7 +15,7 @@ namespace Azzandra
         public override string AssetName => "cloud";
         public override bool IsSolid() => false;
         public override bool IsInstanceSolidToThis(Instance inst) => false;
-        public override MoveType GetMovementType() => MoveType.Fly;
+        public override MoveType StartingMoveType => MoveType.Fly;
 
         protected InstRef Target;
         public int Time = 30;

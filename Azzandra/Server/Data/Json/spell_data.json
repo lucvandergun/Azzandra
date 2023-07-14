@@ -112,7 +112,7 @@
 	},
 	"weaken": {
 		"name": "weaken",
-		"desc": "Reduce your opponent's armour effectiveness.",
+		"desc": "Reduce the effectivity of your opponent's armour.",
 		"spellpoints": 2,
 		"type": "offensive",
 		"weight": 12,
@@ -136,7 +136,7 @@
 	"detonate": {
 		"name": "detonate",
 		"desc": "Create an explosion at a certain location.",
-		"spellpoints": 6,
+		"spellpoints": 8,
 		"type": "offensive",
 		"tier": 3,
 		"weight": 12,

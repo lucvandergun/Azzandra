@@ -31,10 +31,9 @@ namespace Azzandra.Generation
             LakeOverlapPercent = 50;    // Chance of lake to be allowed to overlap: not used
 
         protected int
-            RoomMinAmount = 1,
-            RoomMaxAmount = 5,
             MinRoomSize = 4,
             MaxRoomSize = 8,
+            AmountOfRooms = 3,
             EnclosedPercent = 50;
 
         //public Vector GetRoomDimensions(Random random) =>
@@ -49,6 +48,15 @@ namespace Azzandra.Generation
         {
             Level = level;
             Random = level.Random;
+
+            // Set some general parameters:
+            CaveSmoothness = 5;
+            //LakeSmoothness = 5;
+            //MinCaveSize = 10;
+            //MinLakeSize = 10;
+            CavePercent = Random.Next(6 + 1) + 44; // ranges 44% to 48% seems to yield the nicest caves; not too few small ones, not too open.
+                                                   // Could expand this window, but this yields issues when populating (benefit spawning & numer(!) of available caves).
+            LakeIncorporationPercent = 50;
         }
 
         public void GenerateLevel()
@@ -77,10 +85,15 @@ namespace Azzandra.Generation
             var lakeData = GetLakeTypes(temp);
             IDMap = GenerateLakes(IDMap, lakeData, LakeIncorporationPercent, MinLakeSize, MinCaveSize);
 
-            // Add rooms:
+            // Add rooms: (amount is based on current floor size: average 1 room for every missing 20 percentage)
             Areas = IdentifyAreas(IDMap, BlockID.Floor);
-            var amountOfRooms = Random.Next(RoomMinAmount, RoomMaxAmount + 1);
-            IDMap = GenerateRooms(IDMap, Areas, amountOfRooms, MinRoomSize, MaxRoomSize, EnclosedPercent);
+            int amtFloor = 0;
+            foreach (var f in IDMap)
+                if (f == BlockID.Floor) amtFloor++;
+            int floorPercentage = amtFloor * 100 / (MapWidth * MapHeight);
+            //AmountOfRooms = Random.Next(1, 5 + 1);
+            AmountOfRooms = (int)((100 - floorPercentage) / 25d + Random.NextDouble() * 4 - 2);
+            IDMap = GenerateRooms(IDMap, Areas, AmountOfRooms, MinRoomSize, MaxRoomSize, EnclosedPercent);
             var rooms = Areas.FindAll(a => a is Room);
 
             // Split cavern areas after generation of rooms:

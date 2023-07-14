@@ -12,6 +12,7 @@ namespace Azzandra
         public override EntityType EntityType => EntityType.Undead;
         public override int GetMoveDelay() => 3;
         public override bool CanFlee() => false;
+        public override int AggressiveRange => 5;
 
         public Ghast(int x, int y) : base(x, y) { }
 

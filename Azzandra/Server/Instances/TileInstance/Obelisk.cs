@@ -59,7 +59,7 @@ namespace Azzandra
             }
             else
             {
-                player.User.Log.Add("You feel a presence of power inside the obelisk, but there is nothing it can do for you now.");
+                player.User.Log.Add("You feel a presence of power inside the obelisk, but you already have full spellpoints.");
             }
         }
     }

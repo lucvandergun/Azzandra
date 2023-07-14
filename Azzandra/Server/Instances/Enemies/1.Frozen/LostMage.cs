@@ -11,6 +11,8 @@ namespace Azzandra
     {
         public override EntityType EntityType => EntityType.Humanoid;
 
+        public override int AggressiveRange => 5;
+
 
         public LostMage(int x, int y) : base(x, y) { }
 

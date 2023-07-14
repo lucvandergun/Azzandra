@@ -17,9 +17,6 @@ namespace Azzandra.Generation
 
             CavePercent = 65;
             LakeIncorporationPercent = 100;
-
-            RoomMinAmount = 0;
-            RoomMaxAmount = 0;
         }
 
         protected override void GenerateAreaLayout()

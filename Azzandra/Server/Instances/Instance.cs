@@ -131,6 +131,7 @@ namespace Azzandra
             X = x;
             Y = y;
             ActionPotential = 0;
+            SetMoveType(StartingMoveType);
         }
 
 
@@ -331,7 +332,7 @@ namespace Azzandra
             var newNodes = GetTiles().Select(t => t + new Vector(nx - X, ny - Y));
             foreach (var node in newNodes)
             {
-                if (!CanStandOnTile(Level.GetTile(node.X, node.Y), GetMovementType()))// CanWalkOverBlock(tile.Ground) || !CanWalkOverBlock(tile.Object))
+                if (!CanStandOnTile(Level.GetTile(node.X, node.Y), CurrentMoveType))// CanWalkOverBlock(tile.Ground) || !CanWalkOverBlock(tile.Object))
                     return false;
             }
 
@@ -636,10 +637,27 @@ namespace Azzandra
         public List<IAnimation> Animations { get; protected set; } = new List<IAnimation>();
 
         public enum MoveType { Walk, Fly };
-        public virtual MoveType GetMovementType() => MoveType.Walk;
-        public bool IsGrounded => GetMovementType() == MoveType.Walk;
-        public virtual bool SlidesOnIce() => GetMovementType() == MoveType.Walk;
+        public MoveType CurrentMoveType { get; private set; } = MoveType.Walk;
+        public virtual MoveType StartingMoveType => MoveType.Walk;
+        /// <summary>
+        /// Sets the provided movetype. Adds/removes fly animation if needed.
+        /// </summary>
+        /// <param name="mt"></param>
+        public void SetMoveType(MoveType mt)
+        {
+            if (CurrentMoveType != mt)
+            {
+                CurrentMoveType = mt;
+                if (mt == MoveType.Fly) Animations.Add(new FlyAnimation(this));
+                else if (mt == MoveType.Walk) Animations.RemoveAll(a => a is FlyAnimation);
+            }
+        }
+
+        public bool IsGrounded => CurrentMoveType == MoveType.Walk;
+        public virtual bool SlidesOnIce() => CurrentMoveType == MoveType.Walk;
         public virtual bool CanMoveDiagonal() => true;
+
+        
 
 
         // === Movement === \\
@@ -720,7 +738,7 @@ namespace Azzandra
             }
 
             // If the entity ends up on all-ice: add forced action for next turn!
-            if (!hasSlided && SlidesOnIce() && GetTiles().All(t => Level.GetTile(t).Ground.ID == BlockID.Ice))
+            if (!hasSlided && SlidesOnIce() && GetTiles().All(t => Level.GetTile(t).Ground.ID == BlockID.Ice && Level.GetTile(t).Object.ID == BlockID.Void))
             {
                 var distTraversed = Position - oldPos;
                 var slideStep = distTraversed.Sign();
@@ -805,7 +823,7 @@ namespace Azzandra
                     tile = Level.TileMap[i, j];
 
                     // Determine whether can move on tile depending on movement mode
-                    bool isWalk = GetMovementType() == MoveType.Walk; // && isGrounded - Could be additional parameter to e.g. 'blow away' walking entity.
+                    bool isWalk = CurrentMoveType == MoveType.Walk; // && isGrounded - Could be additional parameter to e.g. 'blow away' walking entity.
                     //var canMoveOnFloor = isWalk ? CanWalkOverBlock(tile.Ground) : CanFlyOverBlock(tile.Ground);
                     //var canMoveOnObject = isWalk ? CanWalkOverBlock(tile.Object) : CanFlyOverBlock(tile.Object);
 
@@ -813,7 +831,7 @@ namespace Azzandra
                     //    !canMoveOnFloor && canMoveOnObject && isCorner && CanBlockBeCornered(tile.Ground) ||
                     //    canMoveOnFloor && !canMoveOnObject && isCorner && CanBlockBeCornered(tile.Object) ||
                     //    !canMoveOnFloor && !canMoveOnObject && isCorner && CanBlockBeCornered(tile.Ground) && CanBlockBeCornered(tile.Object))
-                    if (CanStandOnTile(tile, GetMovementType()) || isCorner && CanTileBeCornered(tile))
+                    if (CanStandOnTile(tile, CurrentMoveType) || isCorner && CanTileBeCornered(tile))
                     {
                         //practially 'continue;'
                     }

@@ -10,6 +10,7 @@ namespace Azzandra
     public class Spectre : Enemy
     {
         public override EntityType EntityType => EntityType.Spirit;
+        public override MoveType StartingMoveType => MoveType.Fly;
 
         public override int WanderRange => 2;
 

@@ -23,7 +23,7 @@ namespace Azzandra
         //public virtual bool CanChase() => false;        // Whether the enemy will chase a target outside its wander range
         
         public virtual int DetectRange => 5;            // The range at which they will target an instance: measured from self.
-        public virtual int AggressiveRange => 2;        // The range up to which they will always be aggressive towards a target (additionally to wander range, from base pos)
+        public virtual int AggressiveRange => 3;        // The range up to which they will always be aggressive towards a target (additionally to wander range, from base pos)
         public virtual int LoseTargetTime => 20;        // The time needed to pass after last being hit by a target in order to consider returning to the wander area.
         public virtual bool ReturnHome() => HitTimer >= LoseTargetTime && LoseTargetTime != -1 && !IsInRangeFromPoint(BasePosition, WanderRange + AggressiveRange);
         public virtual bool CanFlee() => true;

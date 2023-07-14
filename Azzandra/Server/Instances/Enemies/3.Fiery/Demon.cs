@@ -13,6 +13,7 @@ namespace Azzandra
         public override int GetH() => 2;
         public override EntityType EntityType => EntityType.Demon;
         public override bool CanFlee() => false;
+        public override int AggressiveRange => 5;
 
         public Demon(int x, int y) : base(x, y)
         { }

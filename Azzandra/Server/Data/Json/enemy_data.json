@@ -3,8 +3,8 @@
 		"entitytypes": [ "humanoid" ],
 		"initiative": 6,
 		"stats": {
-			"health": 5,
-			"evade": 3,
+			"health": 8,
+			"evade": 6,
 			"parry": 0,
 			"block": 0,
 			"resistance": 0,
@@ -272,7 +272,7 @@
 	
 	"gargoyle": {
 		"entitytypes": [ "rock" ],
-		"initiative": 6,
+		"initiative": 8,
 		"stats": {
 			"health": 12,
 			"evade": 0,

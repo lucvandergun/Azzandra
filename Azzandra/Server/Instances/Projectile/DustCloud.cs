@@ -14,7 +14,7 @@ namespace Azzandra
         public override Symbol GetSymbol() => new Symbol('@', Color.Tan.ChangeBrightness(-0.5f));
         public override bool IsSolid() => false;
         public override bool IsInstanceSolidToThis(Instance inst) => false;
-        public override MoveType GetMovementType() => MoveType.Fly;
+        public override MoveType StartingMoveType => MoveType.Fly;
 
         public int Time = 30;
         public Vector Angle = new Vector(0, -1);

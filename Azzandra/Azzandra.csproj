@@ -75,6 +75,7 @@
     <Compile Include="Client\InterfaceItems\ButtonFormat.cs" />
     <Compile Include="Client\InterfaceItems\InterfaceItem.cs" />
     <Compile Include="Client\InterfaceItems\ScrollBar.cs" />
+    <Compile Include="Client\Minimap.cs" />
     <Compile Include="Client\ScrollableSurface.cs" />
     <Compile Include="Client\Settings\Settings.cs" />
     <Compile Include="Client\InterfaceItems\CheckBox.cs" />
@@ -152,6 +153,8 @@
     <Compile Include="Server\Instances\Helper\Actions\ActionSpellAcute.cs" />
     <Compile Include="Server\Instances\Helper\Actions\ActionThrow.cs" />
     <Compile Include="Server\Instances\Helper\Actions\Path2.cs" />
+    <Compile Include="Server\Instances\Helper\Animations\FlyAnimationBat.cs" />
+    <Compile Include="Server\Instances\Helper\Animations\FlyAnimation.cs" />
     <Compile Include="Server\Instances\Helper\Dijkstra\AvoidanceMap.cs" />
     <Compile Include="Server\Instances\Helper\Dijkstra\BehaviourMap.cs" />
     <Compile Include="Server\Instances\Helper\Dijkstra\DijkstraMap.cs" />

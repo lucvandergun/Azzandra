@@ -26,15 +26,14 @@ namespace Azzandra
             }
 
             // Remove 1 x item from its container:
-            Item.RemoveAmount(1);
-            var item = Item.Create(Item.ID, 1);
+            Item.Container.RemoveItem(Item);
 
             // Show message
-            var msg = (player == null ? Caller.ToStringAdress().CapFirst() + " throws" : "You throw") + " the " + item.ToString() + ".";
+            var msg = (player == null ? Caller.ToStringAdress().CapFirst() + " throws" : "You throw") + " the " + Item.ToString() + ".";
             Caller.Level.Server.User.ShowMessage(msg);
 
             // Create a grit:
-            var grit = new GroundItem(Caller.X, Caller.Y, item);
+            var grit = new GroundItem(Caller.X, Caller.Y, Item);
             Caller.Level.CreateInstance(grit);
 
             // Move it towards the spot:
@@ -49,12 +48,12 @@ namespace Azzandra
             var instances = Caller.Level.ActiveInstances.Where(i => i.GetTiles().Contains(pos)).ToList();
             for (int i = 0; i < instances.Count(); i++)
             {
-                if (item.OnThrowOnInstance(Caller.Level, grit, instances[i]))
+                if (Item.OnThrowOnInstance(Caller.Level, grit, instances[i]))
                     return true;
             }
 
             // Otherwise try to affect the tile it lands on:
-            item.OnThrowOnTile(Caller.Level, grit, pos);
+            Item.OnThrowOnTile(Caller.Level, grit, pos);
 
             return true;
         }

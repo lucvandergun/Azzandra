@@ -13,7 +13,6 @@ namespace Azzandra
         public override int GetH() => 2;
         public override EntityType EntityType => EntityType.Rock;
         public bool IsActive { get; protected set; } = false;
-        public override MoveType GetMovementType() => MoveType.Fly;
         public override int DetectRange => 2;
 
 
@@ -37,6 +36,7 @@ namespace Azzandra
             else
             {
                 IsActive = false;
+                SetMoveType(MoveType.Walk);
                 AnimationManager.Play("gargoyle_idle");
                 return null;
             }
@@ -48,7 +48,8 @@ namespace Azzandra
             if (target != null)
             {
                 IsActive = true;
-                UpdateAnimation();
+                SetMoveType(MoveType.Fly);
+                AnimationManager.Play("gargoyle_flying");
             }
 
             return target;
@@ -57,7 +58,8 @@ namespace Azzandra
         public override Affect GetAffected(Entity attacker, Affect affect)
         {
             IsActive = true;
-            UpdateAnimation();
+            SetMoveType(MoveType.Fly);
+            AnimationManager.Play("gargoyle_flying");
 
             return base.GetAffected(attacker, affect);
         }
@@ -69,6 +71,7 @@ namespace Azzandra
             // Active
             IsActive = BitConverter.ToBoolean(bytes, pos);
             pos += 1;
+            SetMoveType(IsActive ? MoveType.Fly : MoveType.Walk);
 
             base.Load(bytes, ref pos);
         }

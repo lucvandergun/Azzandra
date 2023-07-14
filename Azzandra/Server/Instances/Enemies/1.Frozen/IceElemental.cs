@@ -10,7 +10,7 @@ namespace Azzandra
     public class IceElemental : Enemy
     {
         public override EntityType EntityType => EntityType.Ice;
-        public override MoveType GetMovementType() => MoveType.Fly;
+        public override MoveType StartingMoveType => MoveType.Fly;
         public override bool CanFlee() => false;
 
         public IceElemental(int x, int y) : base(x, y) { }

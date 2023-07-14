@@ -416,6 +416,8 @@ namespace Azzandra.SpellEffects
             var order = attacker.Level.ActiveInstances.Where(i => i is Entity && i.DistanceTo(target).ChebyshevLength() <= range).ToList(); // && entity.CanSee(target)
             order.Sort((i, j) => j.DistanceTo(target).ChebyshevLength() - i.DistanceTo(target).ChebyshevLength());
 
+            attacker.Level.Server.User.ShowMessage("<yellow>" + specs.Item1.CapFirst() + " " + GetVerb(attacker, "detonate") + " a magical explosion in the air.");
+
             // Dmg entities
             foreach (var inst in order)
             {
@@ -443,8 +445,16 @@ namespace Azzandra.SpellEffects
 
                     entity.AddStatusEffect(new StatusEffects.Stunned(1, 3));
 
-                    if (entity is Player player)
-                        player.User.ShowMessage("You have taken <red>" + amt + "<r> dmg.");
+                    var col = entity is Player ? "<red>" : "<aqua>";
+                    specs = GetMsgAdressesHave(entity, entity);
+                    attacker.Level.Server.User.ShowMessage(specs.Item1.CapFirst() + " taken " + col + amt + "<r> dmg by the explosion.");
+
+                    if (entity.Hp <= 0)
+                    {
+                        col = entity is Player ? "<red>" : "<lime>";
+                        attacker.Level.Server.User.ShowMessage(col + specs.Item1.CapFirst() + " been killed in the process.");
+                    }
+                        
                 }
             }
         }

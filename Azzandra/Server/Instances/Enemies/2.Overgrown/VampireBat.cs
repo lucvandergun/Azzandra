@@ -10,7 +10,7 @@ namespace Azzandra
     public class VampireBat : Enemy
     {
         public override EntityType EntityType => EntityType.Beast;
-        public override MoveType GetMovementType() => MoveType.Fly;
+        public override MoveType StartingMoveType => MoveType.Fly;
 
 
         public VampireBat(int x, int y) : base(x, y) { }

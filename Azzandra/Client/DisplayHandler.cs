@@ -35,6 +35,7 @@ namespace Azzandra
         public TabHandler TabHandler { get; private set; }
         public EnvironmentInterface EnvironmentInterface { get; private set; }
         public DebugRenderer DebugRenderer { get; private set; }
+        public Minimap Minimap { get; private set; }
 
         // Trackers
         public Surface HoverSurface { get; private set; }
@@ -58,6 +59,7 @@ namespace Azzandra
             TabHandler = new TabHandler(GameClient);
             EnvironmentInterface = new EnvironmentInterface(GameClient);
             DebugRenderer = new DebugRenderer(GameClient);
+            Minimap = new Minimap(GameClient);
 
             InitializeSurfaces(screenSize);
         }
@@ -137,11 +139,10 @@ namespace Azzandra
         public void Update()
         {
             ViewHandler.Update();
+            Minimap.Update();
 
-            if (Interface != null)
-                Interface.Update();
-            if (ChatInterface != null)
-                ChatInterface.Update();
+            if (Interface != null) Interface.Update();
+            if (ChatInterface != null) ChatInterface.Update();
 
             // Compile list of current surfaces
             CurrentSurfaces = new List<Surface>()
@@ -198,6 +199,9 @@ namespace Azzandra
                 Display.DrawSurface(surface);
             }
 
+            // Draw minimap
+            Display.DrawSurface(Minimap.Surface);
+
             // Draw log bars
             int length = LogSurface.Width + 2;
             var color = new Color(191, 191, 191);
@@ -248,6 +252,12 @@ namespace Azzandra
             InfoRenderer.Render(InfoSurface);
             TabHandler.RenderTab(MenuSurface);
             RenderHeader(HeaderSurface);
+
+            Minimap.Render(
+                LogSurface.Region.Right - Minimap.Surface.Region.Width - 16,
+                LogSurface.Y + (LogSurface.Region.Height - Minimap.Surface.Region.Height) / 2,
+                GraphicsDevice,
+                SpriteBatch);
 
             if (GameClient.Engine.Settings.DisplayInput)
                 GameClient.InputHandler.Render(InputSurface, GraphicsDevice, SpriteBatch);

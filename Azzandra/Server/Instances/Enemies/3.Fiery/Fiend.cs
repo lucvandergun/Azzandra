@@ -9,7 +9,7 @@ namespace Azzandra
     public class Fiend : Kobold
     {
         public override EntityType EntityType => EntityType.Demon;
-        public override MoveType GetMovementType() => MoveType.Fly;
+        public override MoveType StartingMoveType => MoveType.Fly;
 
         public Fiend(int x, int y) : base(x, y) { }
     }

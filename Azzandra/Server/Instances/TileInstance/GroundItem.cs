@@ -35,7 +35,6 @@ namespace Azzandra
         public override Symbol GetSymbol() => new Symbol('x', Color.Red);
         public override string Name => Item?.ToString() ?? "null";
         public override string ToStringAdress() => "the " + Name;
-        public override MoveType GetMovementType() => MoveType.Fly;
 
 
         public GroundItem(int x, int y) : base(x, y) { }
@@ -62,10 +61,9 @@ namespace Azzandra
             return bytes.Concat(base.ToBytes()).ToArray();
         }
 
-        public override bool CanBlockBeCornered(Block block)
-        {
-            return true;
-        }
+        public override bool CanBlockBeCornered(Block block) => true;
+
+        public override bool CanWalkOverBlock(Block block) => CanFlyOverBlock(block);
 
         public override void Interact(Entity entity)
         {

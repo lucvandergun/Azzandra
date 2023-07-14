@@ -123,7 +123,7 @@ namespace Azzandra
 
         protected virtual bool CanTargetTile(Tile tile)
         {
-            return CanStandOnTile(tile, GetMovementType());
+            return CanStandOnTile(tile, CurrentMoveType);
         }
 
         /// <summary>
