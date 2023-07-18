@@ -44,7 +44,7 @@ namespace Azzandra
         public Tab CurrentTab;
         public Interface Interface { get; set; }
         public ChatInterface ChatInterface { get; set; }
-        public MouseItem MouseItem { get; set; }
+        public IMouseInterface MouseInterface { get; set; }
         
 
         public DisplayHandler(GameClient gameClient, Point screenSize)
@@ -228,16 +228,18 @@ namespace Azzandra
                 Display.DrawSurface(ChatInterface.Surface);
 
             // Darken surfaces for item menu
-            if (MouseItem != null)
+            if (MouseInterface != null)
             {
-                if (MouseItem is ItemMenu)
+                if (MouseInterface is ItemMenu)
                 {
                     Display.DrawRect(MenuSurface.Region, Color.Black * 0.75f);
                     Display.DrawRect(InputSurface.Region, Color.Black * 0.75f);
                 }
-                Display.DrawSurface(MouseItem.Surface);
-                if (MouseItem.Surface.Outline)
-                    Display.DrawInline(MouseItem.Surface.Region, LightLineColor);
+
+                var surface = MouseInterface.GetSurface();
+                Display.DrawSurface(surface);
+                if (surface.Outline)
+                    Display.DrawInline(surface.Region, LightLineColor);
             }
 
             SpriteBatch.End();
@@ -267,7 +269,7 @@ namespace Azzandra
             //if (InfoScreen != null) InfoScreen.Render(GraphicsDevice, SpriteBatch);
             if (ChatInterface != null) ChatInterface.Render();
             if (Interface != null) Interface.Render(GraphicsDevice, SpriteBatch);
-            if (MouseItem != null) MouseItem.Render();
+            if (MouseInterface != null) MouseInterface.Render();
 
             if (GameClient.IsDebug)
                 DebugRenderer.Render(DebugSurface, gameTime);
@@ -287,7 +289,7 @@ namespace Azzandra
             var surfaces = CurrentSurfaces.CreateCopy();
             if (Interface != null) surfaces.Add(Interface.Surface);
             if (ChatInterface != null) surfaces.Add(ChatInterface.Surface);
-            if (MouseItem != null) surfaces.Add(MouseItem.Surface);
+            if (MouseInterface != null) surfaces.Add(MouseInterface.GetSurface());
 
             foreach (var surface in surfaces)
                 if (surface.CanHover && Input.MouseHover(surface.Region))

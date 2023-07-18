@@ -10,6 +10,8 @@ namespace Azzandra
 {
     public class LockedDoor : Door
     {
+        public override bool CanBeOpened() => !IsLocked;
+
         private string LockType;
         private bool IsLocked = true;
 

@@ -11,12 +11,12 @@ namespace Azzandra.SpellEffects
     {
         public FireCage() { }
 
-        public override void Apply(Entity attacker, Instance target, Affect affect)
+        public override void Apply(Entity attacker, Instance target, Affect affect, int level)
         {
             var nw = target.Position;
             var se = target.Position + target.Size;
             int dist = 2;
-            var level = target.Level;
+            var world = target.Level;
 
             for (int i, j = nw.Y - dist; j < se.Y + dist; j++)
             {
@@ -25,9 +25,9 @@ namespace Azzandra.SpellEffects
                     if (i == nw.X - dist || i == se.X + dist - 1 || j == nw.Y - dist || j == se.Y + dist - 1)
                     {
                         var fire = new GroundFire(i, j);
-                        if (level.CanCreateInstance(fire))
+                        if (world.CanCreateInstance(fire))
                         {
-                            level.CreateInstance(fire);
+                            world.CreateInstance(fire);
                             attacker.Children.Add(new InstRef(fire));
                         }
                     }
@@ -43,7 +43,9 @@ namespace Azzandra.SpellEffects
     {
         public MagneticPull() { }
 
-        public override void Apply(Entity attacker, Instance target, Affect affect)
+        public override int GetStrength(int level) => 7 + level;
+
+        public override void Apply(Entity attacker, Instance target, Affect affect, int level)
         {
             if (!(target is Entity cbtarget))
                 return;
@@ -69,7 +71,7 @@ namespace Azzandra.SpellEffects
     {
         public SummonFiend() { }
 
-        public override void Apply(Entity attacker, Instance target, Affect affect)
+        public override void Apply(Entity attacker, Instance target, Affect affect, int level)
         {
             var fiend = new Cockatrice(attacker.X, attacker.Y);
             fiend.Parent = new InstRef(attacker);
@@ -86,7 +88,7 @@ namespace Azzandra.SpellEffects
     {
         public ShadowCloud() { }
 
-        public override void Apply(Entity attacker, Instance target, Affect affect)
+        public override void Apply(Entity attacker, Instance target, Affect affect, int level)
         {
             if (!(target is Entity cbtarget))
                 return;
@@ -107,7 +109,7 @@ namespace Azzandra.SpellEffects
     {
         public Revive() { }
 
-        public override void Apply(Entity attacker, Instance target, Affect affect)
+        public override void Apply(Entity attacker, Instance target, Affect affect, int level)
         {
             if (!(target is Grave grave))
                 return;
@@ -129,7 +131,7 @@ namespace Azzandra.SpellEffects
     {
         public Howl() { }
 
-        public override void Apply(Entity attacker)
+        public override void Apply(Entity attacker, int level)
         {
             foreach (var c in attacker.Children)
             {
@@ -148,7 +150,7 @@ namespace Azzandra.SpellEffects
     {
         public Web() { }
 
-        public override void Apply(Entity attacker, Instance target, Affect affect)
+        public override void Apply(Entity attacker, Instance target, Affect affect, int level)
         {
             attacker.Level.CreateInstance(new SpellProjectile(attacker, target, Color.White, "cobweb"));
 
@@ -172,12 +174,12 @@ namespace Azzandra.SpellEffects
     {
         public StatusEffectSpell() { }
 
-        public abstract StatusEffect GetStatusEffect();
+        public abstract StatusEffect GetStatusEffect(int level);
 
-        public override void Apply(Entity attacker, Instance target, Affect affect)
+        public override void Apply(Entity attacker, Instance target, Affect affect, int level)
         {
             var specs = GetMsgAdresses(attacker, target);
-            var effect = GetStatusEffect();
+            var effect = GetStatusEffect(level);
             if (!(target is Entity entity))
             {
                 attacker.Level.Server.User.ShowMessage(((target is Player) ? "you" : target.ToStringAdress()).CapFirst() + " " + GetVerb(target, "are", "is") + " is not affected by being " + effect.VariantName + ".");
@@ -196,39 +198,45 @@ namespace Azzandra.SpellEffects
     public class Frostbite : StatusEffectSpell
     {
         public Frostbite() { }
-        public override StatusEffect GetStatusEffect() => new StatusEffects.Slow(2, 13);
+        public override int GetStrength(int level) => 9 + level;
+        public override StatusEffect GetStatusEffect(int level) => new StatusEffects.Slow(2, GetStrength(level));
     }
     public class Freeze : StatusEffectSpell
     {
         public Freeze() { }
-        public override StatusEffect GetStatusEffect() => new StatusEffects.Frozen(1, 8);
+        public override int GetStrength(int level) => 7 + level;
+        public override StatusEffect GetStatusEffect(int level) => new StatusEffects.Frozen(1, GetStrength(level));
     }
     public class Ensnare : StatusEffectSpell
     {
         public Ensnare() { }
-        public override StatusEffect GetStatusEffect() => new StatusEffects.Frozen(1, 16, "ensnared");
+        public override int GetStrength(int level) => 11 + level;
+        public override StatusEffect GetStatusEffect(int level) => new StatusEffects.Frozen(1, GetStrength(level), "ensnared");
     }
     public class Blind : StatusEffectSpell
     {
         public Blind() { }
-        public override StatusEffect GetStatusEffect() => new StatusEffects.Blind(1, 10);
+        public override int GetStrength(int level) => 9 + level;
+        public override StatusEffect GetStatusEffect(int level) => new StatusEffects.Blind(1, GetStrength(level));
     }
     public class Weaken : StatusEffectSpell
     {
         public Weaken() { }
-        public override StatusEffect GetStatusEffect() => new StatusEffects.Weak(1, 20);
+        public override int GetStrength(int level) => 1;
+        public override StatusEffect GetStatusEffect(int level) => new StatusEffects.Weak(GetStrength(level), 1);
     }
 
     public class Disorient : StatusEffectSpell
     {
         public Disorient() { }
-        public override StatusEffect GetStatusEffect() => new StatusEffects.Disoriented(1, 6);
+        public override int GetStrength(int level) => 5 + level;
+        public override StatusEffect GetStatusEffect(int level) => new StatusEffects.Disoriented(1, GetStrength(level));
     }
 
     public class Deflect : SpellEffectAcute
     {
         public Deflect() { }
-        public override void Apply(Entity attacker)
+        public override void Apply(Entity attacker, int level)
         {
             var specs = GetMsgAdresses(attacker, attacker);
             var effect = new StatusEffects.Deflect(1, 1);
@@ -240,11 +248,12 @@ namespace Azzandra.SpellEffects
     public class Shatter : SpellEffectAcute
     {
         public Shatter() { }
+        public override int GetStrength(int level) => 2 + level;
 
-        public override void Apply(Entity attacker)
+        public override void Apply(Entity attacker, int level)
         {
             var specs = GetMsgAdresses(attacker, attacker);
-            int range = 3;
+            int range = GetStrength(level);
             var tiles = attacker.GetTiles();
 
             // Destroy rock tiles
@@ -277,7 +286,7 @@ namespace Azzandra.SpellEffects
     {
         public Telekinesis() { }
 
-        public override void Apply(Entity attacker, Instance target, Affect affect)
+        public override void Apply(Entity attacker, Instance target, Affect affect, int level)
         {
             var specs = GetMsgAdresses(attacker, target);
 
@@ -320,7 +329,7 @@ namespace Azzandra.SpellEffects
     {
         public Unveil() { }
 
-        public override void Apply(Entity attacker, Instance target, Affect affect)
+        public override void Apply(Entity attacker, Instance target, Affect affect, int level)
         {
             var specs = GetMsgAdresses(attacker, target);
 
@@ -332,7 +341,7 @@ namespace Azzandra.SpellEffects
     {
         public Unlock() { }
 
-        public override void Apply(Entity attacker, Instance target, Affect affect)
+        public override void Apply(Entity attacker, Instance target, Affect affect, int level)
         {
             var specs = GetMsgAdresses(attacker, target);
 
@@ -352,7 +361,7 @@ namespace Azzandra.SpellEffects
     {
         public Liberate() { }
 
-        public override void Apply(Entity attacker)
+        public override void Apply(Entity attacker, int level)
         {
             var specs = GetMsgAdresses(attacker, attacker);
             attacker.Level.Server.User.ShowMessage("<chiffon>" + specs.Item1 + " " + GetVerb(attacker, "liberate") + " " + specs.Item2 + " from any restraints.");
@@ -376,12 +385,13 @@ namespace Azzandra.SpellEffects
     public class HealingAura : SpellEffectAcute
     {
         public HealingAura() { }
+        public override int GetStrength(int level) => 7 + level;
 
-        public override void Apply(Entity attacker)
+        public override void Apply(Entity attacker, int level)
         {
             var specs = GetMsgAdresses(attacker, attacker);
             int range = 2;
-            float maxHeal = 8, minHeal = 5;
+            float maxHeal = GetStrength(level), minHeal = GetStrength(level) - 3;
             int playerAmt = 0;
 
             // Heal entities
@@ -406,12 +416,13 @@ namespace Azzandra.SpellEffects
     public class Detonate : SpellEffectVector
     {
         public Detonate() { }
+        public override int GetStrength(int level) => 9 + level;
 
-        public override void Apply(Entity attacker, Vector target)
+        public override void Apply(Entity attacker, Vector target, int level)
         {
             var specs = GetMsgAdresses(attacker, attacker);
             int range = 2;
-            float maxDmg = 10, minDmg = 5;
+            float maxDmg = GetStrength(level), minDmg = GetStrength(level) - 5;
 
             var order = attacker.Level.ActiveInstances.Where(i => i is Entity && i.DistanceTo(target).ChebyshevLength() <= range).ToList(); // && entity.CanSee(target)
             order.Sort((i, j) => j.DistanceTo(target).ChebyshevLength() - i.DistanceTo(target).ChebyshevLength());
@@ -518,12 +529,13 @@ namespace Azzandra.SpellEffects
     public class Lightning : SpellEffectVector
     {
         public Lightning() { }
+        public override int GetStrength(int level) => 5 + level;
 
-        public override void Apply(Entity attacker, Vector target)
+        public override void Apply(Entity attacker, Vector target, int level)
         {
             var specs = GetMsgAdresses(attacker, attacker);
             int range = 6;
-            int dmg = 6;
+            int dmg = GetStrength(level);
 
             // Cast a ray of nodes, until max range or tile blocked by something.
             var nodes = Util.CastRay(attacker.GetTiles(), new Vector[] { target }, false, true);
@@ -564,11 +576,12 @@ namespace Azzandra.SpellEffects
     public class Dash : SpellEffectVector
     {
         public Dash() { }
+        public override int GetStrength(int level) => 3 + level;
 
-        public override void Apply(Entity attacker, Vector target)
+        public override void Apply(Entity attacker, Vector target, int level)
         {
             var specs = GetMsgAdresses(attacker, attacker);
-            int range = 4;
+            int range = GetStrength(level);
 
             //Vector dir = attacker.GetTiles().Contains(target) ? Vector.Zero : (target - attacker.Position).Sign();
             //var dist = attacker.DistanceTo(target).ChebyshevLength().Boundarize(-range, range);
@@ -621,7 +634,7 @@ namespace Azzandra.SpellEffects
     {
         public Teleport() { }
 
-        public override void Apply(Entity attacker, Vector target)
+        public override void Apply(Entity attacker, Vector target, int level)
         {
             var specs = GetMsgAdressesHave(attacker, attacker);
 
@@ -650,9 +663,11 @@ namespace Azzandra.SpellEffects
     public class WindBlastAbstract : SpellEffect
     {
         protected int Strength;
+
+        public override int GetStrength(int level) => Strength + level;
         public WindBlastAbstract(int strength) { Strength = strength; }
 
-        public override void Apply(Entity attacker, Instance target, Affect affect)
+        public override void Apply(Entity attacker, Instance target, Affect affect, int level)
         {
             if (!(target is Entity entity))
             {
@@ -663,13 +678,13 @@ namespace Azzandra.SpellEffects
             Vector dist = attacker.DistanceTo(target);
             Vector2 angle = dist.ToFloat();
             if (angle != Vector2.Zero) angle.Normalize();
-            Vector2 push = new Vector(Strength).ToFloat() * angle;
+            Vector2 push = new Vector(GetStrength(level)).ToFloat() * angle;
 
             // Ceil push vector values (floors for negative values):
             Vector pushVector = new Vector(Math.Sign(push.X) * (int)Math.Ceiling(Math.Abs(push.X)), Math.Sign(push.Y) * (int)Math.Ceiling(Math.Abs(push.Y)));
             entity.Move(pushVector);
 
-            entity.AddStatusEffect(new StatusEffects.Stunned(1, 3), true);
+            entity.AddStatusEffect(new StatusEffects.Stunned(1, GetStrength(level)), true);
 
             if (entity is DustCloud dc)
                 dc.Angle = pushVector.Sign();
@@ -692,11 +707,12 @@ namespace Azzandra.SpellEffects
     public class Whirlwind : SpellEffectAcute
     {
         public Whirlwind() { }
+        public override int GetStrength(int level) => 2 + level;
 
-        public override void Apply(Entity attacker)
+        public override void Apply(Entity attacker, int level)
         {
             var specs = GetMsgAdresses(attacker, attacker);
-            int range = 3;
+            int range = GetStrength(level);
 
             var order = attacker.Level.ActiveInstances.Where(i => i is Entity && i.DistanceTo(attacker).ChebyshevLength() <= range && attacker.CanSee(i)).ToList();
             
@@ -746,7 +762,7 @@ namespace Azzandra.SpellEffects
     {
         public Entangle() { }
 
-        public override void Apply(Entity attacker, Instance target, Affect affect)
+        public override void Apply(Entity attacker, Instance target, Affect affect, int level)
         {
             if (!(target is Entity entity))
                 return;
@@ -773,7 +789,7 @@ namespace Azzandra.SpellEffects
     {
         public Cure() { }
 
-        public override void Apply(Entity attacker)
+        public override void Apply(Entity attacker, int level)
         {
             var specs = GetMsgAdresses(attacker, attacker);
             attacker.Level.Server.User.ShowMessage("<green>" + specs.Item1 + " " + GetVerb(attacker, "cure") + " " + specs.Item2 + ".");
@@ -787,13 +803,14 @@ namespace Azzandra.SpellEffects
     public class Charge : SpellEffectAcute
     {
         public Charge() { }
+        public override int GetStrength(int level) => 2 + level;
 
-        public override void Apply(Entity attacker)
+        public override void Apply(Entity attacker, int level)
         {
             var specs = GetMsgAdresses(attacker, attacker);
             attacker.Level.Server.User.ShowMessage("<vred>" + specs.Item1 + " " + GetVerb(attacker, "cast") + " charge!");
 
-            var effect = new StatusEffects.Invulnerable(1, 3);
+            var effect = new StatusEffects.Invulnerable(1, GetStrength(level));
             attacker.AddStatusEffect(effect, true);
         }
     }
@@ -801,13 +818,14 @@ namespace Azzandra.SpellEffects
     public class Scream : SpellEffectAcute
     {
         public Scream() { }
+        public override int GetStrength(int level) => 2 + level;
 
-        public override void Apply(Entity attacker)
+        public override void Apply(Entity attacker, int level)
         {
             var specs = GetMsgAdresses(attacker, attacker);
-            int range = 3;
+            int strength = GetStrength(level);
 
-            var order = attacker.Level.ActiveInstances.Where(i => i is Entity && i.DistanceTo(attacker).ChebyshevLength() <= range && attacker.CanSee(i)).ToList();
+            var order = attacker.Level.ActiveInstances.Where(i => i is Entity && i.DistanceTo(attacker).ChebyshevLength() <= strength && attacker.CanSee(i)).ToList();
 
             attacker.Level.Server.User.ShowMessage("<red>" + GetMsgAdresses(attacker, attacker).Item1 + " " + GetVerb(attacker, "scream") + " very loudly!");
 
@@ -817,10 +835,10 @@ namespace Azzandra.SpellEffects
                 if (!(inst is Entity entity) || inst == attacker) continue;
 
                 var dist = entity.DistanceTo(attacker).ChebyshevLength();
-                if (dist <= range) // && entity.CanSee(target)
+                if (dist <= strength) // && entity.CanSee(target)
                 {
-                    entity.AddStatusEffect(new StatusEffects.Weak(3, 11));
-                    entity.GetAffected(attacker, new DirectDamage(attacker.Level.Server, Style.Other, 8, true));
+                    entity.AddStatusEffect(new StatusEffects.Weak(strength, 1));
+                    entity.GetAffected(attacker, new DirectDamage(attacker.Level.Server, Style.Other, 3 * strength, true));
 
                     if (entity is Player player)
                     {
@@ -836,7 +854,7 @@ namespace Azzandra.SpellEffects
         protected int Strength;
         public Confuse() { }
 
-        public override void Apply(Entity attacker, Instance target, Affect affect)
+        public override void Apply(Entity attacker, Instance target, Affect affect, int level)
         {
             if (!(target is Entity entity))
             {

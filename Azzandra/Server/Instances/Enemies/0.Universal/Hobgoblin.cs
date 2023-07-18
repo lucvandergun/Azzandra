@@ -10,7 +10,8 @@ namespace Azzandra
     public class Hobgoblin : Enemy
     {
         public override EntityType EntityType => EntityType.Goblin;
-        
+        public override bool CanOpenDoors() => true;
+
         public Hobgoblin(int x, int y) : base(x, y) { }
 
         public override Symbol GetSymbol() => new Symbol('h', Color.Peru);

@@ -9,10 +9,12 @@ namespace Azzandra
     public class ActionSpellAcute : EntityAction
     {
         public SpellEffectAcute SpellEffect;
+        public int Level;
 
-        public ActionSpellAcute(Entity caller, SpellEffectAcute effect) : base(caller)
+        public ActionSpellAcute(Entity caller, SpellEffectAcute effect, int level = 1) : base(caller)
         {
             SpellEffect = effect;
+            Level = level;
         }
 
         protected override bool PerformAction()
@@ -24,7 +26,7 @@ namespace Azzandra
                 player.Sp -= data.SpellPoints;
             }
 
-            SpellEffect.Apply(Caller);
+            SpellEffect.Apply(Caller, Level);
             return true;
         }
     }

@@ -31,10 +31,10 @@ namespace Azzandra
 
         public SpellsInterface(GameClient gameClient) : base(gameClient)
         {
-            CastButton = new ButtonDark(new Vector2(84, 24), "Cast")
-            {
-                //OnClick = () => CastSpell()
-            };
+            //CastButton = new ButtonDark(new Vector2(84, 24), "Cast")
+            //{
+            //    //OnClick = () => CastSpell()
+            //};
         }
 
         public void CastSpell(SpellData spellData)
@@ -58,7 +58,8 @@ namespace Azzandra
             // If current spell does not need any target
             if (effect is SpellEffectAcute a)
             {
-                GameClient.Server.SetPlayerAction(new ActionSpellAcute(User.Player, a));
+                GameClient.Server.SetPlayerAction(new ActionSpellAcute(User.Player, a, User.GetSpellLevel(spellData.ID)));
+                DeselectSpell();
             }
 
             // If current spell was already being targeted and there is a target
@@ -73,7 +74,7 @@ namespace Azzandra
             if (effect is SpellEffect se)
             {
                 var it = new TargetingMode.InstanceTargeting(true);
-                var spell = new Spell(GameClient.Server, 2, 6, User.Player.GetSpc().Round() + User.GetLearnedSpcBoost(spellData.ID), se);
+                var spell = new Spell(GameClient.Server, 2, 6, User.Player.GetSpc().Round() + User.GetSpellCastBoost(spellData.ID), se, User.GetSpellLevel(spellData.ID));
                 it.InboundAction = new ActionAffect(User.Player, null, spell);
                 GameClient.InputHandler.TargetingMode = it;
 
@@ -81,7 +82,7 @@ namespace Azzandra
             if (effect is SpellEffectVector sev)
             {
                 var tt = new TargetingMode.TileTargeting();
-                tt.InboundAction = new ActionVectorSpell(User.Player, Vector.Zero, sev);
+                tt.InboundAction = new ActionVectorSpell(User.Player, Vector.Zero, sev, User.GetSpellLevel(spellData.ID));
                 GameClient.InputHandler.TargetingMode = tt;
             }
         }
@@ -116,11 +117,11 @@ namespace Azzandra
             var selected = SelectedSlot;
 
             // Render item slots
-            int slotHeight = 8 + 16 * 2;
+            int slotHeight = 20;
             var startOffset = new Vector2(0, 0);
             var slotSize = new Vector2(surface.Width, slotHeight);
             var slotOffset = new Vector2(0, slotHeight);
-            var stringOffset = new Vector2(4, (slotHeight - 16 * 2) / 2 + 8);
+            var stringOffset = new Vector2(4, slotSize.Y / 2);
 
             var format = new TextFormat(Color.White, Font, Alignment.VCentered, false);
             var text = new TextDrawer(startOffset, 16, format);
@@ -139,14 +140,23 @@ namespace Azzandra
                 var spell = learnedSpell.SpellData;
                 if (spell == null) continue;
 
-                // Keyboard Handling:
-                if (spell != null && GameClient.KeyboardFocus == GameClient.Focus.General && Input.IsKeyPressed[Input.GetKeyBind(i)] && GameClient.DisplayHandler.MouseItem == null)
-                {
-                    ActivateSpell(spell);
-                }
-
                 // Draw position:
                 Vector2 pos = startOffset + slotOffset * i;
+
+                // Keyboard Handling:
+                if (spell != null && GameClient.KeyboardFocus == GameClient.Focus.General && Input.IsKeyPressed[Input.GetKeyBind(i)] && GameClient.DisplayHandler.MouseInterface == null)
+                {
+                    // Perform default option directly with SHIFT:
+                    if (Input.IsKeyDown[Keys.LeftShift] || Input.IsKeyDown[Keys.RightShift])
+                    {
+                        ActivateSpell(spell);
+                    }
+                    // Open up item menu otherwise:
+                    else
+                    {
+                        new SpellMenu(GameClient, learnedSpell, absoluteSurfacePos + pos + slotOffset, Display.MakeRectangle(absoluteSurfacePos + pos, slotSize), outerRegion, false); 
+                    }
+                }
 
                 // Determine whether is hovered slot
                 bool hover = isHoverSurface && Input.MouseHover(absoluteSurfacePos + pos, slotSize);
@@ -161,7 +171,7 @@ namespace Azzandra
                     }
                     else if (Input.IsMouseRightPressed)
                     {
-                        DeselectSpell();
+                        new SpellMenu(GameClient, learnedSpell, Input.MousePosition, Display.MakeRectangle(absoluteSurfacePos + pos, slotSize), outerRegion);
                     }
                 }
 
@@ -170,7 +180,7 @@ namespace Azzandra
                 text.Draw(Input.GetKeyBindString(i) + ". ", Color.LightSlateGray);
                 text.Draw(spell.Name.CapFirst(), spell.GetStringColor());
                 text.DrawLine(" <r>- SP: " + spell.SpellPoints + "");
-                text.DrawLine("<slate>" + spell.Desc);
+                //text.DrawLine("<slate>" + spell.Desc);
 
                 // Draw hover slot bounds
                 if (spell == HoverSlot || spell == selected)
@@ -184,12 +194,13 @@ namespace Azzandra
             GameClient.Engine.GraphicsDevice.SetRenderTarget(null);
         }
 
-        private void ActivateSpell(SpellData spell)
+        public void ActivateSpell(SpellData spell)
         {
             // Cast the current spell if sufficient spellpoints:
             if (User.Player.Sp < spell.SpellPoints && !User.IsCheatMode)
             {
                 User.Player.User.ShowMessage("<rose>You don't have enough spell points to cast that spell!");
+                DeselectSpell();
             }
             else
             {
@@ -198,7 +209,7 @@ namespace Azzandra
         }
 
 
-        private void DeselectSpell()
+        public void DeselectSpell()
         {
             // Reset targeting mode to default
             GameClient.InputHandler.TargetingMode = GameClient.InputHandler.DefaultTargetingMode;

@@ -696,19 +696,25 @@ namespace Azzandra
             return str;
         }
 
-        public static string Stringify<T>(this T[,] grid)
+        public static string Stringify<T>(this T[,] grid, Func<T, string> func = null)
         {
             if (grid == null)
                 return "null";
 
-            int h = grid.GetLength(0);
-            int w = grid.GetLength(1);
+            int h = grid.GetLength(1);
+            int w = grid.GetLength(0);
             
             var str = "";
             for (int i, j = 0; j < h; j++)
             {
                 str += "[";
-                for (i = 0; i < w; i++) str += grid[i, j] + ", ";
+                for (i = 0; i < w; i++)
+                {
+                    if (func == null)
+                        str += grid[i, j] + ", ";
+                    else
+                        str += func(grid[i, j]) + ", ";
+                }
                 str += "]";
                 if (j != h - 1)
                     str += "\n";
@@ -955,7 +961,7 @@ namespace Azzandra
             return RecursiveValidator(next, selector, validator);
         }
 
-        public static void SetNodes(this int[,] map, IEnumerable<Vector> nodes, int value)
+        public static void SetNodes<T>(this T[,] map, IEnumerable<Vector> nodes, T value)
         {
             if (map == null) return;
             var size = new Vector(map.GetLength(0), map.GetLength(1));

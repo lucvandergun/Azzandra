@@ -11,6 +11,7 @@ namespace Azzandra
     {
         public override EntityType EntityType => EntityType.Humanoid;
         public override int WanderRange => 2;
+        public override bool CanOpenDoors() => true;
 
 
         public Necromancer(int x, int y) : base(x, y) { }

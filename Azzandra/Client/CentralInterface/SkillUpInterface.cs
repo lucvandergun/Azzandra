@@ -104,7 +104,6 @@ namespace Azzandra
             text.Format = format;
             text.Skip();
             text.DrawLine("<white>The shrine is attuned to the following skills:");
-            text.DrawLine("<slate>You may choose for which one you wish to gain insights.");
             text.Skip();
 
             if (Stats == null) return;
@@ -138,6 +137,9 @@ namespace Azzandra
                 //TextFormatter.DrawString(startOffset + i * slotOffset + stringOffset, pre + str, format);
                 text.DrawLine(pre + str);
             }
+
+            text.Skip();
+            text.DrawLine("<slate>Choose a skill in which you wish to gain insights.");
 
             ConfirmButton.Render(Surface, new Vector2(region.Width - 64, region.Height - 32), gd, sb, true);
             

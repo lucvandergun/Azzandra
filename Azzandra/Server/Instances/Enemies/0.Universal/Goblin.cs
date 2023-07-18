@@ -10,6 +10,7 @@ namespace Azzandra
     public class Goblin : Enemy
     {
         public override EntityType EntityType => EntityType.Goblin;
+        public override bool CanOpenDoors() => true;
 
 
         public Goblin(int x, int y) : base(x, y) { }

@@ -8,10 +8,14 @@ namespace Azzandra
 {
     public abstract class SpellEffect : ISpellEffect
     {
+        public virtual int GetStrength(int level) => 1;
+        
         public SpellEffect()
-        { }
+        { 
 
-        public abstract void Apply(Entity attacker, Instance target, Affect affect);
+        }
+
+        public abstract void Apply(Entity attacker, Instance target, Affect affect, int level);
 
 
         public Tuple<string, string> GetMsgAdressesHave(Instance attacker, Instance target)

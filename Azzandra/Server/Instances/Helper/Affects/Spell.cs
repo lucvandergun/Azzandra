@@ -10,11 +10,13 @@ namespace Azzandra
     {
         public int Spc, Res;
         public SpellEffect SpellEffect;
+        public int Level;
         protected override int GetPropertyAccuracy() => Spc;
 
-        public Spell(Server server, int speed, int range, float spc, SpellEffect effect, List<AttackProperty> properties = null) : base(server, speed, range, properties)
+        public Spell(Server server, int speed, int range, float spc, SpellEffect effect, int level = 1, List<AttackProperty> properties = null) : base(server, speed, range, properties)
         {
             SpellEffect = effect;
+            Level = level;
             Spc = (int)Math.Round(spc, MidpointRounding.AwayFromZero);
         }
 
@@ -56,7 +58,7 @@ namespace Azzandra
 
         public override void Apply(Entity attacker, Instance target)
         {
-            SpellEffect.Apply(attacker, target, this);
+            SpellEffect.Apply(attacker, target, this, Level);
             //AddMessage(msg);
         }
 

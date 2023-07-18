@@ -46,7 +46,7 @@ namespace Azzandra
 
                 //Get current drag item
                 var dragItem = AllowDrag
-                    ? GameClient.DisplayHandler.MouseItem as DragItem
+                    ? GameClient.DisplayHandler.MouseInterface as DragItem
                     : null;
 
                 ////Leave null if drag item doesn't have inventory as container
@@ -60,7 +60,7 @@ namespace Azzandra
                 Vector2 pos = startOffset + slotOffset * i;
 
                 // Keyboard Handling:
-                if (item != null && GameClient.KeyboardFocus == GameClient.Focus.General && Input.IsKeyPressed[Input.GetKeyBind(i)] && GameClient.DisplayHandler.MouseItem == null)
+                if (item != null && GameClient.KeyboardFocus == GameClient.Focus.General && Input.IsKeyPressed[Input.GetKeyBind(i)] && GameClient.DisplayHandler.MouseInterface == null)
                 {
                     // Perform default option directly with SHIFT:
                     if (Input.IsKeyDown[Keys.LeftShift] || Input.IsKeyDown[Keys.RightShift])

@@ -76,6 +76,8 @@
     <Compile Include="Client\InterfaceItems\InterfaceItem.cs" />
     <Compile Include="Client\InterfaceItems\ScrollBar.cs" />
     <Compile Include="Client\Minimap.cs" />
+    <Compile Include="Client\Mouse\IMouseInterface.cs" />
+    <Compile Include="Client\Mouse\SpellMenu.cs" />
     <Compile Include="Client\ScrollableSurface.cs" />
     <Compile Include="Client\Settings\Settings.cs" />
     <Compile Include="Client\InterfaceItems\CheckBox.cs" />
@@ -140,6 +142,7 @@
     <Compile Include="Server\Instances\Enemies\2.Overgrown\Troll.cs" />
     <Compile Include="Server\Instances\Enemies\3.Fiery\Enchanter.cs" />
     <Compile Include="Server\Instances\Enemies\3.Fiery\Choker.cs" />
+    <Compile Include="Server\Instances\Helper\Actions\ActionFleeOld.cs" />
     <Compile Include="Server\Instances\Helper\Actions\ActionInstance.cs" />
     <Compile Include="Server\Instances\Helper\Actions\ActionInteract.cs" />
     <Compile Include="Server\Instances\Helper\Actions\ActionDirectional.cs" />
@@ -324,7 +327,7 @@
     <Compile Include="Server\Instances\Player.cs" />
     <Compile Include="Server\Instances\Projectile\TargetProjectile.cs" />
     <Compile Include="Server\Instances\Projectile\Projectile.cs" />
-    <Compile Include="Server\Instances\TileInstance\Box.cs" />
+    <Compile Include="Server\Instances\TileInstance\AmmunitionBarrel.cs" />
     <Compile Include="Server\Instances\TileInstance\SmallChest.cs" />
     <Compile Include="Server\Instances\TileInstance\Door.cs" />
     <Compile Include="Server\Instances\TileInstance\Grave.cs" />

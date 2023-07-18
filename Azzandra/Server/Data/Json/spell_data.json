@@ -15,14 +15,14 @@
 	},
 	"shatter": {
 		"name": "shatter",
-		"desc": "Destroy all rocks surrounding you.",
+		"desc": "Destroy all rocks surrounding you in a @-tile radius.",
 		"spellpoints": 4,
 		"type": "utility",
 		"weight": 12,
 	},
 	"unlock": {
 		"name": "unlock",
-		"desc": "Allow access to things that are normally inaccessible.",
+		"desc": "Open certain things that are locked.",
 		"spellpoints": 4,
 		"type": "utility",
 		"weight": 12,
@@ -36,7 +36,7 @@
 	},
 	"dash": {
 		"name": "dash",
-		"desc": "Move several tiles into a certain direction.",
+		"desc": "Move up to @ tiles into a certain direction.",
 		"spellpoints": 3,
 		"type": "utility",
 		"weight": 12,
@@ -48,14 +48,14 @@
 	
 	"liberate": {
 		"name": "liberate",
-		"desc": "Free yourself from any restraints.",
+		"desc": "Free yourself from any movement restraints.",
 		"spellpoints": 3,
 		"type": "defensive",
 		"weight": 12,
 	},
 	"healing_aura": {
 		"name": "healing aura",
-		"desc": "Heal everything in a region of two tiles around you.",
+		"desc": "Rejuvinate everything in a region of 2 tiles around you, healing @ hp at the centre.",
 		"spellpoints": 6,
 		"type": "defensive",
 		"weight": 12,
@@ -69,14 +69,14 @@
 	},
 	"deflect": {
 		"name": "deflect",
-		"desc": "Return the next incomming hit to its origin.",
+		"desc": "Return the next incomming hit back to its origin.",
 		"spellpoints": 3,
 		"type": "defensive",
 		"weight": 12,
 	},
 	"charge": {
 		"name": "charge",
-		"desc": "Protect yourself from incomming hits for 3 turns.",
+		"desc": "Protect yourself from incomming hits for @ turns.",
 		"spellpoints": 4,
 		"type": "defensive",
 		"weight": 12,
@@ -96,7 +96,7 @@
 	},
 	"freeze": {
 		"name": "freeze",
-		"desc": "Stop your opponent from moving.",
+		"desc": "Stop your opponent from moving for @ turns.",
 		"spellpoints": 3,
 		"type": "offensive",
 		"tier": 1,
@@ -104,7 +104,7 @@
 	},
 	"ensnare": {
 		"name": "ensnare",
-		"desc": "Stop your opponent from moving.",
+		"desc": "Stop your opponent from moving for @ turns.",
 		"spellpoints": 4,
 		"type": "offensive",
 		"tier": 2,
@@ -119,7 +119,7 @@
 	},
 	"blind": {
 		"name": "blind",
-		"desc": "Marginally reduce your opponent's vision.",
+		"desc": "Marginally reduce your opponent's vision to @ tiles.",
 		"spellpoints": 2,
 		"type": "offensive",
 		"tier": 2,
@@ -127,7 +127,7 @@
 	},
 	"lightning": {
 		"name": "lightning",
-		"desc": "Send out a beam of agonizing lightning.",
+		"desc": "Send out an agonizing beam of lightning to deal @ damage to everything it comes into contact with.",
 		"spellpoints": 5,
 		"type": "offensive",
 		"tier": 3,
@@ -135,7 +135,7 @@
 	},
 	"detonate": {
 		"name": "detonate",
-		"desc": "Create an explosion at a certain location.",
+		"desc": "Create an explosion at a certain location, dealing @ damage at the centre.",
 		"spellpoints": 8,
 		"type": "offensive",
 		"tier": 3,
@@ -143,28 +143,28 @@
 	},
 	"disorient": {
 		"name": "disorient",
-		"desc": "Make your opponent dizzy.",
+		"desc": "Make your opponent dizzy for @ turns.",
 		"spellpoints": 3,
 		"type": "offensive",
 		"weight": 12,
 	},
 	"confuse": {
 		"name": "confuse",
-		"desc": "Mystify your opponent's intentions.",
+		"desc": "Have your opponent forget where he came from and what its intentions were.",
 		"spellpoints": 4,
 		"type": "offensive",
 		"weight": 12,
 	},
 	"wind_blast": {
 		"name": "wind blast",
-		"desc": "Create strong wave of air towards an enemy.",
+		"desc": "Blow an enemy back @ tiles.",
 		"spellpoints": 3,
 		"type": "offensive",
 		"weight": 12,
 	},
 	"whirlwind": {
 		"name": "whirlwind",
-		"desc": "Blow every opponent surrounding you away.",
+		"desc": "Blow everything in a region of @ tiles around you away.",
 		"spellpoints": 4,
 		"type": "offensive",
 		"weight": 12,

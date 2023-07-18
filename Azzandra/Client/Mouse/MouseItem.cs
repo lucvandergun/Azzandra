@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Azzandra
 {
-    public abstract class MouseItem
+    public abstract class MouseItem : IMouseInterface
     {
         protected GameClient GameClient;
         protected GraphicsDevice GraphicsDevice;
@@ -17,6 +17,7 @@ namespace Azzandra
         public readonly int Index;
 
         public Surface Surface { get; protected set; }
+        public Surface GetSurface() => Surface;
 
         public MouseItem(Container container, int index, GameClient gameClient)
         {
@@ -24,8 +25,8 @@ namespace Azzandra
             GraphicsDevice = GameClient.Engine.GraphicsDevice;
             SpriteBatch = GameClient.Engine.SpriteBatch;
 
-            //set this as current mouse item
-            GameClient.DisplayHandler.MouseItem = this;
+            //Set this as current mouse interface:
+            GameClient.DisplayHandler.MouseInterface = this;
 
             Surface = new Surface(GameClient.Engine);
             Container = container;
@@ -36,7 +37,7 @@ namespace Azzandra
 
         public virtual void Destroy()
         {
-            GameClient.DisplayHandler.MouseItem = null;
+            GameClient.DisplayHandler.MouseInterface = null;
         }
     }
 }

@@ -13,6 +13,7 @@ namespace Azzandra
         public override int AggressiveRange => 5;
         public override int GetMovementSpeed() => Form == FormType.Humanoid ? 1 : 2;
         public override EntityType EntityType => EntityType.Vampire;
+        public override bool CanOpenDoors() => true;
 
 
         protected virtual int GetMaxShapeShiftTime() => 20;

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <SourceFile>D:/Users/Luc/Documents/Dev/C#/Azzandra/Azzandra/Azzandra/Content/textures/obelisk.png</SourceFile>
-  <SourceTime>2022-12-04T00:10:29.1542574+01:00</SourceTime>
+  <SourceTime>2023-07-15T12:09:42.3196753+02:00</SourceTime>
   <DestFile>D:/Users/Luc/Documents/Dev/C#/Azzandra/Azzandra/Azzandra/Content/bin/Windows/Content/textures/obelisk.xnb</DestFile>
-  <DestTime>2022-12-04T00:10:57.4584879+01:00</DestTime>
+  <DestTime>2023-07-15T12:27:17.12454+02:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2018-12-08T17:35:54+01:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

@@ -17,6 +17,7 @@ namespace Azzandra
 
         public override string Name => "large chest";
         public override string SecretName => "cursed chest";
+        public override string AssetName => IsOpen ? "chest_open_large" : "chest_closed_large";
 
         public CursedChest(int x, int y) : base(x, y) { }
 
@@ -56,6 +57,7 @@ namespace Azzandra
                 Level.CreateInstance(inst);
 
                 IsOpen = true;
+                AnimationManager.Play(AssetName);
             }
 
             else

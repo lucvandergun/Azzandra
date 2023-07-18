@@ -532,7 +532,7 @@ namespace Azzandra.Generation
                 var item = LootGenerator.GetLoot("loot_barrel", Level.Depth, random);
                 if (item != null && item.Length > 0)
                 {
-                    var barrel = new Box(0, 0, item);
+                    var barrel = new AmmunitionBarrel(0, 0, item);
                     var pos = FreeNodes.FirstOrDefault(n => EdgeNodes.Exists(e => (e-n).OrthogonalLength() == 1));
                     if (FindInstanceSpawn(barrel, pos, 1, false, true))
                     {

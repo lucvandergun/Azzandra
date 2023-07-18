@@ -36,7 +36,7 @@ namespace Azzandra
             StageIndex = 0;
             Texts = new string[]
             {
-                "The Caverns of Azzandra was once the greatest mining facility of the continent. For decades, it's ores and gems were gathered and spread far across the lands as their purity was unparalleled.",
+                "Back in the days of yore, the Caverns of Azzandra once hosted the greatest mining facility that has ever been. For decades, it's ores and gems were gathered and spread far across the lands as their purity was unparalleled.",
                 "But, due to the extent of the excessive mining the upper levels were quickly depleted and the workers went ever deeper. They wouldn't stop as their tyrant king's lust for money and power were insatiable.\nYou must have sensed what happens next...",
                 "Their greed became their own destruction when they descended to depths they shouldn't have. They discovered they had done something irreversible.",
                 "In ancient times the archaic demon Azzandra was terrorizing the world in an attempt to eliminate all that is good. After a long battle he was put to sleep under a spell in the very same caverns, deep below the surface. Over the ages life had been good, and the people had forgotten that such horror once existed.",

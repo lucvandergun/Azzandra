@@ -66,7 +66,7 @@
 	},
 	"iron_broadsword": {
 		"name": "iron broadsword",
-		"desc": "A strong sleaf-shaped iron sword.",
+		"desc": "A strong leaf-shaped iron sword.",
 		"asset": "iron_broadsword",
 		"type": "weapon",
 		"sub": "sword",
@@ -1169,8 +1169,7 @@
 		"speed": 2,
 		"range": 6,
 		"accuracy": 7,
-		"damage": 8,
-		"spellcast": 8
+		"damage": 8
 	},
 	"staff_of_poison": {
 		"name": "staff of poison",
@@ -1180,7 +1179,6 @@
 		"range": 6,
 		"accuracy": 9,
 		"damage": 9,
-		"spellcast": 8,
 		"properties": [{"id": "poison"}]
 	},
 	"staff_of_augury": {
@@ -1190,8 +1188,7 @@
 		"speed": 2,
 		"range": 8,
 		"accuracy": 10,
-		"damage": 14,
-		"spellcast": 12
+		"damage": 14
 	},
 	
 	
@@ -1204,8 +1201,7 @@
 		"speed": 2,
 		"range": 6,
 		"accuracy": 4,
-		"damage": 4,
-		"spellcast": 4
+		"damage": 4
 	},
 	
 	"wind_staff": {
@@ -1216,7 +1212,6 @@
 		"range": 6,
 		"accuracy": 6,
 		"damage": 6,
-		"spellcast": 6,
 		"properties": [{"id": "knockback"}]
 	},
 	"ice_staff": {
@@ -1227,7 +1222,6 @@
 		"range": 6,
 		"accuracy": 6,
 		"damage": 6,
-		"spellcast": 6,
 		"properties": [{"id": "frost"}]
 	},
 	"shadow_staff": {
@@ -1238,7 +1232,6 @@
 		"range": 8,
 		"accuracy": 6,
 		"damage": 6,
-		"spellcast": 6,
 		"properties": [{"id": "blind"}]
 	},
 	"fire_staff": {
@@ -1260,7 +1253,6 @@
 		"range": 6,
 		"accuracy": 9,
 		"damage": 9,
-		"spellcast": 9,
 		"properties": [{"id": "knockback"}]
 	},
 	"greater_ice_staff": {
@@ -1271,7 +1263,6 @@
 		"range": 6,
 		"accuracy": 9,
 		"damage": 9,
-		"spellcast": 9,
 		"properties": [{"id": "frost"}]
 	},
 	"greater_shadow_staff": {
@@ -1282,7 +1273,6 @@
 		"range": 6,
 		"accuracy": 9,
 		"damage": 9,
-		"spellcast": 9,
 		"properties": [{"id": "blind"}]
 	},
 	"greater_fire_staff": {
@@ -1293,7 +1283,6 @@
 		"range": 6,
 		"accuracy": 9,
 		"damage": 9,
-		"spellcast": 9,
 		"properties": [{"id": "fire"}]
 	},
 	"runic_wind_staff": {
@@ -1304,7 +1293,6 @@
 		"range": 6,
 		"accuracy": 12,
 		"damage": 12,
-		"spellcast": 12,
 		"properties": [{"id": "wind"}]
 	},
 	"runic_ice_staff": {
@@ -1315,7 +1303,6 @@
 		"range": 6,
 		"accuracy": 12,
 		"damage": 12,
-		"spellcast": 12,
 		"properties": [{"id": "frost"}]
 	},
 	"runic_shadow_staff": {
@@ -1326,7 +1313,6 @@
 		"range": 6,
 		"accuracy": 12,
 		"damage": 12,
-		"spellcast": 12,
 		"properties": [{"id": "blind"}]
 	},
 	"runic_fire_staff": {
@@ -1337,7 +1323,6 @@
 		"range": 6,
 		"accuracy": 12,
 		"damage": 12,
-		"spellcast": 12,
 		"properties": [{"id": "fire"}]
 	},
 
@@ -1349,8 +1334,7 @@
 		"maxdurability": -1,
 		"range": 4,
 		"accuracy": 3,
-		"damage": 3,
-		"spellcast": 3
+		"damage": 3
 	},
 	"wind_wand": {
 		"name": "wind wand",
@@ -1359,7 +1343,6 @@
 		"range": 4,
 		"accuracy": 4,
 		"damage": 3,
-		"spellcast": 4,
 		"properties": [{"id": "knockback"}]
 	},
 	"ice_wand": {
@@ -1369,7 +1352,6 @@
 		"range": 4,
 		"accuracy": 4,
 		"damage": 3,
-		"spellcast": 4,
 		"properties": [{"id": "frost"}]
 	},
 	"shadow_wand": {
@@ -1379,7 +1361,6 @@
 		"range": 4,
 		"accuracy": 4,
 		"damage": 3,
-		"spellcast": 4,
 		"properties": [{"id": "blind"}]
 	},
 	"fire_wand": {
@@ -1389,7 +1370,6 @@
 		"range": 4,
 		"accuracy": 4,
 		"damage": 3,
-		"spellcast": 4,
 		"properties": [{"id": "fire"}]
 	},
 	"greater_wind_wand": {
@@ -1399,7 +1379,6 @@
 		"range": 4,
 		"accuracy": 6,
 		"damage": 4,
-		"spellcast": 6,
 		"properties": [{"id": "knockback"}]
 	},
 	"greater_ice_wand": {
@@ -1419,7 +1398,6 @@
 		"range": 4,
 		"accuracy": 6,
 		"damage": 4,
-		"spellcast": 6,
 		"properties": [{"id": "blind"}]
 	},
 	"greater_fire_wand": {
@@ -1429,7 +1407,6 @@
 		"range": 4,
 		"accuracy": 6,
 		"damage": 4,
-		"spellcast": 6,
 		"properties": [{"id": "fire"}]
 	},
 	"runic_wind_wand": {
@@ -1439,7 +1416,6 @@
 		"range": 4,
 		"accuracy": 8,
 		"damage": 6,
-		"spellcast": 8,
 		"properties": [{"id": "wind"}]
 	},
 	"runic_ice_wand": {
@@ -1449,7 +1425,6 @@
 		"range": 4,
 		"accuracy": 8,
 		"damage": 6,
-		"spellcast": 8,
 		"properties": [{"id": "frost"}]
 	},
 	"runic_shadow_wand": {
@@ -1459,7 +1434,6 @@
 		"range": 4,
 		"accuracy": 8,
 		"damage": 6,
-		"spellcast": 8,
 		"properties": [{"id": "blind"}]
 	},
 	"runic_fire_wand": {
@@ -1469,17 +1443,15 @@
 		"range": 4,
 		"accuracy": 8,
 		"damage": 6,
-		"spellcast": 8,
 		"properties": [{"id": "fire"}]
 	},
 	"wand_of_lightning": {
 		"name": "wand of lightning",
-		"desc": "This rod does not catch lightning, but rather it sends it!",
+		"desc": "This rod does not catch lightning, but sends it rather!",
 		"type": "wand",
 		"range": 6,
 		"accuracy": 6,
 		"damage": 5,
-		"spellcast": 6,
 		"properties": [{"id": "fire"}]
 	},
 

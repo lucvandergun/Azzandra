@@ -778,12 +778,12 @@ namespace Azzandra
         /// </summary>
         public bool CanMoveUnobstructed(int dx, int dy)
         {
-            return CanMoveUnobstructed(X, Y, dx, dy, true);
+            return CanMoveUnobstructed(X, Y, dx, dy, true, true);
         }
         /// <summary>
         /// Returns true if entity can move with specified amount from specified position.
         /// </summary>
-        public virtual bool CanMoveUnobstructed(int x, int y, int dx, int dy, bool incorporateEntities = true)
+        public virtual bool CanMoveUnobstructed(int x, int y, int dx, int dy, bool incorporateEntities = true, bool incorporateDoors = true)
         {
             // Return true if no movement
             if (Level == null || dx == 0 && dy == 0)
@@ -845,7 +845,7 @@ namespace Azzandra
             //instance collision
             foreach (var inst in Level.ActiveInstances)
             {
-                if (IsInstanceSolidToThis(inst) && (!(inst is Entity) || incorporateEntities))
+                if (IsInstanceSolidToThis(inst) && (!(inst is Entity) || incorporateEntities) && (!(inst is Door d && d.CanBeOpened()) || incorporateDoors))
                 {
                     /*
                     //total movement area - origional area

@@ -87,6 +87,14 @@ namespace Azzandra
         {
             return new Vector(Math.Sign(X), Math.Sign(Y));
         }
+        public Vector GetXComponent()
+        {
+            return new Vector(X, 0);
+        }
+        public Vector GetYComponent()
+        {
+            return new Vector(0, Y);
+        }
         public Vector2 ToFloat()
         {
             return new Vector2(X, Y);

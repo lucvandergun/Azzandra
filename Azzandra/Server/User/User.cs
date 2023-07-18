@@ -21,13 +21,23 @@ namespace Azzandra
         public Equipment Equipment { get; private set; }
         public Stats Stats { get; private set; }
 
-        public void LearnSpell(string id)
+        public bool LearnSpell(string id)
         {
             if (!LearnedSpells.Any(s => s.ID == id))
+            {
                 LearnedSpells.Add(new LearnedSpell(id));
+                return true;
+            }
+            else
+            {
+                LearnedSpells.First(s => s.ID == id)?.IncreaseGrasp();
+                return false;
+            }
+                
         }
         public List<LearnedSpell> LearnedSpells { get; private set; } = new List<LearnedSpell>();
-        public int GetLearnedSpcBoost(string id) => LearnedSpells.FirstOrDefault(s => s.ID == id)?.SpcBoost ?? 0;
+        public int GetSpellCastBoost(string id) => LearnedSpells.FirstOrDefault(s => s.ID == id)?.SpcBoost ?? 0;
+        public int GetSpellLevel(string id) => LearnedSpells.FirstOrDefault(s => s.ID == id)?.Level ?? 0;
 
 
         public DrinkData[] DrinkEffects { get; set; }

@@ -54,12 +54,12 @@ namespace Azzandra
             else if (player.Sp < player.GetFullSp())
             {
                 player.Sp = player.GetFullSp();
-                player.User.Log.Add("<yellow>You feel the power of the obelisk flow through you! It recharges all of your spell points.");
+                player.User.Log.Add("<yellow>You feel the power of the obelisk flow through you! It recharges all of your spellpoints.");
                 IsUsed = true;
             }
             else
             {
-                player.User.Log.Add("You feel a presence of power inside the obelisk, but you already have full spellpoints.");
+                player.User.Log.Add("You feel a presence of power inside the obelisk, but you already have all of your spellpoints.");
             }
         }
     }

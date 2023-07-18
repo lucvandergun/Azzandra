@@ -64,7 +64,7 @@ namespace Azzandra
             if (RequiresMouse && !Input.MouseHover(region.X - pad, region.Y - pad, region.Width + 2 * pad, region.Height + 2 * pad))
             {
                 // Kill self
-                GameClient.DisplayHandler.MouseItem = null;
+                GameClient.DisplayHandler.MouseInterface = null;
             }
             else
             {

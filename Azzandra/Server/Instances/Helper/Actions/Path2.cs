@@ -79,16 +79,16 @@ namespace Azzandra
         {
             //Entity.Level.Server.User.ShowMessage(Entity.ID + ": recalculated");
             
-            //check for target node
+            // check for target node
             if (Target == null) return 0;
 
-            //declare start node
+            // declare start node
             Node start = new Node(Entity.X, Entity.Y);
             var target = GetClosestTargetNode(start);
             start.H = ComputeHScore(start.Position, target);
             start.F = start.H;
 
-            //initialize lists
+            // initialize lists
             Node current = null;
             var openList = new List<Node>();
             var closedList = new List<Node>();
@@ -200,14 +200,13 @@ namespace Azzandra
                 var newPos = dir + new Vector(x, y);
 
                 // Allow free-passes for target tiles themselves: (they don't have to be walkable)
-                // TODO: but should be able to affect!????
                 if (!Target.Contains(newPos))
                 {
                     // If there is a region constraint and the new pos is not inside this region: don't go here.
                     if (RegionConstraint != null && !RegionConstraint.IsInRegion(newPos, Entity.Size))
                         continue;
 
-                    if (!Entity.CanMoveUnobstructed(x, y, dir.X, dir.Y, true))
+                    if (!Entity.CanMoveUnobstructed(x, y, dir.X, dir.Y, true, !Entity.CanOpenDoors()))
                         continue;
                 }
                                     

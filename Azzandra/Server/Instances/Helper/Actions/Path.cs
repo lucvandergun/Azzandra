@@ -18,6 +18,7 @@ namespace Azzandra
             public Node Parent;
 
             public Node(int x, int y) { X = x; Y = y; }
+            public Node(Vector v) { X = v.X; Y = v.Y; }
 
             public Vector ToVector() => new Vector(X, Y);
             public override string ToString() => ToVector().ToString();
@@ -174,7 +175,7 @@ namespace Azzandra
                 if (FollowRegionConstraint && RegionConstraint != null && !RegionConstraint.IsInRegion(dir + new Vector(x, y), Entity.Size))
                     continue;
 
-                if (Entity.CanMoveUnobstructed(x, y, dir.X, dir.Y, false))
+                if (Entity.CanMoveUnobstructed(x, y, dir.X, dir.Y, false, !Entity.CanOpenDoors()))
                     nodes.Add(new Node(x + dir.X, y + dir.Y));
             }
             return nodes;

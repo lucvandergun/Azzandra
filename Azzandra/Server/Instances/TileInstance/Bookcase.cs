@@ -60,15 +60,10 @@ namespace Azzandra
                 
                 var spell = Data.GetSpellDataRoll();
                 string msg;
-                if (!player.User.LearnedSpells.Any(s => s.ID == spell.ID))
-                {
+                if (player.User.LearnSpell(spell.ID))
                     msg = "<lavender>You find " + tomes.PickRandom() + ". It teaches you the <aqua>" + spell.Name + "<lavender> spell!";
-                    player.User.LearnSpell(spell.ID);
-                }
                 else
-                {
                     msg = "<lavender>You find " + tomes.PickRandom() + ". It teaches you a better grasp on the " + spell.Name + " spell.";
-                }
                 player.User.Log.Add(msg);
                 HasSpell = false;
             }

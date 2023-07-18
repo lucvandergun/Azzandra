@@ -51,7 +51,7 @@ namespace Azzandra.Generation.AreaGeneration
                 var item = LootGenerator.GetLoot("loot_barrel", area.Level.Depth, random);
                 if (item != null && item.Length > 0)
                 {
-                    var barrel = new Box(0, 0, item);
+                    var barrel = new AmmunitionBarrel(0, 0, item);
                     if (area.FindInstanceSpawn(barrel, centerPos, 3, true, true))
                     {
                         area.Level.LevelManager.RemoveBenefit(2);

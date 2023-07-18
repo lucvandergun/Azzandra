@@ -468,8 +468,6 @@ D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra\Azzandra\bin\Windows\x86\Debug\C
 D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra\Azzandra\bin\Windows\x86\Debug\Content\textures\campfire1.xnb
 D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra\Azzandra\bin\Windows\x86\Debug\Content\textures\campfire2.xnb
 D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra\Azzandra\bin\Windows\x86\Debug\Content\textures\entity\choker.xnb
-D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra\Azzandra\bin\Windows\x86\Debug\Content\textures\box_closed.xnb
-D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra\Azzandra\bin\Windows\x86\Debug\Content\textures\box_open.xnb
 D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra\Azzandra\bin\Windows\x86\Debug\Content\textures\campfire.xnb
 D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra\Azzandra\bin\Windows\x86\Debug\Content\textures\sulphur.xnb
 D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra\Azzandra\bin\Windows\x86\Debug\Content\textures\entity\spectre.xnb
@@ -500,3 +498,5 @@ D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra\Azzandra\bin\Windows\x86\Debug\C
 D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra\Azzandra\bin\Windows\x86\Debug\Content\interface\menu_backgrounds\5.xnb
 D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra\Azzandra\bin\Windows\x86\Debug\Content\interface\menu_backgrounds\6.xnb
 D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra\Azzandra\bin\Windows\x86\Debug\Content\textures\dock_oriented.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra\Azzandra\bin\Windows\x86\Debug\Content\textures\ammunition_barrel_closed.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra\Azzandra\bin\Windows\x86\Debug\Content\textures\ammunition_barrel_open.xnb

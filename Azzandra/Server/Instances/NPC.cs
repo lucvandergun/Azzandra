@@ -149,26 +149,51 @@ namespace Azzandra
         {
             base.DrawView(sb, viewOffset, server, lightness);
 
-            // Draw Path Target
+            // Draw Debug stuff: Path Target, wander range & dijkstra
             if (server.GameClient.IsDevMode && server.GameClient.IsDebug && server.User.Target == this)
             {
                 if (Action is ActionPath apath)
                 {
-                    DrawRectangle(viewOffset, server, apath.Path.Target, Size);
+                    //DrawRectangle(viewOffset, server, apath.Path.Target, Size, false);
+                    Color col;
+                    foreach (var node in apath.Path.PathList)
+                    {
+                        col = (apath.Path.PathList.LastOrDefault() == node ? Color.Lime : Color.Blue) * 0.5f;
+                        DrawRectangle(viewOffset, server, node.ToVector(), Size, true, col);
+                    }
+                }
+                else if (Action is ActionFlee aflee)
+                {
+                    float val, min = aflee.FleeMap.GetMinValue();  Color col;
+                    for (int i, j = 0; j < aflee.FleeMap.Size.Y; j++)
+                    {
+                        for (i = 0; i < aflee.FleeMap.Size.X; i++)
+                        {
+                            val = aflee.FleeMap.Matrix[i, j];
+                            col = (val > 0 ? Color.Black : Util.BlendWith(Color.Red, Color.Blue, aflee.FleeMap.Matrix[i, j] / min)) * 0.5f;
+                            DrawRectangle(viewOffset, server, aflee.FleeMap.Offset + new Vector(i, j),
+                                Vector.One, true, col);
+                            //if (val <= 0)
+                            //    Display.DrawStringCentered(viewOffset + (aflee.FleeMap.Offset + new Vector(i, j)).ToFloat() * GameClient.GRID_SIZE, aflee.FleeMap.Matrix[i, j] + "", Assets.Medifont);
+                        }
+                    }
                 }
 
                 var centerPos = (BasePosition != null ? BasePosition.Value : Position);
-                DrawRectangle(viewOffset, server, centerPos - new Vector(WanderRange), new Vector(2 * WanderRange + 1));
+                DrawRectangle(viewOffset, server, centerPos - new Vector(WanderRange), new Vector(2 * WanderRange + 1), false);
             }
         }
 
-        public void DrawRectangle(Vector2 viewOffset, Server server, Vector pos, Vector size, Color? color = null)
+        public void DrawRectangle(Vector2 viewOffset, Server server, Vector pos, Vector size, bool fill, Color? color = null)
         {
             Vector2 s = size.ToFloat() * GameClient.GRID_SIZE;
             var drawPos = pos.ToFloat() * GameClient.GRID_SIZE + viewOffset;
             var rect = Display.MakeRectangle(drawPos, s);
 
-            Display.DrawOutline(rect, color == null ? GetSymbol().Color : color.Value);
+            if (fill)
+                Display.DrawRect(rect, color == null ? GetSymbol().Color : color.Value);
+            else
+                Display.DrawOutline(rect, color == null ? GetSymbol().Color : color.Value);
         }
     }
 }

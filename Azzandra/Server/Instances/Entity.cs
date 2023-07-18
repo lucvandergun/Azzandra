@@ -22,6 +22,7 @@ namespace Azzandra
         public virtual EntityType EntityType => EntityType.None;
         public override bool IsSolid() => true;
         public override bool IsAttackable() => true;
+        public virtual bool CanOpenDoors() => false;    // Whether the entity can open closed (unlocked) doors (when fleeing or chasing)
 
         public virtual int GetVisionRange()
         {

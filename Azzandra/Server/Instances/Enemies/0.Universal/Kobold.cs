@@ -11,6 +11,7 @@ namespace Azzandra
     public class Kobold : Enemy
     {
         public override EntityType EntityType => EntityType.Humanoid;
+        public override bool CanOpenDoors() => true;
         public Inventory Inventory { get; set; } = new Inventory();
         public bool HasItem() => Inventory.Items.Count > 0;
 

@@ -128,7 +128,7 @@
 	
 	"giant_skeleton_warrior": {
 		"entitytypes": [ "undead" ],
-		"initiative": 14,
+		"initiative": 12,
 		"stats": {
 			"health": 18,
 			"evade": 0,
@@ -148,7 +148,7 @@
 	},
 	"giant_skeleton_archer": {
 		"entitytypes": [ "undead" ],
-		"initiative": 14,
+		"initiative": 12,
 		"stats": {
 			"health": 18,
 			"evade": 0,
@@ -160,7 +160,7 @@
 		"attacks": [
 			{
 				"style": "ranged",
-				"speed": 1,
+				"speed": 2,
 				"range": 6,
 				"accuracy": 10,
 				"damage": 6
@@ -169,7 +169,7 @@
 	},
 	"giant_skeleton_warlock": {
 		"entitytypes": [ "undead" ],
-		"initiative": 14,
+		"initiative": 12,
 		"stats": {
 			"health": 18,
 			"evade": 0,
@@ -181,7 +181,7 @@
 		"attacks": [
 			{
 				"style": "magic",
-				"speed": 1,
+				"speed": 2,
 				"range": 6,
 				"accuracy": 8,
 				"damage": 8

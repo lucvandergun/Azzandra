@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <SourceFile>D:/Users/Luc/Documents/Dev/C#/Azzandra/Azzandra/Azzandra/Content/textures/entity/hobgoblin.png</SourceFile>
-  <SourceTime>2022-10-02T11:16:15.1849353+02:00</SourceTime>
+  <SourceTime>2023-07-15T12:53:01.6989794+02:00</SourceTime>
   <DestFile>D:/Users/Luc/Documents/Dev/C#/Azzandra/Azzandra/Azzandra/Content/bin/Windows/Content/textures/entity/hobgoblin.xnb</DestFile>
-  <DestTime>2022-10-03T17:24:13.7117393+02:00</DestTime>
+  <DestTime>2023-07-17T14:33:18.1825311+02:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2018-12-08T17:35:54+01:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

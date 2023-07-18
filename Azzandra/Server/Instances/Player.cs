@@ -9,6 +9,7 @@ namespace Azzandra
 {
     public class Player : Entity
     {
+        public override bool CanOpenDoors() => true;
         protected override int VisionRange => 24;
         public bool ReQueueActions() => Level?.Server.GameClient.Engine.Settings.ReQueueing ?? false;
 
@@ -274,9 +275,9 @@ namespace Azzandra
             return User.IsCheatMode || base.CanMove();
         }
 
-        public override bool CanMoveUnobstructed(int x, int y, int dx, int dy, bool incorporateEntities = true)
+        public override bool CanMoveUnobstructed(int x, int y, int dx, int dy, bool incorporateEntities = true, bool incorporateDoors = true)
         {
-            return User.IsCheatMode || base.CanMoveUnobstructed(x, y, dx, dy, incorporateEntities);
+            return User.IsCheatMode || base.CanMoveUnobstructed(x, y, dx, dy, incorporateEntities, incorporateDoors);
         }
 
         public override void OnCollisionWithInstance(Instance inst)

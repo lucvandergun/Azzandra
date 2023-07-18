@@ -119,23 +119,16 @@ namespace Azzandra
             //var player = Level.Server.User.Player;
             //if (player != null)
             //{
-            //    var map = new DijkstraMap(Level, this, new List<Instance>() { player });
-            //    map.CreateMap2();
-            //    map.IterateOverMap();
-            //    map.ToIntMatrix();
-            //    var step = map.GetStep();
+            //    if (!(NextAction is ActionFlee))
+            //    {
+            //        return new ActionFlee(this, player);
+            //    }
 
-            //    //var avMap = new AvoidanceMap(Level, this);
-            //    //avMap.CreateMap();
-            //    //map.CombineWith(avMap);
-            //    //var step = map.GetStep();
-
-            //    Debug.WriteLine(map.Matrix.Stringify());
-            //    Debug.WriteLine("loc: " + Position + ", step: " + step);
-            //    return new ActionMove(this, step);
+            //    //Debug.WriteLine(map.Matrix.Stringify());
+            //    //Debug.WriteLine("loc: " + Position + ", step: " + step);
             //}
-            
-            
+
+
             // Check whether to lose target:
             if (Target != null)
             {
@@ -172,7 +165,7 @@ namespace Azzandra
             }
 
             // Set "IsFleeing":
-            if (CanFlee() && !IsFleeing)
+            if (!IsFleeing && CanFlee())
             {
                 if (Target != null && Hp <= FullHp * FleeHpThreshold)
                 {
@@ -180,6 +173,7 @@ namespace Azzandra
                 }
             }
 
+            // Stop "IsFleeing" based on certain conditions:
             if (IsFleeing)
             {
                 if (Target == null ||
@@ -189,7 +183,7 @@ namespace Azzandra
                     IsFleeing = false;
                     Target = null;
                     // Set new base pos:
-                    if (!IsHaunting)
+                    if (!IsHaunting && Parent == null) // Determine based on whether instance has a group?
                         BasePosition = Position;
                 }
             }
@@ -213,7 +207,7 @@ namespace Azzandra
             IsFleeing = true;
             if (Target?.Instance is Player)
                 Level.Server.User.ShowMessage(ToStringAdress().CapFirst() + " starts to flee.");
-            BasePosition = null;
+            //BasePosition = null;
         }
 
         /// <summary>
@@ -226,7 +220,9 @@ namespace Azzandra
             //else
             //    return new ActionFlee(this, Target.Instance);
 
-            return new ActionFlee(this, Target.Instance);
+            if (!(Action is ActionFlee))// || TileDistanceTo(Target.Instance) >= 4)
+                return new ActionFlee(this, new List<Instance>() { Target.Instance });
+            else return Action;
         }
 
         /// <summary>

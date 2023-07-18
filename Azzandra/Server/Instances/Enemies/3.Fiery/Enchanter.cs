@@ -10,6 +10,7 @@ namespace Azzandra
     public class Enchanter : Enemy
     {
         public override EntityType EntityType => EntityType.Humanoid;
+        public override bool CanOpenDoors() => true;
         public override int AggressiveRange => 5;
 
         public Enchanter(int x, int y) : base(x, y) { }

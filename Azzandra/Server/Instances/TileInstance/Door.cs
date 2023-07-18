@@ -11,6 +11,8 @@ namespace Azzandra
     
     public class Door : Instance
     {
+        public virtual bool CanBeOpened() => true;
+        
         public bool IsOpen = false;
 
         public override bool IsInteractable() => true;
@@ -51,116 +53,22 @@ namespace Azzandra
 
         public override void Interact(Entity entity)
         {
-            if (!(entity is Player player)) return;
+            if (!entity.CanOpenDoors()) return;
 
             if (IsOpen)
             {
                 IsOpen = false;
-                player.User.Log.Add("<gray>You close the door.");
+                var address = entity is Player ? "You close" : (entity.ToStringAdress().CapFirst() + " closes");
+                Level.Server.User.ShowMessage("<gray>" + address + " the door.");
                 AnimationManager.Play(AssetName);
             }
             else
             {
                 IsOpen = true;
-                player.User.Log.Add("<gray>You open the door.");
+                var address = entity is Player ? "You open" : (entity.ToStringAdress().CapFirst() + " opens");
+                Level.Server.User.ShowMessage("<gray>" + address + " the door.");
                 AnimationManager.Play(AssetName);
             }
         }
     }
-
-    /*
-    public class LockedDoor : Door
-    {
-        public KeyType Key;
-
-        public override Symbol GetSymbol()
-        {
-            switch (Key)
-            {
-                default: return new Symbol('?', Color.Orange);
-                case KeyType.Brass: return new Symbol('B', Color.Goldenrod);
-                case KeyType.Chrome: return new Symbol('C', new Color(220, 220, 220));
-                case KeyType.Golden: return new Symbol('G', Color.Gold);
-                case KeyType.Iron: return new Symbol('I', new Color(127, 127, 127));
-                case KeyType.Nickel: return new Symbol('N', new Color(160, 160, 160));
-                case KeyType.Silver: return new Symbol('S', Color.Silver);
-            }
-        }
-
-
-        public LockedDoor(int x, int y, rdg.Dir dir, KeyType keyType) : base(x, y, dir)
-        {
-            Key = keyType;
-        }
-
-        public override void Interact(Entity entity)
-        {
-            if (!(entity is Player player)) return;
-
-            var key = player.User.Inventory.CheckItem(Type.GetType("DoA.Item." + Key + "Key"));
-
-            if (key == null)
-            {
-                player.User.Log.Add("You don't have the correct key to open this door.");
-                return;
-            }
-
-            if (World.CheckInstanceExists(this))
-            {
-                Destroy();
-                new Door(X, Y, Dir);
-                player.User.Log.Add("You unlock the " + Key.ToString().ToLower() + " door.");
-                player.User.Inventory.RemoveItem(key);
-            }
-        }
-    }
-
-    public class DirectionalDoor : Door
-    {
-        public DirectionalDoor(int x, int y, rdg.Dir dir) : base(x, y, dir)
-        {
-
-        }
-
-        public override void Interact(Entity entity)
-        {
-            if (!(entity is Player player)) return;
-
-            if (IsOpen)
-            {
-                IsOpen = false;
-                player.User.Log.Add("<gray>You close the door.");
-            }
-            else
-            {
-                //
-                if (IsOnRightSide(entity))
-                {
-                    IsOpen = true;
-                    player.User.Log.Add("<gray>You open the door.");
-                }
-                else
-                {
-                    player.User.Log.Add("The door seems to be stuck from this direction.");
-                }
-            }
-        }
-
-        public bool IsOnRightSide(Entity entity)
-        {
-            if (entity.IsCollisionWith(this))
-                return false;
-
-            //check entity dir
-            var entityDir =
-                entity.X > X ? rdg.Dir.East :
-                entity.X + entity.GetW() <= X ? rdg.Dir.West :
-                entity.Y > Y ? rdg.Dir.North :
-                rdg.Dir.South;
-
-            //return true if entity is on right side
-            return entityDir == Dir;
-        }
-    }
-    */
 }

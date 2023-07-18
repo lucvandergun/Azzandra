@@ -13,14 +13,15 @@ namespace Azzandra
             if (attacker == null)
                 return 1;
             else if (attacker is Player player)
-                return player.GetSpc().Round() + player.User.GetLearnedSpcBoost(GetType().Name.ToUnderscore());
+                return player.GetSpc().Round() + player.User.GetSpellCastBoost(GetType().Name.ToUnderscore());
             else
                 return 1;
         }
         
         public SpellEffectVector() { }
+        public virtual int GetStrength(int level) => 1;
 
-        public abstract void Apply(Entity attacker, Vector target);
+        public abstract void Apply(Entity attacker, Vector target, int level);
 
         public Tuple<string, string> GetMsgAdressesHave(Instance attacker, Instance target)
         {

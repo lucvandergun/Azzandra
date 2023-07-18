@@ -168,3 +168,9 @@ D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra\Azzandra\bin\Windows\x86\Release
 D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra\Azzandra\bin\Windows\x86\Release\Content\textures\root.xnb
 D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra\Azzandra\bin\Windows\x86\Release\Content\textures\spell_small.xnb
 D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra\Azzandra\bin\Windows\x86\Release\Content\textures\torch.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra\Azzandra\bin\Windows\x86\Release\Content\textures\entity\giant_skeleton_archer.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra\Azzandra\bin\Windows\x86\Release\Content\textures\entity\giant_skeleton_warlock.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra\Azzandra\bin\Windows\x86\Release\Content\textures\entity\giant_skeleton_warrior.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra\Azzandra\bin\Windows\x86\Release\Content\interface\menu_backgrounds\5.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra\Azzandra\bin\Windows\x86\Release\Content\interface\menu_backgrounds\6.xnb
+D:\Users\Luc\Documents\Dev\C#\Azzandra\Azzandra\Azzandra\bin\Windows\x86\Release\Content\textures\dock_oriented.xnb

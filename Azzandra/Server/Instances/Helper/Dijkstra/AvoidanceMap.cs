@@ -9,7 +9,7 @@ namespace Azzandra
 {
     public class AvoidanceMap : BehaviourMap
     {
-        public AvoidanceMap(Level level, Entity caller) : base(level, caller)
+        public AvoidanceMap(Entity caller) : base(caller)
         {
             
         }
@@ -17,7 +17,7 @@ namespace Azzandra
         public void CreateMap()
         {
             // First fill the matrix with -1, then update all fields
-            Matrix = new int[Level.MapWidth, Level.MapHeight];
+            Matrix = new float[Level.MapWidth, Level.MapHeight];
             Matrix.Populate(int.MaxValue);
 
             var tiles = new List<Vector>();

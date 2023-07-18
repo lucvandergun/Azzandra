@@ -152,7 +152,7 @@ namespace Azzandra
                 inst.DrawView(SpriteBatch, viewOffset, server, lightness);
 
                 // Calculate hover & target instance
-                if (isHoverSurface && GameClient.DisplayHandler.MouseItem == null && targetingMode is TargetingMode.InstanceTargeting it &&  (inst != server.User.Player || it.CanTargetPlayer))
+                if (isHoverSurface && GameClient.DisplayHandler.MouseInterface == null && targetingMode is TargetingMode.InstanceTargeting it &&  (inst != server.User.Player || it.CanTargetPlayer))
                 {
                     var clickBox = GetClickBox(inst);
                     if (clickBox != null)

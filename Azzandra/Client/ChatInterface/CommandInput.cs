@@ -258,15 +258,10 @@ namespace Azzandra
                             var data = Data.GetSpellData(c[1]);
                             if (data != null && data != SpellData.Default)
                             {
-                                if (!GameClient.Server.User.LearnedSpells.Any(s => s.ID == c[1]))
-                                {
-                                    GameClient.Server.User.LearnSpell(c[1]);
+                                if (GameClient.Server.User.LearnSpell(c[1]))
                                     GameClient.Server.User.ShowMessage("<lavender>You have learned the <aqua>" + data.Name + "<lavender> spell.");
-                                }
                                 else
-                                {
                                     GameClient.Server.User.ShowMessage("<lavender>You now have a better grasp on the " + data.Name + " spell.");
-                                }
                             }
                             else ThrowError("there is no such a spell as \"" + c[1] + "\".");
                         }

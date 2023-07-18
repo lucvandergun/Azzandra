@@ -45,7 +45,7 @@ namespace Azzandra
             // If vined, keep vining, else capture target.
             if (HasVine())
             {
-                var attack = new DirectDamage(Level.Server, Style.Melee, 3, true);
+                var attack = new DirectDamage(Level.Server, Style.Melee, 4, true);
                 Affect(target, attack);
             }
             

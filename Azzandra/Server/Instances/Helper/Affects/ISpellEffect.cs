@@ -8,6 +8,6 @@ namespace Azzandra
 {
     public interface ISpellEffect
     {
-        
+        int GetStrength(int level);
     }
 }

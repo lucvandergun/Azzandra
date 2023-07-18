@@ -204,13 +204,15 @@ namespace Azzandra.Generation
             //if ((int)Level.Temp >= (int)Temp.Cold && (int)Level.Temp <= (int)Temp.Warm)
             //    Paint(new BlobBrush(BlockID.Mud, true, false, true, 7), 5);
 
-            Paint(new ScatterBrush(BlockID.Rock, false, true, true, 3), 7);
+            Paint(new ScatterBrush(BlockID.Rock, false, true, true, 3), Random.Next(4) + 2);
             
             if (Level.Depth > 15)
-                Paint(new ScatterBrush(BlockID.Crystal, false, true, true, 3), 4);
+                Paint(new ScatterBrush(BlockID.Crystal, false, true, true, 2), Random.Next(3));
 
             if (Level.Temp == Temp.Freezing || Level.Temp == Temp.Glacial)
+            {
                 Paint(new ScatterBrush(BlockID.Icicle, false, false, true, 3), 7);
+            }
             else
             {
                 Paint(new SpreadBrush(BlockID.Mushroom, false, true, true, 0), 3);

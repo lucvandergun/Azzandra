@@ -11,6 +11,7 @@ namespace Azzandra
     {
         public override EntityType EntityType => EntityType.Undead;
         public override bool CanFlee() => false;
+        public override bool CanOpenDoors() => true;
 
         public Zombie(int x, int y) : base(x, y) { }
 

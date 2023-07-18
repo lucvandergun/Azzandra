@@ -130,7 +130,7 @@ namespace Azzandra
             if (KeyboardFocus == Focus.General)
             {
                 //Engine.CloseAndSaveGame();
-                if (DisplayHandler.Interface == null && DisplayHandler.MouseItem == null)
+                if (DisplayHandler.Interface == null && DisplayHandler.MouseInterface == null)
                 {
                     // Open pause-game interface:
                     if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Input.IsKeyPressed[Keys.Escape])
@@ -191,9 +191,11 @@ namespace Azzandra
                             var player = Server.User.Player;
                             if (player != null)
                             {
-                                var map = new DijkstraMap(player.Level, player, new List<Instance>() { player, player.Level.ActiveInstances.FirstOrDefault(i => i is StairsDown) });
+                                var map = new DijkstraMap(player, new List<Instance>() { player.Level.ActiveInstances.FirstOrDefault(i => i is StairsDown) });
                                 map.CreateMap();
-                                Debug.WriteLine(map.Matrix.Stringify());
+                                map.MultiplyWith(-1.2f);
+                                map.IterateOverMap();
+                                Debug.WriteLine(map.Matrix.Stringify(i => i < 0 ? i.ToString("00.0") : i == 0 ? "    0" : "    x"));
                             }
                         }
                     }

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Azzandra
 {
-    public class Box : MultipleItemContainer
+    public class AmmunitionBarrel : MultipleItemContainer
     {
         public override Symbol GetSymbol()
         {
@@ -16,13 +16,13 @@ namespace Azzandra
                 : new Symbol('b', Color.Brown);
         }
 
-        public override string AssetName => IsOpen ? "box_open" : "box_closed";
+        public override string AssetName => HasItems ? "ammunition_barrel_open" : "ammunition_barrel_closed";
 
-        public Box(int x, int y, IEnumerable<Item> items) : base(x, y)
+        public AmmunitionBarrel(int x, int y, IEnumerable<Item> items) : base(x, y)
         {
             Inventory.AddItems(items);
         }
 
-        public Box(int x, int y) : base(x, y) { }
+        public AmmunitionBarrel(int x, int y) : base(x, y) { }
     }
 }

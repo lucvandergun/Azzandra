@@ -37,7 +37,7 @@ namespace Azzandra
             if (!Input.MouseHover(region.X, region.Y, region.Width, region.Height))
             {
                 //kill self
-                GameClient.DisplayHandler.MouseItem = null;
+                GameClient.DisplayHandler.MouseInterface = null;
             }
             else
             {
@@ -78,7 +78,7 @@ namespace Azzandra
                 //kill self
                 if (Input.IsMouseLeftPressed)
                 {
-                    GameClient.DisplayHandler.MouseItem = null;
+                    GameClient.DisplayHandler.MouseInterface = null;
                 }
             }
         }
