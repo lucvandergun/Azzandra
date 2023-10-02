@@ -119,6 +119,7 @@ namespace Azzandra
         }
         
         public virtual bool IsSolid() { return true; }
+        public virtual bool CanBeFlewnOver() { return true; }
         public virtual bool BlocksLight() { return false; }
         public virtual bool IsInteractable() { return false; }
         public virtual bool IsInInteractionRange(Entity entity) { return IsInRange(entity, 1); } //{ return IsTouchingOrColliding(entity); }
@@ -372,7 +373,7 @@ namespace Azzandra
         /// <summary>
         /// Checks whether this instance should be able to exist on another instance. Used by Instance.CanExist().
         /// </summary>
-        public virtual bool IsInstanceSolidToThis(Instance inst) => IsSolid() && inst.IsSolid();
+        public virtual bool IsInstanceSolidToThis(Instance inst) => IsSolid() && inst.IsSolid() && (CurrentMoveType != MoveType.Fly || !inst.CanBeFlewnOver());
 
 
 
@@ -845,6 +846,8 @@ namespace Azzandra
             //instance collision
             foreach (var inst in Level.ActiveInstances)
             {
+                if (inst == this) continue;
+                
                 if (IsInstanceSolidToThis(inst) && (!(inst is Entity) || incorporateEntities) && (!(inst is Door d && d.CanBeOpened()) || incorporateDoors))
                 {
                     /*

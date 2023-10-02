@@ -23,7 +23,8 @@ namespace Azzandra
         private readonly Vector2 HalfTileSize = new Vector2(GRID_SIZE) / 2;
         private const float INVISIBILITY_LIGHTNESS = 0.2f;
         private const float CHEAT_LIGHTNESS = 0.6f;
-        public Color BGColor { get; private set; } = Color.Black;
+        public static Color BGColor { get; private set; } = Color.Black;
+        public static Color FloorColor { get; private set; } = new Color(63, 63, 63);
         private Temp Temp = Temp.Lukewarm;
         private void CheckUpdateBGColor()
         {
@@ -32,6 +33,7 @@ namespace Azzandra
             {
                 Temp = temp;
                 BGColor = TileDisplay.GetTempColor(temp);
+                FloorColor = BGColor.ChangeBrightness(0.2f);
             }
         }
 

@@ -162,6 +162,16 @@ namespace Azzandra
                         DrawRectangle(viewOffset, server, node.ToVector(), Size, true, col);
                     }
                 }
+                else if (Action is ActionPathTarget apatht)
+                {
+                    //DrawRectangle(viewOffset, server, apath.Path.Target, Size, false);
+                    Color col;
+                    foreach (var node in apatht.Path.PathList)
+                    {
+                        col = (apatht.Path.PathList.LastOrDefault() == node ? Color.Lime : Color.Blue) * 0.5f;
+                        DrawRectangle(viewOffset, server, node.ToVector(), Size, true, col);
+                    }
+                }
                 else if (Action is ActionFlee aflee)
                 {
                     float val, min = aflee.FleeMap.GetMinValue();  Color col;

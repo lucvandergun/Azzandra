@@ -29,6 +29,10 @@ namespace Azzandra
             AnimationManager.AmtOfLoops = 0;
             AnimationManager.RenderFire = () => TileDisplayGround.RenderFire || TileDisplayObject.RenderFire;
 
+            // Temp-based texture color:
+            if (objTexture == null && Tile.Ground.ID == BlockID.Floor)
+                AnimationManager.DefaultColor = ViewHandler.FloorColor;
+
             if (Tile.Object.ID == BlockID.Dock)
                 AnimationManager.FrameStage = Tile.Object.Value;
         }
@@ -66,7 +70,7 @@ namespace Azzandra
         public void Draw(SpriteBatch sb, ViewHandler vh, Vector2 pos, Color? colorEffect = null, float lightness = 1f)
         {
             // Draw background
-            var bg = TileDisplayGround.BGColor ?? vh.BGColor;
+            var bg = TileDisplayGround.BGColor ?? ViewHandler.BGColor;
             bg = bg.ChangeBrightness(-1 + lightness);
             DrawTileTexture(sb, pos, Assets.TileBasic, bg);
 
@@ -74,7 +78,7 @@ namespace Azzandra
             if (vh.GameClient.IsDebug && Tile.Marker > 0)
             {
                 int i = Math.Max(0, Math.Min(Tile.Marker - 1, vh.MarkerColors.Length - 1));
-                DrawTileTexture(sb, pos, Assets.TileBasic, vh.MarkerColors[i] * 0.5f);
+                DrawTileTexture(sb, pos, Assets.TileBasic, vh.MarkerColors[i] * 0.25f);
             }
 
             // Draw tile texture

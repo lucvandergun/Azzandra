@@ -28,7 +28,7 @@ namespace Azzandra
             }
             else
             {
-                player.User.Log.Add("You would rather not abandon your quest this soon...");
+                player.User.Log.Add("You would rather not abandon your quest so soon...");
             }
         }
     }

@@ -13,6 +13,7 @@ namespace Azzandra
     {
         public bool IsUsed { get; protected set; } = false;
         public override bool IsInteractable() => true;
+        public override bool CanBeFlewnOver() => false;
         public override int GetW() => 1;
         public override int GetH() => 1;
 

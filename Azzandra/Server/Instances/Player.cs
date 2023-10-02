@@ -186,7 +186,7 @@ namespace Azzandra
             base.TurnStart();
 
             //Remove target if no longer visible:
-            if (Target?.Combatant?.Hp <= 0)
+            if (Target?.Entity?.Hp <= 0)
                 Target = null;
 
             // Regeneration

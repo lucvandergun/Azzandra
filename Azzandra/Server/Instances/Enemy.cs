@@ -183,8 +183,8 @@ namespace Azzandra
                     IsFleeing = false;
                     Target = null;
                     // Set new base pos:
-                    if (!IsHaunting && Parent == null) // Determine based on whether instance has a group?
-                        BasePosition = Position;
+                    //if (!IsHaunting && Parent == null) // Determine based on whether instance has a group?
+                    //    BasePosition = Position;
                 }
             }
 
@@ -390,7 +390,7 @@ namespace Azzandra
         /// </summary>
         protected virtual bool IsTargetStillValid()
         {
-            var inst = Target?.Combatant;
+            var inst = Target?.Entity;
             
             // Check instance actually exists and is not dead.
             if (inst == null || inst.Hp <= 0)
@@ -429,7 +429,7 @@ namespace Azzandra
             }
                 
             // Reset hit timer
-            if (Target != null && attacker == Target.Combatant)
+            if (Target != null && attacker == Target.Entity)
                 HitTimer = 0;
 
             return base.GetAffected(attacker, affect);
@@ -480,7 +480,7 @@ namespace Azzandra
             // Outline Target Instance
             if (server.GameClient.IsDevMode && server.GameClient.IsDebug && Target != null)
             {
-                var target = Target.Combatant;
+                var target = Target.Entity;
                 if (target != null)
                 {
                     var size = target.Size.ToFloat() * GameClient.GRID_SIZE;

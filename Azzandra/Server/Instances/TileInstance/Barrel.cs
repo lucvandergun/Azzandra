@@ -12,6 +12,7 @@ namespace Azzandra
         protected bool IsFilled = true;
         protected string Type;
         public override bool IsInteractable() => true;
+        public override bool CanBeFlewnOver() => false;
 
         public override Symbol GetSymbol()
         {

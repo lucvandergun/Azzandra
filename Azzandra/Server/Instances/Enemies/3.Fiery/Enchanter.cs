@@ -19,11 +19,11 @@ namespace Azzandra
         {
             Spells.Add(new TemplateSpell(3, 4, 7, new SpellEffects.WindBlast())
             {
-                Requirement = c => !c.Target?.Combatant?.HasStatusEffect(StatusEffectID.Stunned) ?? false
+                Requirement = c => !c.Target?.Entity?.HasStatusEffect(StatusEffectID.Stunned) ?? false
             });
             Spells.Add(new TemplateSpell(3, 4, 7, new SpellEffects.Freeze())
             {
-                Requirement = c => !c.Target?.Combatant?.HasStatusEffect(StatusEffectID.Frozen) ?? false
+                Requirement = c => !c.Target?.Entity?.HasStatusEffect(StatusEffectID.Frozen) ?? false
             });
             Spells.Add(new TemplateSpellAcute(new SpellEffects.Deflect())
             {

@@ -175,7 +175,7 @@ namespace Azzandra
                 if (FollowRegionConstraint && RegionConstraint != null && !RegionConstraint.IsInRegion(dir + new Vector(x, y), Entity.Size))
                     continue;
 
-                if (Entity.CanMoveUnobstructed(x, y, dir.X, dir.Y, false, !Entity.CanOpenDoors()))
+                if (Entity.CanMoveUnobstructed(x, y, dir.X, dir.Y, false, true))
                     nodes.Add(new Node(x + dir.X, y + dir.Y));
             }
             return nodes;

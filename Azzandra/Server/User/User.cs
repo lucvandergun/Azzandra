@@ -184,6 +184,20 @@ namespace Azzandra
         }
 
 
+        /// <summary>
+        /// Method used to e.g. check whether the target still exists. To be run every tick.
+        /// </summary>
+        public void Update()
+        {
+            if (Target != null)
+            {
+                if (!Player?.Level?.ActiveInstances.Contains(Target) ?? true)
+                {
+                    Target = null;
+                }
+            }
+        }
+
         public void UpdateVisibilityMap()
         {
             Vector origin = Player?.Position ?? Vector.Zero;

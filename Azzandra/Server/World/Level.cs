@@ -117,6 +117,27 @@ namespace Azzandra
             return inst;
         }
 
+        /// <summary>
+        /// Replace an existing instance by a new instance. This ensures that the new instance has the same ID and Level attached to it as the old.
+        /// </summary>
+        /// <param name="inst1"></param>
+        /// <param name="inst2"></param>
+        /// <returns></returns>
+        public Instance ReplaceInstance(Instance inst1, Instance inst2)
+        {
+            if (!CheckInstanceExists(inst1))
+            {
+                CreateInstance(inst2);
+                Server.User.ThrowDebug("Instance " + inst1 + " could not be replaced, as it did not exist.");
+                return inst2;
+            }
+
+            ActiveInstances.Remove(inst1);
+            CreateInstance(inst2);
+            inst2.ID = inst1.ID;
+            return inst2;
+        }
+
         public bool CanCreateInstance(Instance inst)
         {
             inst.Level = this;

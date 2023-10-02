@@ -115,10 +115,12 @@ namespace Azzandra
             // Perform the tick 
             //if (TickDelay == 0)
             //{
-                
+
             //    TickDelay = -1;
             //}
             //LevelManager.CurrentLevel.TurnEnd();
+
+            User.Update();
 
             // If player can take a turn, allow it to do so first:
             if (player.ActionPotential >= player.GetInitiative())

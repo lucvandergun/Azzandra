@@ -9,7 +9,7 @@ namespace Azzandra
     public abstract class TemplateAffect : ActionTemplate
     {
         public int Speed = 1, Range = 1;
-        public Func<Enemy, Instance> TargetSelector = new Func<Enemy, Entity>(e => e.Target.Combatant);
+        public Func<Enemy, Instance> TargetSelector = new Func<Enemy, Entity>(e => e.Target.Entity);
 
         public virtual bool IsInRange(int range) => Range >= range;
 

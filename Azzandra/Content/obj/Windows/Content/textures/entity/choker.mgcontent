@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <SourceFile>D:/Users/Luc/Documents/Dev/C#/Azzandra/Azzandra/Azzandra/Content/textures/entity/choker.png</SourceFile>
-  <SourceTime>2022-10-20T00:34:05.4502845+02:00</SourceTime>
+  <SourceTime>2023-07-20T12:33:37.0361428+02:00</SourceTime>
   <DestFile>D:/Users/Luc/Documents/Dev/C#/Azzandra/Azzandra/Azzandra/Content/bin/Windows/Content/textures/entity/choker.xnb</DestFile>
-  <DestTime>2022-10-20T00:44:10.5298195+02:00</DestTime>
+  <DestTime>2023-07-20T13:42:11.3523623+02:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2018-12-08T17:35:54+01:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

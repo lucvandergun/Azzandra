@@ -11,6 +11,7 @@ namespace Azzandra
     {
         public bool HasSpell { get; protected set; } = true;
         public override bool IsInteractable() => true;
+        public override bool CanBeFlewnOver() => false;
         public override bool RenderLightness => !HasSpell;
 
         public override Symbol GetSymbol()

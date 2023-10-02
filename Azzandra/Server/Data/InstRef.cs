@@ -10,7 +10,7 @@ namespace Azzandra
     {
         public int ID { get; private set; } = -1;
         public Instance Instance { get; set; }
-        public Entity Combatant => Instance as Entity;
+        public Entity Entity => Instance as Entity;
         public Vector LastKnownLocation;
         public int TimeSinceLastSeen = 0;
 

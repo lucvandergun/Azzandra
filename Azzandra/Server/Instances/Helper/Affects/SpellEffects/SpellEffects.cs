@@ -687,7 +687,7 @@ namespace Azzandra.SpellEffects
             entity.AddStatusEffect(new StatusEffects.Stunned(1, GetStrength(level)), true);
 
             if (entity is DustCloud dc)
-                dc.Angle = pushVector.Sign();
+                dc.Direction = pushVector.Sign();
 
             var specs = GetMsgAdresses(attacker, target);
             attacker.Level.Server.User.ShowMessage("<yellow>" + specs.Item1 + " " + GetVerb(attacker, "blow") + " " + specs.Item2 + " away.");
@@ -747,7 +747,7 @@ namespace Azzandra.SpellEffects
                     entity.AddStatusEffect(new StatusEffects.Stunned(1, 3));
 
                     if (entity is DustCloud dc)
-                        dc.Angle = push.Sign();
+                        dc.Direction = push.Sign();
 
                     if (entity is Player player)
                     {

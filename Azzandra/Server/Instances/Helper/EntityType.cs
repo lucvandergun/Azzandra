@@ -241,7 +241,7 @@ namespace Azzandra
 
         private static bool Shadow(Affect affect, Entity target)
         {
-            if (affect is Attack attack && (affect.Properties?.Any(p => p.GetID() == AttackPropertyID.Shadow) ?? true))
+            if (affect is Attack attack && (affect.Properties?.Any(p => p.GetID() == AttackPropertyID.Blind) ?? true))
             {
                 affect.Fail("<purple>" + target.ToStringAdress().CapFirst() + " seems to remain unaffected by your shadow attack!");
                 return false;

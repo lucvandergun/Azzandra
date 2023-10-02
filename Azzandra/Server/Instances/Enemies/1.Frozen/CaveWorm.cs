@@ -27,7 +27,7 @@ namespace Azzandra
              */
             
             // Just to make sure: check whether target actually exists
-            var target = Target.Combatant;
+            var target = Target.Entity;
             if (target == null)
             {
                 Target = null;

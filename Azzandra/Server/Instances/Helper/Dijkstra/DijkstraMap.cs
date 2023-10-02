@@ -89,18 +89,6 @@ namespace Azzandra
             }
         }
 
-        //public void CalculateIntMatrix()
-        //{
-        //    Matrix = new int[Level.MapWidth, Level.MapHeight];
-        //    for (int i, j = 0; j < Level.MapHeight; j++)
-        //    {
-        //        for (i = 0; i < Level.MapWidth; i++)
-        //        {
-        //            Matrix[i, j] = (int)FloatMatrix[i, j];
-        //        }
-        //    }
-        //}
-
 
 
 
@@ -153,10 +141,19 @@ namespace Azzandra
                     // Add the new node to the PQ if it is reachable by the caller, and not yet (to be) investigated.
                     if (Matrix[pos.X - Offset.X, pos.Y - Offset.Y] == defaultValue && !PQ.Any(n => n.Pos == pos))
                     {
-                        if (Caller.CanMoveUnobstructed(current.Pos.X, current.Pos.Y, step.X, step.Y, true, !Caller.CanOpenDoors()) || Caller.Position == pos)
+                        if (Caller.CanMoveUnobstructed(current.Pos.X, current.Pos.Y, step.X, step.Y, true, !Caller.CanOpenDoors()))
                         {
                             PQ.Enqueue(new Node(pos, current.Dist + 1)); // Increase distance by 1.
                         }
+                    }
+                }
+
+                // Safety measure: if the threats/targets arent reachable, add a new node at self position:
+                if (PQ.Count == 0)
+                {
+                    if (Matrix[Caller.X - Offset.X, Caller.Y - Offset.Y] == defaultValue)
+                    {
+                        PQ.Enqueue(new Node(Caller.Position, Caller.TileDistanceTo(Targets.FirstOrDefault())));
                     }
                 }
             }

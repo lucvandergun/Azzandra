@@ -17,6 +17,7 @@ namespace Azzandra
 
         public override bool IsInteractable() => true;
         public override bool IsSolid() => !IsOpen;
+        public override bool CanBeFlewnOver() => IsOpen;
         public override bool BlocksLight() => !IsOpen;
         public override string AssetName => IsOpen ? "door_open" : "door_closed";
 

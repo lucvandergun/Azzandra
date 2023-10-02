@@ -33,17 +33,17 @@ namespace Azzandra
 
             if (!Caller.CanMoveUnobstructed(step.Value.X, step.Value.Y))
             {
-                if (Caller.CanOpenDoors())
-                {
-                    var door = Caller.Level.ActiveInstances.FirstOrDefault(i => i.Position == step.Value + Caller.Position && i is Door d && d.CanBeOpened());
-                    if (door != null)
-                    {
-                        new ActionInteract(Caller, door).Perform();
-                        Caller.NextAction = this;
-                        Path.PathList.Insert(0, new Path.Node(step.Value + Caller.Position));
-                        return true;
-                    }
-                }
+                //if (Caller.CanOpenDoors())
+                //{
+                //    var door = Caller.Level.ActiveInstances.FirstOrDefault(i => i.Position == step.Value + Caller.Position && i is Door d && d.CanBeOpened());
+                //    if (door != null)
+                //    {
+                //        new ActionInteract(Caller, door).Perform();
+                //        Caller.NextAction = this;
+                //        Path.PathList.Insert(0, new Path.Node(step.Value + Caller.Position));
+                //        return true;
+                //    }
+                //}
                 return false;
             }
 

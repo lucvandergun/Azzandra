@@ -25,9 +25,7 @@ namespace Azzandra
                 return false;
             var user = player.User;
 
-            var reqSolidity = !IsShift && !Dir.IsNull();
-            if (Dir.IsNull() && IsShift)
-                reqSolidity = true;
+            var reqSolidity = (!IsShift && !Dir.IsNull()) || (Dir.IsNull() && IsShift);
 
             // If can initiate interaction
             if (CanInit)

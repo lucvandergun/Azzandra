@@ -17,11 +17,11 @@ namespace Azzandra
         public override MoveType StartingMoveType => MoveType.Fly;
 
         public int Time = 30;
-        public Vector Angle = new Vector(0, -1);
+        public Vector Direction = Vector.Zero;
 
-        public DustCloud(int x, int y, Vector angle) : base(x, y)
+        public DustCloud(int x, int y, Vector direction) : base(x, y)
         {
-            Angle = angle;
+            Direction = direction;
         }
 
         public DustCloud(int x, int y) : base(x, y)
@@ -39,7 +39,7 @@ namespace Azzandra
         public override void Turn()
         {
             var pos = Position;
-            Move(Angle, false);
+            Move(Direction, false);
             if (pos == Position)
                 Destroy();
             
@@ -68,7 +68,7 @@ namespace Azzandra
             pos += 4;
             y = BitConverter.ToInt32(bytes, pos);
             pos += 4;
-            Angle = new Vector(x, y);
+            Direction = new Vector(x, y);
             
 
             base.Load(bytes, ref pos);
@@ -78,8 +78,8 @@ namespace Azzandra
         {
             // dir
             var bytes = new byte[8];
-            bytes.Insert(0, BitConverter.GetBytes(Angle.X));
-            bytes.Insert(4, BitConverter.GetBytes(Angle.Y));
+            bytes.Insert(0, BitConverter.GetBytes(Direction.X));
+            bytes.Insert(4, BitConverter.GetBytes(Direction.Y));
 
             return bytes.Concat(base.ToBytes()).ToArray();
         }

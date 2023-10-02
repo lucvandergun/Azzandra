@@ -469,7 +469,7 @@
 	"alpha_wolf": {
 		"initiative": 6,
 		"stats": {
-			"health": 12,
+			"health": 8,
 			"evade": 7,
 			"parry": 0,
 			"block": 0,

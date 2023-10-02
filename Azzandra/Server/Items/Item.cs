@@ -64,7 +64,7 @@ namespace Azzandra
             return new List<string>();
         }
 
-        private bool DisplayProperty(Property p) => !p.IsHidden;
+        private bool DisplayProperty(Property p) => !p?.IsHidden ?? true;
         public string GetPropertyInfo()
         {
             var props = Properties.Where(p => DisplayProperty(p));

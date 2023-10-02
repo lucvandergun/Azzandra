@@ -62,7 +62,7 @@ namespace Azzandra
             if (PathMoveTimer > 0)
                 return;
 
-            var target = Target?.Combatant;
+            var target = Target?.Entity;
             if (target != null)
             {
                 Action = new ActionPath(this, target.Position, false, false);

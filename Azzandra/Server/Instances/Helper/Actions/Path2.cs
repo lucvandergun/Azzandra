@@ -22,6 +22,7 @@ namespace Azzandra
             public Node(int x, int y) { Position = new Vector(x, y); }
             public Node(Vector v) { Position = v; }
 
+            public Vector ToVector() => new Vector(X, Y);
             public override string ToString() => Position.ToString();
         }
 

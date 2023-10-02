@@ -22,11 +22,11 @@ namespace Azzandra
         {
             Spells.Add( new TemplateSpell(2, 6, 4, new SpellEffects.Disorient())
             {
-                Requirement = c => !c.Target?.Combatant?.HasStatusEffect(StatusEffectID.Disoriented) ?? false
+                Requirement = c => !c.Target?.Entity?.HasStatusEffect(StatusEffectID.Disoriented) ?? false
             });
             Spells.Add( new TemplateSpell(2, 6, 4, new SpellEffects.Weaken())
             {
-                Requirement = c => !c.Target?.Combatant?.HasStatusEffect(StatusEffectID.Weak) ?? false
+                Requirement = c => !c.Target?.Entity?.HasStatusEffect(StatusEffectID.Weak) ?? false
             });
         }
 

@@ -15,6 +15,7 @@ namespace Azzandra
         public float FrameStage = 0f;
         public int GetFrameIndex() => (int)FrameStage;
         public int AmtOfLoops { get; set; }
+        public Color DefaultColor { get; set; } = Color.White;
 
         public Func<bool> RenderLightness = () => true;
         public Func<bool> RenderFire = () => false;
@@ -125,7 +126,7 @@ namespace Azzandra
         /// <param name="pos"></param>
         public void Draw(SpriteBatch sb, Vector2 pos, float scale = 1f, Color? colorEffect = null, float lightness = 1f)
         {
-            var color = colorEffect ?? Color.White;
+            var color = colorEffect ?? DefaultColor;
 
             if (RenderFire.Invoke()) color = ViewHandler.FireColor;
             else if (RenderFrozen.Invoke()) color = Color.LightBlue;

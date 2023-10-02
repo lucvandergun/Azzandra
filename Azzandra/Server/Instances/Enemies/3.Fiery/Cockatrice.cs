@@ -10,8 +10,8 @@ namespace Azzandra
     public class Cockatrice : Enemy
     {
         public override EntityType EntityType => EntityType.Beast;
-        public override int GetW() => 1;
-        public override int GetH() => 1;
+        public override int GetW() => 2;
+        public override int GetH() => 2;
 
         private Vector? LockedPosition;
 
@@ -31,7 +31,7 @@ namespace Azzandra
         public override EntityAction DetermineAggressiveAction()
         {
             // Just to make sure: check whether target actually exists
-            var target = Target.Combatant;
+            var target = Target.Entity;
             if (target == null)
             {
                 Target = null;

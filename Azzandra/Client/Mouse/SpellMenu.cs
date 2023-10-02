@@ -40,7 +40,7 @@ namespace Azzandra
             if (type is SpellEffectAcute)
                 return "Activates immediately on cast.";
             else if (type is SpellEffectVector)
-                return "Target: <white>locations<r>.";
+                return "Target: <white>tiles<r>.";
             else
                 return "Target: <white>objects<r>.";
         }
